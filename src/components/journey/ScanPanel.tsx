@@ -12,16 +12,12 @@ export function ScanPanel({ onSample, onScan, onCancel, busy, liveEnabled }: { o
   const [consent, setConsent] = useState(false);
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    if (!file) return;
-    const url = URL.createObjectURL(file); setPreview(url);
-    return () => URL.revokeObjectURL(url);
-  }, [file]);
+  useEffect(() => () => { if (preview) URL.revokeObjectURL(preview); }, [preview]);
 
   function select(next: File | undefined) {
     if (!next) return;
     if (!["image/jpeg", "image/png"].includes(next.type) || next.size > 4 * 1024 * 1024) { setError("Choose a JPEG or PNG smaller than 4 MB."); return; }
-    setError(""); setFile(next); setConsent(false);
+    setError(""); setFile(next); setPreview(URL.createObjectURL(next)); setConsent(false);
   }
 
   return <section className={`scan-panel ${file ? "has-photo" : ""}`} aria-label="Skin scan">

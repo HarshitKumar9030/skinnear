@@ -31,6 +31,7 @@ export function useSkinJourney() {
   const [savedId, setSavedId] = useState<string | null>(null);
   const controller = useRef<AbortController | null>(null);
   useEffect(() => () => controller.current?.abort(), []);
+  useEffect(() => { window.scrollTo({ top: 0, behavior: "instant" }); }, [stage]);
 
   function sample() {
     controller.current?.abort();
