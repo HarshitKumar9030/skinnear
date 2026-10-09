@@ -1,0 +1,9 @@
+node_modules/
+.next/
+.env*
+!.env.example
+*.tsbuildinfo
+__pycache__/
+.venv/
+output/qa/
+*.log
