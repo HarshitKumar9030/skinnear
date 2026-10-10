@@ -33,6 +33,12 @@ Optional server configuration (restart the dev server after changing it):
 
 Generate the signing secret with `python -c "import secrets; print(secrets.token_hex(32))"`. Never commit secrets.
 
+### Connect YouCam skin analysis
+
+Set `YOUCAM_API_KEY` in `.env.local` to the API key from your YouCam console. The v2 API uses this key directly as a server-side Bearer token; the older API secret is not used. Keep `YOUCAM_API_BASE_URL=https://yce-api-01.makeupar.com` unless your account documents a different origin. `TASK_SIGNING_SECRET` is a separate app-generated secret, not your YouCam secret.
+
+Run `python scripts/youcam_check.py` to verify authentication without uploading images or consuming analysis units, then restart `npm run dev`. Select a clear front-facing JPEG or PNG, consent, and choose **Analyze my skin**. The server registers the file, uploads it to YouCam's signed destination, submits SD hydration/redness/oiliness/pore analysis, and polls every ten seconds. The report uses the returned `ui_score` values. Photo processing consumes your account's units on successful analysis. Credentials stay on the server; provider task IDs are wrapped in signed, expiring scan-session tokens, and scores are normalized before returning to the browser.
+
 For MongoDB catalog setup:
 
 ```powershell
@@ -77,6 +83,6 @@ npm run catalog:validate
 python scripts/smoke.py
 ```
 
-Twenty-five unit tests cover basket constraints, exclusions, swaps, score direction, signed tokens, country validation, postal codes, retailer scoping, missing-key fallback, and mocked live provider parameters. Browser QA covers desktop/mobile, US USD conversion, India retailer links, morning/evening, and seller fallback. Live YouCam, credentialed SerpApi, and MongoDB persistence still require integration verification with real configured services.
+Twenty-nine unit tests cover basket constraints, exclusions, swaps, score direction, signed tokens, country validation, postal codes, retailer scoping, missing-key fallback, and mocked live provider parameters. YouCam integration tests cover file registration, signed upload, task creation, polling, score mapping, invalid destinations, and sanitized failures. Browser QA covers desktop/mobile, US USD conversion, India retailer links, morning/evening, and seller fallback. YouCam authentication has been verified against the live provider; a full scan still requires a consented selfie. Credentialed SerpApi and MongoDB persistence still require integration verification with real configured services.
 
 API references: [YouCam skin analysis](https://docs.perfectcorp.com/reference/ai_skin_analysis), [SerpApi shopping](https://serpapi.com/google-shopping-api). Generated design references and intentional deviations are in `docs/design/DESIGN.md`.
