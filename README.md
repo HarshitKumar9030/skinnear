@@ -3,6 +3,8 @@
 Skin insights → a budget-aware routine → shopping in your selected country.
 Built for the YouCam API skin AI and ecommerce hackathon with Next.js, MongoDB, and Python catalog tooling. Poppins is self-hosted; the responsive UI uses flat surfaces without borders or shadows.
 
+The feature cards use custom SVG scenes animated with GSAP: a skin scan with a facial mesh, a budget meter with falling coins and a drawn checkmark, and a local shopping map with a moving delivery marker. The upload panel adds an animated camera and photo scene. SVG timelines load separately, pause offscreen or in hidden tabs, support a feature-section pause/play control, and use static illustrations when reduced motion is enabled. Shared action and choice buttons use scoped GSAP hover, press/release, ripple, icon, and loading animations with cleanup and reduced-motion support.
+
 ## Run locally
 
 Requires Node.js 20.9+ and Python 3.10+ for the maintenance scripts.
