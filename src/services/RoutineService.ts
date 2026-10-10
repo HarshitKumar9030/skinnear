@@ -2,6 +2,7 @@ import type { RoutineRequest } from "@/domain/schemas";
 import { ProductRepository } from "@/repositories/ProductRepository";
 import { MarketCatalogService } from "./MarketCatalogService";
 import { RecommendationService } from "./RecommendationService";
+import { ProductRetrievalService } from "./ProductRetrievalService";
 
 export class RoutineService {
   async build(input: RoutineRequest) {
@@ -12,7 +13,8 @@ export class RoutineService {
       input.preferences.currency,
       input.preferences.country,
     );
-    const routine = new RecommendationService(priced.products).build(
+    const ranking = await new ProductRetrievalService().rank(priced.products, input.analysis);
+    const routine = new RecommendationService(priced.products, ranking).build(
       input,
       catalog.source,
     );

@@ -9,7 +9,7 @@ const STEP_ORDER = { cleanser: 0, serum: 1, retinoid: 1, moisturizer: 2, sunscre
 
 /** Pure domain service. No network, database, or React dependencies. */
 export class RecommendationService {
-  constructor(private readonly products: readonly Product[]) {}
+  constructor(private readonly products: readonly Product[], private readonly semanticScores: ReadonlyMap<string, number> = new Map()) {}
 
   build(request: RoutineRequest, catalogSource: Routine["catalogSource"] = "bundled"): Routine {
     const { preferences, analysis, excludedProductIds } = request;
@@ -40,14 +40,13 @@ export class RecommendationService {
       return pinned ? [pinned] : pool;
     });
 
-    // Exhaustive combinations are intentional: the small curated catalog permits
-    // optimizing the entire basket, instead of greedily overspending one step.
+    // Keep exact whole-basket optimization; prune over-budget branches immediately.
     let best: Product[] | null = null;
     let bestScore = -Infinity;
-    let minimum = Infinity;
+    const minimum = selectionPools.reduce((sum, pool) => sum + (pool.length ? Math.min(...pool.map((product) => product.referencePrice)) : Infinity), 0);
     const visit = (index: number, selected: Product[], cost: number, score: number) => {
+      if (cost > preferences.budget) return;
       if (index === candidates.length) {
-        minimum = Math.min(minimum, cost);
         if (cost <= preferences.budget && (score > bestScore || (score === bestScore && cost < (best?.reduce((n, p) => n + p.referencePrice, 0) ?? Infinity)))) {
           best = [...selected];
           bestScore = score;
@@ -102,7 +101,7 @@ export class RecommendationService {
   }
 
   private relevance(product: Product, analysis: RoutineRequest["analysis"]): number {
-    return analysis.scores.reduce((score, result) => score + (product.concerns.includes(result.concern) ? 100 - result.score : 0), 0);
+    return analysis.scores.reduce((score, result) => score + (product.concerns.includes(result.concern) ? 100 - result.score : 0), 0) + (this.semanticScores.get(product.id) ?? 0) * 0.1;
   }
 
   private explain(product: Product, analysis: RoutineRequest["analysis"]): string {

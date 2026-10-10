@@ -1,7 +1,7 @@
 import { AppError } from "./errors";
 
 /** Bound streamed bodies even when Content-Length is absent or false. */
-export async function boundedBody(request: Request, maximum: number): Promise<Uint8Array<ArrayBuffer>> {
+export async function boundedBody(request: Request | Response, maximum: number): Promise<Uint8Array<ArrayBuffer>> {
   if (Number(request.headers.get("content-length")) > maximum) throw new AppError("This upload is too large.", 413);
   if (!request.body) throw new AppError("The request body is missing.", 400);
   const reader = request.body.getReader(); const chunks: Uint8Array[] = []; let length = 0;
@@ -28,7 +28,7 @@ export async function boundedBody(request: Request, maximum: number): Promise<Ui
   for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.length; }
   return bytes;
 }
-export async function boundedJson(request: Request, maximum = 32768): Promise<unknown> {
+export async function boundedJson(request: Request | Response, maximum = 32768): Promise<unknown> {
   try { return JSON.parse(new TextDecoder().decode(await boundedBody(request, maximum))); }
   catch (error) { if (error instanceof AppError) throw error; throw new AppError("Send a valid JSON request.", 400); }
 }

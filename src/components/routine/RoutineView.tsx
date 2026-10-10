@@ -9,6 +9,7 @@ import { SkinReport } from "@/components/journey/SkinReport";
 import { StepIndicator } from "@/components/journey/StepIndicator";
 import { ProductRow } from "./ProductRow";
 import { PlanActions } from "./PlanActions";
+import { RoutineExplainer } from "./RoutineExplainer";
 import { PortableRoutineService } from "@/services/PortableRoutineService";
 
 type Props = { saveEnabled: boolean; routine: Routine; analysis: SkinAnalysis; preferences: Preferences; busy: boolean; savedId: string | null; onEdit: () => void; onSave: () => Promise<void>; onDelete: () => Promise<void>; onSwap: (id: string) => Promise<void>; onChoose: (id: string) => Promise<void>; onResetChoices: () => Promise<void> };
@@ -28,6 +29,7 @@ export function RoutineView({ saveEnabled, routine, analysis, preferences, busy,
     <div className="routine-main">
       <div className="journey-title"><h1>Your routine, within reach.</h1><p>Thoughtful care. A comfortable budget. Your everyday essentials.</p></div>
       <StepIndicator step={2} />
+      {routine.feasible && routine.items.length ? <RoutineExplainer key={JSON.stringify([routine.items.map(({product})=>[product.id,product.referencePrice]),routine.budget,routine.currency])} routine={routine} currency={routine.currency??preferences.currency}/> : null}
       {!routine.feasible ? <div className="empty-routine"><h2>Let&apos;s adjust the plan.</h2><p>{routine.message}</p><Button onClick={onEdit}>Adjust my preferences</Button><Button variant="text" loading={busy} onClick={onResetChoices}>Reset product choices</Button></div> : <>
         <div className="routine-time-tabs" aria-label="Routine time of day"><button aria-pressed={time === "morning"} onClick={() => setTime("morning")}><Sun size={18} /> Morning</button><button aria-pressed={time === "evening"} onClick={() => setTime("evening")}><Moon size={18} /> Evening</button><span>{time === "morning" ? "Cleanse. Hydrate. Protect." : "Cleanse. Hydrate. Unwind."}</span></div>
         {routine.treatmentMessage ? <div className="treatment-summary"><strong>Targeted care & serums</strong><p>{routine.treatmentMessage}</p>{routine.items.some((item) => item.product.category === "retinoid"||item.product.eveningOnly) ? <small>Your evening treatment is shown in the evening plan.</small> : null}</div> : null}

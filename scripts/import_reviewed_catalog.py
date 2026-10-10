@@ -35,6 +35,7 @@ class IngredientReader:
         if source.startswith('byoma'):
             return []
         candidates = list(soup.select('.full_ingredients, .modal-body, .modal-body-mobile'))
+        candidates += list(soup.select('.ingredients-list .product-detail-card-description'))
         candidates += soup.find_all('p')
         for node in candidates:
             text = node.get_text(' ', strip=True)
@@ -63,6 +64,7 @@ class ReviewedCatalogImporter:
         'plum': ('Plum', 'INR', ['IN']),
         'naturium': ('Naturium', 'USD', ['US']),
         'reequil': ("Re'equil", 'INR', ['IN']),
+        'dermaco': ('The Derma Co', 'INR', ['IN']),
     }
     REGIONAL = {'byoma-us': ('byoma-gb','GB','GBP'), 'inkey-us': ('inkey-gb','GB','GBP'), 'geek': ('geek-us','US','USD')}
 

@@ -1,19 +1,21 @@
 # Reviewed skincare catalog
 
-Reviewed on 10 October 2026. The bundled catalog increased from **53 to 231 products**, across **25 brands**. The expansion adds 178 distinct products, each with an official product link, packaging image, size, native price estimate, two short cosmetic benefit summaries and country collection metadata.
+Reviewed on 10 October 2026. The bundled catalog increased from **53 to 267 products**, across **26 brands**. The expansion adds 214 distinct products, each with an official product link, packaging image, size, native price estimate, two short cosmetic benefit summaries and country collection metadata.
 
 ## Research method
 
-Read public catalog metadata from 17 official brand storefronts, including separate US/UK stores and the Geek & Gorgeous US store. Explicitly shortlist individual face products, then retrieve their public product pages to check ingredients, formula labels and sizes. The committed selection CSV records the selected variant index, size, benefit summaries, ingredient highlights and recommendation eligibility. Seven shortlisted product URLs were unavailable and were omitted rather than imported from hidden catalog metadata.
+Read public catalog metadata from 18 official brand storefronts, including separate US/UK stores and the Geek & Gorgeous US store. Explicitly shortlist individual face products, then retrieve their public product pages to check ingredients, formula labels and sizes. The committed selection CSV records the selected variant index, size, benefit summaries, ingredient highlights and recommendation eligibility. Seven shortlisted product URLs were unavailable and were omitted rather than imported from hidden catalog metadata.
 
-Exclude bundles, duplicate sizes, refills, body products, eye products and unsupported categories. Preserve existing product IDs so saved lists and shared plans continue working. Match regional price overrides by official handle and selected variant; retain native-currency estimates and avoid permanent sale prices by using the higher listed regular/compare-at price. All prices are planning estimates, not checkout quotes.
+Exclude bundles, duplicate sizes, refills, body products, eye products and unsupported categories. Preserve existing product IDs so saved lists and shared plans continue working. Match regional price overrides by official handle and selected variant; retain native-currency estimates and avoid permanent sale prices by using the higher listed regular/compare-at price. All prices are planning estimates, not checkout quotes. Twelve additional Cetaphil records were reviewed separately against explicit official pages: five India and seven US entries. Their estimates are editorial planning amounts because those pages do not supply checkout prices; they are not official selling-price claims. The versioned Cetaphil manifest records these regional selections. Packaging images come from the product carousel rather than the site logo. Regional formulas remain separate.
 
-The catalog has 56 cleansers, 63 moisturizers, 38 sunscreens, 60 serums and 14 retinoids. The library shows 98 records for India, 126 for the US and 105 for the UK, including three international discovery entries; these counts overlap. Explicit editorial collections cover 19 countries. Coverage describes discovery and possible imports, not verified distribution, regulatory approval, stock or shipping.
+The catalog has 66 cleansers, 73 moisturizers, 47 sunscreens, 66 serums and 15 retinoids. The library shows 127 records for India, 133 for the US and 105 for the UK, including three international discovery entries; these counts overlap. Explicit editorial collections cover 19 countries. Coverage describes discovery and possible imports, not verified distribution, regulatory approval, stock or shipping.
 
 ## Official sources and collection additions
 
 | Brand | Total records | Official storefront |
 | --- | ---: | --- |
+| The Derma Co | 24 | https://thedermaco.com |
+| Cetaphil | 15 | https://www.cetaphil.in · https://www.cetaphil.com |
 | Minimalist | 21 | https://beminimalist.co |
 | Deconstruct | 18 | https://thedeconstruct.in |
 | Plum | 6 | https://plumgoodness.com |
@@ -33,9 +35,9 @@ The retained collection also includes CeraVe, Cetaphil, Simple, Bioderma, Neutro
 
 ## Ingredient and recommendation limits
 
-137 records have extracted or previously reviewed complete ingredient lists. Others retain ingredient highlights and mark complete ingredients as unknown. Function-group fragments and marketing prose are not accepted as complete INCI. Fragrance-free filtering requires a complete list without fragrance/aromatic ingredients or an explicit brand claim; “allergen-free fragrance” still counts as fragrance. Complete formulas can change: the current package label takes precedence.
+164 records have extracted or previously reviewed complete ingredient lists. Others retain ingredient highlights and mark complete ingredients as unknown. Function-group fragments and marketing prose are not accepted as complete INCI. Fragrance-free filtering requires a complete list without fragrance/aromatic ingredients or an explicit brand claim; “allergen-free fragrance” still counts as fragrance. Complete formulas can change: the current package label takes precedence.
 
-65 products are browse-only. Acid cleansers/creams, stronger treatments, double-cleansing oils/balms, overnight-only creams and unsupported brightening/texture/soothing goals are not silently inserted into essentials. The existing treatment flow still requires consent, a supported persistent goal, safety confirmations and remaining budget. Severe/uncertain breakouts do not trigger a product prescription. The app recommends at most one supported extra and may recommend none.
+76 products are browse-only. Acid cleansers/creams, stronger treatments, double-cleansing oils/balms, overnight-only creams and unsupported brightening/texture/soothing goals are not silently inserted into essentials. The existing treatment flow still requires consent, a supported persistent goal, safety confirmations and remaining budget. Severe/uncertain breakouts do not trigger a product prescription. The app recommends at most one supported extra and may recommend none.
 
 BYOMA's public ingredient-function groups are intentionally marked incomplete. Users specifying ingredient exclusions cannot receive incomplete formulas in automatic routines. Saving or sharing a browse-only item creates a wishlist entry, not a suitability recommendation.
 
@@ -53,9 +55,13 @@ The importer requires explicit entries in `scripts/catalog_selections.csv`; it n
 
 ```powershell
 python -X utf8 scripts/import_reviewed_catalog.py --apply
+python -X utf8 scripts/import_cetaphil.py
+python -X utf8 scripts/build_embeddings.py
 python -X utf8 tests/test_catalog_research.py
 npm run catalog:validate
 npm test
 ```
 
 `npm run catalog:seed` explicitly upserts the reviewed records into a configured MongoDB database. Read-only discovery merges bundled additions into older seeded catalogs and falls back to the bundled source when the database is unavailable. The importer does not fetch retailer stock or determine medical suitability. Recheck pages and estimates before future releases; images remain remote and have an in-app fallback.
+
+The embedding refresh requires `GEMINI_API_KEY` and consumes API quota. It sends public catalog text and generic concern templates only, never user skin scores. Hash-validated vectors support local retrieval; hard suitability and budget rules remain deterministic. The bundled index works without a key.

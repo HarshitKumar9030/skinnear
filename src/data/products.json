@@ -1992,6 +1992,1913 @@
     "imageUrl": "https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-com/sg/en/products/biore/bio_aquarich_essence_00.jpg"
   },
   {
+    "id": "cetaphil-oily-in",
+    "brand": "Cetaphil",
+    "name": "Oily Skin Cleanser",
+    "size": "125 ml",
+    "category": "cleanser",
+    "referencePrice": 725,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": false,
+    "ingredientHighlights": [
+      "Niacinamide",
+      "Panthenol"
+    ],
+    "ingredients": [
+      "Aqua",
+      "Glycerin",
+      "Cocamidopropyl Betaine",
+      "Disodium Laureth Sulfosuccinate",
+      "Sodium Cocoamphoacetate",
+      "Panthenol",
+      "Niacinamide",
+      "Pantolactone",
+      "Acrylates/C10-30 Alkyl Acrylate Crosspolymer",
+      "Sodium Benzoate",
+      "Parfum",
+      "Amyl Cinnamal",
+      "Citronellol",
+      "Geraniol",
+      "Hydroxycitronellal",
+      "Linalool",
+      "Sodium Chloride",
+      "Citric Acid"
+    ],
+    "ingredientsComplete": true,
+    "sourceUrl": "https://www.cetaphil.in/products/cleansers/oily-skin-cleanser/8906005274090.html/",
+    "sourceCheckedAt": "2026-10-10",
+    "benefits": [
+      "Removes excess surface oil and makeup",
+      "Cleanses without a dry tight after-feel"
+    ],
+    "imageUrl": "https://www.cetaphil.in/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-galderma-in-m-catalog/default/dw2803e62d/OSC%20Revive%20A+/OSC%20236ml/ATF/1.%20FoP.png?sw=900&sh=900&sm=fit&q=85",
+    "routineEligible": true,
+    "tone": "sage"
+  },
+  {
+    "id": "cetaphil-soothing-foam-in",
+    "brand": "Cetaphil",
+    "name": "Soothing Foam Wash",
+    "size": "200 ml",
+    "category": "cleanser",
+    "referencePrice": 1250,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Ceramides",
+      "Allantoin",
+      "Glycerin"
+    ],
+    "ingredients": [],
+    "ingredientsComplete": false,
+    "sourceUrl": "https://www.cetaphil.in/products/cleansers/cetaphil-soothing-foam-wash-200-ml-for-dry-to-normal-skin-with-ceramides/3499320016001.html",
+    "sourceCheckedAt": "2026-10-10",
+    "benefits": [
+      "Rich foam removes daily impurities",
+      "Helps dry-feeling skin retain moisture"
+    ],
+    "imageUrl": "https://www.cetaphil.in/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-galderma-in-m-catalog/en/dw4058906d/soothing%20cleanser/3499320016001_1.png?sw=900&sh=900&sm=fit&q=85",
+    "routineEligible": true,
+    "tone": "sage"
+  },
+  {
+    "id": "cetaphil-hydrating-foam-in",
+    "brand": "Cetaphil",
+    "name": "Hydrating Foaming Cream Cleanser",
+    "size": "236 ml",
+    "category": "cleanser",
+    "referencePrice": 1250,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Niacinamide",
+      "Aloe",
+      "Glycerin"
+    ],
+    "ingredients": [],
+    "ingredientsComplete": false,
+    "sourceUrl": "https://www.cetaphil.in/products/cleansers/cetaphil-hydrating-foaming-cream-cleanser-236-ml-for-dry-to-normal-sensitive-skin-with-niacinamide,-aloevera-and-glycerin/3499320016018.html",
+    "sourceCheckedAt": "2026-10-10",
+    "benefits": [
+      "Cream-to-foam texture removes makeup and oil",
+      "Helps maintain moisture while cleansing"
+    ],
+    "imageUrl": "https://www.cetaphil.in/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-galderma-in-m-catalog/en/dwffb8d644/soothing%20cleanser/HFCC/NO-BG-FoP.png?sw=900&sh=900&sm=fit&q=85",
+    "routineEligible": true,
+    "tone": "sage"
+  },
+  {
+    "id": "cetaphil-foaming-in",
+    "brand": "Cetaphil",
+    "name": "Gentle Foaming Cleanser",
+    "size": "236 ml",
+    "category": "cleanser",
+    "referencePrice": 1100,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Glycerin",
+      "Panthenol"
+    ],
+    "ingredients": [
+      "Aqua",
+      "Coco-Glucoside",
+      "Cocamidopropyl Betaine",
+      "Betaine",
+      "Glycerin",
+      "Citric Acid",
+      "Isopropyl Alcohol",
+      "Panthenol",
+      "Pantolactone",
+      "Phenoxyethanol",
+      "Polyquaternium-10",
+      "Polysorbate 20",
+      "Sodium Benzoate",
+      "Tocopheryl Acetate"
+    ],
+    "ingredientsComplete": true,
+    "sourceUrl": "https://www.cetaphil.in/products/cleansers/gentle-foaming-cleanser/3499320010092.html",
+    "sourceCheckedAt": "2026-10-10",
+    "benefits": [
+      "Light foam removes daily buildup",
+      "Leaves skin feeling soft"
+    ],
+    "imageUrl": "https://www.cetaphil.in/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-galderma-in-m-catalog/default/dw04656763/Gentle%20Foaming%20Cleanser%208%20Oz/051872-GFC8oz_Front.PNG?sw=900&sh=900&sm=fit&q=85",
+    "routineEligible": true,
+    "tone": "sage"
+  },
+  {
+    "id": "cetaphil-lotion-in",
+    "brand": "Cetaphil",
+    "name": "Moisturising Lotion",
+    "size": "250 ml",
+    "category": "moisturizer",
+    "referencePrice": 1150,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Niacinamide",
+      "Panthenol",
+      "Glycerin"
+    ],
+    "ingredients": [
+      "Aqua",
+      "Glycerin",
+      "Isopropyl Palmitate",
+      "Cetearyl Alcohol",
+      "Ceteareth-20",
+      "Panthenol",
+      "Niacinamide",
+      "Tocopheryl Acetate",
+      "Dimethicone",
+      "Persea Gratissima Oil",
+      "Helianthus Annuus Seed Oil",
+      "Pantolactone",
+      "Glyceryl Stearate",
+      "Sodium Benzoate",
+      "Benzyl Alcohol",
+      "Citric Acid"
+    ],
+    "ingredientsComplete": true,
+    "sourceUrl": "https://www.cetaphil.in/moisturizers/cetaphil-moisturising-lotion/8906005271624-1-1.html",
+    "sourceCheckedAt": "2026-10-10",
+    "benefits": [
+      "Lightweight face and body hydration",
+      "Helps support the moisture barrier"
+    ],
+    "imageUrl": "https://www.cetaphil.in/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-galderma-in-m-catalog/en/dw01a750a5/OH%20Image/OH%20Body%20Lotion/8906005274632_1.png?sw=900&sh=900&sm=fit&q=85",
+    "routineEligible": true,
+    "tone": "sage"
+  },
+  {
+    "id": "cetaphil-gentle-us",
+    "brand": "Cetaphil",
+    "name": "Gentle Skin Cleanser (US)",
+    "size": "8 fl oz / 236 ml",
+    "category": "cleanser",
+    "referencePrice": 12,
+    "referenceCurrency": "USD",
+    "markets": [
+      "US"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Glycerin",
+      "Panthenol",
+      "Niacinamide"
+    ],
+    "ingredients": [
+      "Water",
+      "Glycerin",
+      "Cetearyl Alcohol",
+      "Panthenol",
+      "Niacinamide",
+      "Pantolactone",
+      "Xanthan Gum",
+      "Sodium Cocoyl Isethionate",
+      "Sodium Benzoate",
+      "Citric Acid"
+    ],
+    "ingredientsComplete": true,
+    "sourceUrl": "https://www.cetaphil.com/us/products/product-categories/all-cleansers/cetaphil-gentle-skin-cleanser/302990110227.html",
+    "sourceCheckedAt": "2026-10-10",
+    "benefits": [
+      "Creamy cleanse removes daily impurities",
+      "Leaves skin feeling hydrated"
+    ],
+    "imageUrl": "https://www.cetaphil.com/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-galderma-us-m-catalog/default/dw554054cc/302990100624/GSC-RESIZE-1.2X.png?sw=900&sh=900&sm=fit&q=85",
+    "routineEligible": true,
+    "tone": "sage"
+  },
+  {
+    "id": "cetaphil-daily-fragrance-free-us",
+    "brand": "Cetaphil",
+    "name": "Daily Facial Cleanser Fragrance Free (US)",
+    "size": "8 fl oz / 236 ml",
+    "category": "cleanser",
+    "referencePrice": 12,
+    "referenceCurrency": "USD",
+    "markets": [
+      "US"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Glycerin",
+      "Panthenol",
+      "Niacinamide"
+    ],
+    "ingredients": [
+      "Water",
+      "Glycerin",
+      "Cocamidopropyl Betaine",
+      "Disodium Laureth Sulfosuccinate",
+      "Sodium Cocoamphoacetate",
+      "Panthenol",
+      "Niacinamide",
+      "Pantolactone",
+      "Acrylates/C10-30 Alkyl Acrylate Crosspolymer",
+      "Sodium Benzoate",
+      "Sodium Chloride",
+      "Citric Acid"
+    ],
+    "ingredientsComplete": true,
+    "sourceUrl": "https://www.cetaphil.com/us/products/facial/cetaphil-daily-facial-cleanser-fragrance-free/302993927402.html",
+    "sourceCheckedAt": "2026-10-10",
+    "benefits": [
+      "Gel-to-foam cleanse removes oil and makeup",
+      "Helps maintain the moisture barrier"
+    ],
+    "imageUrl": "https://www.cetaphil.com/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-storefront-galderma-us/default/dwbb28b29e/Daily%20Facial%20Cleanser%20FF/052715%20DFC%20FF%2016oz%20-%20Front%20(1).png?sw=900&sh=900&sm=fit&q=85",
+    "routineEligible": true,
+    "tone": "sage"
+  },
+  {
+    "id": "cetaphil-foaming-us",
+    "brand": "Cetaphil",
+    "name": "Gentle Foaming Cleanser (US)",
+    "size": "8 fl oz / 237 ml",
+    "category": "cleanser",
+    "referencePrice": 12,
+    "referenceCurrency": "USD",
+    "markets": [
+      "US"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Glycerin",
+      "Panthenol",
+      "Vitamin E"
+    ],
+    "ingredients": [
+      "Water",
+      "Cocamidopropyl Betaine",
+      "Coco-Glucoside",
+      "Betaine",
+      "Glycerin",
+      "Panthenol (Vitamin B5)",
+      "Tocopheryl Acetate (Vitamin E)",
+      "Sodium Benzoate",
+      "Polysorbate 20",
+      "Polyquaternium-10",
+      "Phenoxyethanol",
+      "Citric Acid"
+    ],
+    "ingredientsComplete": true,
+    "sourceUrl": "https://www.cetaphil.com/us/products/product-categories/all-cleansers/gentle-foaming-cleanser/302993889175.html",
+    "sourceCheckedAt": "2026-10-10",
+    "benefits": [
+      "Light foam removes daily surface buildup",
+      "Keeps skin feeling comfortable"
+    ],
+    "imageUrl": "https://www.cetaphil.com/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-galderma-us-m-catalog/default/dwf3345aae/Gentle%20Foaming%20Cleanser%208%20Oz/051872-GFC8oz_Front.PNG?sw=900&sh=900&sm=fit&q=85",
+    "routineEligible": true,
+    "tone": "sage"
+  },
+  {
+    "id": "cetaphil-dermacontrol-wash-us",
+    "brand": "Cetaphil",
+    "name": "DermaControl Oil Removing Foam Wash (US)",
+    "size": "8 fl oz / 237 ml",
+    "category": "cleanser",
+    "referencePrice": 15,
+    "referenceCurrency": "USD",
+    "markets": [
+      "US"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": false,
+    "ingredientHighlights": [
+      "Zinc",
+      "Glycerin"
+    ],
+    "ingredients": [
+      "Water",
+      "Zinc Coceth Sulfate",
+      "Glycerin",
+      "PEG-75",
+      "Dipotassium Glycyrrhizate",
+      "Zinc Gluconate",
+      "PEG-200 Hydrogenated Glyceryl Palmate",
+      "PEG-40 Hydrogenated Castor Oil",
+      "PEG-7 Glyceryl Cocoate",
+      "Sodium Benzoate",
+      "Masking Fragrance",
+      "Disodium EDTA"
+    ],
+    "ingredientsComplete": true,
+    "sourceUrl": "https://www.cetaphil.com/us/products/product-categories/all-cleansers/dermacontrol-oil-removing-foam-wash/302993931188.html",
+    "sourceCheckedAt": "2026-10-10",
+    "benefits": [
+      "Foam lifts excess surface oil",
+      "Helps reduce visible shine"
+    ],
+    "imageUrl": "https://www.cetaphil.com/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-galderma-us-m-catalog/default/dw4fd473c7/302993931188/052016_DC-ORFW8oz_Front.PNG?sw=900&sh=900&sm=fit&q=85",
+    "routineEligible": true,
+    "tone": "sage"
+  },
+  {
+    "id": "cetaphil-daily-hydrating-us",
+    "brand": "Cetaphil",
+    "name": "Daily Hydrating Lotion (US)",
+    "size": "3 fl oz / 88 ml",
+    "category": "moisturizer",
+    "referencePrice": 16,
+    "referenceCurrency": "USD",
+    "markets": [
+      "US"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Hyaluronic acid",
+      "Glycerin"
+    ],
+    "ingredients": [
+      "Water",
+      "Dicaprylyl Carbonate",
+      "Hydroxyethyl Urea",
+      "Cyclopentasiloxane",
+      "Glycerin",
+      "Glyceryl Stearate",
+      "PEG-100 Stearate",
+      "Hydrolyzed Hyaluronic Acid",
+      "Sodium Hydroxide",
+      "Homarine HCI",
+      "Sodium PCA",
+      "Cetyl Alcohol",
+      "Caprylyl Glycol",
+      "Phenoxyethanol",
+      "Acrylates/C10-30 Alkyl Acrylate Crosspolymer",
+      "Erythritol"
+    ],
+    "ingredientsComplete": true,
+    "sourceUrl": "https://www.cetaphil.com/us/products/product-categories/all-moisturizers/daily-hydrating-lotion/302993889038.html",
+    "sourceCheckedAt": "2026-10-10",
+    "benefits": [
+      "Light oil-free facial hydration",
+      "Helps protect against dryness"
+    ],
+    "imageUrl": "https://www.cetaphil.com/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-galderma-us-m-catalog/default/dw5963bb27/Daily%20Hydrating%20Lotion/081329_DOFHL_3oz_Bottle-Front.PNG?sw=900&sh=900&sm=fit&q=85",
+    "routineEligible": true,
+    "tone": "sage"
+  },
+  {
+    "id": "cetaphil-rich-hydrating-us",
+    "brand": "Cetaphil",
+    "name": "Rich Hydrating Cream (US)",
+    "size": "1.7 oz / 48 g",
+    "category": "moisturizer",
+    "referencePrice": 18,
+    "referenceCurrency": "USD",
+    "markets": [
+      "US"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Hyaluronic acid",
+      "Vitamin E"
+    ],
+    "ingredients": [
+      "Water",
+      "Hydrogenated Polydecene",
+      "Caprylic/Capric Triglyceride",
+      "Dimethicone",
+      "Glycerin",
+      "Butylene Glycol",
+      "Cetearyl Olivate",
+      "Sorbitan Olivate",
+      "Cyclopentasiloxane",
+      "Marrubium Vulgare Extract",
+      "Hydrolyzed Hyaluronic Acid",
+      "Olea Europaea (Olive) Fruit Oil",
+      "Tocopheryl Acetate (Vitamin E)",
+      "Ascorbyl Palmitate (Vitamin C)",
+      "Leuconostoc/Radish Root Ferment Filtrate",
+      "Phospholipids",
+      "Isopropyl Lauroyl Sarcosinate",
+      "Cetearyl Alcohol",
+      "Sodium Polyacrylate",
+      "1,2-Hexanediol",
+      "Caprylyl Glycol",
+      "Polymethylsilsesquioxane",
+      "Isohexadecane",
+      "Glyceryl Stearate",
+      "PEG-100 Stearate",
+      "Cetearyl Methicone",
+      "Phenoxyethanol",
+      "PEG-40 Stearate",
+      "Stearteth-2",
+      "Stearteth-21",
+      "Retinyl Palmitate",
+      "Linoleic Acid",
+      "Lycopene"
+    ],
+    "ingredientsComplete": true,
+    "sourceUrl": "https://www.cetaphil.com/us/products/product-categories/all-moisturizers/rich-hydrating-cream/302993889021.html",
+    "sourceCheckedAt": "2026-10-10",
+    "benefits": [
+      "Rich nighttime moisturizing texture",
+      "Helps dry-feeling skin retain moisture"
+    ],
+    "imageUrl": "https://www.cetaphil.com/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-galderma-us-m-catalog/default/dwd230cfa1/Rich%20Hydrating%20Night%20Cream%20Face%20Moisturizer%201.7%20Oz/081328_RHC_1-7oz_Tub-Front%20(1).PNG?sw=900&sh=900&sm=fit&q=85",
+    "routineEligible": false,
+    "tone": "sage",
+    "reviewNote": "Nighttime cream: explore separately and check the current label. Not automatically added to your routine.",
+    "eveningOnly": true
+  },
+  {
+    "id": "cetaphil-spf35-us",
+    "brand": "Cetaphil",
+    "name": "Daily Facial Moisturizer SPF 35 (US)",
+    "size": "3 fl oz / 88 ml",
+    "category": "sunscreen",
+    "referencePrice": 16,
+    "referenceCurrency": "USD",
+    "markets": [
+      "US"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "UV filters",
+      "Glycerin"
+    ],
+    "ingredients": [
+      "Water",
+      "Glycerin",
+      "Dipropylene Glycol",
+      "Panthenol (Vitamin B5)",
+      "Ethylhexyl Methoxycrylene",
+      "Isopropyl Palmitate",
+      "Silica",
+      "Niacinamide",
+      "Cetearyl Olivate",
+      "Cetearyl Alcohol",
+      "Glyceryl Stearate",
+      "Potassium Cetyl Phosphate",
+      "Sorbitan Olivate",
+      "Tocopheryl Acetate (Vitamin E Acetate)",
+      "Caprylyl Glycol",
+      "Acrylates/C10-30 Alkyl Acrylate Crosspolymer",
+      "Palmitic Acid",
+      "Ethylhexylglycerin",
+      "Leontopodium (Edelweiss) Extract",
+      "Stearic Acid",
+      "1,2-Hexanediol",
+      "Oryza Sativa (Rice) Lees Extract",
+      "Propanediol",
+      "Sodium Hydroxide",
+      "Adenosine",
+      "Potassium Sorbate",
+      "Sodium Benzoate",
+      "Citric Acid",
+      "Myristic Acid",
+      "Buddleja Davidii (Summer Lilac) Leaf Extract",
+      "Thymus Vulgaris (Thyme) Leaf Extract",
+      "Tocopherol (Vitamin E)"
+    ],
+    "ingredientsComplete": true,
+    "sourceUrl": "https://www.cetaphil.com/us/products/product-categories/all-moisturizers/daily-facial-moisturizer-spf-35/302994113002.html",
+    "sourceCheckedAt": "2026-10-10",
+    "benefits": [
+      "Broad-spectrum SPF 35 protection",
+      "Lightweight moisturizing finish"
+    ],
+    "imageUrl": "https://www.cetaphil.com/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-galderma-us-m-catalog/default/dwb6b94f8e/Daily%20Facial%20Moisturizer%20SPF%2035,/New%20revive/083215_DFM_SPF35_3oz_Pump-Front.PNG?sw=900&sh=900&sm=fit&q=85",
+    "routineEligible": true,
+    "tone": "sage"
+  },
+  {
+    "id": "dermaco-2-niacinamide-gentle-skin-cleanser-for-sensitive-dry-normal-skin-125-ml",
+    "brand": "The Derma Co",
+    "name": "2% Niacinamide Gentle Skin Cleanser for Sensitive, Dry & Normal Skin - 125 ml",
+    "size": "125 ml",
+    "category": "cleanser",
+    "referencePrice": 399.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Niacinamide",
+      "Panthenol"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Aqua",
+      "Cetostearyl Alcohol",
+      "Glycerin",
+      "Niacinamide",
+      "Sodium Cocoyl Isethionate",
+      "Phenoxyethanol Ethylhexylglycerin",
+      "Cocamidopropyl Betaine",
+      "Xanthan Gum",
+      "Cica Extract",
+      "Cetyl Alcohol",
+      "Carbomer",
+      "Saccharide Isomerate",
+      "Sodium Gluconate",
+      "Ceramide Complex",
+      "Oatmeal Extract",
+      "Vitamin E",
+      "Citric Acid and Sodium Citrate"
+    ],
+    "sourceUrl": "https://thedermaco.com/products/2-niacinamide-gentle-skin-cleanser-for-sensitive-dry-normal-skin-125-ml",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "Gently removes daily impurities",
+      "Leaves dry-feeling skin comfortable"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/1-niacinamide_gentle_skin_cleanser_for_sensitive_dry_normal_skin_79a6002c-a0fa-47c4-bed1-3aa6c41f48e7.jpg?v=1758286821",
+    "routineEligible": true
+  },
+  {
+    "id": "dermaco-2-niacinamide-oily-skin-cleanser-for-sensitive-oily-combina-ca232058b7",
+    "brand": "The Derma Co",
+    "name": "2% Niacinamide Oily Skin Cleanser for Sensitive, Oily & Combination Skin 125 ml  Non-Irritant | 100% Soap-Free | Non-Drying | Gently Cleanses Makeup",
+    "size": "125 ml",
+    "category": "cleanser",
+    "referencePrice": 399.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Niacinamide"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Aqua",
+      "Cocamidopropyl Betaine",
+      "Glycerin",
+      "Niacinamide",
+      "Sodium Cocoamphoacetate",
+      "Cica Extract",
+      "Hydroxyethyl Cellulose",
+      "Phenoxyethanol",
+      "Sodium Benzoate",
+      "Saccharide Isomerate",
+      "Sodium Gluconate",
+      "Panthenol",
+      "Salicylic Acid",
+      "Ceramide Complex",
+      "Oatmeal Extract",
+      "Citric Acid",
+      "and Sodium Citrate"
+    ],
+    "sourceUrl": "https://thedermaco.com/products/2-niacinamide-oily-skin-cleanser-for-sensitive-oily-combination-skin-125-ml",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "rose",
+    "benefits": [
+      "Gel cleanse removes surface oil",
+      "Helps maintain moisture while cleansing"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/2-niacinamide_oily_skin_cleanser_for_sensitive_oily_combination_skin.png?v=1758286818",
+    "routineEligible": false,
+    "reviewNote": "Explore separately: this product is not automatically added to your routine. Check suitability and the current label first."
+  },
+  {
+    "id": "dermaco-5-nia-ceramide-daily-hydrating-moisturizer-100g",
+    "brand": "The Derma Co",
+    "name": "5% Nia-Ceramide Daily Hydrating Moisturizer with 5% Niacinamide & 2% Ceramide - 100g",
+    "size": "100 g",
+    "category": "moisturizer",
+    "referencePrice": 449.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": false,
+    "fragranceFree": false,
+    "ingredientHighlights": [
+      "Niacinamide",
+      "Ceramides"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://thedermaco.com/products/5-nia-ceramide-daily-hydrating-moisturizer-100g",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Daily hydration for dry-feeling skin",
+      "Helps support the moisture barrier"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/fop__nia_ceramide_hydrating_new.jpg?v=1762327705",
+    "routineEligible": true,
+    "reviewNote": "Fragrance-free status is unverified."
+  },
+  {
+    "id": "dermaco-4-ceramide-barrier-repair-moisturizer-with-ceramide-niacina-3fbd82417e",
+    "brand": "The Derma Co",
+    "name": "4% Ceramide Barrier Repair Moisturizer with Ceramide, Niacinamide, and Oxylance - 50 gm",
+    "size": "50 g",
+    "category": "moisturizer",
+    "referencePrice": 229.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Ceramides",
+      "Niacinamide"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Aqua",
+      "Ceramide Complex",
+      "Caprylic/Capric Triglyceride",
+      "Niacinamide",
+      "Xylitol",
+      "Glucose",
+      "Anhydroxylitol",
+      "Phoenix Dactylifera extract",
+      "Sodium Acrylates Copolymer",
+      "Lecithin",
+      "Propylene Glycol",
+      "Polyglycerin-3",
+      "Glyceryl Stearate",
+      "Xylitylglucoside",
+      "Dimethicone",
+      "Phenoxyethanol",
+      "Ethylhexylglycerin",
+      "Shea Butter Glycerides",
+      "Cetearyl Olivate",
+      "Sorbitan Olivate",
+      "Sodium Benzoate",
+      "Stearic Acid",
+      "Acrylates/C10-30 Alkyl Acrylate Crosspolymer",
+      "Disodium EDTA",
+      "Sodium Hydroxide",
+      "Hyaluronic Acid",
+      "Glycerin",
+      "Ligustrum Lucidum Seed Extract",
+      "Fucus Vesiculosus Extract",
+      "Butylene Glycol",
+      "1,2-Hexanediol and Tocopheryl Acetate"
+    ],
+    "sourceUrl": "https://thedermaco.com/products/4-ceramide-barrier-repair-moisturizer-with-ceramide-niacinamide-and-oxylance-50-gm",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "Helps retain surface moisture",
+      "Supports the moisture barrier"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/FOP_white_BG.jpg?v=1774953675",
+    "routineEligible": true
+  },
+  {
+    "id": "dermaco-5-nia-ceramide-mattifying-moisturizer-100g",
+    "brand": "The Derma Co",
+    "name": "5% Nia-Ceramide Mattifying Moisturizer with 5% Niacinamide & 2% Ceramide - 100g",
+    "size": "100 g",
+    "category": "moisturizer",
+    "referencePrice": 449.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Niacinamide",
+      "Ceramides"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Aqua",
+      "Niacinamide",
+      "Cyclomethicone",
+      "Glycerin",
+      "Betaine",
+      "Caprylyl Methicone",
+      "Laminaria Digitata Extract & 1,2-Hexanediol & Hydrogenated Lecithin & Cetyl-PG Hydroxyethyl Palmitamide & Cholesterol & Ceramide 1 & Ceramide 2 & Ceramide 3 & Ceramide 4 & Ceramide 6 II",
+      "Squalane",
+      "Panthenol",
+      "Silica Silylate",
+      "Hydrogenated Polydecene",
+      "Sodium Acrylate/Sodium Acryloyldimethyl Taurate Copolymer",
+      "Trideceth-6",
+      "Sodium Hyaluronate",
+      "Phenoxyethanol",
+      "Xanthan Gum",
+      "Allantoin",
+      "Hamamelis Virginiana (Witch Hazel) Bark/Leaf Extract",
+      "Zinc PCA",
+      "Disodium EDTA",
+      "Ethylhexylglycerin"
+    ],
+    "sourceUrl": "https://thedermaco.com/products/5-nia-ceramide-mattifying-moisturizer-100g",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "rose",
+    "benefits": [
+      "Lightweight mattifying hydration",
+      "Helps reduce the appearance of shine"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/5-nia-ceramide-mattifying.jpg?v=1758287063",
+    "routineEligible": true
+  },
+  {
+    "id": "dermaco-oil-free-daily-face-moisturizer-with-hyaluronic-acid-cerami-7f352d89ec",
+    "brand": "The Derma Co",
+    "name": "Oil-Free Daily Face Moisturizer With Hyaluronic Acid, Ceramides & Multivitamins for Non-Greasy & Hydrated Skin - 100g",
+    "size": "100 g",
+    "category": "moisturizer",
+    "referencePrice": 349.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Hyaluronic acid",
+      "Ceramides"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://thedermaco.com/products/oil-free-daily-face-moisturizer-with-hyaluronic-acid-ceramides-multivitamins-for-non-greasy-hydrated-skin-100g",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Non-greasy daily hydration",
+      "Helps skin feel soft"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/1_PDP_ac113fc4-e7de-4055-93aa-bb78704169a3.jpg?v=1767870741",
+    "routineEligible": true
+  },
+  {
+    "id": "dermaco-5-vitamin-c-oil-free-daily-face-moisturizer-for-skin-radiance-100g",
+    "brand": "The Derma Co",
+    "name": "5% Vitamin C Oil-Free Daily Face Moisturizer for Skin Radiance - 100g",
+    "size": "100 g",
+    "category": "moisturizer",
+    "referencePrice": 349.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Vitamin C"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Aqua",
+      "3-O-Ethyl Ascorbic Acid",
+      "Glycerin",
+      "Isodecyl Neopentanoate",
+      "Cetearyl Olivate (and) Sorbitan Olivate",
+      "Propanediol",
+      "Dicaprylyl Carbonate",
+      "C15-19 Alkane",
+      "Cetyl Alcohol",
+      "Polyacrylate Crosspolymer-11",
+      "Xylitol",
+      "Phenoxyethanol (and) Ethylhexylglycerin",
+      "Saccharide Isomerate (and) Aqua (and) Citric Acid (and) Sodium Citrate",
+      "Betaine and Disodium Ethylenediaminetetraacetic acid"
+    ],
+    "sourceUrl": "https://thedermaco.com/products/5-vitamin-c-oil-free-daily-face-moisturizer-for-skin-radiance-100g",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "Oil-free moisturizing texture",
+      "Helps skin look radiant"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/1._2.jpg?v=1758286761",
+    "routineEligible": true
+  },
+  {
+    "id": "dermaco-5-propylene-oil-free-moisturizer-with-propylene-glycol-hyal-30020d8ce9",
+    "brand": "The Derma Co",
+    "name": "5% Propylene Oil-Free Moisturizer with Propylene Glycol & Hyaluronic Acid  - 100 g",
+    "size": "100 g",
+    "category": "moisturizer",
+    "referencePrice": 329.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Propylene glycol",
+      "Hyaluronic acid"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Aqua",
+      "Propylene Glycol",
+      "Caprylic/Capric Triglyceride",
+      "Hyaluronic Acid",
+      "Xylitol",
+      "Glucose",
+      "Anhydroxylitol",
+      "Phoenix Dactylifera (Date Palm) Extract",
+      "Glycerin",
+      "Glyceryl Stearate",
+      "PEG 100 Stearate",
+      "Dimethicone",
+      "Phenoxyethanol",
+      "Ethylhexylglycerin",
+      "Cetostearyl Alcohol",
+      "C15-19 Alkane",
+      "Stearic Acid",
+      "Cetyl Palmitate",
+      "Sodium Acrylate/Sodium Acryloyldi methyl Taurate Copolymer",
+      "Isohexadecane",
+      "Polysorbate 80",
+      "Carbomer",
+      "Squalene",
+      "Trehalose",
+      "Hydrolyzed Vegetable Protein",
+      "Sodium Hydroxide",
+      "Xylitylglucoside",
+      "Disodium EDTA",
+      "Ceramide NG",
+      "Ceramide NP and Glycine Soja(Soybean) Sterols"
+    ],
+    "sourceUrl": "https://thedermaco.com/products/5-propylene-oil-free-moisturizer-with-propylene-glycol-hyaluronic-acid-100-g",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "rose",
+    "benefits": [
+      "Light oil-free hydration",
+      "Helps dry-feeling skin retain moisture"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/1.with-bg_1.jpg?v=1758286932",
+    "routineEligible": true
+  },
+  {
+    "id": "dermaco-1-salicylic-acid-oil-free-moisturizer-for-face-with-oat-extract-50g",
+    "brand": "The Derma Co",
+    "name": "1% Salicylic Acid Oil-Free Moisturizer For Face with Oat Extract  - 50g",
+    "size": "50 g",
+    "category": "moisturizer",
+    "referencePrice": 349.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Salicylic acid",
+      "Oat"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Aqua",
+      "Caprylic/Capric Triglyceride",
+      "Cyclopentasiloxane",
+      "Sodium Polyacrylate",
+      "Dimethicone",
+      "Trideceth-6",
+      "PEG/PPG-18/18 Dimethicone",
+      "Glycerin",
+      "Salicylic Acid",
+      "Cetearyl Alcohol",
+      "Dicetyl Phosphate",
+      "Ceteth-10 Phosphate",
+      "Saccharide Isomerate",
+      "Avena Sativa (Oat) Bran Extract",
+      "Carbomer",
+      "Cetyl Alcohol",
+      "Stearic Acid",
+      "Phenoxyethanol",
+      "Ethylhexylglycerin",
+      "Sodium Hyaluronate",
+      "Citric Acid",
+      "Sodium Citrate",
+      "Sodium Hydroxide",
+      "Butylated Hydroxy Toluene & Disodium EDTA"
+    ],
+    "sourceUrl": "https://thedermaco.com/products/1-salicylic-acid-oil-free-moisturizer-for-face-with-oat-extract-50g",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Exfoliating moisturizer for oily-looking skin",
+      "Light oil-free texture"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/1_PDP_8c9e2658-d482-42a0-aeed-5eace1d557dd.jpg?v=1766743619",
+    "routineEligible": false,
+    "reviewNote": "Explore separately: this product is not automatically added to your routine. Check suitability and the current label first."
+  },
+  {
+    "id": "dermaco-1-hyaluronic-sunscreen-aqua-gel",
+    "brand": "The Derma Co",
+    "name": "1% Hyaluronic Sunscreen Aqua Gel In Vivo Tested (ISO 24444:2019 Certified, CTRI/2025/02/080287), UVA: 39.984 (PA++++) (PPD 39) with SPF 50 & PA++++ , Dewy Finish for All Skin Types- 50g",
+    "size": "50 g",
+    "category": "sunscreen",
+    "referencePrice": 499.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Hyaluronic acid",
+      "UV filters"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Aqua",
+      "C12-15 Alkyl Benzoate",
+      "Ethylhexyl Methoxycinnamate",
+      "Dimethicone",
+      "Sodium Acrylates Copolymer",
+      "Butyl Methoxydibenzoylmethane",
+      "Hyaluronic Acid",
+      "Glycerin",
+      "Benzophenone-3",
+      "1,3-Butylene Glycol",
+      "Phenoxyethanol",
+      "Lecithin",
+      "Aloe Barbadensis (Aloe Vera) Leaf Juice",
+      "Xylitol",
+      "Glucose",
+      "Sodium Levulinate",
+      "Phospholipids",
+      "Propylene Glycol",
+      "Ethoxydiglycol",
+      "Anhydroxylitol",
+      "Oxothiazolidine",
+      "Helianthus Annuus (Sunflower) Seed Oil",
+      "Glyceryl Stearate",
+      "Allantoin",
+      "D-Alpha Tocopheryl Acetate",
+      "Phoenix Dactylifera Extract",
+      "Vaccinum Sect. Cyanococcus (Blueberry) Fruit Extract",
+      "Citrus Paradisi (Grapefruit) Extract",
+      "Zinc Oxide",
+      "Cyclopentasiloxane",
+      "PEG-10 Dimethicone",
+      "E-Ascorbic Acid",
+      "C9-12 Alkane",
+      "Hydrogen Dimethicone",
+      "Titanium Dioxide",
+      "Aluminum Hydroxide",
+      "Polyhydroxystearic Acid"
+    ],
+    "sourceUrl": "https://thedermaco.com/products/1-hyaluronic-sunscreen-aqua-gel",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "SPF 50 PA++++ protection",
+      "Light hydrating gel texture"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/1_PDP_2cce8939-1296-471f-8b74-f4fbfa814378.jpg?v=1791452607",
+    "routineEligible": true
+  },
+  {
+    "id": "dermaco-1-hyaluronic-sunscreen-hydrating-gel-50-g",
+    "brand": "The Derma Co",
+    "name": "1% Hyaluronic Sunscreen Hydrating Gel In Vivo Tested (ISO 24444:2019 Certified, CTRI/2025/01/079445) with SPF 50 PA++++, Dewy Finish for Dry & Sensitive Skin - 50 g",
+    "size": "50 g",
+    "category": "sunscreen",
+    "referencePrice": 499.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Hyaluronic acid",
+      "UV filters"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Aqua",
+      "Ethylhexyl Methoxycinnamate",
+      "Ethylhexyl Salicylate",
+      "Caprylic/Capric Triglyceride",
+      "Propylene Glycol",
+      "Isododecane",
+      "Phenylbenzimidazole Sulfonic Acid",
+      "Cetearyl Alcohol",
+      "Ceteareth-20",
+      "Glycerin",
+      "Diethylamino Hydroxybenzoyl Hexyl Benzoate",
+      "Methylene Bis-Benzotriazolyl Tetramethylbutylphenol",
+      "Decyl Glucoside",
+      "Cetearyl Olivate",
+      "Sorbitan Olivate",
+      "Glyceryl Monostearate",
+      "Triethanolamine",
+      "Ammonium ryloyldimethyltaurate/VP Copolymer Xylitylglucoside",
+      "Anhydroxylitol",
+      "Xylitol",
+      "Sodium Hyaluronate",
+      "Laminaria Digitata Extract",
+      "Cetyl- PG Hydroxyethyl Palmitamide",
+      "Ceramide EOP",
+      "Ceramide NG",
+      "Ceramide NP",
+      "Ceramide AS",
+      "Ceramide AP",
+      "Dicaprylyl Carbonate",
+      "Phenoxyethanol",
+      "Ethylhexylglycerin",
+      "Blueberry Extract",
+      "Niacinamide",
+      "Panthenol",
+      "Tocopheryl Acetate",
+      "Blueberry Extract",
+      "Ethoxydiglycol",
+      "Capsicum Annuum Fruit Extract",
+      "Xanthan Gum",
+      "Sodium Gluconate",
+      "Sucrose Distearate and Butylated Hydroxytoluene"
+    ],
+    "sourceUrl": "https://thedermaco.com/products/1-hyaluronic-sunscreen-hydrating-gel-50-g",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "rose",
+    "benefits": [
+      "SPF 50 PA++++ protection",
+      "Hydrating finish for dry-feeling skin"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/pdp_h_s_hydrating.jpg?v=1758287134",
+    "routineEligible": true
+  },
+  {
+    "id": "dermaco-1-hyaluronic-sunscreen-oil-free-gel-50-g",
+    "brand": "The Derma Co",
+    "name": "1% Hyaluronic Sunscreen Oil-Free Matte Gel for Oily & Acne-Prone Skin In Vivo Tested (ISO 24444:2019 Certified, CTRI/2025/02/079913) - 50 g",
+    "size": "50 g",
+    "category": "sunscreen",
+    "referencePrice": 499.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Hyaluronic acid",
+      "UV filters"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Aqua",
+      "Propylene Glycol",
+      "Terephthalylidene Dicamphor Sulfonic Acid",
+      "Butyl Methoxydibenzoylmethane",
+      "Phenylbenzimidazole Sulfonic Acid",
+      "Glycerin",
+      "Ethylhexyl Methoxycinnamate",
+      "Caprylic/Capric Triglyceride",
+      "Triethanolamine",
+      "Tapioca Starch",
+      "Ammonium Acryloyldimethyltaurate/VP Copolymer",
+      "Ethylhexyl Salicylate",
+      "Methylene Bis-Benzotriazolyl Tetramethylbutylphenol",
+      "Decyl Glucoside",
+      "Xanthan Gum",
+      "Isododecane",
+      "Sodium Hyaluronate",
+      "Cetearyl Olivate",
+      "Sorbitan Olivate",
+      "Phenoxyethanol",
+      "Ethylhexylglycerin",
+      "Dicaprylyl Carbonate",
+      "Cetearyl Alcohol",
+      "Ceteareth-20",
+      "Glyceryl Monostearate",
+      "Xylitylglucoside",
+      "Anhydroxylitol",
+      "Xylitol",
+      "Niacinamide",
+      "Polyester-7",
+      "Neopentyl Glycol heptanoate",
+      "Sodium Polyacrylate",
+      "Blueberry Extract",
+      "Allantoin",
+      "Ethoxydiglycol",
+      "Capsicum Annuum Fruit Extract",
+      "Zinc PCA",
+      "Sodium Gluconate",
+      "Tocopheryl Acetate and Butylated Hydroxytoluene"
+    ],
+    "sourceUrl": "https://thedermaco.com/products/1-hyaluronic-sunscreen-oil-free-gel-50-g",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "SPF 50 PA++++ protection",
+      "Oil-free matte gel finish"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/0_PDP_0f84fd1b-f462-484b-8240-f3f679ccb1c2.jpg?v=1787037706",
+    "routineEligible": true
+  },
+  {
+    "id": "dermaco-ultra-light-zinc-mineral-sunscreen-with-spf-50-for-broad-sp-646a3482fe",
+    "brand": "The Derma Co",
+    "name": "Ultra Light Zinc Mineral Sunscreen with SPF 50 For Broad Spectrum, UVA, UVB & Blue Light Protection - 50g",
+    "size": "50 g",
+    "category": "sunscreen",
+    "referencePrice": 699.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": false,
+    "fragranceFree": false,
+    "ingredientHighlights": [
+      "Zinc oxide"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://thedermaco.com/products/ultra-light-zinc-mineral-sunscreen-with-spf-50-for-broad-spectrum-uva-uvb-blue-light-protection-50g",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "SPF 50 mineral sun protection",
+      "Light daily sunscreen texture"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/1-ultra_light_zinc_mineral_sunscreen_with_blue_light_protection_-_50g.jpg?v=1758286885",
+    "routineEligible": true,
+    "reviewNote": "Fragrance-free status is unverified."
+  },
+  {
+    "id": "dermaco-pore-minimizing-priming-sunscreen-with-spf-50-pa-for-open-p-3cb773d04f",
+    "brand": "The Derma Co",
+    "name": "Pore Minimizing Sunscreen Gel with SPF 50 & PA+++ For Open Pores & UVA/UVB Protection - 50 g",
+    "size": "50 g",
+    "category": "sunscreen",
+    "referencePrice": 449.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Niacinamide",
+      "UV filters"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Aqua",
+      "C12-15 Alkyl Benzoate",
+      "Niacinamide",
+      "Caprylyl\nMethicone",
+      "Methylene Bis-Benzotriazolyl Tetramethylbutylphenol",
+      "Sodium\nAcrylates Copolymer",
+      "Ethylhexyl Triazone",
+      "Bis-Ethylhexyloxyphenol\nMethoxyphenyl Triazine",
+      "Acrylates/C12-22 Alkyl Methacrylate Copolymer",
+      "Diethylamino Hydroxybenzoyl Hexyl Benzoate",
+      "Glycerin",
+      "Dimethicone",
+      "Titanium Dioxide",
+      "Sodium Hyaluronate",
+      "Aloe Barbadensis Leaf Extract",
+      "Lens\nEsculenta (Lentil) Seed Extract",
+      "Biosaccharide Gum-4",
+      "Bioflavonoids",
+      "Tocopheryl Acetate",
+      "1,3-Propanediol",
+      "Xanthan Gum",
+      "Phenoxyethanol",
+      "Propylene Glycol",
+      "1,2-Hexanediol",
+      "Ethylhexylglycerin",
+      "Glyceryl Stearate",
+      "Lecithin",
+      "Decyl Glucoside",
+      "Sodium Carbomer",
+      "Silica"
+    ],
+    "sourceUrl": "https://thedermaco.com/products/pore-minimizing-priming-sunscreen-with-spf-50-pa-for-open-pores-uva-uvb-protection-50g",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "rose",
+    "benefits": [
+      "SPF 50 PA+++ sun protection",
+      "Priming gel finish"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/1_PDP_5907e859-db48-4170-80fc-80ad85051367.jpg?v=1773233915",
+    "routineEligible": true
+  },
+  {
+    "id": "dermaco-c-cinamide-radiance-sunscreen-aqua-gel-with-spf-50-pa-50g",
+    "brand": "The Derma Co",
+    "name": "C-Cinamide Radiance Sunscreen Aqua Gel with SPF 50 & PA++++ - 50g",
+    "size": "50 g",
+    "category": "sunscreen",
+    "referencePrice": 499.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Vitamin C",
+      "Niacinamide",
+      "UV filters"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Aqua",
+      "Glycerin",
+      "Ethylhexyl Methoxycinnamate",
+      "Butyl Methoxydibenzoylmethane",
+      "Propylene Glycol",
+      "Phenylbenzimidazole Sulfonic Acid",
+      "Terephthalylidene Dicamphor Sulfonic Acid",
+      "Methylene Bis-Benzotriazolyl Tetramethylbutylphenol",
+      "Decyl Glucoside",
+      "Propylene Glycol",
+      "Xanthan Gum",
+      "Caprylic Capric Triglyceride",
+      "Isododecane",
+      "Tapioca Starch",
+      "Triethanolamine",
+      "Ammonium Acryloyldimethyltaurate/Vp Copolymer",
+      "Niacinamide",
+      "Ethyl Ascorbic Acid",
+      "Sodium Hyaluronate",
+      "Ethylhexyl Salicylate",
+      "Dicaprylyl Carbonate",
+      "Polyester-7",
+      "Neopentyl Glycol Diheptanoate",
+      "Cetearyl Alcohol",
+      "Ceteareth-20",
+      "Cetearyl Olivate",
+      "Sorbitan Olivate",
+      "Phenoxyethanol",
+      "Ethylhexylglycerin",
+      "Glyceryl Stearate",
+      "Blueberry Extract",
+      "Xylitylglucoside",
+      "Anhydroxylitol",
+      "Xylitol",
+      "Sodium Polyacrylate",
+      "Tocopheryl Acetate",
+      "Allantoin",
+      "Butylated Hydroxytoluene and Sodium Gluconate"
+    ],
+    "sourceUrl": "https://thedermaco.com/products/c-cinamide-radiance-sunscreen-aqua-gel-with-spf-50-pa-50g",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "SPF 50 PA++++ protection",
+      "Hydrating aqua gel finish"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/fop_c-cinamide_white_bg.jpg?v=1758286799",
+    "routineEligible": true
+  },
+  {
+    "id": "dermaco-hyaluronic-invisible-sunscreen-gel-with-hyaluronic-acid-vitamin-e-50g",
+    "brand": "The Derma Co",
+    "name": "Hyaluronic Invisible Sunscreen Gel with Hyaluronic Acid & Vitamin E - 50g",
+    "size": "50 g",
+    "category": "sunscreen",
+    "referencePrice": 599.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": false,
+    "fragranceFree": false,
+    "ingredientHighlights": [
+      "Hyaluronic acid",
+      "Vitamin E",
+      "UV filters"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://thedermaco.com/products/hyaluronic-invisible-sunscreen-gel-with-hyaluronic-acid-vitamin-e-50g",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "Daily sun protection",
+      "Invisible gel finish"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/1080x1080-5.jpg?v=1758286726",
+    "routineEligible": true,
+    "reviewNote": "Fragrance-free status is unverified."
+  },
+  {
+    "id": "dermaco-1-hyaluronic-tinted-sunscreen-gel-for-broad-spectrum-protection-50g",
+    "brand": "The Derma Co",
+    "name": "1% Hyaluronic Tinted Sunscreen Gel for Broad Spectrum Protection - 50g",
+    "size": "50 g",
+    "category": "sunscreen",
+    "referencePrice": 699.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Hyaluronic acid",
+      "UV filters"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://thedermaco.com/products/1-hyaluronic-tinted-sunscreen-gel-for-broad-spectrum-protection-50g",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "rose",
+    "benefits": [
+      "Broad-spectrum sun protection",
+      "Tinted gel finish"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/1080x1080-1.jpg?v=1758286640",
+    "routineEligible": false,
+    "reviewNote": "Explore separately: this product is not automatically added to your routine. Check suitability and the current label first."
+  },
+  {
+    "id": "dermaco-10-percent-niacinamide-serum",
+    "brand": "The Derma Co",
+    "name": "10% Niacinamide Face Serum with 2% Zinc PCA - 30ml",
+    "size": "30 ml",
+    "category": "serum",
+    "referencePrice": 599.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "oiliness",
+      "pore"
+    ],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Niacinamide",
+      "Zinc PCA"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Aqua",
+      "Niacinamide",
+      "1,3-Propanediol",
+      "Ethoxydiglycol",
+      "Glycerin",
+      "Zinc PCA",
+      "Dimethyl Isosorbide",
+      "Pentylene Glycol",
+      "Xanthan Gum",
+      "Hydroxyethyl Cellulose",
+      "Algin",
+      "Phenoxyethanol",
+      "Sodium Benzoate",
+      "Ethylhexylglycerin",
+      "Calcium Chloride",
+      "Potassium Sorbate",
+      "Citric Acid"
+    ],
+    "sourceUrl": "https://thedermaco.com/products/10-percent-niacinamide-serum",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Helps reduce visible shine",
+      "Refines the appearance of pores"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/10-niacin_PDP_30ml.jpg?v=1787832313",
+    "routineEligible": false,
+    "treatmentGoal": "oil-balance",
+    "primaryActive": "niacinamide",
+    "usageNote": "Introduce one new product at a time, test first and follow the current label. Stop if irritation occurs. Check suitability before use.",
+    "reviewNote": "Explore separately: this product is not automatically added to your routine. Check suitability and the current label first."
+  },
+  {
+    "id": "dermaco-5-niacinamide-daily-face-serum-with-alpha-arbutin-multivitamin-30ml",
+    "brand": "The Derma Co",
+    "name": "5% Niacinamide Daily Face Serum with Alpha Arbutin & Multivitamin  - 30ml",
+    "size": "30 ml",
+    "category": "serum",
+    "referencePrice": 499.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Niacinamide",
+      "Alpha arbutin"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://thedermaco.com/products/5-niacinamide-daily-face-serum-with-alpha-arbutin-multivitamin-30ml",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "Helps skin tone look more even",
+      "Light daily serum texture"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/niacinamide-daily-face-serum-2.jpg?v=1758286648",
+    "routineEligible": false,
+    "treatmentGoal": "brightening",
+    "primaryActive": "niacinamide",
+    "usageNote": "Introduce one new product at a time, test first and follow the current label. Stop if irritation occurs. Check suitability before use.",
+    "reviewNote": "Explore separately: this product is not automatically added to your routine. Check suitability and the current label first."
+  },
+  {
+    "id": "dermaco-5-vitamin-c-daily-face-serum-with-ferulic-acid-multivitamin-30ml",
+    "brand": "The Derma Co",
+    "name": "5% Vitamin C Daily Face Serum with Ferulic Acid & Multivitamin - 30ml",
+    "size": "30 ml",
+    "category": "serum",
+    "referencePrice": 549.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Vitamin C",
+      "Ferulic acid"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Water",
+      "1,3-Propanediol",
+      "3-0-Ethyl Ascorbic Acid",
+      "Diethylene Glycol Monoethyl Ether",
+      "Sodium Hyaluronate",
+      "Phenoxyethanol",
+      "Hydrogenated Castor Oil",
+      "D-Panthenol",
+      "Ferulic Acid",
+      "Hydroxyethylcellulose",
+      "Ethylhexylglycerin",
+      "Dimethyl Isosorbide",
+      "Vitamin E Acetate",
+      "Sodium Gluconate",
+      "Glycerin",
+      "Ascorbyl Palmitate",
+      "Potassium Sorbate",
+      "Niacinamide",
+      "Pyridoxine HCL",
+      "Inositol",
+      "Biotin",
+      "Thiamine HCL & Riboflavin"
+    ],
+    "sourceUrl": "https://thedermaco.com/products/5-vitamin-c-daily-face-serum-with-ferulic-acid-multivitamin-30ml",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "rose",
+    "benefits": [
+      "Helps skin look radiant",
+      "Targets the appearance of uneven tone"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/fop_5_vitc.jpg?v=1758286651",
+    "routineEligible": false,
+    "treatmentGoal": "brightening",
+    "primaryActive": "vitamin c",
+    "usageNote": "Introduce one new product at a time, test first and follow the current label. Stop if irritation occurs. Check suitability before use.",
+    "reviewNote": "Explore separately: this product is not automatically added to your routine. Check suitability and the current label first."
+  },
+  {
+    "id": "dermaco-snail-peptide-96-hydrating-serum-with-snail-mucin-peptide-c-159c4932db",
+    "brand": "The Derma Co",
+    "name": "Snail Peptide 96 Hydrating Serum with Snail Mucin & Peptide Complex for Smooth & Moisturized Skin - 30 ml",
+    "size": "30 ml",
+    "category": "serum",
+    "referencePrice": 399.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": false,
+    "fragranceFree": false,
+    "ingredientHighlights": [
+      "Snail mucin",
+      "Peptides"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://thedermaco.com/products/snail-peptide-96-hydrating-serum-with-snail-mucin-peptide-complex-for-smooth-moisturized-skin-30-ml",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Helps skin look hydrated",
+      "Supports a smoother-looking finish"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/snail-peptide-serum-front.jpg?v=1758287022",
+    "routineEligible": false,
+    "treatmentGoal": "hydration",
+    "primaryActive": "snail",
+    "usageNote": "Introduce one new product at a time, test first and follow the current label. Stop if irritation occurs. Check suitability before use.",
+    "reviewNote": "Explore separately: this product is not automatically added to your routine. Check suitability and the current label first. Fragrance-free status is unverified."
+  },
+  {
+    "id": "dermaco-sali-cinamide-anti-acne-serum-with-2-salicylic-acid-5-niacinamide-30ml",
+    "brand": "The Derma Co",
+    "name": "Sali-Cinamide Anti-Acne Serum with 2% Salicylic Acid & 5% Niacinamide - 30ml",
+    "size": "30 ml",
+    "category": "serum",
+    "referencePrice": 599.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "acne",
+      "pore"
+    ],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Salicylic acid",
+      "Niacinamide"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Aqua",
+      "1,3-Propanediol",
+      "Ethoxydiglycol",
+      "Niacinamide",
+      "Salicylic Acid",
+      "Dimethyl Isosorbide",
+      "Glycerin",
+      "Pentylene Glycol",
+      "Methylpropanediol",
+      "Pullulan",
+      "Sodium Hyaluronate",
+      "Xanthan Gum",
+      "Hordeum Vulgare Extract",
+      "Methyl Gluceth-20",
+      "Algin",
+      "PEG-40 Hydrogenated Castor Oil",
+      "Ethylhexylglycerin",
+      "Phenoxyethanol",
+      "Sodium Hydroxide",
+      "Trisodium Ethylenediamine Disuccinate",
+      "Tris(Tetramethylhydroxypiperidinol) Citrate",
+      "Propylene Glycol",
+      "Citric Acid",
+      "Calcium Chloride",
+      "Sodium Benzoate",
+      "Potassium Sorbate"
+    ],
+    "sourceUrl": "https://thedermaco.com/products/sali-cinamide-anti-acne-serum-with-2-salicylic-acid-5-niacinamide-30ml",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "Exfoliates surface pore buildup",
+      "Targets the appearance of blackheads"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/pdp_sali-cinamide_serum.jpg?v=1758286814",
+    "routineEligible": false,
+    "treatmentGoal": "breakouts",
+    "primaryActive": "salicylic",
+    "usageNote": "Exfoliating treatment: introduce slowly as directed by the label. Do not combine with another exfoliating acid or retinoid. Use daily SPF 30+. Deep or scarring acne needs a dermatologist.",
+    "eveningOnly": true,
+    "reviewNote": "Explore separately: this product is not automatically added to your routine. Check suitability and the current label first."
+  },
+  {
+    "id": "dermaco-tran-zelaic-pigmentation-corrector-serum-with-tranexamic-ac-2947c494de",
+    "brand": "The Derma Co",
+    "name": "Tran-Zelaic Pigmentation Corrector Serum with Tranexamic Acid & Azelaic Acid - 30ml",
+    "size": "30 ml",
+    "category": "serum",
+    "referencePrice": 649.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Tranexamic acid",
+      "Azelaic acid"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Aqua",
+      "Azelaic acid",
+      "Propanediol",
+      "Niacinamide",
+      "Dimethyl Isosorbide",
+      "Tranexamic acid",
+      "Betaine",
+      "Alpha Arbutin",
+      "D Panthenol",
+      "Phenethyl alcohol",
+      "Caprylyl glycol",
+      "Glycerin",
+      "Sodium PCA",
+      "4-Butyl Resorcinol",
+      "Ferulic acid",
+      "Terminalia Ferdinandiana Fruit Extract",
+      "Allantoin",
+      "Sodium hyaluronate",
+      "Xanthan Gum",
+      "Sodium Hydroxide and Disodium EDTA"
+    ],
+    "sourceUrl": "https://thedermaco.com/products/tran-zelaic-pigmentation-corrector-serum-with-tranexamic-acid-azelaic-acid-30-g",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "rose",
+    "benefits": [
+      "Targets the appearance of uneven tone",
+      "Creamy serum texture"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/tran-zelaic-pigmentation-corrector-serum-front.jpg?v=1772452253",
+    "routineEligible": false,
+    "treatmentGoal": "brightening",
+    "primaryActive": "azelaic",
+    "usageNote": "Introduce one new product at a time, test first and follow the current label. Stop if irritation occurs. Check suitability before use.",
+    "reviewNote": "Explore separately: this product is not automatically added to your routine. Check suitability and the current label first."
+  },
+  {
+    "id": "dermaco-skin-renew-peptide-retinol-serum-cream-with-peptide-retinol-30-ml",
+    "brand": "The Derma Co",
+    "name": "The Derma Co. X Dr V Skin Renew Peptide Retinol Serum-Cream with Peptide & Retinol - 30 ml",
+    "size": "30 ml",
+    "category": "retinoid",
+    "referencePrice": 1599.0,
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Retinol",
+      "Peptides"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Aqua",
+      "C13-15 Alkane",
+      "Diethylhexyl Carbonate",
+      "Behenyl Alcohol",
+      "Caprylic/Capric Triglyceride",
+      "Alpha-Arbutin",
+      "Retinol",
+      "Glycerin",
+      "Butylene Glycol",
+      "Carbomer",
+      "Polysorbate 20",
+      "Palmitoyl Tripeptide-1",
+      "Palmitoyl Tetrapeptide-7",
+      "Methyl Glucose Sesquistearate",
+      "Ascorbyl Glucoside",
+      "Retinaldehyde",
+      "Pentaerythrityl Distearate",
+      "Dipotassium Glycyrrhizate",
+      "Pentylene Glycol",
+      "Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer",
+      "Polyacrylate\nCrosspolymer-6",
+      "4-t-Butylcyclohexanol",
+      "Xanthan Gum",
+      "Pentaerythrityl Tetra-Di-T-Butyl\nHydroxyhydrocinnamate",
+      "Ethylhexylglycerin",
+      "Trisodium Ethylenediamine Disuccinate",
+      "Phenoxyethanol",
+      "Sodium Metabisulfite",
+      "Sodium Lactate",
+      "Sodium Hydroxide"
+    ],
+    "sourceUrl": "https://thedermaco.com/products/skin-renew-peptide-retinol-serum-cream-with-peptide-retinol-30-ml",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Targets the appearance of fine lines",
+      "Cream serum texture"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0888/8057/8807/files/1_12_15.jpg?v=1758286987",
+    "routineEligible": false,
+    "treatmentGoal": "fine-lines",
+    "primaryActive": "retinol",
+    "usageNote": "Evening only. Introduce slowly and follow the current label. Do not combine with another retinoid or exfoliating active. Use daily SPF 30+. Avoid during pregnancy, trying to conceive or breastfeeding; stop if irritated.",
+    "eveningOnly": true,
+    "reviewNote": "Explore separately: this product is not automatically added to your routine. Check suitability and the current label first."
+  },
+  {
     "id": "cosrx-triple-hyaluronic-moisturizing-cleanser",
     "brand": "COSRX",
     "name": "Hydrium Triple Hyaluronic Moisturizing Cleanser",

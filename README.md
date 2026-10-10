@@ -29,7 +29,10 @@ Optional server configuration (restart the dev server after changing it):
 | `MONGODB_URI` | MongoDB catalog and saving/restoring/deleting routines; use a running local MongoDB or Atlas |
 | `MONGODB_DATABASE` | Database name, defaults to `skinnear` |
 | `IPINFO_TOKEN` + `TRUST_PROXY_HEADERS=true` | Optional approximate country/city suggestion, only behind a trusted proxy that sets visitor IP headers |
-| `TASK_SIGNING_SECRET` | Stable signed scan tokens across restarts/instances |
+| `TASK_SIGNING_SECRET` | Stable signed scan and narration tokens across restarts/instances |
+| `GEMINI_API_KEY` | Explicitly requested routine explanations and generated voice |
+| `GEMINI_TEXT_MODEL` / `GEMINI_TTS_MODEL` | Defaults: `gemini-3.8-flash` / `gemini-3.8-flash-tts` |
+| `GEMINI_DAILY_REQUEST_LIMIT` | Deployment-wide text + voice request cap, default 200/day |
 
 Generate the signing secret with `python -c "import secrets; print(secrets.token_hex(32))"`. Never commit secrets.
 
@@ -47,7 +50,7 @@ npm run catalog:validate
 npm run catalog:seed
 ```
 
-The Python seed script upserts the 231 curated products. Run it again when upgrading an existing MongoDB catalog to include reviewed brands, images, benefits and market metadata. Read-only discovery falls back to the bundled catalog if MongoDB is unavailable; private persistence and production quotas still require MongoDB.
+The Python seed script upserts the 267 curated products. Run it again when upgrading an existing MongoDB catalog to include reviewed brands, images, benefits and market metadata. Read-only discovery falls back to the bundled catalog if MongoDB is unavailable; private persistence and production quotas still require MongoDB.
 
 ## Worldwide shopping
 
@@ -55,7 +58,7 @@ Choose a country, city, optional international postal code, and a budget currenc
 
 Blinkit and Zepto appear for India only, using public product pages where verified and retailer searches otherwise. Neither link lookup nor search establishes address-level stock, delivery time, exact variant, or current ingredients. Enter the delivery address with the retailer.
 
-The catalog contains 231 products across 25 brands, including Neutrogena, La Roche-Posay, Vanicream, Aveeno, Eucerin, CeraVe, Bioré, COSRX, Beauty of Joseon, SKIN1004, Round Lab, BYOMA, The INKEY List, Naturium and Geek & Gorgeous alongside the expanded Indian collection. Official product pages supply linked benefit summaries and remote packaging images (with a fallback if unavailable). US, UK, Canadian, Japanese and Singapore sunscreen variants remain separate records; Korean skincare also appears in curated import collections for Australia and selected European countries. See [catalog research and maintenance](docs/catalog-research.md) for sources, selection rules and limitations.
+The catalog contains 267 products across 26 brands, including Neutrogena, La Roche-Posay, Vanicream, Aveeno, Eucerin, CeraVe, Bioré, COSRX, Beauty of Joseon, SKIN1004, Round Lab, BYOMA, The INKEY List, Naturium and Geek & Gorgeous alongside The Derma Co and the expanded Indian collection. Official product pages supply linked benefit summaries and remote packaging images (with a fallback if unavailable). US, UK, Canadian, Japanese and Singapore sunscreen variants remain separate records; Korean skincare also appears in curated import collections for Australia and selected European countries. See [catalog research and maintenance](docs/catalog-research.md) for sources, selection rules and limitations.
 
 The library initially renders 24 products, with search, country/brand/type filters and a Show more control. Browse-only items include stronger actives and goals outside the supported recommendation flow; they cannot be pinned into automatic routines. An unknown full ingredient list is never treated as safe for ingredient exclusions.
 
@@ -105,7 +108,7 @@ npm run catalog:validate
 python scripts/smoke.py
 ```
 
-Sixty-one unit tests cover basket constraints, exclusions, swaps, score direction, treatment consent and safety gates, duplicate prevention, optional budget caps across currencies, signed tokens, country validation, postal codes, retailer scoping, missing-key fallback, and mocked live provider parameters. Upload tests cover rotation, metadata stripping, dimensions, invalid images and bounded streamed bodies. Abuse tests cover visitor signatures, isolated quotas, concurrency, cookie-reset resistance, the global cap, token ownership, fail-closed production configuration and the development-only localhost exemption. Live provider uploads and task polling were tested with the generated portrait: YouCam correctly rejected insufficient face size and head angle; these now become actionable 422 responses even when results is null. Successful score mapping is covered by provider fixtures, including scoreless metadata; a successful live report still requires a valid front-facing close-up. Credentialed SerpApi, shared MongoDB quota operations and routine persistence require verification with the configured deployment services.
+Seventy-six unit tests cover basket constraints, exclusions, swaps, score direction, treatment consent and safety gates, duplicate prevention, optional budget caps across currencies, signed tokens, country validation, postal codes, retailer scoping, missing-key fallback, and mocked live provider parameters. Upload tests cover rotation, metadata stripping, dimensions, invalid images and bounded streamed bodies. Abuse tests cover visitor signatures, isolated quotas, concurrency, cookie-reset resistance, the global cap, token ownership, fail-closed production configuration and the development-only localhost exemption. Live provider uploads and task polling were tested with the generated portrait: YouCam correctly rejected insufficient face size and head angle; these now become actionable 422 responses even when results is null. Successful score mapping is covered by provider fixtures, including scoreless metadata; a successful live report still requires a valid front-facing close-up. Credentialed SerpApi, shared MongoDB quota operations and routine persistence require verification with the configured deployment services.
 
 API references: [YouCam skin analysis](https://docs.perfectcorp.com/reference/ai_skin_analysis), [SerpApi shopping](https://serpapi.com/google-shopping-api). Generated design references and intentional deviations are in `docs/design/DESIGN.md`.
 
@@ -119,3 +122,19 @@ Download routines and wishlists as interactive HTML with morning/evening views, 
 ### Breakout serum selection
 
 YouCam requests the documented acne action alongside moisture, redness, oiliness and pore. A targeted breakout serum requires explicit consent, self-reported mild blackheads/small breakouts, a matching live cosmetic insight, established essentials, adult/health confirmations and daily sunscreen. It uses only the remaining budget and never replaces essentials. Severe, deep, painful, scarring or uncertain symptoms block all extra actives and recommend a dermatologist; the app does not prescribe. Guidance follows [AAD acne care](https://www.aad.org/public/diseases/acne/diy/adult-acne-treatment). Salicylic serums appear in the evening view; sample scores cannot justify treatment recommendations.
+
+### Grounded routine explanations and voice
+
+The catalog now includes 24 The Derma Co products for India and 15 Cetaphil records, with separate India and US formulas. See [the research audit](docs/catalog-research.md) for official sources and price limitations.
+
+A committed index contains 768-dimensional `gemini-embedding-001` embeddings for public product descriptions and five generic cosmetic concern queries. Retrieval runs locally, checks document hashes, and uses a bounded semantic score after country, suitability and ingredient filtering. The whole-basket optimizer retains hard budget constraints; missing or stale vectors fall back to ordinary ranking. Skin scores never leave the server for embedding calls. This small catalog uses local vector similarity rather than requiring a hosted vector database.
+
+After building a feasible routine, explicitly consent and choose **Explain my routine**. Gemini receives only selected public product facts, planning estimates and budget. It receives no selfie, skin scores, location or health answers. Explanations must reference exactly the selected products and cannot add products, alter the budget or prescribe treatment. The UI includes source links and identifies the output as AI cosmetic guidance. Google Interactions requests use `store: false`; provider processing remains subject to Google's terms.
+
+Choose **Generate natural voice** to narrate the displayed explanation using Gemini speech generation, then use the audio controls to listen or replay. Playback does not create another API request. Voice requests accept only a signed, browser-bound transcript token lasting 15 minutes; refresh the explanation after expiry. Withdrawing consent aborts pending requests and clears text/audio; changing the routine also resets consent. No AI request runs automatically when building a routine.
+
+Production counts every explanation and voice attempt against 10/hour and 20/day per browser, 60/day per IP, and the configured deployment cap. The same localhost development exemption applies. A valid MongoDB configuration and signing secret are required in production. Failed attempts consume quota.
+
+To refresh public vectors after catalog edits, run `python scripts/build_embeddings.py` with the server-only Gemini key configured. It reuses matching document hashes and writes the index atomically after successful generation; generating vectors consumes API quota. Ordinary routine matching works without a Gemini key using the committed index.
+
+For an explicitly paid live integration check, run `python scripts/ai_smoke.py --live` against the local dev server. It uses a synthetic sample plan and validates both selected-product grounding and WAV output. Current text, embedding and speech integration follows [Google's Gemini documentation](https://ai.google.dev/gemini-api/docs/text-generation), [embeddings](https://ai.google.dev/gemini-api/docs/embeddings) and [speech generation](https://ai.google.dev/gemini-api/docs/speech-generation).

@@ -57,4 +57,14 @@ export class AbuseProtectionService {
     } catch (error) { await this.releaseScan(userId, lease); throw error; }
   }
   async releaseScan(userId: string, lease: string) { if (this.enabled) await this.store.release(`scan:active:${userId}`, lease); }
+  async reserveAi(headers: Headers, userId: string) {
+    if (!this.enabled) return;
+    const ip = this.ip(headers);
+    await this.consume(`ai:hour:user:${userId}`, 10, 3600000);
+    await this.consume(`ai:day:user:${userId}`, 20, 86400000);
+    await this.consume(`ai:day:ip:${ip}`, 60, 86400000);
+    const configured = Number(process.env.GEMINI_DAILY_REQUEST_LIMIT || 200);
+    const maximum = Number.isInteger(configured) && configured > 0 && configured <= 10000 ? configured : 200;
+    await this.consume("ai:day:global", maximum, 86400000);
+  }
 }

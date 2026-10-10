@@ -1,4 +1,28 @@
 source,handle,category,size,variant,highlights,benefit1,benefit2,goal,active,mode,sensitive
+dermaco,2-niacinamide-gentle-skin-cleanser-for-sensitive-dry-normal-skin-125-ml,cleanser,125 ml,0,Niacinamide|Panthenol,Gently removes daily impurities,Leaves dry-feeling skin comfortable,,,routine,true
+dermaco,2-niacinamide-oily-skin-cleanser-for-sensitive-oily-combination-skin-125-ml,cleanser,125 ml,0,Niacinamide,Gel cleanse removes surface oil,Helps maintain moisture while cleansing,,,routine,true
+dermaco,5-nia-ceramide-daily-hydrating-moisturizer-100g,moisturizer,100 g,0,Niacinamide|Ceramides,Daily hydration for dry-feeling skin,Helps support the moisture barrier,,,routine,false
+dermaco,4-ceramide-barrier-repair-moisturizer-with-ceramide-niacinamide-and-oxylance-50-gm,moisturizer,50 g,0,Ceramides|Niacinamide,Helps retain surface moisture,Supports the moisture barrier,,,routine,false
+dermaco,5-nia-ceramide-mattifying-moisturizer-100g,moisturizer,100 g,0,Niacinamide|Ceramides,Lightweight mattifying hydration,Helps reduce the appearance of shine,,,routine,false
+dermaco,oil-free-daily-face-moisturizer-with-hyaluronic-acid-ceramides-multivitamins-for-non-greasy-hydrated-skin-100g,moisturizer,100 g,0,Hyaluronic acid|Ceramides,Non-greasy daily hydration,Helps skin feel soft,,,routine,false
+dermaco,5-vitamin-c-oil-free-daily-face-moisturizer-for-skin-radiance-100g,moisturizer,100 g,0,Vitamin C,Oil-free moisturizing texture,Helps skin look radiant,,,routine,false
+dermaco,5-propylene-oil-free-moisturizer-with-propylene-glycol-hyaluronic-acid-100-g,moisturizer,100 g,0,Propylene glycol|Hyaluronic acid,Light oil-free hydration,Helps dry-feeling skin retain moisture,,,routine,false
+dermaco,1-salicylic-acid-oil-free-moisturizer-for-face-with-oat-extract-50g,moisturizer,50 g,0,Salicylic acid|Oat,Exfoliating moisturizer for oily-looking skin,Light oil-free texture,,,browse,false
+dermaco,1-hyaluronic-sunscreen-aqua-gel,sunscreen,50 g,0,Hyaluronic acid|UV filters,SPF 50 PA++++ protection,Light hydrating gel texture,,,routine,false
+dermaco,1-hyaluronic-sunscreen-hydrating-gel-50-g,sunscreen,50 g,0,Hyaluronic acid|UV filters,SPF 50 PA++++ protection,Hydrating finish for dry-feeling skin,,,routine,true
+dermaco,1-hyaluronic-sunscreen-oil-free-gel-50-g,sunscreen,50 g,0,Hyaluronic acid|UV filters,SPF 50 PA++++ protection,Oil-free matte gel finish,,,routine,false
+dermaco,ultra-light-zinc-mineral-sunscreen-with-spf-50-for-broad-spectrum-uva-uvb-blue-light-protection-50g,sunscreen,50 g,0,Zinc oxide,SPF 50 mineral sun protection,Light daily sunscreen texture,,,routine,false
+dermaco,pore-minimizing-priming-sunscreen-with-spf-50-pa-for-open-pores-uva-uvb-protection-50g,sunscreen,50 g,0,Niacinamide|UV filters,SPF 50 PA+++ sun protection,Priming gel finish,,,routine,false
+dermaco,c-cinamide-radiance-sunscreen-aqua-gel-with-spf-50-pa-50g,sunscreen,50 g,0,Vitamin C|Niacinamide|UV filters,SPF 50 PA++++ protection,Hydrating aqua gel finish,,,routine,false
+dermaco,hyaluronic-invisible-sunscreen-gel-with-hyaluronic-acid-vitamin-e-50g,sunscreen,50 g,0,Hyaluronic acid|Vitamin E|UV filters,Daily sun protection,Invisible gel finish,,,routine,false
+dermaco,1-hyaluronic-tinted-sunscreen-gel-for-broad-spectrum-protection-50g,sunscreen,50 g,0,Hyaluronic acid|UV filters,Broad-spectrum sun protection,Tinted gel finish,,,browse,false
+dermaco,10-percent-niacinamide-serum,serum,30 ml,0,Niacinamide|Zinc PCA,Helps reduce visible shine,Refines the appearance of pores,oil-balance,niacinamide,browse,false
+dermaco,5-niacinamide-daily-face-serum-with-alpha-arbutin-multivitamin-30ml,serum,30 ml,0,Niacinamide|Alpha arbutin,Helps skin tone look more even,Light daily serum texture,brightening,niacinamide,browse,false
+dermaco,5-vitamin-c-daily-face-serum-with-ferulic-acid-multivitamin-30ml,serum,30 ml,0,Vitamin C|Ferulic acid,Helps skin look radiant,Targets the appearance of uneven tone,brightening,vitamin c,browse,false
+dermaco,snail-peptide-96-hydrating-serum-with-snail-mucin-peptide-complex-for-smooth-moisturized-skin-30-ml,serum,30 ml,0,Snail mucin|Peptides,Helps skin look hydrated,Supports a smoother-looking finish,hydration,snail,browse,false
+dermaco,sali-cinamide-anti-acne-serum-with-2-salicylic-acid-5-niacinamide-30ml,serum,30 ml,0,Salicylic acid|Niacinamide,Exfoliates surface pore buildup,Targets the appearance of blackheads,breakouts,salicylic,browse,false
+dermaco,tran-zelaic-pigmentation-corrector-serum-with-tranexamic-acid-azelaic-acid-30-g,serum,30 ml,0,Tranexamic acid|Azelaic acid,Targets the appearance of uneven tone,Creamy serum texture,brightening,azelaic,browse,false
+dermaco,skin-renew-peptide-retinol-serum-cream-with-peptide-retinol-30-ml,retinoid,30 ml,0,Retinol|Peptides,Targets the appearance of fine lines,Cream serum texture,fine-lines,retinol,browse,false
 cosrx,triple-hyaluronic-moisturizing-cleanser,cleanser,150 ml,0,Hyaluronic acid|Panthenol,Cushioned foaming cleanse,Leaves a hydrated after-feel,,,routine,false
 cosrx,pure-fit-cica-creamy-foam-cleanser,cleanser,150 ml,0,Centella,Creamy foam lifts daily impurities,Leaves skin feeling fresh,,,routine,false
 cosrx,advanced-snail-mucin-gel-cleanser,cleanser,150 ml,0,Snail mucin,Gel cleanser with a smooth lather,Helps retain moisture while cleansing,,,routine,false

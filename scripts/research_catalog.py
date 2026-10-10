@@ -48,6 +48,7 @@ class OfficialCatalogResearch:
         'geek-us': 'https://geekandgorgeous.us',
         'naturium': 'https://naturium.com',
         'reequil': 'https://www.reequil.com',
+        'dermaco': 'https://thedermaco.com',
     }
 
     def __init__(self, destination: Path) -> None:

@@ -30,7 +30,19 @@ test("local bypass allows repeated requests and overlapping scans", async () => 
   for (let i = 0; i < 50; i++) {
     await guard.request(new Headers(), "visitor", "local", 1);
     await guard.reserveScan(new Headers(), "visitor");
+    await guard.reserveAi(new Headers(), "visitor");
   }
+});
+
+test("paid AI requests have independent user and global daily caps", async()=>{
+  const previous=process.env.GEMINI_DAILY_REQUEST_LIMIT;
+  process.env.GEMINI_DAILY_REQUEST_LIMIT="2";
+  try {
+    const guard=new AbuseProtectionService(new MemoryAbuseStore());
+    await guard.reserveAi(new Headers(),"visitor-a");
+    await guard.reserveAi(new Headers(),"visitor-b");
+    await assert.rejects(guard.reserveAi(new Headers(),"visitor-c"),/request limit/);
+  } finally {if(previous===undefined)delete process.env.GEMINI_DAILY_REQUEST_LIMIT;else process.env.GEMINI_DAILY_REQUEST_LIMIT=previous;}
 });
 test("rate limits isolate visitors and return Retry-After", async () => {
   const now = 1000; const store = new MemoryAbuseStore(undefined, () => now);
