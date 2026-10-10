@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { AppError } from "@/lib/errors";
 
-const envelopeSchema = z.object({ status: z.number().optional(), data: z.unknown().optional(), error_code: z.string().optional() });
+const envelopeSchema = z.object({ status: z.number().optional(), data: z.unknown().optional(), error_code: z.string().nullable().optional() });
 
 /** Server-side transport. Provider bodies and credentials never reach the browser. */
 export class YouCamClient {
@@ -30,12 +30,17 @@ export class YouCamClient {
       const status = envelope.success ? envelope.data.status ?? response.status : response.status;
       if (status === 401 || status === 403) throw new AppError("YouCam rejected the API key or access to skin analysis. Check your key and account permissions.", 503);
       if (status === 429) throw new AppError("YouCam is busy. Please wait a moment before trying again.", 429);
-      if (status === 402 || code === "InsufficientCredit") throw new AppError("Your YouCam account needs more units to run this scan.", 503);
+      if (status === 402 || code === "InsufficientCredit" || code === "CreditInsufficiency") throw new AppError("Your YouCam account needs more units to run this scan.", 503);
       if (status === 400) throw new AppError("YouCam could not accept this photo or scan request. Try a clear, front-facing JPEG or PNG.", 422);
       throw new AppError("YouCam could not complete this request. Please retry.", 502);
     }
     const parsed = schema.safeParse(envelope.success ? envelope.data.data : undefined);
-    if (!parsed.success) throw new AppError("YouCam returned an unexpected response. Please retry.", 502);
+    if (!parsed.success) {
+      const stage = path === "/s2s/v2.0/file" ? "file registration" : options.method === "POST" ? "task creation" : "task status";
+      // Log schema locations only, never credentials, photos, scores or signed URLs.
+      console.error("YouCam response validation failed", { stage, issues: parsed.error.issues.map((issue) => ({ code: issue.code, path: issue.path.join(".") })) });
+      throw new AppError(`YouCam returned an invalid ${stage} response. Please retry.`, 502);
+    }
     return parsed.data;
   }
 }

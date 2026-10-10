@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { z } from "zod";
-import { YouCamService } from "../src/services/YouCamService";
+import { YouCamService, YouCamTaskError } from "../src/services/YouCamService";
 import { YouCamClient } from "../src/services/YouCamClient";
 import { TaskTokenService } from "../src/services/TaskTokenService";
 
@@ -60,9 +60,65 @@ test("provider authentication and malformed response errors are sanitized", asyn
     globalThis.fetch = async () => json({ error: "private provider details test-only-key" }, 401);
     await assert.rejects(new YouCamClient().request("/test", z.object({})), /YouCam rejected the API key/);
     globalThis.fetch = async () => json({ status: 200, data: { files: [] } });
-    await assert.rejects(new YouCamService().start(new File(["test"], "photo.png", { type: "image/png" })), /unexpected response/);
+    await assert.rejects(new YouCamService().start(new File(["test"], "photo.png", { type: "image/png" })), /invalid file registration response/);
     globalThis.fetch = async () => json({ status: 429, error: "private details" });
     await assert.rejects(new YouCamClient().request("/test", z.object({})), /YouCam is busy/);
+  } finally { restore(); }
+});
+
+test("documented metadata entries do not invalidate completed skin scores", async () => {
+  const restore = fixture();
+  try {
+    const token = new TaskTokenService().issue("task-with-metadata");
+    // https://docs.perfectcorp.com/reference/ai_skin_analysis — JSON result example.
+    globalThis.fetch = async () => json({ status: 200, error_code: null, data: {
+      task_status: "success", error: null, results: { output: [
+        { type: "moisture", raw_score: 65.3, ui_score: 72, mask_urls: ["https://example.com/moisture.jpg"] },
+        { type: "redness", ui_score: 80, mask_urls: null },
+        { type: "oiliness", ui_score: 63, mask_urls: [null, 123, "javascript:alert(1)"] },
+        { type: "pore", ui_score: 83 },
+        { type: "skin_type", region: "whole", skin_type: "Combination" },
+        { type: "skin_age", score: 29 },
+        { type: "all", score: 28.5 },
+        { type: "resize_image", mask_urls: ["https://example.com/resized.jpg"] },
+      ] },
+    } });
+    const result = await new YouCamService().status(token);
+    assert.equal(result.status, "success");
+    assert.deepEqual(result.analysis?.scores.map(({ concern, score }) => ({ concern, score })), [
+      { concern: "moisture", score: 72 }, { concern: "redness", score: 80 },
+      { concern: "oiliness", score: 63 }, { concern: "pore", score: 83 },
+    ]);
+    assert.equal(result.analysis?.scores[0].maskUrl, "https://example.com/moisture.jpg");
+    assert.equal(result.analysis?.scores[2].maskUrl, undefined);
+  } finally { restore(); }
+});
+
+test("polling handles incomplete results and rejects ZIP or metadata-only success", async () => {
+  const restore = fixture();
+  try {
+    const token = new TaskTokenService().issue("task-id");
+    globalThis.fetch = async () => json({ data: { task_status: "running", results: { output: [null] } } });
+    assert.deepEqual(await new YouCamService().status(token), { status: "running" });
+    for (const results of [null, "https://example.com/results.zip", { url: "https://example.com/results.zip" }, { output: {} }]) {
+      globalThis.fetch = async () => json({ data: { task_status: "success", results } });
+      await assert.rejects(new YouCamService().status(token), (error: unknown) => error instanceof YouCamTaskError && error.status === 502 && /requested JSON results/.test(error.message));
+    }
+    globalThis.fetch = async () => json({ data: { task_status: "success", results: { output: [
+      { type: "skin_age", score: 29 }, { type: "all", score: 90 },
+      { type: "moisture", raw_score: 90 }, { type: "pore", ui_score: "90" }, null,
+    ] } } });
+    await assert.rejects(new YouCamService().status(token), /no supported scores/);
+  } finally { restore(); }
+});
+
+test("documented insufficient credit error is an account error, not a photo error", async () => {
+  const restore = fixture();
+  try {
+    for (const status of [200, 400]) {
+      globalThis.fetch = async () => json({ status: 400, error_code: "CreditInsufficiency", error: "private details" }, status);
+      await assert.rejects(new YouCamClient().request("/test", z.object({})), /account needs more units/);
+    }
   } finally { restore(); }
 });
 

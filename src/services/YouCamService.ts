@@ -7,7 +7,14 @@ import { YouCamClient } from "./YouCamClient";
 
 const uploadSchema = z.object({ files: z.array(z.object({ file_id: z.string().min(1), requests: z.array(z.object({ method: z.literal("PUT"), url: z.url(), headers: z.record(z.string(), z.string()) })).min(1) })).min(1) });
 const taskSchema = z.object({ task_id: z.string().min(1) });
-const statusSchema = z.object({ task_status: z.enum(["queued", "pending", "running", "success", "error"]), error: z.string().nullable().optional(), results: z.object({ output: z.array(z.object({ type: z.string(), ui_score: z.number(), mask_urls: z.array(z.string()).optional() })) }).nullable().optional() });
+// Results are heterogeneous: skin_age, all and resize_image have no ui_score.
+// Inspect them only after completion; running/error responses need no results.
+const statusSchema = z.object({ task_status: z.enum(["queued", "pending", "running", "success", "error"]), error: z.string().nullable().optional(), results: z.unknown().optional() });
+const resultsSchema = z.object({ output: z.array(z.unknown()) });
+const outputSchema = z.object({ type: z.string(), ui_score: z.unknown().optional(), mask_urls: z.unknown().optional() });
+
+/** The provider has finished; its concurrency lease can safely be released. */
+export class YouCamTaskError extends AppError {}
 
 export class YouCamService {
   private readonly tokens = new TaskTokenService();
@@ -39,14 +46,20 @@ export class YouCamService {
         error_decode_image: "YouCam could not read this photo. Choose another JPEG or PNG.",
         exceed_nsfw_retry_limits: "YouCam could not process this photo. Choose a different front-facing selfie.",
       };
-      throw new AppError(messages[task.error || ""] || "This photo could not be analyzed. Try a brighter, front-facing photo with your face fully visible.", 422);
+      throw new YouCamTaskError(messages[task.error || ""] || "This photo could not be analyzed. Try a brighter, front-facing photo with your face fully visible.", 422);
     }
     if (task.task_status !== "success") return { status: "running" };
-    const scores = (task.results?.output ?? []).flatMap((output) => {
-      const parsed = scoreSchema.safeParse({ concern: output.type, score: output.ui_score, maskUrl: output.mask_urls?.find(safeHttpsUrl) });
+    const results = resultsSchema.safeParse(task.results);
+    if (!results.success) throw new YouCamTaskError("YouCam finished the scan but did not return the requested JSON results. Please retry.", 502);
+    const scores = results.data.output.flatMap((entry) => {
+      const output = outputSchema.safeParse(entry);
+      if (!output.success) return [];
+      const masks = Array.isArray(output.data.mask_urls) ? output.data.mask_urls : [];
+      const maskUrl = masks.find((url): url is string => typeof url === "string" && safeHttpsUrl(url));
+      const parsed = scoreSchema.safeParse({ concern: output.data.type, score: output.data.ui_score, maskUrl });
       return parsed.success ? [parsed.data] : [];
     });
-    if (!scores.length) throw new AppError("The scan finished but returned no supported scores. Please retry.", 502);
+    if (!scores.length) throw new YouCamTaskError("The scan finished but returned no supported scores. Please retry.", 502);
     return { status: "success", analysis: { mode: "live", scores } };
   }
 

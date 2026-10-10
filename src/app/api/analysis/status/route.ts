@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { YouCamService } from "@/services/YouCamService";
+import { YouCamService, YouCamTaskError } from "@/services/YouCamService";
 import { errorResponse, AppError } from "@/lib/errors";
 import { limitRequest } from "@/lib/rate-limit";
 import { boundedJson } from "@/lib/request-body";
@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
       if (result.status === "success" && scan.lease) await protection.releaseScan(userId, scan.lease);
       return NextResponse.json(result, { headers: { "Cache-Control": "no-store" } });
     } catch (error) {
-      if (error instanceof AppError && error.status === 422 && scan.lease) await protection.releaseScan(userId, scan.lease);
+      if ((error instanceof YouCamTaskError || (error instanceof AppError && error.status === 422)) && scan.lease) await protection.releaseScan(userId, scan.lease);
       throw error;
     }
   } catch (error) { return errorResponse(error); }
