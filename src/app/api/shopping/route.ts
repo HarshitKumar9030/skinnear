@@ -1,3 +1,4 @@
+import { boundedJson } from "@/lib/request-body";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { preferencesSchema } from "@/domain/schemas";
@@ -8,8 +9,8 @@ import { limitRequest } from "@/lib/rate-limit";
 
 export async function POST(request: NextRequest) {
   try {
-    limitRequest(request.headers, "shopping", 8);
-    const input = z.object({ productId: z.string(), city: preferencesSchema.shape.city, country: preferencesSchema.shape.country, retailer: z.enum(["blinkit", "zepto"]).optional() }).parse(await request.json());
+    await limitRequest(request.headers, "shopping", 8);
+    const input = z.object({ productId: z.string(), city: preferencesSchema.shape.city, country: preferencesSchema.shape.country, retailer: z.enum(["blinkit", "zepto"]).optional() }).parse(await boundedJson(request));
     if (input.retailer && input.country !== "IN") throw new AppError("Blinkit and Zepto lookups are available for India only.", 400);
     const catalog = await new ProductRepository().getCatalog();
     const product = catalog.products.find((p) => p.id === input.productId);

@@ -541,3 +541,4 @@ input[type="checkbox"] { accent-color: var(--accent); width: 17px; height: 17px;
   .step-copy small { display: none; }
   .step-dot { position: absolute; top: 19px; right: 10px; }
 }
+.scan-panel.is-dragging { background: #e9e0f7; }

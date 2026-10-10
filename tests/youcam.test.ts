@@ -70,8 +70,14 @@ test("failed scans and missing supported scores never become sample results", as
   const restore = fixture();
   try {
     const token = new TaskTokenService().issue("task-id");
-    globalThis.fetch = async () => json({ data: { task_status: "error" } });
+    globalThis.fetch = async () => json({ data: { task_status: "error", error: "unknown_internal_error", results: null } });
     await assert.rejects(new YouCamService().status(token), /front-facing photo/);
+    globalThis.fetch = async () => json({ data: { task_status: "error", error: "error_no_face", results: null } });
+    await assert.rejects(new YouCamService().status(token), /could not detect a face/);
+    globalThis.fetch = async () => json({ data: { task_status: "error", error: "error_src_face_too_small", results: null } });
+    await assert.rejects(new YouCamService().status(token), /60%/);
+    globalThis.fetch = async () => json({ data: { task_status: "running", results: null } });
+    assert.deepEqual(await new YouCamService().status(token), { status: "running" });
     globalThis.fetch = async () => json({ data: { task_status: "success", results: { output: [{ type: "moisture", ui_score: 101 }] } } });
     await assert.rejects(new YouCamService().status(token), /no supported scores/);
   } finally { restore(); }

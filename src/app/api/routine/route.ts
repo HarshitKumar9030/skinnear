@@ -1,3 +1,4 @@
+import { boundedJson } from "@/lib/request-body";
 import { NextRequest, NextResponse } from "next/server";
 import { routineRequestSchema } from "@/domain/schemas";
 import { RoutineService } from "@/services/RoutineService";
@@ -6,8 +7,8 @@ import { limitRequest } from "@/lib/rate-limit";
 
 export async function POST(request: NextRequest) {
   try {
-    limitRequest(request.headers, "routine", 30);
-    const input = routineRequestSchema.parse(await request.json());
+    await limitRequest(request.headers, "routine", 30);
+    const input = routineRequestSchema.parse(await boundedJson(request));
     return NextResponse.json(await new RoutineService().build(input));
   } catch (error) { return errorResponse(error); }
 }
