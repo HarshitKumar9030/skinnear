@@ -15,12 +15,13 @@ export const CONCERN_LABELS = {
   redness: "Redness",
   oiliness: "Oil balance",
   pore: "Pores",
+  acne: "Breakouts",
 };
 
 export const CATEGORY_LABELS = {
   cleanser: "Cleanse",
   moisturizer: "Hydrate",
   sunscreen: "Protect",
-  serum: "Optional serum",
+  serum: "Targeted serum",
   retinoid: "Optional retinol",
 };

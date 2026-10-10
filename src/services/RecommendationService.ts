@@ -15,6 +15,7 @@ export class RecommendationService {
     const { preferences, analysis, excludedProductIds } = request;
     const categories = CATEGORIES.filter((category) => !preferences.ownedCategories.includes(category));
     const eligible = this.products
+      .filter((product) => !["severe", "unsure"].includes(preferences.treatments?.breakoutSeverity ?? "none") || ![...product.ingredients, ...product.ingredientHighlights].join(" ").toLowerCase().match(/salicylic|glycolic|lactic acid|retinol/))
       .filter((product) => !excludedProductIds.includes(product.id))
       .filter((product) => !preferences.fragranceFree || product.fragranceFree)
       .filter((product) => !preferences.sensitive || product.category === "sunscreen" || product.sensitive)

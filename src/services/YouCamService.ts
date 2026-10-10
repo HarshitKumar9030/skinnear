@@ -30,7 +30,7 @@ export class YouCamService {
     try { response = await fetch(upload.url, { method: "PUT", headers: upload.headers, body: await file.arrayBuffer(), signal: AbortSignal.timeout(30000), redirect: "error" }); }
     catch { throw new AppError("Your photo could not be uploaded. Please retry.", 502); }
     if (!response.ok) throw new AppError("Your photo could not be uploaded. Please retry.", 502);
-    const task = await this.client.request("/s2s/v2.0/task/skin-analysis", taskSchema, { method: "POST", body: JSON.stringify({ src_file_id: metadata.files[0].file_id, dst_actions: ["moisture", "redness", "oiliness", "pore"], miniserver_args: { enable_mask_overlay: true }, format: "json" }) });
+    const task = await this.client.request("/s2s/v2.0/task/skin-analysis", taskSchema, { method: "POST", body: JSON.stringify({ src_file_id: metadata.files[0].file_id, dst_actions: ["moisture", "redness", "oiliness", "pore", "acne"], miniserver_args: { enable_mask_overlay: true }, format: "json" }) });
     return this.tokens.issue(task.task_id, ownerId, lease);
   }
 

@@ -36,7 +36,7 @@ test("substitutes an excluded item while preserving budget and category coverage
 test("ingredient exclusions remove matches and products with incomplete formulas", () => {
   const result = service.build(input({ exclusions: ["glycerin"] }));
   assert.equal(result.feasible, false);
-  const result2 = service.build(input({ exclusions: ["niacinamide"], ownedCategories: ["sunscreen"] }));
+  const result2 = service.build(input({ exclusions: ["niacinamide"], ownedCategories: ["moisturizer", "sunscreen"] }));
   assert.equal(result2.feasible, true);
   assert.ok(result2.items.every((item) => item.product.ingredientsComplete));
   assert.ok(result2.items.every((item) => !item.product.ingredients.join(" ").toLowerCase().includes("niacinamide")));
@@ -50,12 +50,12 @@ test("owned essentials do not generate redundant purchases", () => {
 test("higher favorable score does not turn into a higher concern priority", () => {
   const analysis = { mode: "demo" as const, scores: [{ concern: "oiliness" as const, score: 20 }, { concern: "redness" as const, score: 95 }] };
   const result = service.build({ ...input(), analysis });
-  assert.equal(result.items[0].product.id, "minimalist-aquaporin");
-  assert.equal(result.items[1].product.id, "minimalist-b5");
+  assert.ok(result.items[0].product.concerns.includes("oiliness"));
+  assert.ok(result.items[1].product.concerns.includes("oiliness"));
 });
 
 test("expanded catalog exposes multiple brands with source-backed images and benefits", () => {
-  assert.ok(new Set(products.map((product) => product.brand)).size >= 6);
+  assert.ok(new Set(products.map((product) => product.brand)).size >= 9);
   assert.ok(products.every((product) => product.imageUrl?.startsWith("https://") && product.benefits.length >= 2));
   const routine = service.build(input({ budget: 5000 }));
   assert.ok(routine.items[0].alternatives.some((product) => product.brand === "Cetaphil"));

@@ -91,12 +91,40 @@ test("exclusions, existing treatments and direct product choices cannot bypass c
 
 test("hydration does not add a redundant hyaluronic serum and excludes incomplete formulas", () => {
   const input = request({ goal: "hydration" }); input.analysis.scores = [{ concern: "moisture", score: 30 }];
+  input.selectedProductIds = ["minimalist-b5", "cetaphil-sun"];
   assert.equal(extras(service.build(input)).length, 0);
   input.selectedProductIds = [];
   input.preferences.ownedCategories = ["cleanser", "moisturizer", "sunscreen"];
-  assert.equal(extras(service.build(input))[0]?.product.id, "ordinary-ha-b5");
+  assert.equal(extras(service.build(input))[0]?.product.treatmentGoal, "hydration");
   input.preferences.exclusions = ["oat"];
   assert.equal(extras(service.build(input)).length, 0);
+});
+
+test("mild breakout serums require matching live insight, consent, SPF and budget", () => {
+  const input=request({goal:"breakouts",breakoutSeverity:"mild",dailySunscreen:true});
+  input.analysis.scores.push({concern:"acne",score:35});
+  const result=service.build(input);
+  assert.equal(extras(result).length,1);
+  assert.equal(extras(result)[0].product.treatmentGoal,"breakouts");
+  assert.equal(extras(result)[0].product.eveningOnly,true);
+  assert.ok(result.total<=result.budget);
+  for(const patch of [{consent:false},{dailySunscreen:false},{healthClear:false}]) {
+    assert.equal(extras(service.build({...input,preferences:{...input.preferences,treatments:{...input.preferences.treatments!,...patch}}})).length,0);
+  }
+  input.analysis.scores=input.analysis.scores.filter(score=>score.concern!=="acne");
+  assert.equal(extras(service.build(input)).length,0);
+});
+
+test("severe or uncertain breakouts block all actives, including direct choices", () => {
+  for(const breakoutSeverity of ["severe","unsure"] as const) {
+    const input=request({breakoutSeverity});
+    const result=service.build(input);
+    assert.equal(extras(result).length,0);
+    assert.match(result.treatmentMessage!,/dermatologist/);
+    assert.ok(result.items.every(({product})=>!product.ingredientHighlights.join(" ").toLowerCase().match(/glycolic|salicylic|retinol/)));
+    input.selectedProductIds=["minimalist-niacinamide-5"];
+    assert.throws(()=>service.build(input),/no longer matches/);
+  }
 });
 
 test("converted currencies obey the same total and alternative budget cap", () => {

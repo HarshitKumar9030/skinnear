@@ -2,7 +2,7 @@ import { Droplets, Leaf, Sparkles, Sun } from "lucide-react";
 import type { SkinAnalysis } from "@/domain/schemas";
 import { CONCERN_LABELS } from "@/domain/sample";
 
-const icons = { moisture: Droplets, redness: Leaf, oiliness: Sun, pore: Sparkles };
+const icons = { moisture: Droplets, redness: Leaf, oiliness: Sun, pore: Sparkles, acne: Leaf };
 
 export function SkinReport({ analysis, compact = false }: { analysis: SkinAnalysis; compact?: boolean }) {
   return <section className={`skin-report ${compact ? "compact" : ""}`} aria-label="Your skin report">

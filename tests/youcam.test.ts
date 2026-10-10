@@ -45,7 +45,7 @@ test("YouCam registers, uploads, starts and polls a live scan without sending th
     assert.equal((calls[1].options?.headers as Record<string, string>).Authorization, undefined);
     assert.equal(calls[1].options?.redirect, "error");
     assert.deepEqual(Array.from(new Uint8Array(calls[1].options?.body as ArrayBuffer)), [1, 2, 3]);
-    assert.deepEqual(JSON.parse(String(calls[2].options?.body)).dst_actions, ["moisture", "redness", "oiliness", "pore"]);
+    assert.deepEqual(JSON.parse(String(calls[2].options?.body)).dst_actions, ["moisture", "redness", "oiliness", "pore", "acne"]);
     assert.deepEqual(await service.status(token), { status: "running" });
     assert.equal(calls[3].url.endsWith("task%2Fid"), true);
     assert.deepEqual(await service.status(token), { status: "success", analysis: { mode: "live", scores: [

@@ -9,11 +9,16 @@ import { StepIndicator } from "./journey/StepIndicator";
 import { SkinReport } from "./journey/SkinReport";
 import { PreferencesForm } from "./journey/PreferencesForm";
 import { RoutineView } from "./routine/RoutineView";
+import dynamic from "next/dynamic";
+import { useState } from "react";
+const ProductsLibrary=dynamic(()=>import("./routine/ProductsLibrary"));
 
 export function SkinNearApp({ liveEnabled, saveEnabled }: { liveEnabled: boolean; saveEnabled: boolean }) {
   const journey = useSkinJourney();
+  const [libraryOpen,setLibraryOpen]=useState(false);
   return <>
-    <Header onHome={journey.reset} onRoutine={journey.restore} onSample={journey.sample} disabled={journey.busy} />
+    <Header onHome={journey.reset} onRoutine={journey.restore} onSample={journey.sample} onProducts={()=>setLibraryOpen(true)} disabled={journey.busy} />
+    {libraryOpen?<ProductsLibrary initialCurrency={journey.preferences.currency} budget={journey.preferences.currency?journey.preferences.budget:undefined} onClose={()=>setLibraryOpen(false)}/>:null}
     <main>
       {journey.error || journey.notice ? <div className={`global-message shell ${journey.error ? "error" : ""}`} role={journey.error ? "alert" : "status"}>{journey.error || journey.notice}</div> : null}
       {journey.stage === "scan" ? <Intro onSample={journey.sample} onScan={journey.scan} onCancel={journey.cancelScan} busy={journey.busy} liveEnabled={liveEnabled} /> : <section className="journey shell">

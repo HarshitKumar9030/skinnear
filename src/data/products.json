@@ -112,72 +112,6 @@
     "imageUrl": "https://beminimalist.co/cdn/shop/products/B5Moisturizer1200-2-min.png?v=1756800645"
   },
   {
-    "id": "minimalist-marula",
-    "brand": "Minimalist",
-    "name": "Marula Oil 5% Face Moisturizer",
-    "size": "50 g",
-    "category": "moisturizer",
-    "referencePrice": 299,
-    "priceKind": "planning estimate",
-    "concerns": [
-      "moisture",
-      "redness"
-    ],
-    "sensitive": true,
-    "fragranceFree": true,
-    "ingredientHighlights": [
-      "Marula oil",
-      "Glycerin",
-      "Vitamin E"
-    ],
-    "ingredientsComplete": true,
-    "ingredients": [
-      "Water",
-      "Glycerin",
-      "Sclerocarya Birrea (Marula) Seed Oil",
-      "Methypropanediol",
-      "Dicaprylyl Carbonate",
-      "Caprylic/Capric Triglyceride",
-      "Butylene Glycol",
-      "Cetostearyl Alcohol",
-      "Glyceryl Stearate",
-      "PEG-100 Stearate",
-      "Trehalose",
-      "Dimethicone",
-      "Saccharide Isomerate",
-      "Pentylene Glycol",
-      "Coco-Caprylate/Caprate",
-      "Triheptanoin",
-      "C9-12 Alkane",
-      "Sodium Hyaluronate",
-      "Allantoin",
-      "Linoleic Acid",
-      "Linolenic Acid",
-      "Carbomer",
-      "Cetyl Alcohol",
-      "Phenoxyethanol",
-      "Tocopheryl Acetate",
-      "Sodium Hydroxide",
-      "Nylon 12",
-      "Petrolatum",
-      "Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer",
-      "Ethylhexylglycerin",
-      "Butyrospermum Parkii (Shea) Butter",
-      "Polyurethane-100",
-      "Trisodium Ethylenediamine Disuccinate",
-      "Citric Acid",
-      "Sodium Citrate"
-    ],
-    "sourceUrl": "https://beminimalist.co/products/marula-05-moisturizer",
-    "sourceCheckedAt": "2026-10-09",
-    "tone": "rose",
-    "benefits": [
-      "Rich moisture for dry-feeling skin",
-      "Marula oil helps soften the skin"
-    ],
-    "imageUrl": "https://beminimalist.co/cdn/shop/files/Marula_New.png?v=1756803801"
-  },
-  {
     "id": "minimalist-spf50",
     "brand": "Minimalist",
     "name": "Multi-Vitamin SPF 50 Sunscreen",
@@ -574,35 +508,542 @@
     "imageUrl": "https://images.ctfassets.net/3zfcttr0ztpr/4oa6YGDxctTkbVmX3sVA9i/a84602f47214503e2509bbc0abb86883/neutrogena-ultra-sheer-dry-touch-sunblock-spf-50-front1-en-in"
   },
   {
-    "id": "minimalist-niacinamide-5", "brand": "Minimalist", "name": "Niacinamide 5% Face Serum", "size": "30 ml", "category": "serum",
-    "referencePrice": 599, "priceKind": "planning estimate", "concerns": ["oiliness", "pore"], "sensitive": false, "fragranceFree": true,
-    "treatmentGoal": "oil-balance", "primaryActive": "niacinamide", "ingredientHighlights": ["Niacinamide", "Oat extract"],
+    "id": "minimalist-niacinamide-5",
+    "brand": "Minimalist",
+    "name": "Niacinamide 5% Face Serum",
+    "size": "30 ml",
+    "category": "serum",
+    "referencePrice": 599,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "oiliness",
+      "pore"
+    ],
+    "sensitive": false,
+    "fragranceFree": true,
+    "treatmentGoal": "oil-balance",
+    "primaryActive": "niacinamide",
+    "ingredientHighlights": [
+      "Niacinamide",
+      "Oat extract"
+    ],
     "ingredientsComplete": true,
-    "ingredients": ["Water/Aqua", "Niacinamide", "Dimethyl Isosorbide", "Avena Sativa (Oat) Kernel Extract", "Ethoxydiglycol", "Propanediol", "Bifida Ferment Lysate", "Sodium Hyaluronate", "Phenoxyethanol", "Pentylene Glycol", "Ethylhexylglycerin", "Hydrolyzed Hyaluronic Acid", "Pullulan", "Xanthan Gum", "Sclerotium Gum", "Lecithin", "Trisodium Ethylenediamine Disuccinate"],
-    "benefits": ["Supports the moisture barrier", "Hydrates and soothes skin"],
-    "sourceUrl": "https://beminimalist.co/products/niacinamide-5-hyaluronic-acid-1", "sourceCheckedAt": "2026-10-10",
-    "imageUrl": "https://beminimalist.co/cdn/shop/products/Niacinamide5_1200-1-min.png?v=1646458955&width=480", "tone": "sage",
+    "ingredients": [
+      "Water/Aqua",
+      "Niacinamide",
+      "Dimethyl Isosorbide",
+      "Avena Sativa (Oat) Kernel Extract",
+      "Ethoxydiglycol",
+      "Propanediol",
+      "Bifida Ferment Lysate",
+      "Sodium Hyaluronate",
+      "Phenoxyethanol",
+      "Pentylene Glycol",
+      "Ethylhexylglycerin",
+      "Hydrolyzed Hyaluronic Acid",
+      "Pullulan",
+      "Xanthan Gum",
+      "Sclerotium Gum",
+      "Lecithin",
+      "Trisodium Ethylenediamine Disuccinate"
+    ],
+    "benefits": [
+      "Supports the moisture barrier",
+      "Hydrates and soothes skin"
+    ],
+    "sourceUrl": "https://beminimalist.co/products/niacinamide-5-hyaluronic-acid-1",
+    "sourceCheckedAt": "2026-10-10",
+    "imageUrl": "https://beminimalist.co/cdn/shop/products/Niacinamide5_1200-1-min.png?v=1646458955&width=480",
+    "tone": "sage",
     "usageNote": "Optional. Test before use, introduce one new product at a time and follow the current label. Stop if irritation occurs. Use before moisturizer."
   },
   {
-    "id": "minimalist-retinol-03", "brand": "Minimalist", "name": "Retinol 0.3% Face Serum", "size": "30 ml", "category": "retinoid",
-    "referencePrice": 599, "priceKind": "planning estimate", "concerns": [], "sensitive": false, "fragranceFree": true,
-    "treatmentGoal": "fine-lines", "primaryActive": "retinol", "ingredientHighlights": ["Retinol", "Coenzyme Q10"],
+    "id": "minimalist-retinol-03",
+    "brand": "Minimalist",
+    "name": "Retinol 0.3% Face Serum",
+    "size": "30 ml",
+    "category": "retinoid",
+    "referencePrice": 599,
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": false,
+    "fragranceFree": true,
+    "treatmentGoal": "fine-lines",
+    "primaryActive": "retinol",
+    "ingredientHighlights": [
+      "Retinol",
+      "Coenzyme Q10"
+    ],
     "ingredientsComplete": true,
-    "ingredients": ["Caprylic/Capric Triglyceride", "Isododecane", "Squalane", "Coco-Caprylate/Caprate", "Triheptanoin", "Tocopheryl Acetate", "Bakuchiol", "Retinol", "Polysorbate 20", "Ubiquinone (Coenzyme Q10)", "BHT"],
-    "benefits": ["Targets the appearance of fine lines", "Supports smoother-looking skin"],
-    "sourceUrl": "https://beminimalist.co/products/retinol-0-3-q10", "sourceCheckedAt": "2026-10-10",
-    "imageUrl": "https://beminimalist.co/cdn/shop/files/Reti3New.png?v=1721398129&width=480", "tone": "lavender",
+    "ingredients": [
+      "Caprylic/Capric Triglyceride",
+      "Isododecane",
+      "Squalane",
+      "Coco-Caprylate/Caprate",
+      "Triheptanoin",
+      "Tocopheryl Acetate",
+      "Bakuchiol",
+      "Retinol",
+      "Polysorbate 20",
+      "Ubiquinone (Coenzyme Q10)",
+      "BHT"
+    ],
+    "benefits": [
+      "Targets the appearance of fine lines",
+      "Supports smoother-looking skin"
+    ],
+    "sourceUrl": "https://beminimalist.co/products/retinol-0-3-q10",
+    "sourceCheckedAt": "2026-10-10",
+    "imageUrl": "https://beminimalist.co/cdn/shop/files/Reti3New.png?v=1721398129&width=480",
+    "tone": "lavender",
     "usageNote": "Evening only, before moisturizer. Start slowly and follow the current brand label; do not combine with another retinoid or exfoliating active. Use broad-spectrum SPF 30+ daily. Avoid during pregnancy, trying to conceive or breastfeeding; stop if irritation occurs."
   },
   {
-    "id": "ordinary-ha-b5", "brand": "The Ordinary", "name": "Hyaluronic Acid 2% + B5 (with Ceramides)", "size": "30 ml", "category": "serum",
-    "referencePrice": 1200, "priceKind": "planning estimate", "concerns": ["moisture"], "sensitive": false, "fragranceFree": true,
-    "treatmentGoal": "hydration", "primaryActive": "hyaluron", "ingredientHighlights": ["Hyaluronic acid", "Ceramides", "Panthenol"],
-    "ingredientsComplete": false, "ingredients": ["Hyaluronic acid", "Ceramides", "Panthenol"],
-    "benefits": ["Helps hydrate dry-feeling skin", "Supports the moisture barrier"],
-    "sourceUrl": "https://theordinary.com/en-us/hyaluronic-acid-2-b5-serum-with-ceramides-100637.html", "sourceCheckedAt": "2026-10-10",
-    "imageUrl": "https://theordinary.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw67286abd/Images/products/The%20Ordinary/ord-hyaluronic-acid-2pct-B5-30ml-Clr-Acu.png?sh=800&sm=fit&sw=800", "tone": "sage",
+    "id": "ordinary-ha-b5",
+    "brand": "The Ordinary",
+    "name": "Hyaluronic Acid 2% + B5 (with Ceramides)",
+    "size": "30 ml",
+    "category": "serum",
+    "referencePrice": 1200,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": false,
+    "fragranceFree": true,
+    "treatmentGoal": "hydration",
+    "primaryActive": "hyaluron",
+    "ingredientHighlights": [
+      "Hyaluronic acid",
+      "Ceramides",
+      "Panthenol"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [
+      "Hyaluronic acid",
+      "Ceramides",
+      "Panthenol"
+    ],
+    "benefits": [
+      "Helps hydrate dry-feeling skin",
+      "Supports the moisture barrier"
+    ],
+    "sourceUrl": "https://theordinary.com/en-us/hyaluronic-acid-2-b5-serum-with-ceramides-100637.html",
+    "sourceCheckedAt": "2026-10-10",
+    "imageUrl": "https://theordinary.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw67286abd/Images/products/The%20Ordinary/ord-hyaluronic-acid-2pct-B5-30ml-Clr-Acu.png?sh=800&sm=fit&sw=800",
+    "tone": "sage",
     "usageNote": "Optional hydration before moisturizer. Test first and follow the current label. Use on unbroken skin; stop and consult a clinician if irritation occurs."
+  },
+  {
+    "id": "minimalist-b12",
+    "brand": "Minimalist",
+    "name": "B12 + Repair Complex 5.5% Face Moisturizer",
+    "size": "30 g",
+    "category": "moisturizer",
+    "referencePrice": 299.0,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture",
+      "redness"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Vitamin B12",
+      "Ceramides",
+      "Panthenol"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://beminimalist.co/products/vitamin-b12-repair-complex-5-5-face-moisturizer",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Supports the moisture barrier",
+      "Soothes dry-feeling skin"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0410/9608/5665/files/B12ListingImage.jpg?v=1756800848"
+  },
+  {
+    "id": "minimalist-marula",
+    "brand": "Minimalist",
+    "name": "Marula Oil 5% Face Moisturizer",
+    "size": "50 g",
+    "category": "moisturizer",
+    "referencePrice": 299.0,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Marula oil"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://beminimalist.co/products/marula-05-moisturizer",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Softens dry-feeling skin",
+      "Helps retain moisture"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0410/9608/5665/files/Marula_New.png?v=1756803801"
+  },
+  {
+    "id": "minimalist-ceramide",
+    "brand": "Minimalist",
+    "name": "Ceramides 0.3% + Madecassoside Moisturizer",
+    "size": "50 g",
+    "category": "moisturizer",
+    "referencePrice": 599.0,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture",
+      "redness"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Ceramides",
+      "Madecassoside"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://beminimalist.co/products/ceramides-0-3-madecassoside",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Supports the skin barrier",
+      "Moisturizes dry-feeling skin"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0410/9608/5665/files/Ceramide_Madecassoside.png?v=1721398128"
+  },
+  {
+    "id": "minimalist-spf60",
+    "brand": "Minimalist",
+    "name": "SPF 60 Sunscreen",
+    "size": "50 g",
+    "category": "sunscreen",
+    "referencePrice": 599.0,
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "UV filters",
+      "Silymarin"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://beminimalist.co/products/spf-60-silymarin",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "SPF 60 sun protection",
+      "Daytime protection step"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0410/9608/5665/products/SPF601200-2-min.png?v=1646571969"
+  },
+  {
+    "id": "minimalist-salicylic-2",
+    "brand": "Minimalist",
+    "name": "Salicylic Acid 2% Face Serum",
+    "size": "30 ml",
+    "category": "serum",
+    "referencePrice": 549.0,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "acne",
+      "pore"
+    ],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Salicylic acid"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://beminimalist.co/products/salicylic-acid-2",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Exfoliates pore buildup",
+      "Helps improve the appearance of blackheads"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0410/9608/5665/products/SalicylicAcid2_1200-1-min.png?v=1646458899",
+    "treatmentGoal": "breakouts",
+    "primaryActive": "salicylic",
+    "eveningOnly": true,
+    "usageNote": "Evening only. Start infrequently as directed by the current label; do not combine with other exfoliating acids or retinoids. Use daily SPF 30+. Stop if irritated; severe acne needs a dermatologist."
+  },
+  {
+    "id": "minimalist-hyaluronic-pga",
+    "brand": "Minimalist",
+    "name": "Hyaluronic + PGA 2% Face Serum",
+    "size": "30 ml",
+    "category": "serum",
+    "referencePrice": 599.0,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Hyaluronic acid",
+      "Polyglutamic acid"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://beminimalist.co/products/2-hyaluronic-acid",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Boosts surface hydration",
+      "Helps skin feel plumper"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0410/9608/5665/products/HAPGA2_1200-1-min.png?v=1646395962",
+    "treatmentGoal": "hydration",
+    "primaryActive": "hyaluronic",
+    "eveningOnly": false,
+    "usageNote": "Introduce one new product at a time. Follow the current label and test before regular use."
+  },
+  {
+    "id": "deconstruct-hydrating-cleanser",
+    "brand": "Deconstruct",
+    "name": "Hyaluronic Acid Hydrating Face Wash - 0.5% Amino Acids + 0.1% Hyaluronic acid",
+    "size": "100 ml",
+    "category": "cleanser",
+    "referencePrice": 299,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Hyaluronic acid",
+      "Panthenol",
+      "Glycerin"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://thedeconstruct.in/products/hyaluronic-acid-hydrating-face-wash",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "Washes away daily impurities",
+      "Non-stripping gel texture"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0712/5621/1737/files/final-resized-imagesArtboard-10.webp?v=1779362110"
+  },
+  {
+    "id": "deconstruct-nmf",
+    "brand": "Deconstruct",
+    "name": "Oil-Free Moisturizer for Oily Skin - 3% NMF Complex + 0.2% Panthenol",
+    "size": "50 g",
+    "category": "moisturizer",
+    "referencePrice": 349.0,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture",
+      "oiliness"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "NMF complex",
+      "Panthenol"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://thedeconstruct.in/products/oil-free-moisturizer-for-oily-skin",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Lightweight oil-free hydration",
+      "Supports the moisture barrier"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0712/5621/1737/files/Oil-Free_Moisturizer_for_Oily_Skin_-_3__NMF_Complex_0.2__Panthenol.webp?v=1782482394"
+  },
+  {
+    "id": "deconstruct-squalane",
+    "brand": "Deconstruct",
+    "name": "Hyaluronic Acid & Squalane Moisturizer - 0.2% Hyaluronic acid 1% Squalane",
+    "size": "50 g",
+    "category": "moisturizer",
+    "referencePrice": 389.0,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Hyaluronic acid",
+      "Squalane"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://thedeconstruct.in/products/hyaluronic-acid-squalane-moisturizer",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Locks in moisture",
+      "Non-greasy daily hydration"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0712/5621/1737/files/final-resized-imagesArtboard-9.webp?v=1779364533"
+  },
+  {
+    "id": "deconstruct-skin-soothe",
+    "brand": "Deconstruct",
+    "name": "Skin Soothe Moisturizer - 1% Ceramide + 0.2% Bisabolol",
+    "size": "50 g",
+    "category": "moisturizer",
+    "referencePrice": 379.0,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture",
+      "redness"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Ceramides",
+      "Bisabolol"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://thedeconstruct.in/products/skin-soothe-moisturizer",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Creamy moisturizing texture",
+      "Helps soothe dry-feeling skin"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0712/5621/1737/files/Skin_Soothe_Moisturizer_-_1__Ceramide_0.2__Bisabolol.webp?v=1782482332"
+  },
+  {
+    "id": "deconstruct-gel-spf50",
+    "brand": "Deconstruct",
+    "name": "Gel Sunscreen for Oily Skin - SPF 50 PA++++",
+    "size": "50 g",
+    "category": "sunscreen",
+    "referencePrice": 399.0,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "oiliness"
+    ],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "UV filters"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://thedeconstruct.in/products/gel-sunscreen-for-oily-skin",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Broad-spectrum SPF 50 PA++++",
+      "Lightweight gel texture"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0712/5621/1737/files/Untitled-1GS_50G.webp?v=1780469745"
+  },
+  {
+    "id": "deconstruct-hyaluronic",
+    "brand": "Deconstruct",
+    "name": "2% Hyaluronic Acid Serum with 1% Niacinamide",
+    "size": "30 ml",
+    "category": "serum",
+    "referencePrice": 699.0,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Hyaluronic acid",
+      "Niacinamide"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://thedeconstruct.in/products/oil-free-hydrating-face-serum",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Oil-free hydrating texture",
+      "Helps skin feel hydrated"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0712/5621/1737/files/final-resized-imagesArtboard-11.webp?v=1779361773",
+    "treatmentGoal": "hydration",
+    "primaryActive": "hyaluronic",
+    "eveningOnly": false,
+    "usageNote": "Introduce one new product at a time. Follow the current label and test before regular use."
+  },
+  {
+    "id": "deconstruct-pore-control",
+    "brand": "Deconstruct",
+    "name": "Oil Control Serum with 3% Niacinamide & 2% Salicylic Acid With Liposomal Technology",
+    "size": "30 ml",
+    "category": "serum",
+    "referencePrice": 799.0,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "acne",
+      "pore"
+    ],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Salicylic acid",
+      "Niacinamide"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://thedeconstruct.in/products/pore-control-serum",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Helps exfoliate pore buildup",
+      "Helps reduce the appearance of excess oil"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0712/5621/1737/files/Oil_Control_Serum_with_3__Niacinamide_2__Salicylic_Acid_With_Liposomal_Technology.webp?v=1782482394",
+    "treatmentGoal": "breakouts",
+    "primaryActive": "salicylic",
+    "eveningOnly": true,
+    "usageNote": "Evening only. Start infrequently as directed by the current label; do not combine with other exfoliating acids or retinoids. Use daily SPF 30+. Stop if irritated; severe acne needs a dermatologist."
+  },
+  {
+    "id": "plum-green-tea-cleanser",
+    "brand": "Plum",
+    "name": "Green Tea Pore Cleansing Face Wash",
+    "size": "50 ml",
+    "category": "cleanser",
+    "referencePrice": 199.0,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "oiliness",
+      "pore"
+    ],
+    "sensitive": false,
+    "fragranceFree": false,
+    "ingredientHighlights": [
+      "Green tea",
+      "Glycolic acid"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://plumgoodness.com/products/green-tea-pore-cleansing-face-wash-50-ml",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "Soap-free foaming cleanse",
+      "Contains exfoliating cellulose beads"
+    ],
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0390/2985/files/01_f60f71fa-20f4-48c7-aaa7-5aee9de73791.jpg?v=1771582656"
   }
 ]

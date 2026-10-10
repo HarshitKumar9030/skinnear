@@ -1,7 +1,7 @@
 import { z } from "zod";
 import { COUNTRIES, CURRENCIES } from "./regions";
 
-export const concernSchema = z.enum(["moisture", "redness", "oiliness", "pore"]);
+export const concernSchema = z.enum(["moisture", "redness", "oiliness", "pore", "acne"]);
 export const scoreSchema = z.object({
   concern: concernSchema,
   score: z.number().min(0).max(100),
@@ -13,7 +13,8 @@ export const analysisSchema = z.object({
 });
 export const treatmentPreferencesSchema = z.object({
   consent: z.boolean().default(false),
-  goal: z.enum(["none", "hydration", "oil-balance", "fine-lines"]).default("none"),
+  goal: z.enum(["none", "hydration", "oil-balance", "breakouts", "fine-lines"]).default("none"),
+  breakoutSeverity: z.enum(["none", "mild", "severe", "unsure"]).default("none"),
   basicsEstablished: z.boolean().default(false),
   adult: z.boolean().default(false),
   healthClear: z.boolean().default(false),
@@ -41,9 +42,10 @@ export const productSchema = z.object({
   name: z.string(),
   size: z.string(),
   category: z.enum(["cleanser", "moisturizer", "sunscreen", "serum", "retinoid"]),
-  treatmentGoal: z.enum(["hydration", "oil-balance", "fine-lines"]).optional(),
+  treatmentGoal: z.enum(["hydration", "oil-balance", "breakouts", "fine-lines"]).optional(),
   primaryActive: z.string().optional(),
   usageNote: z.string().optional(),
+  eveningOnly: z.boolean().optional(),
   referencePrice: z.number().positive(),
   priceKind: z.literal("planning estimate"),
   concerns: z.array(concernSchema),
@@ -54,7 +56,7 @@ export const productSchema = z.object({
   imageUrl: z.url().refine((url) => url.startsWith("https://"), "Product images must use HTTPS").optional(),
   ingredientsComplete: z.boolean(),
   ingredients: z.array(z.string()),
-  sourceUrl: z.url(),
+  sourceUrl: z.url().refine((url)=>url.startsWith("https://"),"Brand links must use HTTPS"),
   sourceCheckedAt: z.string(),
   tone: z.enum(["rose", "lavender", "sage"]),
 });
@@ -85,7 +87,7 @@ export interface Routine {
   feasible: boolean;
   message: string;
   ownedCategories: Category[];
-  catalogSource: "bundled" | "mongodb";
+  catalogSource: "bundled" | "mongodb" | "mixed";
   currency?: string;
   exchangeRateDate?: string;
   treatmentMessage?: string;
