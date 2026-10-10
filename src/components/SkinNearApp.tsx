@@ -18,7 +18,7 @@ export function SkinNearApp({ liveEnabled, saveEnabled }: { liveEnabled: boolean
   const [libraryOpen,setLibraryOpen]=useState(false);
   return <>
     <Header onHome={journey.reset} onRoutine={journey.restore} onSample={journey.sample} onProducts={()=>setLibraryOpen(true)} disabled={journey.busy} />
-    {libraryOpen?<ProductsLibrary initialCurrency={journey.preferences.currency} budget={journey.preferences.currency?journey.preferences.budget:undefined} onClose={()=>setLibraryOpen(false)}/>:null}
+    {libraryOpen?<ProductsLibrary initialCountry={journey.preferences.country} initialCurrency={journey.preferences.currency} budget={journey.preferences.currency?journey.preferences.budget:undefined} onClose={()=>setLibraryOpen(false)}/>:null}
     <main>
       {journey.error || journey.notice ? <div className={`global-message shell ${journey.error ? "error" : ""}`} role={journey.error ? "alert" : "status"}>{journey.error || journey.notice}</div> : null}
       {journey.stage === "scan" ? <Intro onSample={journey.sample} onScan={journey.scan} onCancel={journey.cancelScan} busy={journey.busy} liveEnabled={liveEnabled} /> : <section className="journey shell">

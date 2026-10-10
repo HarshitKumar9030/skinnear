@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { CURRENCIES } from "@/domain/regions";
 import { ProductRepository } from "@/repositories/ProductRepository";
-import { CurrencyService } from "@/services/CurrencyService";
+import { MarketCatalogService } from "@/services/MarketCatalogService";
+import { preferencesSchema } from "@/domain/schemas";
 import { limitRequest } from "@/lib/rate-limit";
 import { errorResponse } from "@/lib/errors";
 
@@ -14,18 +15,19 @@ export async function GET(request: NextRequest) {
       .max(4)
       .refine((value) => CURRENCIES.includes(value))
       .parse(request.nextUrl.searchParams.get("currency") || "INR");
-    const [catalog, quote] = await Promise.all([
-      new ProductRepository().getCatalog(),
-      new CurrencyService().quote(currency),
-    ]);
+    const country = preferencesSchema.shape.country
+      .optional()
+      .parse(request.nextUrl.searchParams.get("country") || undefined);
+    const catalog = await new ProductRepository().getCatalog();
+    const priced = await new MarketCatalogService().price(
+      catalog.products,
+      currency,
+      country,
+    );
     return NextResponse.json(
       {
         currency,
-        products: catalog.products.map((product) => ({
-          ...product,
-          referencePrice:
-            Math.ceil(product.referencePrice * quote.rate * 100) / 100,
-        })),
+        products: priced.products,
         source: catalog.source,
       },
       { headers: { "Cache-Control": "no-store" } },

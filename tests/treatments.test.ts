@@ -128,7 +128,7 @@ test("severe or uncertain breakouts block all actives, including direct choices"
 });
 
 test("converted currencies obey the same total and alternative budget cap", () => {
-  const converted = new RecommendationService(products.map((product) => ({ ...product, referencePrice: Math.ceil(product.referencePrice * 0.012 * 100) / 100 })));
+  const converted = new RecommendationService(products.map((product) => ({ ...product, referenceCurrency: "USD", referencePrice: Math.ceil(product.referencePrice * 0.012 * 100) / 100 })));
   const input = request({}, 30); input.preferences.country = "US"; input.preferences.currency = "USD";
   const result = converted.build(input);
   assert.equal(extras(result).length, 1);

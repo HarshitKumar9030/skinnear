@@ -47,6 +47,15 @@ export const productSchema = z.object({
   usageNote: z.string().optional(),
   eveningOnly: z.boolean().optional(),
   referencePrice: z.number().positive(),
+  referenceCurrency: z.enum(CURRENCIES).default("INR"),
+  // Empty coverage permits international discovery, without claiming local stock.
+  markets: z.array(preferencesSchema.shape.country).default([]),
+  regionalPrices: z.array(z.object({
+    country: preferencesSchema.shape.country,
+    currency: z.enum(CURRENCIES),
+    price: z.number().positive(),
+    sourceUrl: z.url().refine((url) => url.startsWith("https://")),
+  })).default([]),
   priceKind: z.literal("planning estimate"),
   concerns: z.array(concernSchema),
   sensitive: z.boolean(),

@@ -47,7 +47,7 @@ npm run catalog:validate
 npm run catalog:seed
 ```
 
-The Python seed script upserts the 15 curated products. Run it again when upgrading an existing MongoDB catalog to include the new brands, images, and benefits. A configured but unreachable MongoDB returns an explicit error; the app does not silently replace database data.
+The Python seed script upserts the 53 curated products. Run it again when upgrading an existing MongoDB catalog to include reviewed brands, images, benefits and market metadata. Read-only discovery falls back to the bundled catalog if MongoDB is unavailable; private persistence and production quotas still require MongoDB.
 
 ## Worldwide shopping
 
@@ -55,7 +55,9 @@ Choose a country, city, optional international postal code, and a budget currenc
 
 Blinkit and Zepto appear for India only, using public product pages where verified and retailer searches otherwise. Neither link lookup nor search establishes address-level stock, delivery time, exact variant, or current ingredients. Enter the delivery address with the retailer.
 
-The catalog contains 31 products across Minimalist, CeraVe, Cetaphil, Simple, Bioderma, Neutrogena, The Ordinary, Deconstruct, and Plum. Official product pages supply linked benefit summaries and remote packaging images (with a fallback if an image is unavailable). Country-specific packaging, size, and formula may differ. INR **planning estimates** are editorial budget inputs, not live local quotes; other currencies convert those estimates. Currency rates are cached daily with attribution to [ExchangeRate-API](https://www.exchangerate-api.com/docs/free).
+The catalog contains 53 products across 16 brands, including Neutrogena, La Roche-Posay, Vanicream, Aveeno, Eucerin, CeraVe, Bioré, COSRX and Beauty of Joseon alongside the Indian collection. Official product pages supply linked benefit summaries and remote packaging images (with a fallback if unavailable). US, UK, Canadian, Japanese and Singapore sunscreen variants remain separate records; Korean skincare also appears in curated import collections for Australia and selected European countries.
+
+Each product has a native estimate currency and editorial country collection. Regional overrides take precedence, then estimates convert to the selected budget currency using daily cached rates from [ExchangeRate-API](https://www.exchangerate-api.com/docs/free). Prices are **planning estimates**, not live retailer quotes. Country coverage does not establish stock, shipping, regulatory status or an identical local formula. Uncovered countries only receive international discovery entries; an incomplete essentials catalog returns an infeasible routine instead of borrowing unrelated Indian variants. Sensitive-skin and fragrance preferences still apply to sunscreen.
 
 Each routine step offers budget-compatible alternatives across brands. Choosing one keeps the other current steps, revalidates exclusions and sensitivity preferences, and recalculates the total. Explicit choices are included when saving a routine. Brand variety is available without replacing the relevance/budget ranking with sponsored or random selections.
 

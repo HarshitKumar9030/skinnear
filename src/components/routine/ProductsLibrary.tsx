@@ -3,7 +3,13 @@ import { useEffect, useRef, useState } from "react";
 import { z } from "zod";
 import { X, Search, Bookmark } from "lucide-react";
 import { productSchema, type Product } from "@/domain/schemas";
-import { CURRENCIES, formatMoney } from "@/domain/regions";
+import {
+  COUNTRIES,
+  CURRENCIES,
+  defaultCurrency,
+  countryName,
+  formatMoney,
+} from "@/domain/regions";
 import { CATEGORY_LABELS } from "@/domain/sample";
 import { SkinNearApi } from "@/lib/client-api";
 import { useSavedProducts } from "@/hooks/useSavedProducts";
@@ -25,18 +31,22 @@ const categories = [
 ];
 export default function ProductsLibrary({
   initialCurrency,
+  initialCountry,
   budget,
   onClose,
 }: {
   initialCurrency: string;
+  initialCountry: string;
   budget?: number;
   onClose: () => void;
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const saved = useSavedProducts();
   const [currency, setCurrency] = useState(initialCurrency || "INR");
+  const [country, setCountry] = useState(initialCountry);
   const [products, setProducts] = useState<Product[]>([]);
   const [loadedCurrency, setLoadedCurrency] = useState("");
+  const [loadedCountry, setLoadedCountry] = useState("");
   const [retry, setRetry] = useState(0);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("all");
@@ -52,12 +62,13 @@ export default function ProductsLibrary({
     const controller = new AbortController();
     api
       .request<{ products: unknown }>(
-        `/api/products?currency=${encodeURIComponent(currency)}`,
+        `/api/products?currency=${encodeURIComponent(currency)}&country=${encodeURIComponent(country)}`,
         { signal: controller.signal },
       )
       .then((result) => {
         setProducts(z.array(productSchema).parse(result.products));
         setLoadedCurrency(currency);
+        setLoadedCountry(country);
         setError("");
       })
       .catch((error) => {
@@ -67,20 +78,35 @@ export default function ProductsLibrary({
           );
       });
     return () => controller.abort();
-  }, [currency, retry]);
-  const loading = currency !== loadedCurrency && !error;
+  }, [currency, country, retry]);
+  const loading =
+    (currency !== loadedCurrency || country !== loadedCountry) && !error;
+  const marketProducts = products.filter(
+    (product) =>
+      !country || !product.markets.length || product.markets.includes(country),
+  );
   const savedProducts = products.filter((product) =>
     saved.includes(product.id),
   );
   const brands = [
     { value: "all", label: "All brands" },
-    ...[...new Set(products.map((product) => product.brand))]
+    ...[
+      ...new Set(
+        (tab === "saved" ? savedProducts : marketProducts).map(
+          (product) => product.brand,
+        ),
+      ),
+    ]
       .sort()
       .map((brand) => ({ value: brand, label: brand })),
   ];
   const visible = products.filter(
     (product) =>
       (tab !== "saved" || saved.includes(product.id)) &&
+      (tab === "saved" ||
+        !country ||
+        !product.markets.length ||
+        product.markets.includes(country)) &&
       (category === "all" || product.category === category) &&
       (brand === "all" || product.brand === brand) &&
       `${product.brand} ${product.name} ${product.ingredientHighlights.join(" ")}`
@@ -111,13 +137,30 @@ export default function ProductsLibrary({
       </p>
       <div className="library-tabs">
         <button aria-pressed={tab === "all"} onClick={() => setTab("all")}>
-          Explore products ({products.length})
+          Explore products ({marketProducts.length})
         </button>
         <button aria-pressed={tab === "saved"} onClick={() => setTab("saved")}>
           <Bookmark size={15} /> Saved products ({savedProducts.length})
         </button>
       </div>
       <div className="library-controls">
+        <SearchableSelect
+          label="Shopping country"
+          value={country}
+          options={[
+            { value: "", label: "All country collections" },
+            ...COUNTRIES.map((item) => ({
+              value: item.code,
+              label: item.name,
+            })),
+          ]}
+          onChange={(value) => {
+            setError("");
+            setCountry(value);
+            setBrand("all");
+            if (value) setCurrency(defaultCurrency(value));
+          }}
+        />
         <label className="library-search">
           <Search size={17} />
           <input
@@ -149,7 +192,16 @@ export default function ProductsLibrary({
           }}
         />
       </div>
-      {budget && currency === initialCurrency ? (
+      <p className="field-note">
+        {country
+          ? `${countryName(country)} collection`
+          : "All country collections"}{" "}
+        · Curated product discovery, not verified local stock.{" "}
+        {tab === "saved"
+          ? "Saved items may be from another country; check shipping."
+          : "Confirm the exact regional formula with the seller."}
+      </p>
+      {budget && currency === initialCurrency && country === initialCountry ? (
         <p className="field-note">
           Your routine budget is {formatMoney(budget, currency)}. Saving items
           never spends or reallocates it.

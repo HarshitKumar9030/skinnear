@@ -565,7 +565,7 @@ input[type="checkbox"] { accent-color: var(--accent); width: 17px; height: 17px;
 .library-tabs { display: flex; flex-wrap: wrap; gap: 10px; margin: 22px 0; }
 .library-tabs button, .save-product-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--lavender); padding: 12px 17px; border-radius: 24px; font-size: 12px; }
 .library-tabs button[aria-pressed="true"], .save-product-button[aria-pressed="true"] { background: var(--accent); color: white; }
-.library-controls { display: grid; grid-template-columns: 2fr 1fr 1fr .7fr; align-items: end; gap: 14px; margin-bottom: 20px; }
+.library-controls { display: grid; grid-template-columns: 1.2fr 1.8fr 1fr 1fr .7fr; align-items: end; gap: 14px; margin-bottom: 20px; }
 .library-search { display: flex; align-items: center; gap: 10px; background: white; border-radius: 14px; padding: 14px; }
 .library-search input { min-width: 0; width: 100%; background: transparent; font-size: 12px; }
 .library-controls .select-trigger, .library-controls .select-search { background: white; }

@@ -15,10 +15,11 @@ export class RecommendationService {
     const { preferences, analysis, excludedProductIds } = request;
     const categories = CATEGORIES.filter((category) => !preferences.ownedCategories.includes(category));
     const eligible = this.products
+      .filter((product) => product.referenceCurrency === preferences.currency)
       .filter((product) => !["severe", "unsure"].includes(preferences.treatments?.breakoutSeverity ?? "none") || ![...product.ingredients, ...product.ingredientHighlights].join(" ").toLowerCase().match(/salicylic|glycolic|lactic acid|retinol/))
       .filter((product) => !excludedProductIds.includes(product.id))
       .filter((product) => !preferences.fragranceFree || product.fragranceFree)
-      .filter((product) => !preferences.sensitive || product.category === "sunscreen" || product.sensitive)
+      .filter((product) => !preferences.sensitive || product.sensitive)
       .filter((product) => this.matchesExclusions(product, preferences.exclusions));
     const treatmentIds = (request.selectedProductIds ?? []).filter((id) => this.products.some((product) => product.id === id && ["serum", "retinoid"].includes(product.category)));
     if (treatmentIds.length > 1) throw new AppError("Choose at most one optional treatment.", 400);

@@ -48,7 +48,12 @@
       "Gentle cleansing for dry-feeling skin",
       "Helps retain moisture while cleansing"
     ],
-    "imageUrl": "https://beminimalist.co/cdn/shop/files/B12_Oat_Extract_6.5.jpg?v=1783083799"
+    "imageUrl": "https://beminimalist.co/cdn/shop/files/B12_Oat_Extract_6.5.jpg?v=1783083799",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "minimalist-aquaporin",
@@ -78,7 +83,12 @@
       "Cleanses without a tight after-feel",
       "Supports hydration with betaine and glycerin"
     ],
-    "imageUrl": "https://beminimalist.co/cdn/shop/files/AquaporinNew.png?v=1721398128"
+    "imageUrl": "https://beminimalist.co/cdn/shop/files/AquaporinNew.png?v=1721398128",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "minimalist-b5",
@@ -109,7 +119,12 @@
       "Lightweight daily hydration",
       "Panthenol helps support the moisture barrier"
     ],
-    "imageUrl": "https://beminimalist.co/cdn/shop/products/B5Moisturizer1200-2-min.png?v=1756800645"
+    "imageUrl": "https://beminimalist.co/cdn/shop/products/B5Moisturizer1200-2-min.png?v=1756800645",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "minimalist-spf50",
@@ -170,7 +185,12 @@
       "SPF 50 daytime sun protection",
       "Includes panthenol and vitamin E"
     ],
-    "imageUrl": "https://beminimalist.co/cdn/shop/files/SPF50New.jpg?v=1756795782"
+    "imageUrl": "https://beminimalist.co/cdn/shop/files/SPF50New.jpg?v=1756795782",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "minimalist-fluid",
@@ -196,7 +216,12 @@
       "SPF 50 in a light fluid texture",
       "Designed for oily and combination skin"
     ],
-    "imageUrl": "https://beminimalist.co/cdn/shop/files/Artboard_1_1.jpg?v=1783323907"
+    "imageUrl": "https://beminimalist.co/cdn/shop/files/Artboard_1_1.jpg?v=1783323907",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "cerave-hydrating",
@@ -224,7 +249,17 @@
       "Gentle cleansing without a dry after-feel",
       "Ceramides help support the skin barrier"
     ],
-    "imageUrl": "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/skincare/cleansers/hydrating-facial-cleanser/photos/2022/700x700/cerave_daily_hydrating-cleanser_12oz_front-700x700-v2.jpg?rev=8dcf681b75c042deaaa0c6ea1581d4df"
+    "imageUrl": "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/skincare/cleansers/hydrating-facial-cleanser/photos/2022/700x700/cerave_daily_hydrating-cleanser_12oz_front-700x700-v2.jpg?rev=8dcf681b75c042deaaa0c6ea1581d4df",
+    "referenceCurrency": "INR",
+    "markets": [],
+    "regionalPrices": [
+      {
+        "country": "US",
+        "currency": "USD",
+        "price": 16,
+        "sourceUrl": "https://www.cerave.com/skincare/cleansers/hydrating-facial-cleanser"
+      }
+    ]
   },
   {
     "id": "cerave-lotion",
@@ -252,7 +287,17 @@
       "Lightweight, non-greasy hydration",
       "Helps maintain the moisture barrier"
     ],
-    "imageUrl": "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/products-v3/daily-moisturizing-lotion/700x700/cerave_daily_moisturizing_lotion_12oz_front_-700x700-v2.jpg?rev=5fb61e1db7fe49fb9faf308c5f583d65"
+    "imageUrl": "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/products-v3/daily-moisturizing-lotion/700x700/cerave_daily_moisturizing_lotion_12oz_front_-700x700-v2.jpg?rev=5fb61e1db7fe49fb9faf308c5f583d65",
+    "referenceCurrency": "INR",
+    "markets": [],
+    "regionalPrices": [
+      {
+        "country": "US",
+        "currency": "USD",
+        "price": 15,
+        "sourceUrl": "https://www.cerave.com/skincare/moisturizers/daily-moisturizing-lotion"
+      }
+    ]
   },
   {
     "id": "cetaphil-gentle",
@@ -293,7 +338,12 @@
       "Gently removes dirt and impurities",
       "Hydrating formula for dry, sensitive skin"
     ],
-    "imageUrl": "https://www.cetaphil.in/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-galderma-in-m-catalog/default/dwddaed151/GSC%20Revive%20A+/118ml/ATF/1.FoP-118.png?sw=900&sh=900&sm=fit&q=85"
+    "imageUrl": "https://www.cetaphil.in/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-galderma-in-m-catalog/default/dwddaed151/GSC%20Revive%20A+/118ml/ATF/1.FoP-118.png?sw=900&sh=900&sm=fit&q=85",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "cetaphil-cream",
@@ -349,7 +399,12 @@
       "Rich hydration for dry-feeling skin",
       "Helps support the skin moisture barrier"
     ],
-    "imageUrl": "https://www.cetaphil.in/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-galderma-in-m-catalog/default/dwe860941c/8906005273437/rebranding/ATF/052410_MC_16oz-Front.png?sw=900&sh=900&sm=fit&q=85"
+    "imageUrl": "https://www.cetaphil.in/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-galderma-in-m-catalog/default/dwe860941c/8906005273437/rebranding/ATF/052410_MC_16oz-Front.png?sw=900&sh=900&sm=fit&q=85",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "cetaphil-sun",
@@ -374,7 +429,12 @@
       "SPF 50+ daily sun protection",
       "Water-resistant gel for sensitive skin"
     ],
-    "imageUrl": "https://www.cetaphil.in/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-galderma-in-m-catalog/default/dw76b723b9/Sun%2050%20Revive%20A+/ATF/1.%20FoP%20(1).png?sw=900&sh=900&sm=fit&q=85"
+    "imageUrl": "https://www.cetaphil.in/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-galderma-in-m-catalog/default/dw76b723b9/Sun%2050%20Revive%20A+/ATF/1.%20FoP%20(1).png?sw=900&sh=900&sm=fit&q=85",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "simple-wash",
@@ -403,7 +463,12 @@
       "Soap-free cleansing for dry-feeling skin",
       "Helps skin feel comfortable after washing"
     ],
-    "imageUrl": "https://www.simpleskincare.in/cdn/shop/files/Module1_1200x1200.jpg?v=1769513376"
+    "imageUrl": "https://www.simpleskincare.in/cdn/shop/files/Module1_1200x1200.jpg?v=1769513376",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "simple-light",
@@ -432,7 +497,12 @@
       "Lightweight daily hydration",
       "Leaves skin feeling soft and smooth"
     ],
-    "imageUrl": "https://www.simpleskincare.in/cdn/shop/files/27274_H_1200x1200.jpg?v=1789448668"
+    "imageUrl": "https://www.simpleskincare.in/cdn/shop/files/27274_H_1200x1200.jpg?v=1789448668",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "bioderma-sensibio",
@@ -480,7 +550,12 @@
       "Soap-free cleansing for sensitive skin",
       "Helps maintain hydration while cleansing"
     ],
-    "imageUrl": "https://www.bioderma-india.in/sites/in/files/styles/product_packshot_slider/public/products/Packshot_Sensibio%20Gel%20moussant%20T100ml%2028726%20MAD%20Sept%202020.jpg?itok=DvaX0t5g"
+    "imageUrl": "https://www.bioderma-india.in/sites/in/files/styles/product_packshot_slider/public/products/Packshot_Sensibio%20Gel%20moussant%20T100ml%2028726%20MAD%20Sept%202020.jpg?itok=DvaX0t5g",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "neutrogena-ultrasheer",
@@ -505,7 +580,12 @@
       "SPF 50+ broad-spectrum sun protection",
       "Lightweight dry-touch finish"
     ],
-    "imageUrl": "https://images.ctfassets.net/3zfcttr0ztpr/4oa6YGDxctTkbVmX3sVA9i/a84602f47214503e2509bbc0abb86883/neutrogena-ultra-sheer-dry-touch-sunblock-spf-50-front1-en-in"
+    "imageUrl": "https://images.ctfassets.net/3zfcttr0ztpr/4oa6YGDxctTkbVmX3sVA9i/a84602f47214503e2509bbc0abb86883/neutrogena-ultra-sheer-dry-touch-sunblock-spf-50-front1-en-in",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "minimalist-niacinamide-5",
@@ -555,7 +635,12 @@
     "sourceCheckedAt": "2026-10-10",
     "imageUrl": "https://beminimalist.co/cdn/shop/products/Niacinamide5_1200-1-min.png?v=1646458955&width=480",
     "tone": "sage",
-    "usageNote": "Optional. Test before use, introduce one new product at a time and follow the current label. Stop if irritation occurs. Use before moisturizer."
+    "usageNote": "Optional. Test before use, introduce one new product at a time and follow the current label. Stop if irritation occurs. Use before moisturizer.",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "minimalist-retinol-03",
@@ -596,7 +681,12 @@
     "sourceCheckedAt": "2026-10-10",
     "imageUrl": "https://beminimalist.co/cdn/shop/files/Reti3New.png?v=1721398129&width=480",
     "tone": "lavender",
-    "usageNote": "Evening only, before moisturizer. Start slowly and follow the current brand label; do not combine with another retinoid or exfoliating active. Use broad-spectrum SPF 30+ daily. Avoid during pregnancy, trying to conceive or breastfeeding; stop if irritation occurs."
+    "usageNote": "Evening only, before moisturizer. Start slowly and follow the current brand label; do not combine with another retinoid or exfoliating active. Use broad-spectrum SPF 30+ daily. Avoid during pregnancy, trying to conceive or breastfeeding; stop if irritation occurs.",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "ordinary-ha-b5",
@@ -632,7 +722,17 @@
     "sourceCheckedAt": "2026-10-10",
     "imageUrl": "https://theordinary.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw67286abd/Images/products/The%20Ordinary/ord-hyaluronic-acid-2pct-B5-30ml-Clr-Acu.png?sh=800&sm=fit&sw=800",
     "tone": "sage",
-    "usageNote": "Optional hydration before moisturizer. Test first and follow the current label. Use on unbroken skin; stop and consult a clinician if irritation occurs."
+    "usageNote": "Optional hydration before moisturizer. Test first and follow the current label. Use on unbroken skin; stop and consult a clinician if irritation occurs.",
+    "referenceCurrency": "INR",
+    "markets": [],
+    "regionalPrices": [
+      {
+        "country": "US",
+        "currency": "USD",
+        "price": 10,
+        "sourceUrl": "https://theordinary.com/en-us/hyaluronic-acid-2-b5-serum-with-ceramides-100637.html"
+      }
+    ]
   },
   {
     "id": "minimalist-b12",
@@ -662,7 +762,12 @@
       "Supports the moisture barrier",
       "Soothes dry-feeling skin"
     ],
-    "imageUrl": "https://cdn.shopify.com/s/files/1/0410/9608/5665/files/B12ListingImage.jpg?v=1756800848"
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0410/9608/5665/files/B12ListingImage.jpg?v=1756800848",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "minimalist-marula",
@@ -689,7 +794,12 @@
       "Softens dry-feeling skin",
       "Helps retain moisture"
     ],
-    "imageUrl": "https://cdn.shopify.com/s/files/1/0410/9608/5665/files/Marula_New.png?v=1756803801"
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0410/9608/5665/files/Marula_New.png?v=1756803801",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "minimalist-ceramide",
@@ -718,7 +828,12 @@
       "Supports the skin barrier",
       "Moisturizes dry-feeling skin"
     ],
-    "imageUrl": "https://cdn.shopify.com/s/files/1/0410/9608/5665/files/Ceramide_Madecassoside.png?v=1721398128"
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0410/9608/5665/files/Ceramide_Madecassoside.png?v=1721398128",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "minimalist-spf60",
@@ -744,7 +859,12 @@
       "SPF 60 sun protection",
       "Daytime protection step"
     ],
-    "imageUrl": "https://cdn.shopify.com/s/files/1/0410/9608/5665/products/SPF601200-2-min.png?v=1646571969"
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0410/9608/5665/products/SPF601200-2-min.png?v=1646571969",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "minimalist-salicylic-2",
@@ -776,7 +896,12 @@
     "treatmentGoal": "breakouts",
     "primaryActive": "salicylic",
     "eveningOnly": true,
-    "usageNote": "Evening only. Start infrequently as directed by the current label; do not combine with other exfoliating acids or retinoids. Use daily SPF 30+. Stop if irritated; severe acne needs a dermatologist."
+    "usageNote": "Evening only. Start infrequently as directed by the current label; do not combine with other exfoliating acids or retinoids. Use daily SPF 30+. Stop if irritated; severe acne needs a dermatologist.",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "minimalist-hyaluronic-pga",
@@ -808,7 +933,12 @@
     "treatmentGoal": "hydration",
     "primaryActive": "hyaluronic",
     "eveningOnly": false,
-    "usageNote": "Introduce one new product at a time. Follow the current label and test before regular use."
+    "usageNote": "Introduce one new product at a time. Follow the current label and test before regular use.",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "deconstruct-hydrating-cleanser",
@@ -837,7 +967,12 @@
       "Washes away daily impurities",
       "Non-stripping gel texture"
     ],
-    "imageUrl": "https://cdn.shopify.com/s/files/1/0712/5621/1737/files/final-resized-imagesArtboard-10.webp?v=1779362110"
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0712/5621/1737/files/final-resized-imagesArtboard-10.webp?v=1779362110",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "deconstruct-nmf",
@@ -866,7 +1001,12 @@
       "Lightweight oil-free hydration",
       "Supports the moisture barrier"
     ],
-    "imageUrl": "https://cdn.shopify.com/s/files/1/0712/5621/1737/files/Oil-Free_Moisturizer_for_Oily_Skin_-_3__NMF_Complex_0.2__Panthenol.webp?v=1782482394"
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0712/5621/1737/files/Oil-Free_Moisturizer_for_Oily_Skin_-_3__NMF_Complex_0.2__Panthenol.webp?v=1782482394",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "deconstruct-squalane",
@@ -894,7 +1034,12 @@
       "Locks in moisture",
       "Non-greasy daily hydration"
     ],
-    "imageUrl": "https://cdn.shopify.com/s/files/1/0712/5621/1737/files/final-resized-imagesArtboard-9.webp?v=1779364533"
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0712/5621/1737/files/final-resized-imagesArtboard-9.webp?v=1779364533",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "deconstruct-skin-soothe",
@@ -923,7 +1068,12 @@
       "Creamy moisturizing texture",
       "Helps soothe dry-feeling skin"
     ],
-    "imageUrl": "https://cdn.shopify.com/s/files/1/0712/5621/1737/files/Skin_Soothe_Moisturizer_-_1__Ceramide_0.2__Bisabolol.webp?v=1782482332"
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0712/5621/1737/files/Skin_Soothe_Moisturizer_-_1__Ceramide_0.2__Bisabolol.webp?v=1782482332",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "deconstruct-gel-spf50",
@@ -950,7 +1100,12 @@
       "Broad-spectrum SPF 50 PA++++",
       "Lightweight gel texture"
     ],
-    "imageUrl": "https://cdn.shopify.com/s/files/1/0712/5621/1737/files/Untitled-1GS_50G.webp?v=1780469745"
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0712/5621/1737/files/Untitled-1GS_50G.webp?v=1780469745",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "deconstruct-hyaluronic",
@@ -982,7 +1137,12 @@
     "treatmentGoal": "hydration",
     "primaryActive": "hyaluronic",
     "eveningOnly": false,
-    "usageNote": "Introduce one new product at a time. Follow the current label and test before regular use."
+    "usageNote": "Introduce one new product at a time. Follow the current label and test before regular use.",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "deconstruct-pore-control",
@@ -1015,7 +1175,12 @@
     "treatmentGoal": "breakouts",
     "primaryActive": "salicylic",
     "eveningOnly": true,
-    "usageNote": "Evening only. Start infrequently as directed by the current label; do not combine with other exfoliating acids or retinoids. Use daily SPF 30+. Stop if irritated; severe acne needs a dermatologist."
+    "usageNote": "Evening only. Start infrequently as directed by the current label; do not combine with other exfoliating acids or retinoids. Use daily SPF 30+. Stop if irritated; severe acne needs a dermatologist.",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
   },
   {
     "id": "plum-green-tea-cleanser",
@@ -1044,6 +1209,786 @@
       "Soap-free foaming cleanse",
       "Contains exfoliating cellulose beads"
     ],
-    "imageUrl": "https://cdn.shopify.com/s/files/1/0390/2985/files/01_f60f71fa-20f4-48c7-aaa7-5aee9de73791.jpg?v=1771582656"
+    "imageUrl": "https://cdn.shopify.com/s/files/1/0390/2985/files/01_f60f71fa-20f4-48c7-aaa7-5aee9de73791.jpg?v=1771582656",
+    "referenceCurrency": "INR",
+    "markets": [
+      "IN"
+    ],
+    "regionalPrices": []
+  },
+  {
+    "id": "neutrogena-hydro-cleanser-us",
+    "brand": "Neutrogena",
+    "name": "Hydro Boost Hydrating Cleansing Gel, Fragrance Free",
+    "size": "6 oz",
+    "category": "cleanser",
+    "referencePrice": 12,
+    "referenceCurrency": "USD",
+    "markets": [
+      "US"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Hyaluronic acid",
+      "Glycerin"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.neutrogena.com/products/skincare/neutrogena-hydro-boost-hydrating-gel-cleanser-fragrance-free/6806432",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "Gently removes daily dirt and oil",
+      "Helps retain moisture while cleansing"
+    ],
+    "imageUrl": "https://images.ctfassets.net/3zfcttr0ztpr/HuwbIScvtTCo13PN5uM4X/70c90be7b97fef5c96308a28ad61e13f/6806422_Carousel_1-Neutrogena"
+  },
+  {
+    "id": "neutrogena-hydro-water-cream-us",
+    "brand": "Neutrogena",
+    "name": "Hydro Boost Water Cream, Fragrance Free",
+    "size": "1.7 oz",
+    "category": "moisturizer",
+    "referencePrice": 25,
+    "referenceCurrency": "USD",
+    "markets": [
+      "US"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Hyaluronic acid"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.neutrogena.com/products/skincare/neutrogena-hydro-boost-water-cream-fragrance-free-1.7-oz/6806486",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Hydrates dry-feeling skin",
+      "Fragrance-free water cream texture"
+    ],
+    "imageUrl": "https://images.ctfassets.net/3zfcttr0ztpr/4eAtqxGo64j3pXpNzsjvV9/4ec586ab5af7370717dd411a01ca6a74/6806486-Carousel_01-Neutrogena"
+  },
+  {
+    "id": "neutrogena-ultrasheer-spf55-us",
+    "brand": "Neutrogena",
+    "name": "Ultra Sheer Dry-Touch SPF 55",
+    "size": "3 oz",
+    "category": "sunscreen",
+    "referencePrice": 13,
+    "referenceCurrency": "USD",
+    "markets": [
+      "US"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": false,
+    "fragranceFree": false,
+    "ingredientHighlights": [
+      "UV filters"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.neutrogena.com/products/sun/ultra-sheer-dry-touch-sunscreen-broad-spectrum-spf-55/6868790",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Broad-spectrum SPF 55 protection",
+      "Dry-touch lotion finish"
+    ],
+    "imageUrl": "https://images.ctfassets.net/3zfcttr0ztpr/5rWPgt21sJBorQuXFD45Ll/0903299d597dfad615f97d69cce34700/6868790-carousel-1-2023-08"
+  },
+  {
+    "id": "neutrogena-hydro-cleanser-gb",
+    "brand": "Neutrogena",
+    "name": "Hydro Boost Fragrance-Free Water Gel Cleanser",
+    "size": "200 ml",
+    "category": "cleanser",
+    "referencePrice": 10,
+    "referenceCurrency": "GBP",
+    "markets": [
+      "GB"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Hyaluronic acid",
+      "Glycerin"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.neutrogena.co.uk/skincare/serums/hydro-boost-fragrance-free-water-gel-cleanser",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "Removes daily impurities",
+      "Helps retain surface moisture"
+    ],
+    "imageUrl": "https://images.ctfassets.net/3zfcttr0ztpr/4Ja5cGTvytbemex1IKOOi9/1d9e9795762c18b8ce41f5eee2323198/Hydro_Boost_Fragrance_Free_Water_Gel_Cleanser_-_img1.png"
+  },
+  {
+    "id": "lrp-toleriane-hydrating-us",
+    "brand": "La Roche-Posay",
+    "name": "Toleriane Hydrating Gentle Facial Cleanser",
+    "size": "400 ml",
+    "category": "cleanser",
+    "referencePrice": 20,
+    "referenceCurrency": "USD",
+    "markets": [
+      "US"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Ceramides",
+      "Niacinamide"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.laroche-posay.us/our-products/face/face-wash/toleriane-hydrating-gentle-facial-cleanser-tolerianehydratinggentlefacialcleanser.html",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "Gentle cleansing for normal to dry skin",
+      "Supports the moisture barrier"
+    ],
+    "imageUrl": "https://www.laroche-posay.us/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-acd-laroche-posay-master-catalog/default/dwb5f2733c/img/tolerianehydratinggentlefacialcleanser/TolerianeHydratingGentleCleanser-Allure25.webp?q=70&sfrm=jpg&sh=320&sm=cut&sw=320"
+  },
+  {
+    "id": "lrp-double-repair-us",
+    "brand": "La Roche-Posay",
+    "name": "Toleriane Double Repair Face Moisturizer",
+    "size": "100 ml",
+    "category": "moisturizer",
+    "referencePrice": 25,
+    "referenceCurrency": "USD",
+    "markets": [
+      "US"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Ceramides",
+      "Niacinamide",
+      "Glycerin"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.laroche-posay.us/our-products/face/face-moisturizer/toleriane-double-repair-face-moisturizer-tolerianedoublerepair.html",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Moisturizes dry-feeling skin",
+      "Supports the moisture barrier"
+    ],
+    "imageUrl": "https://www.laroche-posay.us/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-acd-laroche-posay-master-catalog/default/dw06945770/img/3337875545792/Toleriane-DRM_Allure-2024.webp?q=70&sfrm=jpg&sh=320&sm=cut&sw=320"
+  },
+  {
+    "id": "lrp-anthelios-spf100-us",
+    "brand": "La Roche-Posay",
+    "name": "Anthelios Melt-in Milk SPF 100",
+    "size": "90 ml",
+    "category": "sunscreen",
+    "referencePrice": 28,
+    "referenceCurrency": "USD",
+    "markets": [
+      "US"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "UV filters"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.laroche-posay.us/our-products/sun/body-sunscreen/anthelios-melt-in-milk-sunscreen-for-face-body-spf-100-3606000546103.html",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Broad-spectrum SPF 100 protection",
+      "Face and body sunscreen lotion"
+    ],
+    "imageUrl": "https://www.laroche-posay.us/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-acd-laroche-posay-master-catalog/default/dw631ffbe3/product/antheliosmeltinmilk/Anthelios100-SCF-Active-90ml.webp?q=70&sfrm=jpg&sh=320&sm=cut&sw=320"
+  },
+  {
+    "id": "lrp-uvmune-gb",
+    "brand": "La Roche-Posay",
+    "name": "Anthelios UVMune 400 Invisible Fluid SPF 50+",
+    "size": "50 ml",
+    "category": "sunscreen",
+    "referencePrice": 21,
+    "referenceCurrency": "GBP",
+    "markets": [
+      "GB",
+      "IE"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "UV filters"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.laroche-posay.co.uk/en_GB/anthelios-uvmune-400-invisible-fluid-spf50-sun-cream-for-sensitive-skin-50ml/LRP_026.html",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Broad-spectrum SPF 50+ protection",
+      "Lightweight fluid finish"
+    ],
+    "imageUrl": "https://www.laroche-posay.co.uk/dw/image/v2/AAQP_PRD/on/demandware.static/-/Sites-lrp-ng-master-catalog/default/dw8947932a/LRP_Product/Anthelios/3337875797597_Anthelios-UVMune-400-Invisible-Fluid-SPF50%2B-Sun-Cream_50ml_07_La-Roche-Posay.jpg?q=70&sfrm=jpg&sh=320&sm=cut&sw=320"
+  },
+  {
+    "id": "vanicream-cleanser-us",
+    "brand": "Vanicream",
+    "name": "Gentle Facial Cleanser",
+    "size": "8 oz",
+    "category": "cleanser",
+    "referencePrice": 10,
+    "referenceCurrency": "USD",
+    "markets": [
+      "US"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Glycerin"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Water",
+      "Glycerin",
+      "Coco-glucoside",
+      "Sodium cocoyl glycinate",
+      "Acrylates copolymer",
+      "Caprylyl glycol",
+      "Mica",
+      "Sodium chloride",
+      "1,2-Hexanediol",
+      "Titanium dioxide",
+      "Sodium hydroxide",
+      "Disodium EDTA"
+    ],
+    "sourceUrl": "https://www.vanicream.com/product/vanicream-facial-cleanser",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "Soap-free daily cleansing",
+      "Leaves skin feeling soft"
+    ],
+    "imageUrl": "https://www.vanicream.com/dynamic-media/product/images/gentle-facial-cleanser-8-oz-front.jpg?gravity=center&k=wpsSDw6D4yetnnA15I28ig&v=galleryMedia"
+  },
+  {
+    "id": "vanicream-daily-us",
+    "brand": "Vanicream",
+    "name": "Daily Facial Moisturizer",
+    "size": "3 oz",
+    "category": "moisturizer",
+    "referencePrice": 15,
+    "referenceCurrency": "USD",
+    "markets": [
+      "US"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Squalane",
+      "Hyaluronic acid",
+      "Ceramides"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Water",
+      "Squalane",
+      "Glycerin",
+      "Pentylene glycol",
+      "Polyglyceryl-2 stearate",
+      "Glyceryl stearate",
+      "Stearyl alcohol",
+      "Hyaluronic acid",
+      "Ceramide EOP",
+      "Ceramide NG",
+      "Ceramide NP",
+      "Ceramide AS",
+      "Ceramide AP",
+      "Carnosine",
+      "Hydrogenated lecithin",
+      "Phytosterols",
+      "Caprylyl glycol",
+      "Polyacrylate crosspolymer-11",
+      "1,2-Hexanediol"
+    ],
+    "sourceUrl": "https://www.vanicream.com/product/vanicream-daily-facial-moisturizer",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Lightweight daily hydration",
+      "Helps retain skin moisture"
+    ],
+    "imageUrl": "https://www.vanicream.com/dynamic-media/product/images/dfm-gp24c-group-2661-ret-crop.jpg?gravity=center&k=4OmHIlIodbwJrIiLYPDUGg&v=galleryMedia"
+  },
+  {
+    "id": "vanicream-spf30-us",
+    "brand": "Vanicream",
+    "name": "Mineral Facial Moisturizer SPF 30",
+    "size": "2.5 oz",
+    "category": "sunscreen",
+    "referencePrice": 19,
+    "referenceCurrency": "USD",
+    "markets": [
+      "US"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Zinc oxide"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.vanicream.com/product/facial-moisturizer-with-spf",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Broad-spectrum mineral SPF 30",
+      "Moisturizing daytime texture"
+    ],
+    "imageUrl": "https://www.vanicream.com/dynamic-media/product/images/fm-30-gp24e-2595-ret-crop.jpg?gravity=center&k=0yPx5PYqmxC5kFZyW6AGZg&v=galleryMedia"
+  },
+  {
+    "id": "aveeno-oat-gel-gb",
+    "brand": "Aveeno",
+    "name": "Calm + Restore Oat Gel Moisturiser",
+    "size": "50 ml",
+    "category": "moisturizer",
+    "referencePrice": 13,
+    "referenceCurrency": "GBP",
+    "markets": [
+      "GB",
+      "IE"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Oat",
+      "Feverfew"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.aveeno.co.uk/face/calm-restore-oat-gel-moisturiser",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Lightweight gel hydration",
+      "Helps soothe dry-feeling skin"
+    ],
+    "imageUrl": "https://images.ctfassets.net/j7jv1vcgqjb4/40UBKZX48bImZSKX1OItPr/8ec5e122680a18cc048cb9752720cef8/d52dc4b2570582908381eef5dfac04b7-en-gb"
+  },
+  {
+    "id": "eucerin-cleanser-gb",
+    "brand": "Eucerin",
+    "name": "DermatoCLEAN HYALURON Cleansing Gel",
+    "size": "200 ml",
+    "category": "cleanser",
+    "referencePrice": 14,
+    "referenceCurrency": "GBP",
+    "markets": [
+      "GB",
+      "IE"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "oiliness",
+      "pore",
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Hyaluronic acid",
+      "Gluco-glycerol"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.eucerin.co.uk/products/dermato-clean/cleansing-gel",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "Gently removes impurities and excess oil",
+      "Supports hydration while cleansing"
+    ],
+    "imageUrl": "https://images-1.eucerin.com/~/media/eucerin%20relaunch%20media/media-center-items/1/6/0/bf7b1418ff5d4c77818d297d398ee2df-screen.jpg"
+  },
+  {
+    "id": "eucerin-urea-gb",
+    "brand": "Eucerin",
+    "name": "UreaRepair Face Cream 5% Urea",
+    "size": "50 ml",
+    "category": "moisturizer",
+    "referencePrice": 16,
+    "referenceCurrency": "GBP",
+    "markets": [
+      "GB",
+      "IE"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Urea",
+      "Lactate"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.eucerin.co.uk/products/urea-repair/replenishing-face-cream-5percent-urea",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Hydrates dry-feeling facial skin",
+      "Helps relieve a tight after-feel"
+    ],
+    "imageUrl": "https://images-1.eucerin.com/~/media/eucerin%20relaunch%20media/media-center-items/5/5/9/bd4f04ef6113400ba881bad3676e777d-screen.jpg"
+  },
+  {
+    "id": "boj-green-plum",
+    "brand": "Beauty of Joseon",
+    "name": "Green Plum Refreshing Cleanser",
+    "size": "100 ml",
+    "category": "cleanser",
+    "referencePrice": 13,
+    "referenceCurrency": "USD",
+    "markets": [
+      "KR",
+      "US",
+      "GB",
+      "CA",
+      "AU",
+      "SG",
+      "DE",
+      "FR"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Plum water",
+      "Mung bean extract"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://beautyofjoseon.com/products/green-plum-refreshing-cleanser",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "Gentle daily gel cleanse",
+      "Helps skin feel hydrated after cleansing"
+    ],
+    "imageUrl": "https://beautyofjoseon.com/cdn/shop/files/green-plum-refreshing-cleanser-1-front.webp?v=1770618132"
+  },
+  {
+    "id": "boj-dynasty-cream",
+    "brand": "Beauty of Joseon",
+    "name": "Dynasty Cream",
+    "size": "50 ml",
+    "category": "moisturizer",
+    "referencePrice": 24,
+    "referenceCurrency": "USD",
+    "markets": [
+      "KR",
+      "US",
+      "GB",
+      "CA",
+      "AU",
+      "SG",
+      "DE",
+      "FR"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Rice bran water",
+      "Squalane",
+      "Niacinamide"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://beautyofjoseon.com/products/dynasty-cream",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Rich moisturizing texture",
+      "Leaves a dewy finish"
+    ],
+    "imageUrl": "https://beautyofjoseon.com/cdn/shop/files/dynasty-cream-1-front.webp?v=1770618339"
+  },
+  {
+    "id": "boj-relief-sun",
+    "brand": "Beauty of Joseon",
+    "name": "Relief Sun: Rice + Probiotics SPF 50+ PA++++",
+    "size": "2 x 50 ml",
+    "category": "sunscreen",
+    "referencePrice": 36,
+    "referenceCurrency": "EUR",
+    "markets": [
+      "KR",
+      "GB",
+      "AU",
+      "SG",
+      "DE",
+      "FR",
+      "NL",
+      "BE"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Rice extract",
+      "UV filters"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://nl.beautyofjoseon.com/products/relief-sun-rice-probiotics-duo-global",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "SPF 50+ PA++++ sun protection",
+      "Lightweight cream texture"
+    ],
+    "imageUrl": "https://nl.beautyofjoseon.com/cdn/shop/files/02_0330___v2.jpg?v=1774857974"
+  },
+  {
+    "id": "cosrx-snail-cream",
+    "brand": "COSRX",
+    "name": "Advanced Snail 92 All In One Cream",
+    "size": "100 g",
+    "category": "moisturizer",
+    "referencePrice": 26,
+    "referenceCurrency": "USD",
+    "markets": [
+      "KR",
+      "US",
+      "GB",
+      "CA",
+      "AU",
+      "SG",
+      "DE",
+      "FR"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Snail secretion filtrate",
+      "Panthenol",
+      "Allantoin"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.cosrx.com/products/advanced-snail-92-all-in-one-cream",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Moisturizes dry-feeling skin",
+      "Lightweight gel cream texture"
+    ],
+    "imageUrl": "https://www.cosrx.com/cdn/shop/files/snail_cream_thumbnail_1200x1200.png?v=1748420673"
+  },
+  {
+    "id": "cerave-foaming-us",
+    "brand": "CeraVe",
+    "name": "Foaming Facial Cleanser",
+    "size": "355 ml",
+    "category": "cleanser",
+    "referencePrice": 16,
+    "referenceCurrency": "USD",
+    "markets": [
+      "US"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [
+      "oiliness",
+      "pore",
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Ceramides",
+      "Hyaluronic acid",
+      "Niacinamide"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.cerave.com/skincare/cleansers/foaming-facial-cleanser",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "Removes excess oil and daily impurities",
+      "Supports the moisture barrier"
+    ],
+    "imageUrl": "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/skincare/cleansers/foaming-facial-cleanser/photos/2026/700x785/ffc-atf-1-700x785-v1.jpg?rev=f0923e1e888a44b5ac66d4bb8025218a"
+  },
+  {
+    "id": "neutrogena-invisible-spf50-ca",
+    "brand": "Neutrogena",
+    "name": "Invisible Daily Defense Fragrance Free SPF 50+",
+    "size": "88 ml",
+    "category": "sunscreen",
+    "referencePrice": 20,
+    "referenceCurrency": "CAD",
+    "markets": [
+      "CA"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": false,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "UV filters"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.neutrogena.ca/sun/body-protection/neutrogena-invisible-daily-defense-lotion-sunscreen",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "Broad-spectrum SPF 50+ protection",
+      "Lightweight finish that goes clear on skin"
+    ],
+    "imageUrl": "https://images.ctfassets.net/3zfcttr0ztpr/2M0YAX8sCXgVKwJ3U0usSM/e4a568a7b20968088686820741c71a71/ntg_062600629678_ca_invisible_daily_def_ff_sunscreen_lotion_spf50_88ml_00000_1000wx1000h_fr-fr-ca"
+  },
+  {
+    "id": "biore-aqua-rich-jp",
+    "brand": "Bioré",
+    "name": "Aqua Rich Watery Essence SPF 50+ PA++++",
+    "size": "70 g",
+    "category": "sunscreen",
+    "referencePrice": 1000,
+    "referenceCurrency": "JPY",
+    "markets": [
+      "JP"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": false,
+    "fragranceFree": false,
+    "ingredientHighlights": [
+      "UV filters"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.kao-kirei.com/ja/item/khg/bioresarasarauv/4901301413246/",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "SPF 50+ PA++++ sun protection",
+      "Lightweight watery essence texture"
+    ],
+    "imageUrl": "https://www.kao-kirei.com/content/dam/sites/kao/www-kao-kirei-com/jp/ja/item/khg/bioresarasarauv/25501404/GG01.jpg"
+  },
+  {
+    "id": "biore-aqua-rich-sg",
+    "brand": "Bioré",
+    "name": "Aqua Rich Watery Essence SPF 50+ PA++++",
+    "size": "70 g",
+    "category": "sunscreen",
+    "referencePrice": 22,
+    "referenceCurrency": "SGD",
+    "markets": [
+      "SG"
+    ],
+    "regionalPrices": [],
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": false,
+    "fragranceFree": false,
+    "ingredientHighlights": [
+      "UV filters"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.kao.com/sg/products/biore/bio_aquarich_essence_00/",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "SPF 50+ PA++++ sun protection",
+      "Lightweight water-based finish"
+    ],
+    "imageUrl": "https://kao-h.assetsadobe3.com/is/image/content/dam/sites/kao/www-kao-com/sg/en/products/biore/bio_aquarich_essence_00.jpg"
   }
 ]

@@ -29,6 +29,18 @@ class CatalogManager:
             categories.add(product["category"])
             if product["referencePrice"] <= 0:
                 raise ValueError("Planning prices must be positive")
+            currency = product.get("referenceCurrency", "")
+            if len(currency) != 3 or not currency.isupper():
+                raise ValueError("Every estimate needs its native currency")
+            markets = product.get("markets")
+            if not isinstance(markets, list) or any(len(code) != 2 or not code.isupper() for code in markets):
+                raise ValueError("Country collections need ISO country codes")
+            regional = product.get("regionalPrices", [])
+            if len({price["country"] for price in regional}) != len(regional):
+                raise ValueError("Duplicate regional estimate")
+            for price in regional:
+                if price["price"] <= 0 or len(price["currency"]) != 3 or urlparse(price["sourceUrl"]).scheme != "https":
+                    raise ValueError("Regional estimates need a price, currency and HTTPS source")
             if product["priceKind"] != "planning estimate":
                 raise ValueError("Bundled catalog must not imply live prices")
             if urlparse(product["sourceUrl"]).scheme != "https":
