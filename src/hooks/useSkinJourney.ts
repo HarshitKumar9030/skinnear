@@ -25,6 +25,7 @@ export function useSkinJourney() {
   const [preferences, setPreferences] = useState(DEFAULT_PREFERENCES);
   const [routine, setRoutine] = useState<Routine | null>(null);
   const [excludedProductIds, setExcludedProductIds] = useState<string[]>([]);
+  const [selectedProductIds, setSelectedProductIds] = useState<string[]>([]);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
@@ -59,13 +60,14 @@ export function useSkinJourney() {
     finally { if (!abort.signal.aborted) setBusy(false); }
   }
 
-  async function build(nextPreferences: Preferences, excluded: string[] = []) {
+  async function build(nextPreferences: Preferences, excluded: string[] = [], selected: string[] = []) {
     if (!analysis) return;
     setBusy(true); setError(""); setNotice("");
     try {
-      const input: RoutineRequest = { analysis, preferences: nextPreferences, excludedProductIds: excluded };
+      const input: RoutineRequest = { analysis, preferences: nextPreferences, excludedProductIds: excluded, selectedProductIds: selected };
       const nextRoutine = await api.post<Routine>("/api/routine", input);
       setPreferences(nextPreferences); setRoutine(nextRoutine); setExcludedProductIds(excluded); setSavedId(null); setStage("routine");
+      setSelectedProductIds(selected);
     } catch (err) { setError(err instanceof Error ? err.message : "Could not build your routine."); }
     finally { setBusy(false); }
   }
@@ -74,7 +76,7 @@ export function useSkinJourney() {
     if (!analysis || !routine) return;
     setBusy(true); setError("");
     try {
-      const result = await api.post<{ id: string }>("/api/routines", { analysis, preferences, excludedProductIds });
+      const result = await api.post<{ id: string }>("/api/routines", { analysis, preferences, excludedProductIds, selectedProductIds });
       setSavedId(result.id); localStorage.setItem("skinnear:saved:v1", result.id); setNotice("Saved for 30 days in this browser. Your photo is not saved.");
     } catch (err) { setError(err instanceof Error ? err.message : "Could not save your routine."); }
     finally { setBusy(false); }
@@ -87,6 +89,7 @@ export function useSkinJourney() {
     try {
       const result = await api.request<{ request: RoutineRequest; routine: Routine }>(`/api/routines/${encodeURIComponent(id)}`);
       setAnalysis(result.request.analysis); setPreferences(result.request.preferences); setExcludedProductIds(result.request.excludedProductIds); setRoutine(result.routine); setSavedId(id); setStage("routine"); setNotice("Your saved routine. Prices are planning estimates; check current seller listings.");
+      setSelectedProductIds(result.request.selectedProductIds ?? []);
     } catch (err) { setError(err instanceof Error ? err.message : "Could not open the saved routine."); }
     finally { setBusy(false); }
   }
@@ -106,7 +109,13 @@ export function useSkinJourney() {
 
   return { stage, analysis, preferences, routine, busy, error, notice, savedId, sample, scan, build, save, restore, removeSaved, reset, cancelScan,
     edit: () => { setStage("preferences"); setError(""); setNotice(""); },
-    swap: (id: string) => build(preferences, [...excludedProductIds, id]),
+    swap: (id: string) => build(preferences, [...excludedProductIds, id], selectedProductIds.filter((selected) => selected !== id)),
+    choose: (id: string) => {
+      const alternative = routine?.items.flatMap((item) => item.alternatives).find((product) => product.id === id);
+      if (!alternative || !routine) return Promise.resolve();
+      const selected = [...routine.items.filter((item) => item.product.category !== alternative.category).map((item) => item.product.id), id];
+      return build(preferences, excludedProductIds.filter((excluded) => excluded !== id), selected);
+    },
     resetChoices: () => build(preferences),
   };
 }

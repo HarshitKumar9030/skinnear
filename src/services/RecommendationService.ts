@@ -1,6 +1,7 @@
 import type { Category, Product, Routine, RoutineRequest } from "@/domain/schemas";
 import { formatMoney } from "@/domain/regions";
 import { CONCERN_LABELS } from "@/domain/sample";
+import { AppError } from "@/lib/errors";
 
 const CATEGORIES: Category[] = ["cleanser", "moisturizer", "sunscreen"];
 
@@ -17,6 +18,18 @@ export class RecommendationService {
       .filter((product) => !preferences.sensitive || category === "sunscreen" || product.sensitive)
       .filter((product) => this.matchesExclusions(product, preferences.exclusions))
       .sort((a, b) => this.relevance(b, analysis) - this.relevance(a, analysis) || a.referencePrice - b.referencePrice));
+    const chosen = (request.selectedProductIds ?? []).map((id) => {
+      const product = candidates.flat().find((candidate) => candidate.id === id);
+      if (!product) throw new AppError("That product no longer matches your preferences. Reset choices and try again.", 400);
+      return product;
+    });
+    if (new Set(chosen.map((product) => product.category)).size !== chosen.length) {
+      throw new AppError("Choose only one product for each routine step.", 400);
+    }
+    const selectionPools = candidates.map((pool, index) => {
+      const pinned = chosen.find((product) => product.category === categories[index]);
+      return pinned ? [pinned] : pool;
+    });
 
     // Exhaustive combinations are intentional: the small curated catalog permits
     // optimizing the entire basket, instead of greedily overspending one step.
@@ -32,7 +45,7 @@ export class RecommendationService {
         }
         return;
       }
-      for (const product of candidates[index]) {
+      for (const product of selectionPools[index]) {
         visit(index + 1, [...selected, product], cost + product.referencePrice, score + this.relevance(product, analysis));
       }
     };
@@ -43,7 +56,7 @@ export class RecommendationService {
       items: selected.map((product) => ({
         product,
         reason: this.explain(product, analysis),
-        alternatives: candidates[categories.indexOf(product.category)].filter((p) => p.id !== product.id),
+        alternatives: candidates[categories.indexOf(product.category)].filter((p) => p.id !== product.id && selected.reduce((sum, item) => sum + item.referencePrice, 0) - product.referencePrice + p.referencePrice <= preferences.budget),
       })),
       total: selected.reduce((sum, product) => sum + product.referencePrice, 0),
       budget: preferences.budget,

@@ -34,6 +34,8 @@ export const productSchema = z.object({
   sensitive: z.boolean(),
   fragranceFree: z.boolean(),
   ingredientHighlights: z.array(z.string()),
+  benefits: z.array(z.string()).max(4).default([]),
+  imageUrl: z.url().refine((url) => url.startsWith("https://"), "Product images must use HTTPS").optional(),
   ingredientsComplete: z.boolean(),
   ingredients: z.array(z.string()),
   sourceUrl: z.url(),
@@ -44,6 +46,7 @@ export const routineRequestSchema = z.object({
   analysis: analysisSchema,
   preferences: preferencesSchema,
   excludedProductIds: z.array(z.string().max(80)).max(30).default([]),
+  selectedProductIds: z.array(z.string().max(80)).max(3).optional(),
 });
 
 export type Concern = z.infer<typeof concernSchema>;

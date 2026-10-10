@@ -33,6 +33,10 @@ class CatalogManager:
                 raise ValueError("Bundled catalog must not imply live prices")
             if urlparse(product["sourceUrl"]).scheme != "https":
                 raise ValueError("Every product needs an HTTPS source")
+            if urlparse(product.get("imageUrl", "")).scheme != "https":
+                raise ValueError("Every bundled product needs an HTTPS image")
+            if not product.get("benefits"):
+                raise ValueError("Every bundled product needs brand-described benefits")
             if product["ingredientsComplete"] and not product["ingredients"]:
                 raise ValueError("Complete ingredient metadata needs a list")
         if categories != {"cleanser", "moisturizer", "sunscreen"}:

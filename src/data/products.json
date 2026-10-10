@@ -7,15 +7,48 @@
     "category": "cleanser",
     "referencePrice": 299,
     "priceKind": "planning estimate",
-    "concerns": ["moisture", "redness"],
+    "concerns": [
+      "moisture",
+      "redness"
+    ],
     "sensitive": true,
     "fragranceFree": true,
-    "ingredientHighlights": ["Oat extract", "Glycerin", "Panthenol"],
+    "ingredientHighlights": [
+      "Oat extract",
+      "Glycerin",
+      "Panthenol"
+    ],
     "ingredientsComplete": true,
-    "ingredients": ["Water", "Glycerin", "Avena Sativa (Oat) Kernel Extract", "Butylene Glycol", "Sodium Lauroyl Oat Amino Acid", "Cetyl Alcohol", "Stearyl Alcohol", "Methyl Gluceth-20", "Cocoglucoside", "Panthenol", "Glyceryl Oleate", "Sodium Hyaluronate", "Cyanocobalamin", "Pentylene Glycol", "Lactic Acid", "Phenoxyethanol", "Ethylhexylglycerin", "Sodium Cocyl Isethionate", "Polyacrylate Crosspolymer-6", "Trisodium Ethylenediamine Disuccinate"],
+    "ingredients": [
+      "Water",
+      "Glycerin",
+      "Avena Sativa (Oat) Kernel Extract",
+      "Butylene Glycol",
+      "Sodium Lauroyl Oat Amino Acid",
+      "Cetyl Alcohol",
+      "Stearyl Alcohol",
+      "Methyl Gluceth-20",
+      "Cocoglucoside",
+      "Panthenol",
+      "Glyceryl Oleate",
+      "Sodium Hyaluronate",
+      "Cyanocobalamin",
+      "Pentylene Glycol",
+      "Lactic Acid",
+      "Phenoxyethanol",
+      "Ethylhexylglycerin",
+      "Sodium Cocyl Isethionate",
+      "Polyacrylate Crosspolymer-6",
+      "Trisodium Ethylenediamine Disuccinate"
+    ],
     "sourceUrl": "https://beminimalist.co/products/oat-extract-06-gentle-cleanser",
     "sourceCheckedAt": "2026-10-09",
-    "tone": "rose"
+    "tone": "rose",
+    "benefits": [
+      "Gentle cleansing for dry-feeling skin",
+      "Helps retain moisture while cleansing"
+    ],
+    "imageUrl": "https://beminimalist.co/cdn/shop/files/B12_Oat_Extract_6.5.jpg?v=1783083799"
   },
   {
     "id": "minimalist-aquaporin",
@@ -25,15 +58,27 @@
     "category": "cleanser",
     "referencePrice": 299,
     "priceKind": "planning estimate",
-    "concerns": ["moisture", "oiliness", "pore"],
+    "concerns": [
+      "moisture",
+      "oiliness",
+      "pore"
+    ],
     "sensitive": true,
     "fragranceFree": true,
-    "ingredientHighlights": ["Betaine", "Glycerin"],
+    "ingredientHighlights": [
+      "Betaine",
+      "Glycerin"
+    ],
     "ingredientsComplete": false,
     "ingredients": [],
     "sourceUrl": "https://beminimalist.co/products/aquaporin-booster-05-cleanser",
     "sourceCheckedAt": "2026-10-09",
-    "tone": "sage"
+    "tone": "sage",
+    "benefits": [
+      "Cleanses without a tight after-feel",
+      "Supports hydration with betaine and glycerin"
+    ],
+    "imageUrl": "https://beminimalist.co/cdn/shop/files/AquaporinNew.png?v=1721398128"
   },
   {
     "id": "minimalist-b5",
@@ -43,15 +88,28 @@
     "category": "moisturizer",
     "referencePrice": 349,
     "priceKind": "planning estimate",
-    "concerns": ["moisture", "oiliness", "pore"],
+    "concerns": [
+      "moisture",
+      "oiliness",
+      "pore"
+    ],
     "sensitive": true,
     "fragranceFree": true,
-    "ingredientHighlights": ["Panthenol", "Hyaluronic acid", "Betaine"],
+    "ingredientHighlights": [
+      "Panthenol",
+      "Hyaluronic acid",
+      "Betaine"
+    ],
     "ingredientsComplete": false,
     "ingredients": [],
     "sourceUrl": "https://beminimalist.co/products/vitamin-b5-10-moisturizer",
     "sourceCheckedAt": "2026-10-09",
-    "tone": "lavender"
+    "tone": "lavender",
+    "benefits": [
+      "Lightweight daily hydration",
+      "Panthenol helps support the moisture barrier"
+    ],
+    "imageUrl": "https://beminimalist.co/cdn/shop/products/B5Moisturizer1200-2-min.png?v=1756800645"
   },
   {
     "id": "minimalist-marula",
@@ -61,15 +119,63 @@
     "category": "moisturizer",
     "referencePrice": 299,
     "priceKind": "planning estimate",
-    "concerns": ["moisture", "redness"],
+    "concerns": [
+      "moisture",
+      "redness"
+    ],
     "sensitive": true,
     "fragranceFree": true,
-    "ingredientHighlights": ["Marula oil", "Glycerin", "Vitamin E"],
+    "ingredientHighlights": [
+      "Marula oil",
+      "Glycerin",
+      "Vitamin E"
+    ],
     "ingredientsComplete": true,
-    "ingredients": ["Water", "Glycerin", "Sclerocarya Birrea (Marula) Seed Oil", "Methypropanediol", "Dicaprylyl Carbonate", "Caprylic/Capric Triglyceride", "Butylene Glycol", "Cetostearyl Alcohol", "Glyceryl Stearate", "PEG-100 Stearate", "Trehalose", "Dimethicone", "Saccharide Isomerate", "Pentylene Glycol", "Coco-Caprylate/Caprate", "Triheptanoin", "C9-12 Alkane", "Sodium Hyaluronate", "Allantoin", "Linoleic Acid", "Linolenic Acid", "Carbomer", "Cetyl Alcohol", "Phenoxyethanol", "Tocopheryl Acetate", "Sodium Hydroxide", "Nylon 12", "Petrolatum", "Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer", "Ethylhexylglycerin", "Butyrospermum Parkii (Shea) Butter", "Polyurethane-100", "Trisodium Ethylenediamine Disuccinate", "Citric Acid", "Sodium Citrate"],
+    "ingredients": [
+      "Water",
+      "Glycerin",
+      "Sclerocarya Birrea (Marula) Seed Oil",
+      "Methypropanediol",
+      "Dicaprylyl Carbonate",
+      "Caprylic/Capric Triglyceride",
+      "Butylene Glycol",
+      "Cetostearyl Alcohol",
+      "Glyceryl Stearate",
+      "PEG-100 Stearate",
+      "Trehalose",
+      "Dimethicone",
+      "Saccharide Isomerate",
+      "Pentylene Glycol",
+      "Coco-Caprylate/Caprate",
+      "Triheptanoin",
+      "C9-12 Alkane",
+      "Sodium Hyaluronate",
+      "Allantoin",
+      "Linoleic Acid",
+      "Linolenic Acid",
+      "Carbomer",
+      "Cetyl Alcohol",
+      "Phenoxyethanol",
+      "Tocopheryl Acetate",
+      "Sodium Hydroxide",
+      "Nylon 12",
+      "Petrolatum",
+      "Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer",
+      "Ethylhexylglycerin",
+      "Butyrospermum Parkii (Shea) Butter",
+      "Polyurethane-100",
+      "Trisodium Ethylenediamine Disuccinate",
+      "Citric Acid",
+      "Sodium Citrate"
+    ],
     "sourceUrl": "https://beminimalist.co/products/marula-05-moisturizer",
     "sourceCheckedAt": "2026-10-09",
-    "tone": "rose"
+    "tone": "rose",
+    "benefits": [
+      "Rich moisture for dry-feeling skin",
+      "Marula oil helps soften the skin"
+    ],
+    "imageUrl": "https://beminimalist.co/cdn/shop/files/Marula_New.png?v=1756803801"
   },
   {
     "id": "minimalist-spf50",
@@ -79,15 +185,58 @@
     "category": "sunscreen",
     "referencePrice": 399,
     "priceKind": "planning estimate",
-    "concerns": ["moisture"],
+    "concerns": [
+      "moisture"
+    ],
     "sensitive": false,
     "fragranceFree": true,
-    "ingredientHighlights": ["Niacinamide", "Panthenol", "Vitamin E"],
+    "ingredientHighlights": [
+      "Niacinamide",
+      "Panthenol",
+      "Vitamin E"
+    ],
     "ingredientsComplete": true,
-    "ingredients": ["Water", "Octocrylene", "Butyl Methoxydibenzoylmethane", "Isododecane", "Niacinamide", "Caprylic/Capric Triglyceride", "Arachidyl Alcohol", "Titanium Dioxide", "Propylene Glycol Dicaprylate/Dicaprate", "Diisopropyl Sebacate", "Ethylhexyl Triazone", "Diisopropyl Adipate", "C12-15 Alkyl Benzoate", "Butylene Glycol", "Allantoin", "Panthenol", "Sodium Hyaluronate", "Linoleic Acid", "Linolenic Acid", "Behenyl Alcohol", "Arachidyl Glucoside", "Phenoxyethanol", "Glyceryl Stearate", "PEG-100 Stearate", "Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer", "Tocopheryl acetate", "Acacia Senegal Gum", "Xanthan Gum", "Ethylhexylglycerin", "Silica", "Trisodium Ethylenediamine Disuccinate"],
+    "ingredients": [
+      "Water",
+      "Octocrylene",
+      "Butyl Methoxydibenzoylmethane",
+      "Isododecane",
+      "Niacinamide",
+      "Caprylic/Capric Triglyceride",
+      "Arachidyl Alcohol",
+      "Titanium Dioxide",
+      "Propylene Glycol Dicaprylate/Dicaprate",
+      "Diisopropyl Sebacate",
+      "Ethylhexyl Triazone",
+      "Diisopropyl Adipate",
+      "C12-15 Alkyl Benzoate",
+      "Butylene Glycol",
+      "Allantoin",
+      "Panthenol",
+      "Sodium Hyaluronate",
+      "Linoleic Acid",
+      "Linolenic Acid",
+      "Behenyl Alcohol",
+      "Arachidyl Glucoside",
+      "Phenoxyethanol",
+      "Glyceryl Stearate",
+      "PEG-100 Stearate",
+      "Hydroxyethyl Acrylate/Sodium Acryloyldimethyl Taurate Copolymer",
+      "Tocopheryl acetate",
+      "Acacia Senegal Gum",
+      "Xanthan Gum",
+      "Ethylhexylglycerin",
+      "Silica",
+      "Trisodium Ethylenediamine Disuccinate"
+    ],
     "sourceUrl": "https://beminimalist.co/products/multi-vitamin-spf-50",
     "sourceCheckedAt": "2026-10-09",
-    "tone": "sage"
+    "tone": "sage",
+    "benefits": [
+      "SPF 50 daytime sun protection",
+      "Includes panthenol and vitamin E"
+    ],
+    "imageUrl": "https://beminimalist.co/cdn/shop/files/SPF50New.jpg?v=1756795782"
   },
   {
     "id": "minimalist-fluid",
@@ -97,7 +246,10 @@
     "category": "sunscreen",
     "referencePrice": 499,
     "priceKind": "planning estimate",
-    "concerns": ["oiliness", "pore"],
+    "concerns": [
+      "oiliness",
+      "pore"
+    ],
     "sensitive": false,
     "fragranceFree": false,
     "ingredientHighlights": [],
@@ -105,6 +257,320 @@
     "ingredients": [],
     "sourceUrl": "https://beminimalist.co/products/light-fluid-spf-50-sunscreen",
     "sourceCheckedAt": "2026-10-09",
-    "tone": "lavender"
+    "tone": "lavender",
+    "benefits": [
+      "SPF 50 in a light fluid texture",
+      "Designed for oily and combination skin"
+    ],
+    "imageUrl": "https://beminimalist.co/cdn/shop/files/Artboard_1_1.jpg?v=1783323907"
+  },
+  {
+    "id": "cerave-hydrating",
+    "brand": "CeraVe",
+    "name": "Hydrating Facial Cleanser",
+    "size": "355 ml",
+    "category": "cleanser",
+    "referencePrice": 1500,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Ceramides",
+      "Hyaluronic acid"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.cerave.com/skincare/cleansers/hydrating-facial-cleanser",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "Gentle cleansing without a dry after-feel",
+      "Ceramides help support the skin barrier"
+    ],
+    "imageUrl": "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/skincare/cleansers/hydrating-facial-cleanser/photos/2022/700x700/cerave_daily_hydrating-cleanser_12oz_front-700x700-v2.jpg?rev=8dcf681b75c042deaaa0c6ea1581d4df"
+  },
+  {
+    "id": "cerave-lotion",
+    "brand": "CeraVe",
+    "name": "Daily Moisturizing Lotion",
+    "size": "355 ml",
+    "category": "moisturizer",
+    "referencePrice": 1400,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Ceramides",
+      "Hyaluronic acid"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.cerave.com/skincare/moisturizers/daily-moisturizing-lotion",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Lightweight, non-greasy hydration",
+      "Helps maintain the moisture barrier"
+    ],
+    "imageUrl": "https://www.cerave.com/-/media/project/loreal/brand-sites/cerave/americas/us/products-v3/daily-moisturizing-lotion/700x700/cerave_daily_moisturizing_lotion_12oz_front_-700x700-v2.jpg?rev=5fb61e1db7fe49fb9faf308c5f583d65"
+  },
+  {
+    "id": "cetaphil-gentle",
+    "brand": "Cetaphil",
+    "name": "Gentle Skin Cleanser",
+    "size": "118 ml",
+    "category": "cleanser",
+    "referencePrice": 450,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture",
+      "redness"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Glycerin",
+      "Panthenol",
+      "Niacinamide"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Aqua",
+      "Glycerin",
+      "Cetearyl Alcohol",
+      "Panthenol",
+      "Niacinamide",
+      "Pantolactone",
+      "Xanthan Gum",
+      "Sodium Cocoyl Isethionate",
+      "Sodium Benzoate",
+      "Citric Acid"
+    ],
+    "sourceUrl": "https://www.cetaphil.in/products/cleansers/gentle-skin-cleanser/8906005274106.html",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "Gently removes dirt and impurities",
+      "Hydrating formula for dry, sensitive skin"
+    ],
+    "imageUrl": "https://www.cetaphil.in/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-galderma-in-m-catalog/default/dwddaed151/GSC%20Revive%20A+/118ml/ATF/1.FoP-118.png?sw=900&sh=900&sm=fit&q=85"
+  },
+  {
+    "id": "cetaphil-cream",
+    "brand": "Cetaphil",
+    "name": "Moisturising Cream",
+    "size": "450 g",
+    "category": "moisturizer",
+    "referencePrice": 1600,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture",
+      "redness"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Glycerin",
+      "Panthenol",
+      "Niacinamide"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Aqua",
+      "Glycerin",
+      "Petrolatum",
+      "Dicaprylyl Ether",
+      "Dimethicone",
+      "Glyceryl Stearate",
+      "Cetyl Alcohol",
+      "Helianthus Annuus Seed Oil",
+      "PEG-30 Stearate",
+      "Panthenol",
+      "Niacinamide",
+      "Prunus Amygdalus Dulcis Oil",
+      "Tocopherol",
+      "Tocopheryl Acetate",
+      "Pantolactone",
+      "Dimethiconol",
+      "Acrylates/C10-30 Alkyl Acrylate Crosspolymer",
+      "Carbomer",
+      "Propylene Glycol",
+      "BHT",
+      "Disodium EDTA",
+      "Benzyl Alcohol",
+      "Phenoxyethanol",
+      "Sodium Hydroxide",
+      "Citric Acid"
+    ],
+    "sourceUrl": "https://www.cetaphil.in/moisturizers/moisturising-cream-450g/8906005275196.html",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "rose",
+    "benefits": [
+      "Rich hydration for dry-feeling skin",
+      "Helps support the skin moisture barrier"
+    ],
+    "imageUrl": "https://www.cetaphil.in/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-galderma-in-m-catalog/default/dwe860941c/8906005273437/rebranding/ATF/052410_MC_16oz-Front.png?sw=900&sh=900&sm=fit&q=85"
+  },
+  {
+    "id": "cetaphil-sun",
+    "brand": "Cetaphil",
+    "name": "Sun SPF 50+ Light Gel",
+    "size": "50 ml",
+    "category": "sunscreen",
+    "referencePrice": 1250,
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Vitamin E"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.cetaphil.in/sunscreens/cetaphil-spf-50%2B-sunscreen/3499320013192.html",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "SPF 50+ daily sun protection",
+      "Water-resistant gel for sensitive skin"
+    ],
+    "imageUrl": "https://www.cetaphil.in/dw/image/v2/bggn_prd/on/demandware.static/-/Sites-galderma-in-m-catalog/default/dw76b723b9/Sun%2050%20Revive%20A+/ATF/1.%20FoP%20(1).png?sw=900&sh=900&sm=fit&q=85"
+  },
+  {
+    "id": "simple-wash",
+    "brand": "Simple",
+    "name": "Kind to Skin Moisturising Facial Wash",
+    "size": "150 ml",
+    "category": "cleanser",
+    "referencePrice": 490,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Panthenol",
+      "Vitamin E",
+      "Bisabolol"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.simpleskincare.in/products/moisturising-facial-wash-with-pro-vit-b5-vit-e-150ml",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "Soap-free cleansing for dry-feeling skin",
+      "Helps skin feel comfortable after washing"
+    ],
+    "imageUrl": "https://www.simpleskincare.in/cdn/shop/files/Module1_1200x1200.jpg?v=1769513376"
+  },
+  {
+    "id": "simple-light",
+    "brand": "Simple",
+    "name": "Kind to Skin Hydrating Light Moisturiser",
+    "size": "125 ml",
+    "category": "moisturizer",
+    "referencePrice": 499,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Panthenol",
+      "Vitamin E",
+      "Borage seed oil"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.simpleskincare.in/products/hydrating-light-moisturiser-with-borage-seed-oil-pro-vit-b5-vit-e-125-ml",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "lavender",
+    "benefits": [
+      "Lightweight daily hydration",
+      "Leaves skin feeling soft and smooth"
+    ],
+    "imageUrl": "https://www.simpleskincare.in/cdn/shop/files/27274_H_1200x1200.jpg?v=1789448668"
+  },
+  {
+    "id": "bioderma-sensibio",
+    "brand": "Bioderma",
+    "name": "Sensibio Gel Moussant",
+    "size": "100 ml",
+    "category": "cleanser",
+    "referencePrice": 699,
+    "priceKind": "planning estimate",
+    "concerns": [
+      "moisture",
+      "redness"
+    ],
+    "sensitive": true,
+    "fragranceFree": true,
+    "ingredientHighlights": [
+      "Coco-glucoside",
+      "Glyceryl oleate"
+    ],
+    "ingredientsComplete": true,
+    "ingredients": [
+      "Aqua/Water/Eau",
+      "Sodium Cocoamphoacetate",
+      "Propanediol",
+      "Sodium Lauroyl Sarcosinate",
+      "Citric Acid",
+      "Coco-Glucoside",
+      "Glyceryl Oleate",
+      "Sodium Citrate",
+      "PEG-90 Glyceryl Isostearate",
+      "Mannitol",
+      "Xylitol",
+      "Laureth-2",
+      "Rhamnose",
+      "Fructooligosaccharides",
+      "Tocopherol",
+      "Hydrogenated Palm Glycerides Citrate",
+      "Lecithin",
+      "Ascorbyl Palmitate"
+    ],
+    "sourceUrl": "https://www.bioderma-india.in/our-products/sensibio/gel-moussant",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "rose",
+    "benefits": [
+      "Soap-free cleansing for sensitive skin",
+      "Helps maintain hydration while cleansing"
+    ],
+    "imageUrl": "https://www.bioderma-india.in/sites/in/files/styles/product_packshot_slider/public/products/Packshot_Sensibio%20Gel%20moussant%20T100ml%2028726%20MAD%20Sept%202020.jpg?itok=DvaX0t5g"
+  },
+  {
+    "id": "neutrogena-ultrasheer",
+    "brand": "Neutrogena",
+    "name": "Ultra Sheer Dry Touch Sunscreen SPF 50+",
+    "size": "80 g",
+    "category": "sunscreen",
+    "referencePrice": 650,
+    "priceKind": "planning estimate",
+    "concerns": [],
+    "sensitive": false,
+    "fragranceFree": false,
+    "ingredientHighlights": [
+      "Vitamin E"
+    ],
+    "ingredientsComplete": false,
+    "ingredients": [],
+    "sourceUrl": "https://www.neutrogena.in/sun/ultra-sheer-sunscreen",
+    "sourceCheckedAt": "2026-10-10",
+    "tone": "sage",
+    "benefits": [
+      "SPF 50+ broad-spectrum sun protection",
+      "Lightweight dry-touch finish"
+    ],
+    "imageUrl": "https://images.ctfassets.net/3zfcttr0ztpr/4oa6YGDxctTkbVmX3sVA9i/a84602f47214503e2509bbc0abb86883/neutrogena-ultra-sheer-dry-touch-sunblock-spf-50-front1-en-in"
   }
 ]

@@ -39,7 +39,7 @@ npm run catalog:validate
 npm run catalog:seed
 ```
 
-The Python seed script upserts the six curated products. A configured but unreachable MongoDB returns an explicit error; the app does not silently replace database data.
+The Python seed script upserts the 15 curated products. Run it again when upgrading an existing MongoDB catalog to include the new brands, images, and benefits. A configured but unreachable MongoDB returns an explicit error; the app does not silently replace database data.
 
 ## Worldwide shopping
 
@@ -47,7 +47,9 @@ Choose a country, city, optional international postal code, and a budget currenc
 
 Blinkit and Zepto appear for India only, using public product pages where verified and retailer searches otherwise. Neither link lookup nor search establishes address-level stock, delivery time, exact variant, or current ingredients. Enter the delivery address with the retailer.
 
-The current catalog contains six Minimalist products with INR **planning estimates**, not live local prices. Other currencies convert those estimates; availability and local retail prices may differ. Currency rates are cached daily with attribution to [ExchangeRate-API](https://www.exchangerate-api.com/docs/free). Extend the curated catalog for broader brand/region coverage.
+The catalog contains 15 products across Minimalist, CeraVe, Cetaphil, Simple, Bioderma, and Neutrogena. Official product pages supply linked benefit summaries and remote packaging images (with a fallback if an image is unavailable). Country-specific packaging, size, and formula may differ. INR **planning estimates** are editorial budget inputs, not live local quotes; other currencies convert those estimates. Currency rates are cached daily with attribution to [ExchangeRate-API](https://www.exchangerate-api.com/docs/free).
+
+Each routine step offers budget-compatible alternatives across brands. Choosing one keeps the other current steps, revalidates exclusions and sensitivity preferences, and recalculates the total. Explicit choices are included when saving a routine. Brand variety is available without replacing the relevance/budget ranking with sponsored or random selections.
 
 ## Maintainable architecture
 
@@ -73,6 +75,6 @@ npm run catalog:validate
 python scripts/smoke.py
 ```
 
-Twenty-one unit tests cover basket constraints, exclusions, swaps, score direction, signed tokens, country validation, postal codes, retailer scoping, missing-key fallback, and mocked live provider parameters. Browser QA covers desktop/mobile, US USD conversion, India retailer links, morning/evening, and seller fallback. Live YouCam, credentialed SerpApi, and MongoDB persistence still require integration verification with real configured services.
+Twenty-five unit tests cover basket constraints, exclusions, swaps, score direction, signed tokens, country validation, postal codes, retailer scoping, missing-key fallback, and mocked live provider parameters. Browser QA covers desktop/mobile, US USD conversion, India retailer links, morning/evening, and seller fallback. Live YouCam, credentialed SerpApi, and MongoDB persistence still require integration verification with real configured services.
 
 API references: [YouCam skin analysis](https://docs.perfectcorp.com/reference/ai_skin_analysis), [SerpApi shopping](https://serpapi.com/google-shopping-api). Generated design references and intentional deviations are in `docs/design/DESIGN.md`.

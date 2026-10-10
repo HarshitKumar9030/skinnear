@@ -53,3 +53,37 @@ test("higher favorable score does not turn into a higher concern priority", () =
   assert.equal(result.items[0].product.id, "minimalist-aquaporin");
   assert.equal(result.items[1].product.id, "minimalist-b5");
 });
+
+test("expanded catalog exposes multiple brands with source-backed images and benefits", () => {
+  assert.equal(new Set(products.map((product) => product.brand)).size, 6);
+  assert.ok(products.every((product) => product.imageUrl?.startsWith("https://") && product.benefits.length >= 2));
+  const routine = service.build(input({ budget: 5000 }));
+  assert.ok(routine.items[0].alternatives.some((product) => product.brand === "Cetaphil"));
+  assert.ok(routine.items[1].alternatives.some((product) => product.brand === "CeraVe"));
+  assert.ok(routine.items[2].alternatives.some((product) => product.brand === "Neutrogena"));
+});
+
+test("choosing a different brand preserves other steps and budget", () => {
+  const first = service.build(input({ budget: 5000 }));
+  const selected = ["cetaphil-gentle", ...first.items.slice(1).map((item) => item.product.id)];
+  const result = service.build({ ...input({ budget: 5000 }), selectedProductIds: selected });
+  assert.equal(result.items[0].product.id, "cetaphil-gentle");
+  assert.deepEqual(result.items.slice(1).map((item) => item.product.id), selected.slice(1));
+  assert.ok(result.total <= result.budget);
+  assert.ok(result.items[0].alternatives.length > 0);
+});
+
+test("alternatives cannot exceed the current basket budget", () => {
+  const result = service.build(input({ budget: 1000 }));
+  for (const item of result.items) for (const alternative of item.alternatives) {
+    assert.ok(result.total - item.product.referencePrice + alternative.referencePrice <= result.budget);
+  }
+  const forced = service.build({ ...input({ budget: 1000 }), selectedProductIds: ["cerave-hydrating"] });
+  assert.equal(forced.feasible, false);
+  assert.equal(forced.items.length, 0);
+});
+
+test("explicit choices cannot bypass exclusions or repeat a routine step", () => {
+  assert.throws(() => service.build({ ...input({ exclusions: ["niacinamide"] }), selectedProductIds: ["cetaphil-gentle"] }), /no longer matches/);
+  assert.throws(() => service.build({ ...input(), selectedProductIds: ["cetaphil-gentle", "bioderma-sensibio"] }), /only one product/);
+});

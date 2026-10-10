@@ -237,6 +237,22 @@ input[type="checkbox"] { accent-color: var(--accent); width: 17px; height: 17px;
 .retailer-links.detailed .retailer-description { grid-row: 2; grid-column: span 2; font-size: 10px; font-weight: 400; }
 .retailer-links.detailed svg { grid-column: 2; grid-row: 1; }
 .product-action-column { display: flex; align-items: center; gap: 7px; flex-wrap: wrap; justify-content: end; }
+.product-image { position: relative; display: grid; place-items: center; border-radius: 14px; overflow: hidden; width: 100%; aspect-ratio: 1; background: var(--background); }
+.product-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+.product-image > span { padding: 10px; text-align: center; font-size: 12px; }
+.product-image small { display: block; font-size: 9px; }
+.product-benefits { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 10px 0 0; }
+.product-benefits li { background: var(--background); padding: 5px 8px; border-radius: 7px; font-size: 10px; color: var(--muted); }
+.product-alternatives { grid-column: 1 / -1; min-width: 0; }
+.product-alternatives summary { cursor: pointer; font-size: 11px; color: var(--accent-dark); padding: 8px 0; width: fit-content; }
+.product-alternatives > p { font-size: 10px; color: var(--muted); margin-bottom: 12px; }
+.alternative-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr)); gap: 12px; }
+.alternative-card { background: var(--background); border-radius: 16px; padding: 14px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.alternative-card .product-image { height: 110px; aspect-ratio: auto; background: white; }
+.alternative-brand { font-size: 10px; color: var(--accent-dark); }
+.alternative-card h4 { font-size: 12px; line-height: 1.5; margin: 3px 0; font-weight: 500; }
+.alternative-card small, .alternative-card p { font-size: 10px; color: var(--muted); }
+.alternative-card .button { font-size: 11px; min-height: 36px; padding: 8px 12px; margin-top: auto; }
 .product-action-column > .button { font-size: 11px; min-height: 40px; padding: 9px 15px; border-radius: 13px; width: 100%; }
 .swap-button { width: 35px; height: 35px; display: grid; place-items: center; border-radius: 50%; background: var(--background); color: var(--accent); margin-top: 4px; }
 .workspace-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 23px 0 15px; }
@@ -495,3 +511,64 @@ input[type="checkbox"] { accent-color: var(--accent); width: 17px; height: 17px;
 
 .preferences-card-heading + .region-fields { margin-top: 0; margin-bottom: 25px; }
 .budget-control:has(input:disabled) { opacity: .55; }
+
+:root {
+  --stagger-dur: 500ms;
+  --stagger-distance: 12px;
+  --stagger-stagger: 40ms;
+  --stagger-blur: 3px;
+  --stagger-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Lines start translated down + blurred + invisible; .is-shown
+   on the parent flips them to their resting state. The second
+   line's transition-delay holds it back by --stagger-stagger
+   so the eye lands on the headline first. */
+.t-stagger-line {
+  display: block;
+  opacity: 0;
+  transform: translateY(var(--stagger-distance));
+  filter: blur(var(--stagger-blur));
+  transition:
+    opacity   var(--stagger-dur) var(--stagger-ease),
+    transform var(--stagger-dur) var(--stagger-ease),
+    filter    var(--stagger-dur) var(--stagger-ease);
+  will-change: transform, opacity, filter;
+}
+.t-stagger-line--2 { transition-delay: var(--stagger-stagger); }
+
+.t-stagger.is-shown .t-stagger-line {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+/* Exit decouples from the stagger: same fade for every line,
+   no Y return, no blur â€” so the disappearance reads as a
+   single quiet fade instead of a reverse reveal. */
+.t-stagger.is-hiding .t-stagger-line {
+  opacity: 0;
+  transform: translateY(0);
+  filter: blur(0);
+  transition:
+    opacity 200ms ease,
+    transform 0s linear,
+    filter 0s linear;
+  transition-delay: 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-stagger-line { transition: none !important; }
+}
+
+.t-stagger-line--3 { transition-delay: calc(var(--stagger-stagger) * 2); }
+.feature-columns:not(.t-stagger) .t-stagger-line { opacity: 1; transform: none; filter: none; }
+.feature-card-body { transition: transform 200ms var(--stagger-ease); }
+.feature-icon { transition: transform 200ms var(--stagger-ease), background-color 200ms ease; }
+@media (hover: hover) and (pointer: fine) {
+  .feature-card:hover .feature-card-body { transform: translateY(-3px); }
+  .feature-card:hover .feature-icon { transform: translateY(-2px) rotate(-6deg) scale(1.04); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .feature-columns .t-stagger-line { opacity: 1; transform: none; filter: none; }
+  .feature-card:hover .feature-card-body, .feature-card:hover .feature-icon { transform: none; }
+}

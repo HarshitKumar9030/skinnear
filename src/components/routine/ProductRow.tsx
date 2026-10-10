@@ -8,9 +8,11 @@ import { CATEGORY_LABELS } from "@/domain/sample";
 import { SkinNearApi } from "@/lib/client-api";
 import { Button } from "@/components/ui/Button";
 import { RetailerLinks } from "./RetailerLinks";
+import { ProductImage } from "./ProductImage";
+import { ProductAlternatives } from "./ProductAlternatives";
 
 const api = new SkinNearApi();
-export function ProductRow({ item, index, city, pincode, country, currency, busy, onSwap }: { item: RoutineItem; index: number; city: string; pincode: string; country: string; currency: string; busy: boolean; onSwap: (id: string) => Promise<void> }) {
+export function ProductRow({ item, city, pincode, country, currency, busy, onSwap, onChoose }: { item: RoutineItem; city: string; pincode: string; country: string; currency: string; busy: boolean; onSwap: (id: string) => Promise<void>; onChoose: (id: string) => Promise<void> }) {
   const [listings, setListings] = useState<Listing[] | null>(null);
   const [searching, setSearching] = useState(false);
   const [error, setError] = useState("");
@@ -28,11 +30,13 @@ export function ProductRow({ item, index, city, pincode, country, currency, busy
   }
 
   return <article className="product-row">
-    <div className={`product-swatch ${product.tone}`} aria-hidden><span>0{index + 1}</span><span>{CATEGORY_LABELS[product.category]}</span></div>
+    <ProductImage product={product} />
     <div className="product-info"><div className="product-kicker"><span>{product.brand} · {CATEGORY_LABELS[product.category]}</span><span>{product.category === "sunscreen" ? "Daytime" : "Morning + evening"}</span></div><h3>{product.name}</h3><div className="product-inline-price">{product.size}<span>{formatMoney(product.referencePrice, currency)}</span><small>estimate</small></div><p>{item.reason}</p>
-      <div className="product-shop-links"><RetailerLinks country={country} product={product} /><a href={product.sourceUrl} target="_blank" rel="noreferrer">Brand & ingredients <ExternalLink size={12} /></a></div>
+      {product.benefits?.length ? <ul className="product-benefits" aria-label="Brand-described benefits">{product.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}</ul> : null}
+      <div className="product-shop-links"><RetailerLinks country={country} product={product} /><a href={product.sourceUrl} target="_blank" rel="noreferrer">Benefits & ingredients from the brand <ExternalLink size={12} /></a></div>
     </div>
     <div className="product-action-column"><Button onClick={() => dialog.current?.showModal()}>Find sellers <ArrowUpRight size={17} /></Button><button className="swap-button" aria-label={`Find an alternative to ${product.name}`} title="Rebuild this routine without this product" onClick={() => onSwap(product.id)} disabled={busy || !item.alternatives.length}><Repeat2 size={18} /></button></div>
+    {item.alternatives.length ? <ProductAlternatives products={item.alternatives} currency={currency} busy={busy} onChoose={onChoose} /> : null}
     <dialog ref={dialog} className="seller-dialog" onClick={(e) => { if (e.target === e.currentTarget) dialog.current?.close(); }}>
       <div className="dialog-top"><span>Shopping in {city}, {countryName(country)}</span><button aria-label="Close seller search" onClick={() => dialog.current?.close()}><X size={22} /></button></div><h2>{product.name}</h2><p>Search finds listings, not verified stock. Confirm the exact size, ingredients, and {pincode ? `delivery to ${pincode}` : "delivery"} with the retailer.</p>
       <RetailerLinks country={country} product={product} detailed />
