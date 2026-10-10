@@ -1,0 +1,186 @@
+source,handle,category,size,variant,highlights,benefit1,benefit2,goal,active,mode,sensitive
+cosrx,triple-hyaluronic-moisturizing-cleanser,cleanser,150 ml,0,Hyaluronic acid|Panthenol,Cushioned foaming cleanse,Leaves a hydrated after-feel,,,routine,false
+cosrx,pure-fit-cica-creamy-foam-cleanser,cleanser,150 ml,0,Centella,Creamy foam lifts daily impurities,Leaves skin feeling fresh,,,routine,false
+cosrx,advanced-snail-mucin-gel-cleanser,cleanser,150 ml,0,Snail mucin,Gel cleanser with a smooth lather,Helps retain moisture while cleansing,,,routine,false
+cosrx,low-ph-good-morning-gel-cleanser,cleanser,150 ml,0,Betaine salicylate|Tea tree,Gentle gel cleanse with an acidic pH,Refines the feel of skin texture,,,browse,false
+cosrx,salicylic-acid-daily-gentle-cleanser,cleanser,150 ml,0,Salicylic acid,Removes excess oil and impurities,Exfoliating cleanser for blemish-prone skin,,,browse,false
+cosrx,hyaluronic-acid-intensive-cream,moisturizer,100 g,0,Hyaluronic acid,Helps retain skin moisture,Rich hydration without an oily finish,,,routine,false
+cosrx,hydrium-green-tea-aqua-soothing-gel-cream,moisturizer,50 ml,0,Green tea|Panthenol,Light gel cream delivers hydration,Quickly absorbs with a fresh finish,,,routine,false
+cosrx,hydrium-moisture-power-enriched-cream,moisturizer,50 ml,0,Panthenol|Propolis,Rich daily moisturizing texture,Helps dry-feeling skin stay comfortable,,,routine,false
+cosrx,pure-fit-cica-cream,moisturizer,50 ml,0,Centella,Moisturizes dry-feeling skin,Soothing cream texture,,,routine,false
+cosrx,full-fit-propolis-light-cream,moisturizer,65 ml,0,Propolis,Gel-like cream supports hydration,Absorbs with a lightweight finish,,,routine,false
+cosrx,the-ceramide-skin-barrier-moisturizer,moisturizer,80 ml,0,Ceramides|Hyaluronic acid,Helps replenish the moisture barrier,Locks in moisture without heaviness,,,routine,true
+cosrx,oil-free-ultra-moisturizing-lotion-with-birch-sap,moisturizer,100 ml,0,Birch sap,Weightless daily lotion texture,Moisturizes without a heavy finish,,,routine,false
+cosrx,balancium-comfort-ceramide-cream,moisturizer,80 g,0,Ceramides,Helps support the moisture barrier,Rich comforting cream texture,,,routine,false
+cosrx,ultra-light-invisible-sunscreen-spf50-pa,sunscreen,50 ml,0,UV filters,SPF 50 PA++++ sun protection,Sheer texture with a hydrated finish,,,routine,false
+cosrx,aloe-soothing-sun-cream-spf50-pa,sunscreen,50 ml,0,Aloe|UV filters,SPF 50+ PA+++ sun protection,Moisturizing cream texture,,,routine,false
+cosrx,full-fit-propolis-light-ampoule,serum,30 ml,0,Propolis,Helps skin feel nourished,Leaves a smooth glowing finish,hydration,propolis,routine,false
+cosrx,hydrium-triple-hyaluronic-moisture-ampoule,serum,40 ml,0,Hyaluronic acid|Panthenol,Boosts surface hydration,Helps dry-feeling skin feel supple,hydration,hyaluronic,routine,false
+cosrx,hydrium-centella-aqua-soothing-ampoule,serum,40 ml,0,Centella|Panthenol,Lightweight hydrating ampoule,Helps skin feel comfortable,hydration,panthenol,routine,false
+cosrx,the-hyaluronic-acid-3-serum_new,serum,20 ml,0,Hyaluronic acid,Concentrated hydrating serum,Helps skin retain moisture,hydration,hyaluronic,routine,false
+cosrx,the-niacinamide-15-serum-번들,serum,20 ml,0,Niacinamide,Targets the appearance of enlarged pores,Helps balance oily-looking skin,oil-balance,niacinamide,browse,false
+cosrx,the-vitamin-c-13-serum-번들,serum,20 ml,0,Vitamin C,Helps improve the look of uneven tone,Antioxidant skincare serum,brightening,vitamin c,browse,false
+cosrx,the-alpha-arbutin-2-discoloration-care-serum,serum,50 ml,0,Alpha arbutin,Targets the appearance of uneven tone,Lightweight discoloration-care serum,brightening,arbutin,browse,false
+cosrx,the-retinol-0-1-cream-1,retinoid,20 ml,0,Retinol,Targets the appearance of fine lines,Helps skin texture look smoother,fine-lines,retinol,browse,false
+boj,ginseng-cleansing-oil,cleanser,210 ml,0,Ginseng|Soybean oil,Dissolves makeup and daily buildup,Oil cleanser with an emulsifying texture,,,browse,false
+boj,radiance-cleansing-balm,cleanser,100 ml,0,Rice bran,Balm melts makeup and sunscreen,Leaves a soft after-feel,,,browse,false
+boj,glow-serum-propolis-niacinamide,serum,30 ml,0,Propolis|Niacinamide,Helps balance oily-looking skin,Leaves skin looking hydrated and glowy,oil-balance,niacinamide,routine,false
+boj,revive-serum-ginseng-snail-mucin,serum,30 ml,0,Ginseng|Snail mucin,Hydrates dry-feeling skin,Helps skin look supple,hydration,snail,routine,false
+boj,glow-deep-serum-rice-alpha-arbutin,serum,30 ml,0,Rice bran|Alpha arbutin,Targets the look of uneven skin tone,Light hydrating serum texture,brightening,arbutin,browse,false
+boj,light-on-serum-centella-vita-c,serum,30 ml,0,Centella|Vitamin C,Helps skin look brighter,Lightweight serum texture,brightening,vitamin c,browse,false
+boj,calming-barrier-serum,serum,30 ml,0,Green tea|Panthenol,Helps skin retain moisture,Supports a comfortable skin barrier,hydration,panthenol,routine,false
+skin1004,skin1004-madagascar-centella-ampoule-foam,cleanser,125 ml,1,Centella|Sodium hyaluronate,pH-balanced foaming cleanse,Leaves skin feeling hydrated,,,routine,true
+skin1004,hyalu-cica-gentle-cleansing-milk,cleanser,200 ml,0,Centella|Hyaluronic acid,Gentle milky cleansing texture,Helps retain moisture while cleansing,,,routine,false
+skin1004,skin1004-madagascar-centella-tone-brightening-cleansing-gel-foam,cleanser,125 ml,0,Centella,Gel-to-foam daily cleanse,Leaves a fresh hydrated feel,,,routine,false
+skin1004,skin1004-madagascar-centella-light-cleansing-oil,cleanser,200 ml,1,Centella|Plant oils,Emulsifying oil removes makeup,Leaves a lightweight clean finish,,,browse,false
+skin1004,poremizing-deep-cleansing-foam,cleanser,125 ml,0,Centella|Mineral salts,Cleanses daily impurities and excess oil,Dense foaming texture,,,browse,false
+skin1004,skin1004-madagascar-centella-cream,moisturizer,75 ml,1,Centella|Panthenol,Light cream moisturizes dry-feeling skin,Helps skin feel comfortable,,,routine,true
+skin1004,skin1004-madagascar-centella-soothing-cream,moisturizer,75 ml,1,Centella|Ceramides,Non-sticky gel cream hydration,Helps support the moisture barrier,,,routine,true
+skin1004,madagascar-centella-hyalu-cica-moisture-cream-75ml,moisturizer,75 ml,0,Hyaluronic acid|Centella,Long-lasting moisturizing texture,Light cream for dry-feeling skin,,,routine,false
+skin1004,probio-cica-enrich-cream,moisturizer,50 ml,1,Fermented centella|Ceramides,Rich moisture without a sticky finish,Helps skin feel smooth and comfortable,,,routine,false
+skin1004,skin1004-madagascar-centella-tea-trica-b5-cream,moisturizer,75 ml,0,Panthenol|Centella,Refreshing non-greasy gel cream,Helps support the moisture barrier,,,routine,true
+skin1004,centella-teca-cream,moisturizer,75 ml,0,Centella,Daily moisturizing cream,Helps skin feel soothed,,,routine,false
+skin1004,hyalu-teca-firming-cream,moisturizer,50 ml,0,Hyaluronic acid,Moisturizes dry-feeling skin,Helps skin look supple,,,routine,false
+skin1004,hyalu-cica-water-fit-sun-serum-spf50-pa,sunscreen,50 ml,1,Centella|Hyaluronic acid|UV filters,SPF 50+ PA++++ sun protection,Serum-like dewy finish,,,routine,true
+skin1004,skin1004-madagascar-centella-air-fit-suncream-plus,sunscreen,50 ml,0,Centella|UV filters,Mineral SPF 50+ PA++++ protection,Slightly tinted matte finish,,,routine,false
+skin1004,madagascar-centella-air-fit-suncream-light-spf30-pa,sunscreen,50 ml,0,Centella|UV filters,Mineral SPF 30 PA++++ protection,Lightweight daily sun cream,,,routine,false
+skin1004,skin1004-madagascar-centella-ampoule,serum,55 ml,1,Centella,Hydrates dry-feeling skin,Light ampoule comforts the skin,hydration,centella,routine,true
+skin1004,skin1004-madagascar-centella-hyalu-cica-blue-serum,serum,50 ml,1,Hyaluronic acid|Ceramides,Lightweight daily hydration,Helps skin feel soothed,hydration,hyaluronic,routine,false
+skin1004,skin1004-madagascar-centella-hyalu-cica-first-ampoule,serum,100 ml,0,Hyaluronic acid|Centella,Hydrates dry-feeling skin,Helps maintain moisture balance,hydration,hyaluronic,routine,false
+skin1004,probio-cica-intensive-ampoule,serum,50 ml,0,Fermented centella,Helps support the moisture barrier,Rich ampoule with a soft finish,hydration,centella,routine,false
+skin1004,hyalu-teca-plumping-ampoule,serum,50 ml,0,Hyaluronic acid,Adds surface hydration,Helps skin look plumper,hydration,hyaluronic,routine,false
+roundlab,1025-dokdo-cleanser,cleanser,150 ml,0,Hyaluronic acid|Ceramides,Low-pH foam removes daily impurities,Helps preserve moisture balance,,,routine,true
+roundlab,soybean-panthenol-cleanser,cleanser,150 ml,0,Soybean|Panthenol,Gentle pH-balanced foaming cleanse,Supports a hydrated after-feel,,,routine,true
+roundlab,birch-moisturizing-cleanser,cleanser,150 ml,0,Birch sap|Hyaluronic acid,Soft foam cleanses daily buildup,Helps retain surface moisture,,,routine,true
+roundlab,mugwort-calming-cleanser,cleanser,150 ml,0,Mugwort|Panthenol,Creamy foam lifts daily impurities,Helps skin feel comfortable,,,routine,false
+roundlab,pine-calming-cica-cleanser,cleanser,150 ml,0,Salicylic acid|Centella,Exfoliating foaming cleanse,Helps remove excess oil,,,browse,false
+roundlab,1025-dokdo-cream,moisturizer,80 ml,0,Ceramides|Hyaluronic acid,Rich moisture for dry-feeling skin,Helps maintain the moisture barrier,,,routine,true
+roundlab,birch-moisturizing-cream,moisturizer,80 ml,0,Birch sap|Hyaluronic acid,Moisturizes dry-feeling skin,Light cream with a supple finish,,,routine,false
+roundlab,soybean-panthenol-cream,moisturizer,80 ml,0,Panthenol|Ceramides,Rich barrier-supporting hydration,Helps skin feel smooth and soft,,,routine,true
+roundlab,mugwort-calming-cream,moisturizer,80 ml,0,Mugwort|Madecassoside,Light daily moisturizing cream,Helps skin feel comfortable,,,routine,false
+roundlab,pine-tree-cica-cream,moisturizer,50 ml,0,Centella|LHA,Light gel cream adds moisture,Gently refines the feel of skin texture,,,browse,false
+roundlab,birch-moisturizing-uv-sunscreen,sunscreen,50 ml,0,Birch sap|Hyaluronic acid|UV filters,Broad-spectrum SPF 45 sun protection,Moisturizer-like dewy finish,,,routine,false
+roundlab,birch-juice-mild-up-uvlock-sunscreen,sunscreen,50 ml,0,Zinc oxide|Titanium dioxide,Broad-spectrum mineral SPF 50 protection,Light hydrating cream texture,,,routine,true
+roundlab,birch-juice-ampoule,serum,30 ml,0,Birch sap|Hyaluronic acid,Concentrated surface hydration,Helps dry-feeling skin look supple,hydration,hyaluronic,routine,false
+roundlab,soybean-panthenol-ampoule,serum,50 ml,0,Soybean|Panthenol,Helps maintain the moisture barrier,Nourishing hydrating ampoule,hydration,panthenol,routine,false
+byoma-us,creamy-jelly-cleanser,cleanser,175 ml,0,Ceramides|Green tea,Gently removes daily oil and impurities,Cleanses without a tight after-feel,,,routine,false
+byoma-us,milky-moisture-cleanser,cleanser,175 ml,0,Ceramides|Panthenol|Oat,Gentle milky cleanse for dry-feeling skin,Helps maintain the moisture barrier,,,routine,true
+byoma-us,milky-oil-cleanser,cleanser,100 ml,0,Squalane|Moringa oil,Oil-to-milk texture removes makeup,Leaves a hydrated after-feel,,,browse,true
+byoma-us,melting-balm-cleanser,cleanser,60 g,0,Olive oil|Grapeseed oil,Melts makeup and sunscreen,Leaves skin feeling soft,,,browse,false
+byoma-us,moisturizing-gel-cream,moisturizer,50 ml,0,Ceramides|Niacinamide,Light oil-free gel cream hydration,Supports the moisture barrier,,,routine,false
+byoma-us,moisturizing-rich-cream,moisturizer,50 ml,0,Ceramides|Shea,Rich daily moisturizing texture,Helps skin feel soft and hydrated,,,routine,false
+byoma-us,hydrating-serum,serum,30 ml,0,Squalane|Glycerin|Ceramides,Lightweight hydration boost,Helps maintain the moisture barrier,hydration,glycerin,routine,false
+byoma-us,brightening-serum,serum,30 ml,0,Niacinamide|Hyaluronic acid,Helps even the appearance of skin tone,Adds lightweight hydration,brightening,niacinamide,browse,false
+byoma-us,clarifying-serum,serum,30 ml,0,PHA|Zinc,Refines the appearance of pores,Helps skin texture look balanced,texture,pha,browse,false
+byoma-us,phyto-mucin-glow-serum,serum,30 ml,0,Phyto-mucin,Lightweight hydrating serum,Leaves a smooth radiant-looking finish,hydration,phyto-mucin,browse,false
+geek,jelly-joker,cleanser,150 ml,0,Panthenol|Allantoin,Non-stripping jelly cleanse,Dissolves water-soluble makeup,,,routine,true
+geek,hydration-station,moisturizer,50 ml,0,Glycerin|Ectoin,Light refreshing gel cream,Helps skin retain moisture,,,routine,false
+geek,happier-barrier,moisturizer,50 ml,0,Squalane|Green tea,Nourishing lightweight hydration,Helps support the moisture barrier,,,routine,false
+geek,zero-feel-spf-50,sunscreen,75 ml,0,UV filters,Broad-spectrum SPF 50 protection,Fast-absorbing matte finish,,,routine,true
+geek,gg-101-ha-5-rich,serum,30 ml,0,Hyaluronic acid,Silky hydrating serum,Helps dry-feeling skin look plumper,hydration,hyaluronic,routine,false
+geek,ha5-light,serum,30 ml,0,Hyaluronic acid,Light fast-absorbing hydration,Helps skin look supple,hydration,hyaluronic,routine,false
+geek,b-bomb,serum,30 ml,0,Niacinamide|Zinc PCA,Helps balance oily-looking skin,Refines the appearance of pores,oil-balance,niacinamide,routine,false
+geek,stress-less,serum,30 ml,0,Beta-glucan|Madecassoside,Helps skin feel comfortable,Supports surface hydration,hydration,beta-glucan,browse,true
+geek,porefectly-clear,serum,30 ml,0,Salicylic acid,Exfoliates pore buildup,Targets the appearance of blackheads,breakouts,salicylic,routine,false
+geek,c-glow,serum,30 ml,0,Vitamin C|Ferulic acid,Helps skin tone look more even,Light antioxidant serum texture,brightening,vitamin c,browse,false
+geek,power-peptides,serum,30 ml,0,Peptides,Helps skin look smoother,Lightweight peptide serum,fine-lines,peptides,browse,false
+geek,a-game-5,retinoid,30 ml,0,Retinal,Targets the appearance of fine lines,Helps skin texture look smoother,fine-lines,retinal,browse,false
+geek,a-game-10,retinoid,30 ml,0,Retinal,Targets the appearance of fine lines,Rich retinal emulsion texture,fine-lines,retinal,browse,false
+inkey-us,glycerin-gentle-purifying-cleanser,cleanser,150 ml,0,Glycerin|Centella,Gently removes daily impurities,Leaves skin feeling hydrated and balanced,,,routine,false
+inkey-us,hydrating-cream-to-milk-cleanser,cleanser,240 ml,0,Rice milk|Hyaluronic acid,Cream-to-milk cleansing texture,Leaves dry-feeling skin comfortable,,,routine,true
+inkey-us,fulvic-acid-cleanser,cleanser,150 ml,0,Fulvic acid,Lifts makeup and daily impurities,Helps skin look fresh,,,routine,false
+inkey-us,salicylic-acid-cleanser,cleanser,150 ml,0,Salicylic acid,Removes excess oil,Exfoliating cleanser for blemish-prone skin,,,browse,false
+inkey-us,omega-water-cream,moisturizer,50 ml,0,Niacinamide|Glycerin,Light oil-free hydration,Leaves a dewy finish without heaviness,,,routine,false
+inkey-us,bio-active-ceramide-moisturizer,moisturizer,50 ml,0,Ceramides|Shea|Glycerin,Rich hydration for dry-feeling skin,Helps support the moisture barrier,,,routine,true
+inkey-us,peptide-moisturizer,moisturizer,50 ml,0,Peptides,Nurturing fast-absorbing moisturizer,Helps skin look smooth and hydrated,,,routine,false
+inkey-us,vitamin-b-c-e-moisturizer,moisturizer,50 ml,0,Niacinamide|Vitamin C|Vitamin E,Light daily moisturizing texture,Adds hydration without heaviness,,,routine,false
+inkey-us,hyaluronic-acid-serum,serum,30 ml,0,Hyaluronic acid,Light non-tacky hydration,Helps skin feel plump and smooth,hydration,hyaluronic,routine,false
+inkey-us,polyglutamic-acid-serum,serum,30 ml,0,Polyglutamic acid,Helps surface skin retain moisture,Smooth lightweight serum texture,hydration,polyglutamic,routine,false
+inkey-us,niacinamide-serum,serum,30 ml,0,Niacinamide|Hyaluronic acid,Helps balance excess oily appearance,Light layering serum texture,oil-balance,niacinamide,routine,false
+inkey-us,beta-hydroxy-acid-serum,serum,30 ml,0,Salicylic acid|Hyaluronic acid,Exfoliates pore buildup,Targets the appearance of blackheads,breakouts,salicylic,routine,false
+inkey-us,15-vitamin-c-egf-serum,serum,30 ml,0,Vitamin C|Peptides,Helps skin tone look more even,Light fast-absorbing serum,brightening,vitamin c,browse,false
+inkey-us,tranexamic-acid-serum,serum,30 ml,0,Tranexamic acid,Targets the appearance of uneven tone,Light serum for a more even-looking finish,brightening,tranexamic,browse,false
+inkey-us,redness-relief-solution,serum,30 ml,0,Azelaic acid|Allantoin,Helps reduce the look of redness,Light tinted serum texture,soothing,azelaic,browse,false
+dotkey,dot-key-barrier-repair-gentle-hydrating-face-wash-with-5-essential-ceramides-hyaluronic-ph-5-5-fragrance-sulphate-free-for-sensitive-dry-skin,cleanser,175 ml,0,Ceramides|Hyaluronic acid,Gently cleanses without over-drying,Helps maintain surface hydration,,,routine,true
+dotkey,strawberry-bright-niacinamide-gel-face-wash,cleanser,100 ml,0,Niacinamide,Gel cleanser removes daily impurities,Leaves a fresh after-feel,,,routine,false
+dotkey,watermelon-vitamin-c-face-wash-gel-1,cleanser,175 ml,0,Watermelon,Gel cleanser lifts daily buildup,Leaves skin feeling refreshed,,,routine,false
+dotkey,vitamin-c-e-gel-facewash,cleanser,175 ml,0,Vitamin C|Vitamin E,Daily gel cleanser,Helps skin look fresh,,,routine,false
+dotkey,deep-pore-clean-milky-foam-cleanser-120ml,cleanser,100 ml,0,Cleansing surfactants,Foam removes daily impurities,Helps remove excess surface oil,,,routine,false
+dotkey,cica-calming-blemish-clearing-face-wash,cleanser,175 ml,0,Salicylic acid|Centella,Exfoliating gel cleanse,Helps remove excess oil,,,browse,false
+dotkey,dot-key-ceramides-hyaluronic-hydrating-face-cream-i-repairs-skin-barrier-intense-moisturization-sensitive-dry-skin-fragrance-free,moisturizer,100 g,1,Ceramides|Hyaluronic acid,Helps support the moisture barrier,Non-sticky daily hydration,,,routine,true
+dotkey,barrier-repair-intense-moisturizer,moisturizer,100 g,0,Ceramides,Rich moisturizing texture,Helps dry-feeling skin retain moisture,,,routine,false
+dotkey,cica-5-niacinamide-oil-free-moisturizer-for-dark-spots-acne-fragrance-free-oily-sensitive-acne-prone-skin,moisturizer,60 g,0,Centella|Niacinamide|Ceramides,Oil-free balanced hydration,Helps support the moisture barrier,,,routine,false
+dotkey,watermelon-moisturizer-icy-gel,moisturizer,60 g,0,Hyaluronic acid,Cooling gel texture,Light daily hydration,,,routine,false
+dotkey,hydrating-gel-probiotics-72-hr,moisturizer,60 ml,0,Hyaluronic acid|Probiotics,Light gel moisturizer,Helps skin retain moisture,,,routine,false
+dotkey,strawberry-moisturizer,moisturizer,80 g,0,Niacinamide,Daily moisturizing texture,Helps skin look hydrated,,,routine,false
+dotkey,vitamin-c-e-super-bright-moisturizer,moisturizer,60 ml,0,Vitamin C|Vitamin E,Gel moisturizer adds hydration,Helps skin look radiant,,,routine,false
+dotkey,barrier-repair-sunscreen,sunscreen,80 g,0,Ceramides|Hyaluronic acid|UV filters,SPF 50+ PA++++ sun protection,Quick-absorbing water cream texture,,,routine,false
+dotkey,vitamin-c-e-mineral-sunscreen,sunscreen,50 g,0,UV filters,Mineral SPF 50+ PA++++ protection,Daily sun protection texture,,,routine,false
+dotkey,cica-calming-mattifying-sunscreen-spf-50-pa,sunscreen,80 g,0,Centella|Niacinamide|UV filters,SPF 50+ PA++++ sun protection,Lightweight daily sunscreen,,,routine,false
+dotkey,watermelon-cooling-spf-50-face-sunscreen,sunscreen,80 g,0,UV filters,SPF 50+ PA++++ sun protection,Light cooling sunscreen texture,,,routine,false
+dotkey,dot-key-vitamin-c-e-spf-50-pa-face-sunscreen-for-glowing-skin-uv-protection-for-dull-skin,sunscreen,80 g,0,Vitamin C|Vitamin E|UV filters,SPF 50+ PA++++ sun protection,Leaves a glowing finish,,,routine,false
+dotkey,barrier-repair-serum,serum,30 ml,0,Hyaluronic acid|Ceramides,Helps surface skin retain moisture,Supports the moisture barrier,hydration,hyaluronic,routine,false
+dotkey,dot-key-cica-10-niacinamide-serum-for-blemish-free-spotless-glowing-skin-3-tranexamic-reduces-acne-dark-spots-oily-acne-prone-sensitive-skin,serum,30 ml,0,Niacinamide|Tranexamic acid,Targets the look of uneven tone,Light serum for oily-looking skin,brightening,niacinamide,browse,false
+dotkey,dot-key-cica-2-salicylic-acne-control-serum-with-zinc-for-clear-skin-reduces-blackheads-whiteheads-oily-acne-prone-skin,serum,30 ml,0,Salicylic acid|Centella,Exfoliates pore buildup,Targets the appearance of blackheads,breakouts,salicylic,browse,false
+dotkey,dot-key-10-vitamin-c-e-5-niacinamide-serum-for-glowing-skin-beginner-friendly,serum,30 ml,0,Vitamin C|Niacinamide,Helps skin tone look more even,Hydrating serum texture,brightening,vitamin c,browse,false
+dotkey,0-2-retinol-complex-face-serum,retinoid,30 ml,0,Retinol,Targets the appearance of fine lines,Helps skin texture look smoother,fine-lines,retinol,browse,false
+dotkey,retinol-ceramide-age-defense-night-cream,retinoid,60 ml,0,Retinol|Ceramides,Rich night cream texture,Targets the appearance of fine lines,fine-lines,retinol,browse,false
+minimalist,niacinamide-10-with-matmarine,serum,30 ml,0,Niacinamide,Helps balance oily-looking skin,Refines the appearance of pores,oil-balance,niacinamide,browse,false
+minimalist,vitamin-c-e-ferulic-16,serum,20 ml,0,Vitamin C|Ferulic acid,Helps skin look brighter,Antioxidant serum texture,brightening,vitamin c,browse,false
+minimalist,alpha-arbutin-2,serum,30 ml,0,Alpha arbutin,Targets the appearance of uneven tone,Hydrating layering serum,brightening,arbutin,browse,false
+minimalist,tranexamic-3-hpa,serum,30 ml,0,Tranexamic acid,Targets the appearance of dark spots,Helps skin look more even,brightening,tranexamic,browse,false
+minimalist,multi-peptide-serum-7-matrixyl-3000-3-bio-placenta,serum,30 ml,0,Peptides,Helps skin look smoother,Hydrating peptide serum,fine-lines,peptides,browse,false
+minimalist,retinal-0-1-face-serum,retinoid,30 ml,0,Retinal,Targets the appearance of fine lines,Helps skin texture look smoother,fine-lines,retinal,browse,false
+minimalist,retinol-0-6,retinoid,30 ml,0,Retinol,Targets the appearance of fine lines,Concentrated retinol serum,fine-lines,retinol,browse,false
+minimalist,salicylic-lha-2-cleanser,cleanser,100 ml,0,Salicylic acid|LHA,Exfoliating daily cleanser,Helps remove excess surface oil,,,browse,false
+deconstruct,oat-ceramide-gel-sunscreen,sunscreen,50 g,0,Oat|Ceramides|UV filters,Broad-spectrum SPF 50 sun protection,Fast-absorbing gel texture,,,routine,true
+deconstruct,invisible-water-sunscreen-spf-50-with-encapsulated-uv-filter-technology,sunscreen,40 g,0,UV filters,SPF 50 PA++++ sun protection,Light cooling fluid texture,,,routine,false
+deconstruct,fluid-brightening-sunscreen-with-spf50,sunscreen,50 g,1,Niacinamide|UV filters,SPF 50 PA++++ sun protection,Fast-absorbing fluid with a dewy finish,,,routine,false
+deconstruct,vitamin-c-gel-sunscreen,sunscreen,50 g,0,Vitamin C|UV filters,SPF 50 PA++++ sun protection,Light non-greasy gel texture,,,routine,false
+deconstruct,acne-control-moisturizer,moisturizer,50 g,0,Ceramides|Ectoin|Panthenol,Light barrier-supporting hydration,Leaves a soft matte finish,,,routine,false
+deconstruct,salicylic-acid-face-wash,cleanser,100 g,0,Salicylic acid|Niacinamide,Removes excess oil and impurities,Exfoliating gel cleanser,,,browse,false
+deconstruct,retinol-cream,retinoid,50 g,0,Retinol|Beta-glucan,Targets the appearance of fine lines,Moisturizing night cream texture,fine-lines,retinol,routine,false
+deconstruct,retinol-and-peptide-serum,retinoid,30 ml,0,Retinol|Peptides,Targets the appearance of fine lines,Lightweight retinol serum,fine-lines,retinol,browse,false
+deconstruct,vitamin-c-and-ferulic-acid-serum,serum,30 ml,0,Vitamin C|Ferulic acid,Helps skin look brighter,Light antioxidant serum texture,brightening,vitamin c,browse,false
+deconstruct,clearing-serum,serum,30 ml,0,Niacinamide|Alpha arbutin,Targets the appearance of uneven tone,Light hydrating serum,brightening,arbutin,browse,false
+deconstruct,exfoliating-aha-bha-pha-serum-with-liposomal-technology,serum,30 ml,0,AHA|BHA|PHA,Exfoliates surface buildup,Helps skin texture look smoother,texture,acids,browse,false
+foxtale,super-glow-face-wash-m,cleanser,100 ml,0,Cleansing surfactants,Removes daily impurities,Leaves skin feeling refreshed,,,routine,false
+foxtale,oil-balancing-moisturizer-v4,moisturizer,50 ml,0,Niacinamide|Centella,Light daily hydration,Helps oily-looking skin feel balanced,,,routine,false
+foxtale,nourishing-moisturizer-with-ceramides-v2,moisturizer,50 ml,0,Ceramides,Nourishing daily moisturizer,Helps dry-feeling skin retain moisture,,,routine,false
+foxtale,brightening-moisturizer,moisturizer,50 ml,0,Vitamin C|Papaya enzymes,Moisturizing brightening texture,Helps skin look radiant,,,browse,false
+foxtale,foxtale-cool-shade-oil-control-water-gel-sunscreen,sunscreen,80 g,0,UV filters,SPF 50 sun protection,Cooling matte gel texture,,,routine,false
+foxtale,glow-sunscreen-m,sunscreen,80 ml,0,UV filters,SPF 50 PA++++ sun protection,Leaves a glowing finish,,,routine,false
+foxtale,matte-finish-sunscreen-m,sunscreen,50 ml,0,UV filters,SPF 70 sun protection,Matte finish for oily-looking skin,,,routine,false
+foxtale,vit-c-gluta-advanced-brightening-serum-v3,serum,30 ml,0,Vitamin C|Glutathione,Helps skin tone look more even,Light antioxidant serum,brightening,vitamin c,browse,false
+foxtale,retinol-anti-ageing-night-serum-v3,retinoid,30 ml,0,Retinol,Targets the appearance of fine lines,Light night serum texture,fine-lines,retinol,browse,false
+plum,cerasense-barrier-care-face-wash-with-acai-1-nmf-2-100-ml,cleanser,100 ml,0,Acai|NMF,Daily cleansing texture,Helps retain skin moisture,,,routine,false
+plum,1-salicylic-acid-clearly-gentle-gel-face-wash-for-acne-prone-skin,cleanser,100 ml,0,Salicylic acid,Exfoliating gel cleanse,Helps remove excess oil,,,browse,false
+plum,squalane-vitamin-e-spf-50-pa-dewy-bright-sunscreen,sunscreen,50 g,0,Squalane|Vitamin E|UV filters,SPF 50 PA+++ sun protection,Leaves a dewy finish,,,routine,false
+plum,plum-oat-ceramide-complex-100-mineral-sunscreen,sunscreen,50 g,0,Oat|Ceramides|UV filters,Mineral SPF 50 PA+++ protection,Moisturizing daily sunscreen,,,routine,false
+plum,plum-black-rice-niacinamide-txa-10-night-clarity-jelly-serum,serum,25 ml,0,Niacinamide|Tranexamic acid,Targets the appearance of uneven tone,Light jelly serum texture,brightening,niacinamide,browse,false
+naturium,multi-calm-cream-cleanser-1,cleanser,200 ml,0,Oat|Glycerin|Squalane,Cream-to-milk non-stripping cleanse,Helps dry-feeling skin stay comfortable,,,routine,true
+naturium,fermented-camellia-creamy-cleansing-oil,cleanser,103 ml,0,Camellia oil,Dissolves makeup and sunscreen,Creamy emulsifying oil texture,,,browse,false
+naturium,fermented-rice-enzyme-cleanser,cleanser,120 g,0,Fermented rice|Fruit enzymes,Exfoliates surface buildup,Cleanses and polishes skin texture,,,browse,false
+naturium,vitamin-c-complex-cleanser,cleanser,210 ml,0,Vitamin C|Fruit enzymes,Exfoliating gel cleanse,Helps skin look brighter,,,browse,false
+naturium,niacinamide-gel-cream-5,moisturizer,50 g,0,Niacinamide,Refreshing gel cream hydration,Helps skin look dewy and balanced,,,routine,false
+naturium,multi-peptide-moisturizer,moisturizer,50 g,0,Peptides|Panthenol,Nourishing daily hydration,Helps skin look smoother,,,routine,false
+naturium,multi-peptide-rich-cream,moisturizer,50 g,0,Peptides|Ferulic acid,Rich nourishing cream texture,Helps skin retain moisture,,,routine,false
+naturium,intense-overnight-sleeping-cream,moisturizer,50 g,0,Squalane|Plant lipids,Rich overnight moisturizing texture,Helps skin look hydrated and plump,,,browse,false
+naturium,dew-glow-moisturizer-spf-50-original,sunscreen,50 ml,0,Niacinamide|UV filters,Broad-spectrum SPF 50 protection,Leaves a dewy radiant finish,,,routine,false
+naturium,dew-glow-moisturizer-mineral-spf-50,sunscreen,50 ml,0,Zinc oxide|Niacinamide,Broad-spectrum mineral SPF 50 protection,Soft natural finish,,,routine,false
+naturium,quadruple-hyaluronic-acid-serum-5,serum,30 ml,0,Hyaluronic acid,Multi-weight surface hydration,Helps skin look supple,hydration,hyaluronic,routine,false
+naturium,niacinamide-serum-12-plus-zinc-2,serum,30 ml,0,Niacinamide|Zinc PCA,Refines the appearance of pores,Helps skin tone look more even,oil-balance,niacinamide,browse,false
+naturium,vitamin-c-complex-serum,serum,30 ml,0,Vitamin C,Helps skin look brighter,Light antioxidant serum,brightening,vitamin c,browse,false
+naturium,alpha-arbutin-serum-2,serum,30 ml,0,Alpha arbutin|Niacinamide,Targets the appearance of dark spots,Helps skin tone look more even,brightening,arbutin,browse,false
+naturium,retinol-complex-serum,retinoid,30 ml,0,Retinol|Bakuchiol,Targets the appearance of fine lines,Helps skin texture look smoother,fine-lines,retinol,browse,false
+naturium,retinaldehyde-cream-serum-0-05,retinoid,50 ml,0,Retinal,Targets the appearance of fine lines,Cream serum refines skin texture,fine-lines,retinal,browse,false
+reequil,calming-purifying-gentle-cleanser,cleanser,200 ml,0,Zinc PCA,Soap-free cleansing gel,Helps remove excess surface oil,,,routine,false
+reequil,hydrating-soothing-gentle-cleanser,cleanser,200 ml,0,Cleansing surfactants,Gently cleanses daily buildup,Leaves skin feeling refreshed,,,routine,false
+reequil,oil-free-moisturiser-for-normal-oily-combination-skin,moisturizer,100 g,0,Glycerin,Light non-greasy daily hydration,Leaves skin feeling soft,,,routine,false
+reequil,ceramide-hyaluronic-acid-moisturiser-for-normal-to-dry-skin,moisturizer,100 g,0,Ceramides|Hyaluronic acid,Rich hydration for dry-feeling skin,Helps support the moisture barrier,,,routine,false
+reequil,oil-free-mattifying-moisturiser,moisturizer,75 g,0,Moisturizing humectants,Oil-free gel hydration,Leaves a matte finish,,,routine,false
+reequil,ultra-matte-dry-touch-sunscreen-gel-spf-50-pa,sunscreen,50 g,0,UV filters,SPF 50 PA++++ sun protection,Velvety matte finish,,,routine,false
+reequil,oxybenzone-free-sunscreen-spf-50-for-oily-acne-prone-skin,sunscreen,50 g,0,UV filters,SPF 50 PA+++ sun protection,Light lotion texture,,,routine,false
+reequil,zinc-mineral-tinted-sunscreen,sunscreen,50 g,0,Zinc oxide,Mineral SPF 50 sun protection,Sheer tinted matte finish,,,routine,true
+reequil,oil-free-aqua-gel-sunscreen,sunscreen,50 ml,0,UV filters,Daily sun protection gel,Light oil-free finish,,,routine,false
+reequil,retinol-night-cream,retinoid,32 g,0,Retinol,Targets the appearance of fine lines,Hydrating night cream texture,fine-lines,retinol,routine,false

@@ -42,10 +42,12 @@ export const productSchema = z.object({
   name: z.string(),
   size: z.string(),
   category: z.enum(["cleanser", "moisturizer", "sunscreen", "serum", "retinoid"]),
-  treatmentGoal: z.enum(["hydration", "oil-balance", "breakouts", "fine-lines"]).optional(),
+  treatmentGoal: z.enum(["hydration", "oil-balance", "breakouts", "fine-lines", "brightening", "texture", "soothing"]).optional(),
   primaryActive: z.string().optional(),
   usageNote: z.string().optional(),
   eveningOnly: z.boolean().optional(),
+  routineEligible: z.boolean().default(true),
+  reviewNote: z.string().max(400).optional(),
   referencePrice: z.number().positive(),
   referenceCurrency: z.enum(CURRENCIES).default("INR"),
   // Empty coverage permits international discovery, without claiming local stock.

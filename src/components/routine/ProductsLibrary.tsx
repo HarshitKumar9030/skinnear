@@ -14,14 +14,14 @@ import { CATEGORY_LABELS } from "@/domain/sample";
 import { SkinNearApi } from "@/lib/client-api";
 import { useSavedProducts } from "@/hooks/useSavedProducts";
 import { PortableRoutineService } from "@/services/PortableRoutineService";
-import { ProductImage } from "./ProductImage";
-import { SaveProductButton } from "./SaveProductButton";
+import { LibraryProductCard } from "./LibraryProductCard";
 import { PlanActions } from "./PlanActions";
 import { SearchableSelect } from "@/components/ui/SearchableSelect";
 import { Button } from "@/components/ui/Button";
 
 const api = new SkinNearApi();
 const portable = new PortableRoutineService();
+const PAGE_SIZE = 24;
 const categories = [
   { value: "all", label: "All product types" },
   ...Object.entries(CATEGORY_LABELS).map(([value, label]) => ({
@@ -53,6 +53,7 @@ export default function ProductsLibrary({
   const [brand, setBrand] = useState("all");
   const [tab, setTab] = useState("all");
   const [error, setError] = useState("");
+  const [page, setPage] = useState({ key: "", count: PAGE_SIZE });
   useEffect(() => {
     const node = dialog.current;
     node?.showModal();
@@ -114,6 +115,8 @@ export default function ProductsLibrary({
         .includes(query.toLowerCase().trim()),
   );
   const actualCurrency = loadedCurrency || currency;
+  const pageKey = JSON.stringify([country, currency, category, brand, query, tab]);
+  const shownCount = page.key === pageKey ? page.count : PAGE_SIZE;
   return (
     <dialog
       ref={dialog}
@@ -252,36 +255,18 @@ export default function ProductsLibrary({
             formulas, stock and delivery with the seller.
           </p>
           <div className="library-grid">
-            {visible.map((product) => (
-              <article className="library-card" key={product.id}>
-                <ProductImage product={product} />
-                <small>
-                  {product.brand} · {product.size}
-                </small>
-                <h3>{product.name}</h3>
-                <strong>
-                  {formatMoney(product.referencePrice, actualCurrency)}{" "}
-                  <small>estimate</small>
-                </strong>
-                <ul>
-                  {product.benefits.map((benefit) => (
-                    <li key={benefit}>{benefit}</li>
-                  ))}
-                </ul>
-                {product.category === "serum" ||
-                product.category === "retinoid" ? (
-                  <p>
-                    {product.usageNote ||
-                      "Do not start a treatment without checking suitability and the current label."}
-                  </p>
-                ) : null}
-                <SaveProductButton id={product.id} name={product.name} />
-                <a href={product.sourceUrl} target="_blank" rel="noreferrer">
-                  Brand & ingredients ↗
-                </a>
-              </article>
+            {visible.slice(0, shownCount).map((product) => (
+              <LibraryProductCard key={product.id} product={product} currency={actualCurrency} />
             ))}
           </div>
+          {visible.length > shownCount ? (
+            <div className="workspace-actions">
+              <Button variant="secondary" onClick={() => setPage({key: pageKey, count: shownCount + PAGE_SIZE})}>
+                Show {Math.min(PAGE_SIZE, visible.length - shownCount)} more products
+              </Button>
+              <span className="field-note">Showing {shownCount} of {visible.length}</span>
+            </div>
+          ) : null}
           {!visible.length ? (
             <div className="library-empty">
               <h3>

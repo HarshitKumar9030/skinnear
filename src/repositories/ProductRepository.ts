@@ -17,7 +17,7 @@ export class ProductRepository {
         const documents = await db
           .collection("products")
           .find({}, { projection: { _id: 0 } })
-          .limit(100)
+          .limit(1000)
           .toArray();
         if (documents.length) {
           const reviewed = new Map(

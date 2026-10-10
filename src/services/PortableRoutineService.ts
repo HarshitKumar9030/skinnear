@@ -97,7 +97,7 @@ export class PortableRoutineService {
     return snapshot.items.map((item) => {
       const product = catalog.find((product) => product.id === item.id);
       if (!product) throw new Error("Product unavailable in this catalog.");
-      return { ...product, referencePrice: item.price };
+      return { ...product, referencePrice: item.price, referenceCurrency: snapshot.currency };
     });
   }
   shareUrl(snapshot: PortableRoutine, origin: string): string {
