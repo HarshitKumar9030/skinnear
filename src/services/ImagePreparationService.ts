@@ -10,9 +10,20 @@ export class ImagePreparationService {
     try {
       const image = sharp(Buffer.from(await file.arrayBuffer()), { limitInputPixels: 40000000, failOn: "error" });
       const metadata = await image.metadata();
-      if (!["jpeg", "png"].includes(metadata.format || "") || (metadata.pages || 1) > 1 || Math.min(metadata.width || 0, metadata.height || 0) < 480) throw new AppError("Use a single JPEG or PNG at least 480 pixels on each side.", 400);
-      const { data, info } = await image.rotate().resize({ width: 2560, height: 2560, fit: "inside", withoutEnlargement: true }).flatten({ background: "#ffffff" }).jpeg({ quality: 90 }).toBuffer({ resolveWithObject: true });
-      if (Math.min(info.width, info.height) < 480) throw new AppError("Choose a portrait photo with your face clearly visible; this image is too narrow.", 400);
+      if (!["jpeg", "png"].includes(metadata.format || "") || (metadata.pages || 1) > 1 || !metadata.width || !metadata.height) throw new AppError("Choose a single JPEG or PNG photo.", 400);
+      const swapsAxes = (metadata.orientation || 1) >= 5;
+      const width = swapsAxes ? metadata.height : metadata.width;
+      const height = swapsAxes ? metadata.width : metadata.height;
+      const scale = Math.min(2560 / Math.max(width, height), Math.max(1, 480 / Math.min(width, height)));
+      const targetWidth = Math.max(1, Math.round(width * scale));
+      const targetHeight = Math.max(1, Math.round(height * scale));
+      // Small photos upscale proportionally. Unusually narrow photos get padding
+      // rather than distortion or a crop that could remove part of the face.
+      const horizontalPadding = Math.max(0, 480 - targetWidth);
+      const verticalPadding = Math.max(0, 480 - targetHeight);
+      const data = await image.rotate().resize(targetWidth, targetHeight, { fit: "fill" }).flatten({ background: "#ffffff" })
+        .extend({ left: Math.floor(horizontalPadding / 2), right: Math.ceil(horizontalPadding / 2), top: Math.floor(verticalPadding / 2), bottom: Math.ceil(verticalPadding / 2), background: "#ffffff" })
+        .jpeg({ quality: 90 }).toBuffer();
       return new File([new Uint8Array(data)], "selfie.jpg", { type: "image/jpeg" });
     } catch (error) {
       if (error instanceof AppError) throw error;
