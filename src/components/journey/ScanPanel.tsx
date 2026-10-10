@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Camera, Upload, ShieldCheck, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { Checkbox } from "@/components/ui/Checkbox";
 
 export function ScanPanel({ onSample, onScan, onCancel, busy, liveEnabled }: { onSample: () => void; onScan: (file: File) => Promise<void>; onCancel: () => void; busy: boolean; liveEnabled: boolean }) {
   const input = useRef<HTMLInputElement>(null);
@@ -26,7 +27,7 @@ export function ScanPanel({ onSample, onScan, onCancel, busy, liveEnabled }: { o
     <h2>{file ? "Ready for a fresh perspective?" : "Let's get to know your skin"}</h2>
     <p>{file ? "Face forward. Natural light. No filters." : "Upload a clear, well-lit selfie to get started."}</p>
     {file ? <>
-      <label className="consent-check"><input type="checkbox" checked={consent} disabled={busy} onChange={(e) => setConsent(e.target.checked)} /><span>I agree to send this photo to YouCam for skin analysis.</span></label>
+      <Checkbox className="consent-check" checked={consent} disabled={busy} onChange={(event) => setConsent(event.target.checked)}>I agree to send this photo to YouCam for skin analysis.</Checkbox>
       <Button onClick={() => onScan(file)} disabled={!consent || !liveEnabled} loading={busy}>Analyze my skin <Upload size={17} /></Button>
       {!liveEnabled ? <p className="setup-note">Live analysis needs a YouCam connection. Try the sample below.</p> : null}
       {busy ? <Button variant="text" onClick={onCancel}>Stop waiting</Button> : <Button variant="text" onClick={() => input.current?.click()}>Choose another photo</Button>}

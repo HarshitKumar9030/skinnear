@@ -89,12 +89,12 @@ input[type="checkbox"] { accent-color: var(--accent); width: 17px; height: 17px;
 .field-heading label, .field-label { font-size: 14px; font-weight: 500; }
 .field-heading > span, .field-label > span { font-size: 11px; font-weight: 400; color: var(--muted); }
 .preferences-form input:not([type="checkbox"]) { background: white; width: 100%; padding: 15px 18px; border-radius: 14px; font-size: 14px; min-width: 0; }
-.budget-control { position: relative; }
-.budget-control > span { position: absolute; left: 20px; top: 10px; font-size: 28px; color: var(--accent); }
-.preferences-form .budget-control input { font-size: 28px; font-weight: 500; padding: 10px 20px 10px 52px; }
+.budget-control { display: flex; align-items: center; gap: 16px; background: var(--background); border-radius: 16px; padding: 8px 18px; }
+.budget-control > span { position: static; flex-shrink: 0; font-size: 16px; font-weight: 500; color: var(--accent); }
+.preferences-form .budget-control input { flex: 1; background: transparent; font-size: 28px; font-weight: 500; padding: 6px 0; }
 .budget-presets, .owned-options { display: flex; gap: 10px; margin-top: 12px; }
 .budget-presets button, .owned-options button { background: var(--soft); padding: 8px 18px; border-radius: 25px; font-size: 12px; }
-.budget-presets button.selected, .owned-options button.selected { background: var(--accent); color: white; }
+.budget-presets button[aria-pressed="true"], .owned-options button[aria-pressed="true"] { background: var(--accent); color: white; }
 .location-label { margin-top: 26px; }
 .locate-button { background: transparent; color: var(--accent); display: flex; align-items: center; gap: 6px; font-size: 11px; padding: 6px 0; }
 .location-fields { display: grid; grid-template-columns: 1.3fr 1fr; gap: 12px; }
@@ -425,3 +425,73 @@ input[type="checkbox"] { accent-color: var(--accent); width: 17px; height: 17px;
   .sidebar-budget .budget-summary p { font-size: 10px; }
   .sidebar-location > div { margin-top: 6px; }
 }
+
+/* Reusable form controls and flat cards. */
+.preferences-layout { gap: 34px; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+.preferences-form { max-width: none; padding: 30px; background: var(--surface); border-radius: 30px; }
+.preferences-card-heading { display: flex; flex-direction: column; gap: 3px; margin-bottom: 26px; }
+.preferences-card-heading > span { display: flex; align-items: center; gap: 9px; font-weight: 500; }
+.preferences-card-heading svg { color: var(--accent); }
+.preferences-card-heading small { color: var(--muted); font-size: 11px; }
+.preferences-form input:not([type="checkbox"]) { background: var(--background); }
+.preferences-form .budget-control input { background: transparent; }
+.budget-presets, .owned-options { flex-wrap: wrap; gap: 8px; }
+.toggle-button { display: inline-flex; align-items: center; gap: 7px; transition: background-color 150ms ease, color 150ms ease, transform 150ms ease; }
+.toggle-check { display: grid; place-items: center; width: 15px; height: 15px; opacity: 0; }
+.toggle-button[aria-pressed="true"] .toggle-check { opacity: 1; }
+.toggle-button:active:not(:disabled), .button:active:not(:disabled) { transform: scale(.97); }
+.toggle-button:hover:not(:disabled):not([aria-pressed="true"]) { background: var(--lavender); }
+.custom-checkbox { position: relative; display: inline-flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+.custom-checkbox input[type="checkbox"] { position: absolute; left: 0; top: 0; width: 21px; height: 21px; margin: 0; opacity: 0; }
+.checkbox-mark { display: grid; place-items: center; width: 21px; height: 21px; flex-shrink: 0; border-radius: 7px; background: #d9d2e5; color: white; transition: background-color 150ms ease; }
+.checkbox-mark svg { opacity: 0; transform: scale(.6); transition: opacity 150ms ease, transform 150ms ease; }
+.custom-checkbox input:checked + .checkbox-mark { background: var(--accent); }
+.custom-checkbox input:checked + .checkbox-mark svg { opacity: 1; transform: scale(1); }
+.custom-checkbox input:focus-visible + .checkbox-mark { outline: 3px solid var(--accent); outline-offset: 4px; }
+.custom-checkbox:has(input:disabled) { opacity: .55; cursor: not-allowed; }
+.preference-toggles { display: grid; grid-template-columns: 1fr; padding-block: 23px; gap: 9px; }
+.preference-toggles .custom-checkbox { background: var(--background); padding: 14px; border-radius: 13px; align-items: center; transition: background-color 150ms ease; }
+.preference-toggles .custom-checkbox input { top: 14px; left: 14px; }
+.preference-toggles .custom-checkbox:has(input:checked) { background: #ece5f8; }
+.searchable-select { position: relative; min-width: 0; }
+.searchable-select .field-label { margin-top: 0; }
+.select-trigger { display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 10px; padding: 15px; border-radius: 14px; text-align: left; font-size: 13px; background: var(--background); }
+.select-trigger > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.select-trigger > svg { flex-shrink: 0; color: var(--accent); transition: transform 150ms ease; }
+.select-trigger[aria-expanded="true"] { background: var(--lavender); }
+.select-trigger[aria-expanded="true"] > svg { transform: rotate(180deg); }
+.select-popover { position: absolute; z-index: 20; top: calc(100% + 8px); left: 0; right: 0; padding: 9px; background: #eee7f8; border-radius: 17px; }
+.select-search { display: flex; align-items: center; gap: 8px; padding: 0 11px; background: white; border-radius: 10px; color: var(--accent); }
+.preferences-form .select-search input { width: 100%; background: transparent; padding: 11px 0; font-size: 12px; border-radius: 0; }
+.select-search input:focus-visible { outline: none; }
+.select-search:focus-within { outline: 2px solid var(--accent); outline-offset: 1px; }
+.select-search > svg { flex-shrink: 0; }
+.select-options { padding: 0; margin: 7px 0 0; list-style: none; max-height: 240px; overflow-y: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.select-option { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 11px; font-size: 12px; border-radius: 9px; cursor: pointer; }
+.select-option small { display: block; color: var(--muted); font-size: 10px; }
+.select-option.active, .select-option:hover { background: white; }
+.select-option[aria-selected="true"] { background: var(--accent); color: white; }
+.select-option[aria-selected="true"] small { color: #eee5ff; }
+.select-option > svg { flex-shrink: 0; }
+.select-empty { font-size: 12px; color: var(--muted); padding: 15px 8px; }
+.region-fields { grid-template-columns: minmax(0, 1fr) minmax(150px, .55fr); gap: 12px; }
+.feature-columns { gap: 20px; }
+.feature-columns .feature-card { display: block; padding: 28px; border-radius: 26px; background: white; }
+.feature-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 23px; }
+.feature-icon { display: grid; place-items: center; width: 54px; height: 54px; border-radius: 17px; background: var(--lavender); color: #7152b1; }
+.feature-card.sage .feature-icon { background: var(--sage); color: #5b7e6c; }
+.feature-card.rose .feature-icon { background: var(--rose); color: #a2686f; }
+.feature-index { font-size: 12px; color: var(--muted); }
+.feature-card h3 { margin-bottom: 12px; }
+@media (max-width: 900px) { .preferences-layout { grid-template-columns: 1fr; gap: 24px; } }
+@media (max-width: 600px) {
+  .preferences-form { padding: 22px 18px; border-radius: 24px; }
+  .region-fields { grid-template-columns: 1fr; gap: 18px; }
+  .feature-columns { gap: 14px; }
+  .feature-columns .feature-card { padding: 23px; border-radius: 22px; }
+  .feature-card-top { margin-bottom: 18px; }
+  .budget-presets .toggle-button, .owned-options .toggle-button { padding: 9px 12px; font-size: 11px; }
+}
+
+.preferences-card-heading + .region-fields { margin-top: 0; margin-bottom: 25px; }
+.budget-control:has(input:disabled) { opacity: .55; }

@@ -1,8 +1,19 @@
 import countries from "i18n-iso-countries/langs/en.json";
+import countryToCurrency from "country-to-currency";
 
 export const COUNTRIES = Object.entries(countries.countries).map(([code, value]) => ({ code, name: Array.isArray(value) ? value[0] : value })).sort((a, b) => a.name.localeCompare(b.name));
-export const CURRENCIES = ["INR", "USD", "EUR", "GBP", "CAD", "AUD", "NZD", "SGD", "AED", "SAR", "JPY", "KRW", "CNY", "HKD", "CHF", "SEK", "NOK", "DKK", "PLN", "BRL", "MXN", "ZAR", "NGN", "EGP", "TRY", "IDR", "MYR", "THB", "PHP", "VND", "PKR", "BDT", "LKR", "NPR", "KES", "ILS", "QAR", "KWD", "BHD", "OMR", "TWD", "ARS", "CLP", "COP", "PEN", "CZK", "HUF", "RON"] as const;
-const defaults: Record<string, string> = { IN: "INR", US: "USD", GB: "GBP", CA: "CAD", AU: "AUD", NZ: "NZD", SG: "SGD", AE: "AED", SA: "SAR", JP: "JPY", KR: "KRW", CN: "CNY", HK: "HKD", CH: "CHF", SE: "SEK", NO: "NOK", DK: "DKK", PL: "PLN", BR: "BRL", MX: "MXN", ZA: "ZAR", NG: "NGN", EG: "EGP", TR: "TRY", ID: "IDR", MY: "MYR", TH: "THB", PH: "PHP", VN: "VND", PK: "PKR", BD: "BDT", LK: "LKR", NP: "NPR", KE: "KES", IL: "ILS", QA: "QAR", KW: "KWD", BH: "BHD", OM: "OMR", TW: "TWD", AR: "ARS", CL: "CLP", CO: "COP", PE: "PEN", CZ: "CZK", HU: "HUF", RO: "RON" };
+export const CURRENCIES: string[] = [...new Set(Object.values(countryToCurrency))].sort();
 export function countryName(code: string) { return COUNTRIES.find((country) => country.code === code)?.name ?? code; }
-export function defaultCurrency(code: string) { return defaults[code] ?? (["AT", "BE", "CY", "DE", "EE", "ES", "FI", "FR", "GR", "HR", "IE", "IT", "LT", "LU", "LV", "MT", "NL", "PT", "SI", "SK"].includes(code) ? "EUR" : "USD"); }
-export function formatMoney(value: number, currency = "INR") { return new Intl.NumberFormat("en", { style: "currency", currency, maximumFractionDigits: 2 }).format(value); }
+export function defaultCurrency(code: string): string { return (countryToCurrency as Record<string, string>)[code] ?? "USD"; }
+export function formatMoney(value: number, currency: string) { return new Intl.NumberFormat("en", { style: "currency", currency, minimumFractionDigits: 0, maximumFractionDigits: 2 }).format(value); }
+
+/** Suggested amounts in currency units, not exchange-rate estimates. */
+export function budgetPresets(currency: string): number[] {
+  if (currency === "INR") return [1000, 1500, 2500];
+  if (["IDR", "VND", "IRR", "LAK", "UZS"].includes(currency)) return [200000, 500000, 1000000];
+  if (["KRW", "NGN", "CLP", "COP", "PYG", "LBP"].includes(currency)) return [20000, 50000, 100000];
+  if (["JPY", "PKR", "LKR", "HUF", "RSD", "NPR", "BDT", "ISK", "ARS"].includes(currency)) return [2000, 5000, 10000];
+  if (["THB", "TWD", "CZK", "UAH", "MXN", "ZAR", "TRY", "DZD", "PHP"].includes(currency)) return [500, 1500, 3000];
+  if (["CNY", "HKD", "SEK", "NOK", "DKK", "AED", "SAR", "PLN", "RON", "BRL", "MYR"].includes(currency)) return [100, 300, 500];
+  return [20, 50, 100];
+}

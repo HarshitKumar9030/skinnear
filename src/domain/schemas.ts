@@ -13,8 +13,8 @@ export const analysisSchema = z.object({
 });
 export const preferencesSchema = z.object({
   budget: z.number().min(1).max(10000000),
-  country: z.string().refine((code) => COUNTRIES.some((country) => country.code === code), "Choose a country").default("IN"),
-  currency: z.enum(CURRENCIES).default("INR"),
+  country: z.string().refine((code) => COUNTRIES.some((country) => country.code === code), "Choose a country"),
+  currency: z.enum(CURRENCIES),
   city: z.string().trim().min(2).max(80).regex(/^[\p{L}\p{N}\s,.'-]+$/u),
   pincode: z.string().trim().max(20).regex(/^[\p{L}\p{N} -]*$/u),
   sensitive: z.boolean(),

@@ -15,6 +15,8 @@ npm run dev
 
 Open http://127.0.0.1:3000 and choose **Try a sample scan**. Sample scores are explicitly illustrative. Without credentials, routine building, shopping links, and downloading the plan work. Non-INR estimates use a public daily currency feed.
 
+City suggestion works without a key: the browser discovers its public IP through [ipify](https://www.ipify.org/), and the server resolves that visitor IP through [ipwho.is](https://ipwhois.io/documentation). It runs only when requested, keeps manual entry available, and does not persist the IP or coordinates. A configured trusted-proxy IPinfo lookup takes priority. Free provider limits can still require manual entry.
+
 Optional server configuration (restart the dev server after changing it):
 
 | Variable | Enables |
@@ -41,7 +43,7 @@ The Python seed script upserts the six curated products. A configured but unreac
 
 ## Worldwide shopping
 
-Choose a country, city, optional international postal code, and one of 48 supported budget currencies. Common countries suggest their currency; other countries initially use USD and the currency is editable. Google Shopping links use the selected country. Fresh listings use SerpApi when configured; missing credentials or provider errors leave direct shopping links usable. Shopping service coverage depends on the search provider and retailers.
+Choose a country, city, optional international postal code, and a budget currency. New sessions assume no country or currency. Selecting or detecting a country sets its mapped local currency; the searchable currency selector supports over 100 currencies and remains editable. Suggested budget amounts adapt to the currency. Google Shopping links use the selected country. Fresh listings use SerpApi when configured; missing credentials or provider errors leave direct shopping links usable. Shopping service coverage depends on the search provider and retailers.
 
 Blinkit and Zepto appear for India only, using public product pages where verified and retailer searches otherwise. Neither link lookup nor search establishes address-level stock, delivery time, exact variant, or current ingredients. Enter the delivery address with the retailer.
 
@@ -71,6 +73,6 @@ npm run catalog:validate
 python scripts/smoke.py
 ```
 
-Twelve unit tests cover basket constraints, exclusions, swaps, score direction, signed tokens, country validation, postal codes, retailer scoping, missing-key fallback, and mocked live provider parameters. Browser QA covers desktop/mobile, US USD conversion, India retailer links, morning/evening, and seller fallback. Live YouCam, credentialed SerpApi, and MongoDB persistence still require integration verification with real configured services.
+Twenty-one unit tests cover basket constraints, exclusions, swaps, score direction, signed tokens, country validation, postal codes, retailer scoping, missing-key fallback, and mocked live provider parameters. Browser QA covers desktop/mobile, US USD conversion, India retailer links, morning/evening, and seller fallback. Live YouCam, credentialed SerpApi, and MongoDB persistence still require integration verification with real configured services.
 
 API references: [YouCam skin analysis](https://docs.perfectcorp.com/reference/ai_skin_analysis), [SerpApi shopping](https://serpapi.com/google-shopping-api). Generated design references and intentional deviations are in `docs/design/DESIGN.md`.

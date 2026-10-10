@@ -17,8 +17,8 @@ export class CurrencyService {
         try { cache = { data: await pending, expires: Date.now() + 86400000 }; } finally { pending = undefined; }
       }
       const rate = cache.data.rates[currency];
-      if (!rate) throw new Error("Unsupported currency");
+      if (!rate) throw new AppError(`Estimates are not available in ${currency} yet. Choose another budget currency.`, 422);
       return { rate, date: new Date(cache.data.time_last_update_unix * 1000).toISOString() };
-    } catch { throw new AppError("Currency conversion is temporarily unavailable. Retry or choose INR for catalog estimates.", 503); }
+    } catch (error) { if (error instanceof AppError && error.status === 422) throw error; throw new AppError("Currency conversion is temporarily unavailable. Please retry shortly.", 503); }
   }
 }

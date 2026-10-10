@@ -5,7 +5,7 @@ import type { Product, Retailer, RetailerLookup } from "@/domain/schemas";
 export class RetailerLookupService {
   private readonly links = links as Record<string, Partial<Record<Retailer, string>>>;
 
-  forProduct(product: Product, country = "IN"): RetailerLookup[] {
+  forProduct(product: Product, country: string): RetailerLookup[] {
     if (country !== "IN") {
       const url = new URL("https://www.google.com/search");
       url.search = new URLSearchParams({ tbm: "shop", q: `${product.brand} ${product.name} ${product.size}`, gl: country.toLowerCase(), hl: "en" }).toString();

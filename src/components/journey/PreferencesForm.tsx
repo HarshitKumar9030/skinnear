@@ -1,13 +1,19 @@
 "use client";
 
-import { COUNTRIES, CURRENCIES, defaultCurrency, formatMoney } from "@/domain/regions";
+import { COUNTRIES, CURRENCIES, defaultCurrency, formatMoney, budgetPresets } from "@/domain/regions";
 import { useState } from "react";
-import { ArrowRight, MapPin, LocateFixed } from "lucide-react";
+import { ArrowRight, MapPin, LocateFixed, SlidersHorizontal } from "lucide-react";
 import { preferencesSchema, type Category, type Preferences } from "@/domain/schemas";
-import { SkinNearApi } from "@/lib/client-api";
+import { ClientLocationService } from "@/services/ClientLocationService";
 import { Button } from "@/components/ui/Button";
+import { Checkbox } from "@/components/ui/Checkbox";
+import { ToggleButton } from "@/components/ui/ToggleButton";
+import { SearchableSelect } from "@/components/ui/SearchableSelect";
 
-const api = new SkinNearApi();
+const locationService = new ClientLocationService();
+const countryOptions = COUNTRIES.map((country) => ({ value: country.code, label: country.name, detail: country.code }));
+const currencyNames = new Intl.DisplayNames(["en"], { type: "currency" });
+const currencyOptions = CURRENCIES.map((currency) => ({ value: currency, label: currency, detail: currencyNames.of(currency) }));
 export function PreferencesForm({ initial, busy, onSubmit }: { initial: Preferences; busy: boolean; onSubmit: (preferences: Preferences) => Promise<void> }) {
   const [values, setValues] = useState(initial);
   const [exclusions, setExclusions] = useState(initial.exclusions.join(", "));
@@ -17,7 +23,7 @@ export function PreferencesForm({ initial, busy, onSubmit }: { initial: Preferen
 
   async function locate() {
     setLocating(true); setLocationMessage("");
-    try { const result = await api.request<{ city: string; country: string; currency: Preferences["currency"] }>("/api/location"); setValues((old) => ({ ...old, city: result.city, country: result.country, currency: result.currency })); setLocationMessage("Approximate city from your IP. Please confirm it below."); }
+    try { const result = await locationService.suggest(); setValues((old) => ({ ...old, city: result.city, country: result.country, currency: result.currency, budget: old.currency === result.currency ? old.budget : budgetPresets(result.currency)[1], pincode: "" })); setLocationMessage("Suggested from your IP. Check the city before continuing."); }
     catch (err) { setLocationMessage(err instanceof Error ? err.message : "Enter your city manually."); }
     finally { setLocating(false); }
   }
@@ -33,19 +39,23 @@ export function PreferencesForm({ initial, busy, onSubmit }: { initial: Preferen
     setError(""); void onSubmit(parsed.data);
   }}>
     <fieldset disabled={busy}>
-      <div className="field-heading"><label htmlFor="budget">Your routine budget</label><span>{values.currency} · total purchase estimate</span></div>
-      <div className="budget-control"><span>{values.currency}</span><input id="budget" type="number" min={1} max={10000000} step="0.01" required value={values.budget} onChange={(e) => setValues({ ...values, budget: Number(e.target.value) })} /></div>
-      <div className="budget-presets">{(values.currency === "INR" ? [1000, 1500, 2500] : [20, 50, 100]).map((budget) => <button type="button" key={budget} className={values.budget === budget ? "selected" : ""} aria-pressed={values.budget === budget} onClick={() => setValues({ ...values, budget })}>{formatMoney(budget, values.currency)}</button>)}</div>
-      <div className="region-fields"><label className="field-label" htmlFor="country">Country<select id="country" value={values.country} onChange={(event) => { const country = event.target.value; const currency = defaultCurrency(country) as Preferences["currency"]; setValues({ ...values, country, currency, pincode: "", budget: currency === "INR" ? 1500 : 50 }); }}>{COUNTRIES.map((country) => <option key={country.code} value={country.code}>{country.name}</option>)}</select></label><label className="field-label" htmlFor="currency">Budget currency<select id="currency" value={values.currency} onChange={(event) => setValues({ ...values, currency: event.target.value as Preferences["currency"] })}>{CURRENCIES.map((currency) => <option key={currency}>{currency}</option>)}</select></label></div>
+      <div className="preferences-card-heading"><span><SlidersHorizontal size={18} /> Make it personal</span><small>A few choices, a better fit.</small></div>
+      <div className="region-fields">
+        <SearchableSelect label="Country" value={values.country} options={countryOptions} disabled={busy} onChange={(country) => { const currency = defaultCurrency(country) as Preferences["currency"]; setValues({ ...values, country, currency, pincode: "", budget: budgetPresets(currency)[1] }); }} />
+        <SearchableSelect label="Budget currency" value={values.currency} options={currencyOptions} disabled={busy} onChange={(currency) => setValues({ ...values, currency, budget: budgetPresets(currency)[1] })} />
+      </div>
+      <div className="field-heading"><label htmlFor="budget">Your routine budget</label><span>{values.currency ? `${values.currency} · planning estimate` : "Choose a currency first"}</span></div>
+      <div className="budget-control"><span>{values.currency || "—"}</span><input disabled={!values.currency} id="budget" type="number" min={1} max={10000000} step="0.01" placeholder="Your budget" required value={values.currency ? values.budget : ""} onChange={(e) => setValues({ ...values, budget: Number(e.target.value) })} /></div>
+      <div className="budget-presets">{(values.currency ? budgetPresets(values.currency) : []).map((budget) => <ToggleButton key={budget} selected={values.budget === budget} onClick={() => setValues({ ...values, budget })}>{formatMoney(budget, values.currency)}</ToggleButton>)}</div>
       <div className="field-heading location-label"><label htmlFor="city">Where are you shopping?</label><button type="button" onClick={locate} disabled={locating} className="locate-button"><LocateFixed size={14} /> {locating ? "Locating…" : "Suggest my city"}</button></div>
-      <div className="location-fields"><div className="icon-input"><MapPin size={18} /><input id="city" required placeholder="City, e.g. Bengaluru" maxLength={80} value={values.city} onChange={(e) => setValues({ ...values, city: e.target.value })} /></div><input aria-label="Postal code (optional)" placeholder="Postal code (optional)" maxLength={20} value={values.pincode} onChange={(e) => setValues({ ...values, pincode: e.target.value })} /></div>
+      <div className="location-fields"><div className="icon-input"><MapPin size={18} /><input id="city" required placeholder="City, e.g. London or Singapore" maxLength={80} value={values.city} onChange={(e) => setValues({ ...values, city: e.target.value })} /></div><input aria-label="Postal code (optional)" placeholder="Postal code (optional)" maxLength={20} value={values.pincode} onChange={(e) => setValues({ ...values, pincode: e.target.value })} /></div>
       {locationMessage ? <p className="field-note" role="status">{locationMessage}</p> : null}
-      <p className="field-note">Shop in your selected country. Confirm stock and delivery with the seller. Converted catalog estimates may differ from local prices.</p>
-      <div className="preference-toggles"><label><input type="checkbox" checked={values.sensitive} onChange={(e) => setValues({ ...values, sensitive: e.target.checked })} /><span>My skin feels sensitive</span></label><label><input type="checkbox" checked={values.fragranceFree} onChange={(e) => setValues({ ...values, fragranceFree: e.target.checked })} /><span>Prefer fragrance-free products</span></label></div>
+      <p className="field-note">Confirm price and delivery with the seller.</p>
+      <div className="preference-toggles"><Checkbox checked={values.sensitive} onChange={(event) => setValues({ ...values, sensitive: event.target.checked })}>My skin feels sensitive</Checkbox><Checkbox checked={values.fragranceFree} onChange={(event) => setValues({ ...values, fragranceFree: event.target.checked })}>Prefer fragrance-free products</Checkbox></div>
       <label htmlFor="exclusions" className="field-label">Ingredients to avoid <span>(optional)</span></label><input id="exclusions" placeholder="e.g. oat, niacinamide" maxLength={500} value={exclusions} onChange={(e) => setExclusions(e.target.value)} /><p className="field-note">Comma-separated label terms. This is a text filter, not an allergy guarantee. Check the current ingredient label.</p>
-      <div className="field-label">I already own</div><div className="owned-options">{(["cleanser", "moisturizer", "sunscreen"] as Category[]).map((category) => <button type="button" className={values.ownedCategories.includes(category) ? "selected" : ""} key={category} aria-pressed={values.ownedCategories.includes(category)} onClick={() => toggleOwned(category)}>{category}</button>)}</div>
+      <div className="field-label">I already own <span>(skip a new purchase)</span></div><div className="owned-options">{(["cleanser", "moisturizer", "sunscreen"] as Category[]).map((category) => <ToggleButton selected={values.ownedCategories.includes(category)} key={category} onClick={() => toggleOwned(category)}>{category}</ToggleButton>)}</div>
     </fieldset>
     {error ? <p className="inline-error" role="alert">{error}</p> : null}
-    <Button className="form-submit" type="submit" loading={busy}>Find my routine <ArrowRight size={18} /></Button>
+    <Button className="form-submit" type="submit" loading={busy}>{busy ? "Building your routine…" : "Find my routine"} <ArrowRight size={18} /></Button>
   </form>;
 }
