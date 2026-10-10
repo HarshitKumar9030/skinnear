@@ -21,4 +21,6 @@ export const CATEGORY_LABELS = {
   cleanser: "Cleanse",
   moisturizer: "Hydrate",
   sunscreen: "Protect",
+  serum: "Optional serum",
+  retinoid: "Optional retinol",
 };

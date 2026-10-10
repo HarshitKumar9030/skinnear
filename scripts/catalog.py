@@ -39,8 +39,13 @@ class CatalogManager:
                 raise ValueError("Every bundled product needs brand-described benefits")
             if product["ingredientsComplete"] and not product["ingredients"]:
                 raise ValueError("Complete ingredient metadata needs a list")
-        if categories != {"cleanser", "moisturizer", "sunscreen"}:
+        if not {"cleanser", "moisturizer", "sunscreen"}.issubset(categories):
             raise ValueError("Catalog must include all three essentials")
+        if not categories.issubset({"cleanser", "moisturizer", "sunscreen", "serum", "retinoid"}):
+            raise ValueError("Unknown product category")
+        for product in products:
+            if product["category"] in {"serum", "retinoid"} and not all(product.get(field) for field in ("treatmentGoal", "primaryActive", "usageNote")):
+                raise ValueError("Optional treatments need a goal, primary active and usage note")
         print(f"Validated {len(products)} products across {len(categories)} categories.")
         return products
 

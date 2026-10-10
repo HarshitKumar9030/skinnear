@@ -55,7 +55,7 @@ test("higher favorable score does not turn into a higher concern priority", () =
 });
 
 test("expanded catalog exposes multiple brands with source-backed images and benefits", () => {
-  assert.equal(new Set(products.map((product) => product.brand)).size, 6);
+  assert.ok(new Set(products.map((product) => product.brand)).size >= 6);
   assert.ok(products.every((product) => product.imageUrl?.startsWith("https://") && product.benefits.length >= 2));
   const routine = service.build(input({ budget: 5000 }));
   assert.ok(routine.items[0].alternatives.some((product) => product.brand === "Cetaphil"));

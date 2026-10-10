@@ -31,7 +31,8 @@ export function ProductRow({ item, city, pincode, country, currency, busy, onSwa
 
   return <article className="product-row">
     <ProductImage product={product} />
-    <div className="product-info"><div className="product-kicker"><span>{product.brand} · {CATEGORY_LABELS[product.category]}</span><span>{product.category === "sunscreen" ? "Daytime" : "Morning + evening"}</span></div><h3>{product.name}</h3><div className="product-inline-price">{product.size}<span>{formatMoney(product.referencePrice, currency)}</span><small>estimate</small></div><p>{item.reason}</p>
+    <div className="product-info"><div className="product-kicker"><span>{product.brand} · {CATEGORY_LABELS[product.category]}</span><span>{product.category === "sunscreen" ? "Daytime" : product.category === "retinoid" ? "Evening only · start slowly" : "Morning + evening"}</span></div><h3>{product.name}</h3><div className="product-inline-price">{product.size}<span>{formatMoney(product.referencePrice, currency)}</span><small>estimate</small></div><p>{item.reason}</p>
+      {product.usageNote ? <p className="treatment-usage">{product.usageNote}</p> : null}
       {product.benefits?.length ? <ul className="product-benefits" aria-label="Brand-described benefits">{product.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}</ul> : null}
       <div className="product-shop-links"><RetailerLinks country={country} product={product} /><a href={product.sourceUrl} target="_blank" rel="noreferrer">Benefits & ingredients from the brand <ExternalLink size={12} /></a></div>
     </div>

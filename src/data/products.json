@@ -572,5 +572,37 @@
       "Lightweight dry-touch finish"
     ],
     "imageUrl": "https://images.ctfassets.net/3zfcttr0ztpr/4oa6YGDxctTkbVmX3sVA9i/a84602f47214503e2509bbc0abb86883/neutrogena-ultra-sheer-dry-touch-sunblock-spf-50-front1-en-in"
+  },
+  {
+    "id": "minimalist-niacinamide-5", "brand": "Minimalist", "name": "Niacinamide 5% Face Serum", "size": "30 ml", "category": "serum",
+    "referencePrice": 599, "priceKind": "planning estimate", "concerns": ["oiliness", "pore"], "sensitive": false, "fragranceFree": true,
+    "treatmentGoal": "oil-balance", "primaryActive": "niacinamide", "ingredientHighlights": ["Niacinamide", "Oat extract"],
+    "ingredientsComplete": true,
+    "ingredients": ["Water/Aqua", "Niacinamide", "Dimethyl Isosorbide", "Avena Sativa (Oat) Kernel Extract", "Ethoxydiglycol", "Propanediol", "Bifida Ferment Lysate", "Sodium Hyaluronate", "Phenoxyethanol", "Pentylene Glycol", "Ethylhexylglycerin", "Hydrolyzed Hyaluronic Acid", "Pullulan", "Xanthan Gum", "Sclerotium Gum", "Lecithin", "Trisodium Ethylenediamine Disuccinate"],
+    "benefits": ["Supports the moisture barrier", "Hydrates and soothes skin"],
+    "sourceUrl": "https://beminimalist.co/products/niacinamide-5-hyaluronic-acid-1", "sourceCheckedAt": "2026-10-10",
+    "imageUrl": "https://beminimalist.co/cdn/shop/products/Niacinamide5_1200-1-min.png?v=1646458955&width=480", "tone": "sage",
+    "usageNote": "Optional. Test before use, introduce one new product at a time and follow the current label. Stop if irritation occurs. Use before moisturizer."
+  },
+  {
+    "id": "minimalist-retinol-03", "brand": "Minimalist", "name": "Retinol 0.3% Face Serum", "size": "30 ml", "category": "retinoid",
+    "referencePrice": 599, "priceKind": "planning estimate", "concerns": [], "sensitive": false, "fragranceFree": true,
+    "treatmentGoal": "fine-lines", "primaryActive": "retinol", "ingredientHighlights": ["Retinol", "Coenzyme Q10"],
+    "ingredientsComplete": true,
+    "ingredients": ["Caprylic/Capric Triglyceride", "Isododecane", "Squalane", "Coco-Caprylate/Caprate", "Triheptanoin", "Tocopheryl Acetate", "Bakuchiol", "Retinol", "Polysorbate 20", "Ubiquinone (Coenzyme Q10)", "BHT"],
+    "benefits": ["Targets the appearance of fine lines", "Supports smoother-looking skin"],
+    "sourceUrl": "https://beminimalist.co/products/retinol-0-3-q10", "sourceCheckedAt": "2026-10-10",
+    "imageUrl": "https://beminimalist.co/cdn/shop/files/Reti3New.png?v=1721398129&width=480", "tone": "lavender",
+    "usageNote": "Evening only, before moisturizer. Start slowly and follow the current brand label; do not combine with another retinoid or exfoliating active. Use broad-spectrum SPF 30+ daily. Avoid during pregnancy, trying to conceive or breastfeeding; stop if irritation occurs."
+  },
+  {
+    "id": "ordinary-ha-b5", "brand": "The Ordinary", "name": "Hyaluronic Acid 2% + B5 (with Ceramides)", "size": "30 ml", "category": "serum",
+    "referencePrice": 1200, "priceKind": "planning estimate", "concerns": ["moisture"], "sensitive": false, "fragranceFree": true,
+    "treatmentGoal": "hydration", "primaryActive": "hyaluron", "ingredientHighlights": ["Hyaluronic acid", "Ceramides", "Panthenol"],
+    "ingredientsComplete": false, "ingredients": ["Hyaluronic acid", "Ceramides", "Panthenol"],
+    "benefits": ["Helps hydrate dry-feeling skin", "Supports the moisture barrier"],
+    "sourceUrl": "https://theordinary.com/en-us/hyaluronic-acid-2-b5-serum-with-ceramides-100637.html", "sourceCheckedAt": "2026-10-10",
+    "imageUrl": "https://theordinary.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dw67286abd/Images/products/The%20Ordinary/ord-hyaluronic-acid-2pct-B5-30ml-Clr-Acu.png?sh=800&sm=fit&sw=800", "tone": "sage",
+    "usageNote": "Optional hydration before moisturizer. Test first and follow the current label. Use on unbroken skin; stop and consult a clinician if irritation occurs."
   }
 ]

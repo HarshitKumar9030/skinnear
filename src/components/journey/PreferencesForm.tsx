@@ -3,7 +3,8 @@
 import { COUNTRIES, CURRENCIES, defaultCurrency, formatMoney, budgetPresets } from "@/domain/regions";
 import { useState } from "react";
 import { ArrowRight, MapPin, LocateFixed, SlidersHorizontal } from "lucide-react";
-import { preferencesSchema, type Category, type Preferences } from "@/domain/schemas";
+import { preferencesSchema, type EssentialCategory, type Preferences } from "@/domain/schemas";
+import { TreatmentPreferencesPanel } from "./TreatmentPreferencesPanel";
 import { ClientLocationService } from "@/services/ClientLocationService";
 import { Button } from "@/components/ui/Button";
 import { Checkbox } from "@/components/ui/Checkbox";
@@ -28,7 +29,7 @@ export function PreferencesForm({ initial, busy, onSubmit }: { initial: Preferen
     finally { setLocating(false); }
   }
 
-  function toggleOwned(category: Category) {
+  function toggleOwned(category: EssentialCategory) {
     setValues((old) => ({ ...old, ownedCategories: old.ownedCategories.includes(category) ? old.ownedCategories.filter((c) => c !== category) : [...old.ownedCategories, category] }));
   }
 
@@ -53,7 +54,8 @@ export function PreferencesForm({ initial, busy, onSubmit }: { initial: Preferen
       <p className="field-note">Confirm price and delivery with the seller.</p>
       <div className="preference-toggles"><Checkbox checked={values.sensitive} onChange={(event) => setValues({ ...values, sensitive: event.target.checked })}>My skin feels sensitive</Checkbox><Checkbox checked={values.fragranceFree} onChange={(event) => setValues({ ...values, fragranceFree: event.target.checked })}>Prefer fragrance-free products</Checkbox></div>
       <label htmlFor="exclusions" className="field-label">Ingredients to avoid <span>(optional)</span></label><input id="exclusions" placeholder="e.g. oat, niacinamide" maxLength={500} value={exclusions} onChange={(e) => setExclusions(e.target.value)} /><p className="field-note">Comma-separated label terms. This is a text filter, not an allergy guarantee. Check the current ingredient label.</p>
-      <div className="field-label">I already own <span>(skip a new purchase)</span></div><div className="owned-options">{(["cleanser", "moisturizer", "sunscreen"] as Category[]).map((category) => <ToggleButton selected={values.ownedCategories.includes(category)} key={category} onClick={() => toggleOwned(category)}>{category}</ToggleButton>)}</div>
+      <div className="field-label">I already own <span>(skip a new purchase)</span></div><div className="owned-options">{(["cleanser", "moisturizer", "sunscreen"] as EssentialCategory[]).map((category) => <ToggleButton selected={values.ownedCategories.includes(category)} key={category} onClick={() => toggleOwned(category)}>{category}</ToggleButton>)}</div>
+      <TreatmentPreferencesPanel value={values.treatments} onChange={(treatments) => setValues((old) => ({ ...old, treatments }))} />
     </fieldset>
     {error ? <p className="inline-error" role="alert">{error}</p> : null}
     <Button className="form-submit" type="submit" loading={busy}>{busy ? "Building your routine…" : "Find my routine"} <ArrowRight size={18} /></Button>

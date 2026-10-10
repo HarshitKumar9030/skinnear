@@ -11,6 +11,18 @@ export const analysisSchema = z.object({
   mode: z.enum(["demo", "live"]),
   scores: z.array(scoreSchema).min(1),
 });
+export const treatmentPreferencesSchema = z.object({
+  consent: z.boolean().default(false),
+  goal: z.enum(["none", "hydration", "oil-balance", "fine-lines"]).default("none"),
+  basicsEstablished: z.boolean().default(false),
+  adult: z.boolean().default(false),
+  healthClear: z.boolean().default(false),
+  alreadyUsingTreatment: z.boolean().default(false),
+  retinoidConsent: z.boolean().default(false),
+  dailySunscreen: z.boolean().default(false),
+});
+export type TreatmentPreferences = z.infer<typeof treatmentPreferencesSchema>;
+export const DEFAULT_TREATMENT_PREFERENCES = treatmentPreferencesSchema.parse({});
 export const preferencesSchema = z.object({
   budget: z.number().min(1).max(10000000),
   country: z.string().refine((code) => COUNTRIES.some((country) => country.code === code), "Choose a country"),
@@ -21,13 +33,17 @@ export const preferencesSchema = z.object({
   fragranceFree: z.boolean(),
   exclusions: z.array(z.string().trim().min(2).max(80)).max(12),
   ownedCategories: z.array(z.enum(["cleanser", "moisturizer", "sunscreen"])).max(3),
+  treatments: treatmentPreferencesSchema.optional(),
 });
 export const productSchema = z.object({
   id: z.string(),
   brand: z.string(),
   name: z.string(),
   size: z.string(),
-  category: z.enum(["cleanser", "moisturizer", "sunscreen"]),
+  category: z.enum(["cleanser", "moisturizer", "sunscreen", "serum", "retinoid"]),
+  treatmentGoal: z.enum(["hydration", "oil-balance", "fine-lines"]).optional(),
+  primaryActive: z.string().optional(),
+  usageNote: z.string().optional(),
   referencePrice: z.number().positive(),
   priceKind: z.literal("planning estimate"),
   concerns: z.array(concernSchema),
@@ -46,7 +62,7 @@ export const routineRequestSchema = z.object({
   analysis: analysisSchema,
   preferences: preferencesSchema,
   excludedProductIds: z.array(z.string().max(80)).max(30).default([]),
-  selectedProductIds: z.array(z.string().max(80)).max(3).optional(),
+  selectedProductIds: z.array(z.string().max(80)).max(4).optional(),
 });
 
 export type Concern = z.infer<typeof concernSchema>;
@@ -55,6 +71,7 @@ export type Preferences = z.infer<typeof preferencesSchema>;
 export type Product = z.infer<typeof productSchema>;
 export type RoutineRequest = z.infer<typeof routineRequestSchema>;
 export type Category = Product["category"];
+export type EssentialCategory = Preferences["ownedCategories"][number];
 
 export interface RoutineItem {
   product: Product;
@@ -71,6 +88,7 @@ export interface Routine {
   catalogSource: "bundled" | "mongodb";
   currency?: string;
   exchangeRateDate?: string;
+  treatmentMessage?: string;
 }
 export interface Listing {
   title: string;
