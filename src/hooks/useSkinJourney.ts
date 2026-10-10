@@ -6,7 +6,7 @@ import { SAMPLE_ANALYSIS } from "@/domain/sample";
 import { SkinNearApi } from "@/lib/client-api";
 
 const api = new SkinNearApi();
-export const DEFAULT_PREFERENCES: Preferences = { budget: 1500, city: "", pincode: "", sensitive: false, fragranceFree: true, exclusions: [], ownedCategories: [] };
+export const DEFAULT_PREFERENCES: Preferences = { budget: 1500, country: "IN", currency: "INR", city: "", pincode: "", sensitive: false, fragranceFree: true, exclusions: [], ownedCategories: [] };
 type Stage = "scan" | "preferences" | "routine";
 
 function pause(ms: number, signal: AbortSignal) {

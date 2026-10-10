@@ -1,3 +1,4 @@
+import { defaultCurrency, COUNTRIES } from "@/domain/regions";
 import { isIP } from "node:net";
 import { z } from "zod";
 import { AppError } from "@/lib/errors";
@@ -13,7 +14,7 @@ export class LocationService {
     const url = new URL(`https://ipinfo.io/${encodeURIComponent(ip)}/json`);
     url.searchParams.set("token", process.env.IPINFO_TOKEN);
     const result = locationSchema.parse(await fetchJson<unknown>(url));
-    if (!result.city || result.country !== "IN") throw new AppError("This prototype supports Indian cities. Please enter your city manually.", 422);
-    return { city: result.city, approximate: true };
+    if (!result.city || !COUNTRIES.some((country) => country.code === result.country)) throw new AppError("We could not determine your country. Please choose it manually.", 422);
+    return { city: result.city, country: result.country!, currency: defaultCurrency(result.country!), approximate: true };
   }
 }

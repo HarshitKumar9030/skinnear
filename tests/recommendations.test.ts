@@ -9,7 +9,7 @@ import { RecommendationService } from "../src/services/RecommendationService";
 const products = z.array(productSchema).parse(catalog);
 const service = new RecommendationService(products);
 function input(overrides: Partial<RoutineRequest["preferences"]> = {}): RoutineRequest {
-  return { analysis: SAMPLE_ANALYSIS, preferences: { budget: 1500, city: "Bengaluru", pincode: "", sensitive: false, fragranceFree: false, exclusions: [], ownedCategories: [], ...overrides }, excludedProductIds: [] };
+  return { analysis: SAMPLE_ANALYSIS, preferences: { budget: 1500, country: "IN", currency: "INR", city: "Bengaluru", pincode: "", sensitive: false, fragranceFree: false, exclusions: [], ownedCategories: [], ...overrides }, excludedProductIds: [] };
 }
 
 test("selects all essentials without exceeding the whole basket budget", () => {

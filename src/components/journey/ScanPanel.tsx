@@ -23,7 +23,7 @@ export function ScanPanel({ onSample, onScan, onCancel, busy, liveEnabled }: { o
   return <section className={`scan-panel ${file ? "has-photo" : ""}`} aria-label="Skin scan">
     <input ref={input} type="file" accept="image/jpeg,image/png" className="visually-hidden" aria-label="Upload a selfie" onChange={(event) => select(event.target.files?.[0])} disabled={busy} />
     {file && preview ? <div className="photo-preview"><Image src={preview} alt="Your selected selfie" fill unoptimized sizes="120px" /><button className="photo-remove" aria-label="Remove selected photo" disabled={busy} onClick={() => { setFile(null); setPreview(null); if (input.current) input.current.value = ""; }}><X size={16} /></button></div> : <div className="camera-mark"><Camera size={36} strokeWidth={1.7} aria-hidden /></div>}
-    <h2>{file ? "Ready for a fresh perspective?" : "Let’s get to know your skin"}</h2>
+    <h2>{file ? "Ready for a fresh perspective?" : "Let's get to know your skin"}</h2>
     <p>{file ? "Face forward. Natural light. No filters." : "Upload a clear, well-lit selfie to get started."}</p>
     {file ? <>
       <label className="consent-check"><input type="checkbox" checked={consent} disabled={busy} onChange={(e) => setConsent(e.target.checked)} /><span>I agree to send this photo to YouCam for skin analysis.</span></label>

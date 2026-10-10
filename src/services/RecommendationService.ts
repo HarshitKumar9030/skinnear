@@ -1,4 +1,5 @@
 import type { Category, Product, Routine, RoutineRequest } from "@/domain/schemas";
+import { formatMoney } from "@/domain/regions";
 import { CONCERN_LABELS } from "@/domain/sample";
 
 const CATEGORIES: Category[] = ["cleanser", "moisturizer", "sunscreen"];
@@ -48,7 +49,7 @@ export class RecommendationService {
       budget: preferences.budget,
       feasible,
       message: feasible ? (categories.length ? "A simple starting point, selected within your planning budget." : "You already own all three essentials. No new purchases needed.")
-        : Number.isFinite(minimum) ? `The lowest matching routine is ₹${minimum}. Increase your budget or mark products you already own.`
+        : Number.isFinite(minimum) ? `The lowest matching routine is ${formatMoney(minimum, preferences.currency)}. Increase your budget or mark products you already own.`
           : "No complete routine matches these preferences. Try fewer exclusions or review your existing products. Products with incomplete ingredient data are excluded when you specify ingredients to avoid.",
       ownedCategories: preferences.ownedCategories,
       catalogSource,

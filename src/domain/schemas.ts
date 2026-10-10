@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { COUNTRIES, CURRENCIES } from "./regions";
 
 export const concernSchema = z.enum(["moisture", "redness", "oiliness", "pore"]);
 export const scoreSchema = z.object({
@@ -11,9 +12,11 @@ export const analysisSchema = z.object({
   scores: z.array(scoreSchema).min(1),
 });
 export const preferencesSchema = z.object({
-  budget: z.number().int().min(100).max(50000),
+  budget: z.number().min(1).max(10000000),
+  country: z.string().refine((code) => COUNTRIES.some((country) => country.code === code), "Choose a country").default("IN"),
+  currency: z.enum(CURRENCIES).default("INR"),
   city: z.string().trim().min(2).max(80).regex(/^[\p{L}\p{N}\s,.'-]+$/u),
-  pincode: z.string().regex(/^\d{6}$/).or(z.literal("")),
+  pincode: z.string().trim().max(20).regex(/^[\p{L}\p{N} -]*$/u),
   sensitive: z.boolean(),
   fragranceFree: z.boolean(),
   exclusions: z.array(z.string().trim().min(2).max(80)).max(12),
@@ -63,6 +66,8 @@ export interface Routine {
   message: string;
   ownedCategories: Category[];
   catalogSource: "bundled" | "mongodb";
+  currency?: string;
+  exchangeRateDate?: string;
 }
 export interface Listing {
   title: string;
@@ -71,4 +76,20 @@ export interface Listing {
   price: string | null;
   availability: "listing discovered";
   checkedAt: string;
+}
+
+export type Retailer = "blinkit" | "zepto";
+export interface RetailerLookup {
+  retailer: Retailer | "google-shopping";
+  name: string;
+  url: string;
+  kind: "product page" | "retailer search";
+  sizeNote: string;
+  availability: "check with retailer";
+}
+export interface ShoppingResult {
+  listings: Listing[];
+  lookups: RetailerLookup[];
+  mode: "live-search" | "retailer-lookup";
+  message: string;
 }

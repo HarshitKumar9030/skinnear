@@ -1,0 +1,8 @@
+import countries from "i18n-iso-countries/langs/en.json";
+
+export const COUNTRIES = Object.entries(countries.countries).map(([code, value]) => ({ code, name: Array.isArray(value) ? value[0] : value })).sort((a, b) => a.name.localeCompare(b.name));
+export const CURRENCIES = ["INR", "USD", "EUR", "GBP", "CAD", "AUD", "NZD", "SGD", "AED", "SAR", "JPY", "KRW", "CNY", "HKD", "CHF", "SEK", "NOK", "DKK", "PLN", "BRL", "MXN", "ZAR", "NGN", "EGP", "TRY", "IDR", "MYR", "THB", "PHP", "VND", "PKR", "BDT", "LKR", "NPR", "KES", "ILS", "QAR", "KWD", "BHD", "OMR", "TWD", "ARS", "CLP", "COP", "PEN", "CZK", "HUF", "RON"] as const;
+const defaults: Record<string, string> = { IN: "INR", US: "USD", GB: "GBP", CA: "CAD", AU: "AUD", NZ: "NZD", SG: "SGD", AE: "AED", SA: "SAR", JP: "JPY", KR: "KRW", CN: "CNY", HK: "HKD", CH: "CHF", SE: "SEK", NO: "NOK", DK: "DKK", PL: "PLN", BR: "BRL", MX: "MXN", ZA: "ZAR", NG: "NGN", EG: "EGP", TR: "TRY", ID: "IDR", MY: "MYR", TH: "THB", PH: "PHP", VN: "VND", PK: "PKR", BD: "BDT", LK: "LKR", NP: "NPR", KE: "KES", IL: "ILS", QA: "QAR", KW: "KWD", BH: "BHD", OM: "OMR", TW: "TWD", AR: "ARS", CL: "CLP", CO: "COP", PE: "PEN", CZ: "CZK", HU: "HUF", RO: "RON" };
+export function countryName(code: string) { return COUNTRIES.find((country) => country.code === code)?.name ?? code; }
+export function defaultCurrency(code: string) { return defaults[code] ?? (["AT", "BE", "CY", "DE", "EE", "ES", "FI", "FR", "GR", "HR", "IE", "IT", "LT", "LU", "LV", "MT", "NL", "PT", "SI", "SK"].includes(code) ? "EUR" : "USD"); }
+export function formatMoney(value: number, currency = "INR") { return new Intl.NumberFormat("en", { style: "currency", currency, maximumFractionDigits: 2 }).format(value); }
