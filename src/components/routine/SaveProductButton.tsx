@@ -18,16 +18,11 @@ export function SaveProductButton({ id, name }: { id: string; name: string }) {
             savedProductsStore.toggle(id);
             setError("");
           } catch (error) {
-            setError(
-              error instanceof Error
-                ? error.message
-                : "Could not save this product.",
-            );
+            setError(error instanceof Error ? error.message : "Could not save this product.");
           }
         }}
       >
-        {saved ? <Check size={15} /> : <Bookmark size={15} />}{" "}
-        {saved ? "Saved" : "Save product"}
+        {saved ? <Check size={15} /> : <Bookmark size={15} />} {saved ? "Saved" : "Save product"}
       </button>
       {error ? (
         <p className="field-note" role="alert">

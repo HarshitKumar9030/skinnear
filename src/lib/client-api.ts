@@ -8,6 +8,11 @@ export class SkinNearApi {
   }
 
   post<T>(path: string, body: unknown, signal?: AbortSignal) {
-    return this.request<T>(path, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body), signal });
+    return this.request<T>(path, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+      signal,
+    });
   }
 }

@@ -14,7 +14,14 @@ export function AnimatedScanMark() {
     import("@/services/FeatureAnimationController").then(({ FeatureAnimationController }) => {
       if (!disposed) animation = new FeatureAnimationController(node);
     });
-    return () => { disposed = true; animation?.dispose(); };
+    return () => {
+      disposed = true;
+      animation?.dispose();
+    };
   }, []);
-  return <div ref={root} className="animated-scan-mark"><FeatureIllustration scene="upload" /></div>;
+  return (
+    <div ref={root} className="animated-scan-mark">
+      <FeatureIllustration scene="upload" />
+    </div>
+  );
 }

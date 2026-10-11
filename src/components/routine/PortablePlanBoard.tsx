@@ -19,10 +19,7 @@ export function PortablePlanBoard({
 }) {
   const [time, setTime] = useState("all");
   const [checked, setChecked] = useState<string[]>([]);
-  const total = products.reduce(
-    (sum, product) => sum + product.referencePrice,
-    0,
-  );
+  const total = products.reduce((sum, product) => sum + product.referencePrice, 0);
   const visible = products.filter((product) =>
     time === "morning"
       ? product.category !== "retinoid" && !product.eveningOnly
@@ -33,13 +30,12 @@ export function PortablePlanBoard({
   return (
     <section className="portable-plan shell">
       <span className="treatment-eyebrow">
-        SkinNear · Shared{" "}
-        {snapshot.kind === "list" ? "product list" : "routine"}
+        SkinNear · Shared {snapshot.kind === "list" ? "product list" : "routine"}
       </span>
       <h1>Care you can come back to.</h1>
       <p>
-        A shared product snapshot, not an assessment of your skin. Check
-        suitability and current labels before using an active.
+        A shared product snapshot, not an assessment of your skin. Check suitability and current
+        labels before using an active.
       </p>
       <div className="portable-summary">
         <strong>
@@ -69,11 +65,7 @@ export function PortablePlanBoard({
           { id: "morning", label: "Morning", icon: Sun },
           { id: "evening", label: "Evening", icon: Moon },
         ].map((tab) => (
-          <button
-            key={tab.id}
-            aria-pressed={time === tab.id}
-            onClick={() => setTime(tab.id)}
-          >
+          <button key={tab.id} aria-pressed={time === tab.id} onClick={() => setTime(tab.id)}>
             {tab.icon ? <tab.icon size={17} /> : null}
             {tab.label}
           </button>
@@ -94,12 +86,10 @@ export function PortablePlanBoard({
             </small>
             <h3>{product.name}</h3>
             <strong>
-              {formatMoney(product.referencePrice, snapshot.currency)}{" "}
-              <small>estimate</small>
+              {formatMoney(product.referencePrice, snapshot.currency)} <small>estimate</small>
             </strong>
             <p>
-              {product.usageNote ||
-                "Follow the current label and check ingredients before use."}
+              {product.usageNote || "Follow the current label and check ingredients before use."}
             </p>
             <Checkbox
               checked={checked.includes(product.id)}
@@ -121,9 +111,9 @@ export function PortablePlanBoard({
         ))}
       </div>
       <p className="routine-footnote">
-        Deep, painful or scarring acne needs a dermatologist. Shared plans do
-        not include anyone&apos;s skin scores, health answers, location or
-        selfie. Checklist progress stays in this viewing session.
+        Deep, painful or scarring acne needs a dermatologist. Shared plans do not include
+        anyone&apos;s skin scores, health answers, location or selfie. Checklist progress stays in
+        this viewing session.
       </p>
     </section>
   );

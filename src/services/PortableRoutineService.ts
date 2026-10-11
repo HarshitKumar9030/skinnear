@@ -25,8 +25,7 @@ const portableSchema = z
     if (
       value.kind === "routine" &&
       (!value.budget ||
-        value.items.reduce((total, item) => total + item.price, 0) >
-          value.budget + 0.001)
+        value.items.reduce((total, item) => total + item.price, 0) > value.budget + 0.001)
     )
       context.addIssue({
         code: "custom",
@@ -38,9 +37,7 @@ const escapeHtml = (text: string) =>
   text.replace(
     /[&<>"']/g,
     (character) =>
-      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
-        character
-      ]!,
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[character]!,
   );
 
 /** Portable projection deliberately contains no analysis, consent, city or identity. */
@@ -57,10 +54,7 @@ export class PortableRoutineService {
       })),
     });
   }
-  fromProducts(
-    products: readonly Product[],
-    currency: string,
-  ): PortableRoutine {
+  fromProducts(products: readonly Product[], currency: string): PortableRoutine {
     return portableSchema.parse({
       version: 1,
       kind: "list",
@@ -83,14 +77,8 @@ export class PortableRoutineService {
     const snapshot = portableSchema.parse(
       JSON.parse(atob(encoded.replace(/-/g, "+").replace(/_/g, "/"))),
     );
-    if (
-      snapshot.items.some(
-        (item) => !catalog.some((product) => product.id === item.id),
-      )
-    )
-      throw new Error(
-        "This plan contains products no longer available in this catalog.",
-      );
+    if (snapshot.items.some((item) => !catalog.some((product) => product.id === item.id)))
+      throw new Error("This plan contains products no longer available in this catalog.");
     return snapshot;
   }
   resolve(snapshot: PortableRoutine, catalog: readonly Product[]): Product[] {
@@ -107,10 +95,7 @@ export class PortableRoutineService {
   }
   html(snapshot: PortableRoutine, catalog: readonly Product[]): string {
     const products = this.resolve(snapshot, catalog);
-    const total = products.reduce(
-      (sum, product) => sum + product.referencePrice,
-      0,
-    );
+    const total = products.reduce((sum, product) => sum + product.referencePrice, 0);
     const cards = products
       .map(
         (product, index) =>

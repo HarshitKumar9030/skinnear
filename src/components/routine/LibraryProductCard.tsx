@@ -9,14 +9,24 @@ export function LibraryProductCard({ product, currency }: { product: Product; cu
   return (
     <article className="library-card">
       <ProductImage product={product} />
-      <small>{product.brand} · {product.size}</small>
+      <small>
+        {product.brand} · {product.size}
+      </small>
       <h3>{product.name}</h3>
-      <strong>{formatMoney(product.referencePrice, currency)} <small>estimate</small></strong>
-      <ul>{product.benefits.map((benefit) => <li key={benefit}>{benefit}</li>)}</ul>
+      <strong>
+        {formatMoney(product.referencePrice, currency)} <small>estimate</small>
+      </strong>
+      <ul>
+        {product.benefits.map((benefit) => (
+          <li key={benefit}>{benefit}</li>
+        ))}
+      </ul>
       {product.reviewNote ? <p>{product.reviewNote}</p> : null}
       {product.usageNote ? <p>{product.usageNote}</p> : null}
       <SaveProductButton id={product.id} name={product.name} />
-      <a href={product.sourceUrl} target="_blank" rel="noreferrer">Brand & ingredients ↗</a>
+      <a href={product.sourceUrl} target="_blank" rel="noreferrer">
+        Brand & ingredients ↗
+      </a>
     </article>
   );
 }

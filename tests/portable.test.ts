@@ -12,22 +12,11 @@ test("share links carry only product IDs, planning prices and currency", () => {
   const url = new URL(service.shareUrl(snapshot, "https://skinnear.example"));
   assert.equal(url.pathname, "/shared");
   assert.equal(url.search, "");
-  const decoded = service.decode(
-    new URLSearchParams(url.hash.slice(1)).get("plan")!,
-    products,
-  );
+  const decoded = service.decode(new URLSearchParams(url.hash.slice(1)).get("plan")!, products);
   assert.deepEqual(decoded, snapshot);
-  assert.deepEqual(Object.keys(decoded).sort(), [
-    "currency",
-    "items",
-    "kind",
-    "version",
-  ]);
+  assert.deepEqual(Object.keys(decoded).sort(), ["currency", "items", "kind", "version"]);
   assert.deepEqual(Object.keys(decoded.items[0]).sort(), ["id", "price"]);
-  assert.equal(
-    service.resolve(decoded, products)[0].referencePrice,
-    snapshot.items[0].price,
-  );
+  assert.equal(service.resolve(decoded, products)[0].referencePrice, snapshot.items[0].price);
 });
 test("forged, oversized, duplicate and over-budget shared plans are rejected", () => {
   const snapshot = service.fromProducts(products.slice(0, 1), "INR");
@@ -44,16 +33,12 @@ test("forged, oversized, duplicate and over-budget shared plans are rejected", (
       items: [...snapshot.items, ...snapshot.items],
     }),
   );
-  assert.throws(() =>
-    service.encode({ ...snapshot, kind: "routine", budget: 1 }),
-  );
+  assert.throws(() => service.encode({ ...snapshot, kind: "routine", budget: 1 }));
   assert.throws(() => service.encode({ ...snapshot, currency: "invalid" }));
 });
 test("download is interactive, escaped and contains no private routine fields", () => {
   const malicious = { ...products[0], name: '<script>alert("x")</script>' };
-  const html = service.html(service.fromProducts([malicious], "INR"), [
-    malicious,
-  ]);
+  const html = service.html(service.fromProducts([malicious], "INR"), [malicious]);
   assert.ok(html.includes("&lt;script&gt;"));
   assert.ok(!html.includes(malicious.name));
   for (const expected of [

@@ -26,10 +26,21 @@ export type TreatmentPreferences = z.infer<typeof treatmentPreferencesSchema>;
 export const DEFAULT_TREATMENT_PREFERENCES = treatmentPreferencesSchema.parse({});
 export const preferencesSchema = z.object({
   budget: z.number().min(1).max(10000000),
-  country: z.string().refine((code) => COUNTRIES.some((country) => country.code === code), "Choose a country"),
+  country: z
+    .string()
+    .refine((code) => COUNTRIES.some((country) => country.code === code), "Choose a country"),
   currency: z.enum(CURRENCIES),
-  city: z.string().trim().min(2).max(80).regex(/^[\p{L}\p{N}\s,.'-]+$/u),
-  pincode: z.string().trim().max(20).regex(/^[\p{L}\p{N} -]*$/u),
+  city: z
+    .string()
+    .trim()
+    .min(2)
+    .max(80)
+    .regex(/^[\p{L}\p{N}\s,.'-]+$/u),
+  pincode: z
+    .string()
+    .trim()
+    .max(20)
+    .regex(/^[\p{L}\p{N} -]*$/u),
   sensitive: z.boolean(),
   fragranceFree: z.boolean(),
   exclusions: z.array(z.string().trim().min(2).max(80)).max(12),
@@ -42,7 +53,17 @@ export const productSchema = z.object({
   name: z.string(),
   size: z.string(),
   category: z.enum(["cleanser", "moisturizer", "sunscreen", "serum", "retinoid"]),
-  treatmentGoal: z.enum(["hydration", "oil-balance", "breakouts", "fine-lines", "brightening", "texture", "soothing"]).optional(),
+  treatmentGoal: z
+    .enum([
+      "hydration",
+      "oil-balance",
+      "breakouts",
+      "fine-lines",
+      "brightening",
+      "texture",
+      "soothing",
+    ])
+    .optional(),
   primaryActive: z.string().optional(),
   usageNote: z.string().optional(),
   eveningOnly: z.boolean().optional(),
@@ -52,22 +73,29 @@ export const productSchema = z.object({
   referenceCurrency: z.enum(CURRENCIES).default("INR"),
   // Empty coverage permits international discovery, without claiming local stock.
   markets: z.array(preferencesSchema.shape.country).default([]),
-  regionalPrices: z.array(z.object({
-    country: preferencesSchema.shape.country,
-    currency: z.enum(CURRENCIES),
-    price: z.number().positive(),
-    sourceUrl: z.url().refine((url) => url.startsWith("https://")),
-  })).default([]),
+  regionalPrices: z
+    .array(
+      z.object({
+        country: preferencesSchema.shape.country,
+        currency: z.enum(CURRENCIES),
+        price: z.number().positive(),
+        sourceUrl: z.url().refine((url) => url.startsWith("https://")),
+      }),
+    )
+    .default([]),
   priceKind: z.literal("planning estimate"),
   concerns: z.array(concernSchema),
   sensitive: z.boolean(),
   fragranceFree: z.boolean(),
   ingredientHighlights: z.array(z.string()),
   benefits: z.array(z.string()).max(4).default([]),
-  imageUrl: z.url().refine((url) => url.startsWith("https://"), "Product images must use HTTPS").optional(),
+  imageUrl: z
+    .url()
+    .refine((url) => url.startsWith("https://"), "Product images must use HTTPS")
+    .optional(),
   ingredientsComplete: z.boolean(),
   ingredients: z.array(z.string()),
-  sourceUrl: z.url().refine((url)=>url.startsWith("https://"),"Brand links must use HTTPS"),
+  sourceUrl: z.url().refine((url) => url.startsWith("https://"), "Brand links must use HTTPS"),
   sourceCheckedAt: z.string(),
   tone: z.enum(["rose", "lavender", "sage"]),
 });

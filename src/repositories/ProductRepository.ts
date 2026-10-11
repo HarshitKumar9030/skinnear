@@ -20,9 +20,7 @@ export class ProductRepository {
           .limit(1000)
           .toArray();
         if (documents.length) {
-          const reviewed = new Map(
-            bundled.map((product) => [product.id, product]),
-          );
+          const reviewed = new Map(bundled.map((product) => [product.id, product]));
           const products = z
             .array(productSchema)
             .parse(documents)

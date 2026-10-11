@@ -19,11 +19,7 @@ export async function GET(request: NextRequest) {
       .optional()
       .parse(request.nextUrl.searchParams.get("country") || undefined);
     const catalog = await new ProductRepository().getCatalog();
-    const priced = await new MarketCatalogService().price(
-      catalog.products,
-      currency,
-      country,
-    );
+    const priced = await new MarketCatalogService().price(catalog.products, currency, country);
     return NextResponse.json(
       {
         currency,

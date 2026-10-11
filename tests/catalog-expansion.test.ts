@@ -29,21 +29,36 @@ test("browse-only acid cleansers cannot be pinned into automatic essentials", ()
   assert.equal(blocked.routineEligible, false);
   const request = {
     analysis: SAMPLE_ANALYSIS,
-    preferences: preferencesSchema.parse({budget: 3000, country: "IN", currency: "INR", city: "Mumbai", pincode: "", sensitive: false, fragranceFree: false, exclusions: [], ownedCategories: []}),
+    preferences: preferencesSchema.parse({
+      budget: 3000,
+      country: "IN",
+      currency: "INR",
+      city: "Mumbai",
+      pincode: "",
+      sensitive: false,
+      fragranceFree: false,
+      exclusions: [],
+      ownedCategories: [],
+    }),
     excludedProductIds: [],
   };
   const service = new RecommendationService(products);
   const routine = service.build(request);
   assert.ok(routine.items.every((item) => item.product.routineEligible));
-  assert.ok(routine.items.every((item) => item.alternatives.every((product) => product.routineEligible)));
-  assert.throws(() => service.build({...request, selectedProductIds: [blocked.id]}), /no longer matches/);
+  assert.ok(
+    routine.items.every((item) => item.alternatives.every((product) => product.routineEligible)),
+  );
+  assert.throws(
+    () => service.build({ ...request, selectedProductIds: [blocked.id] }),
+    /no longer matches/,
+  );
 });
 
 test("native price currencies do not leak into shared lists", () => {
   const product = products.find((product) => product.brand === "Geek & Gorgeous")!;
   assert.equal(product.referenceCurrency, "EUR");
   const portable = new PortableRoutineService();
-  const snapshot = portable.fromProducts([{...product, referencePrice: 11.5}], "USD");
+  const snapshot = portable.fromProducts([{ ...product, referencePrice: 11.5 }], "USD");
   const resolved = portable.resolve(portable.decode(portable.encode(snapshot), products), products);
   assert.equal(resolved[0].referenceCurrency, "USD");
   assert.equal(resolved[0].referencePrice, 11.5);

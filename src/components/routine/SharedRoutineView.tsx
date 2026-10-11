@@ -19,11 +19,7 @@ export function SharedRoutineView() {
   let plan;
   let error = "";
   try {
-    if (hash)
-      plan = service.decode(
-        new URLSearchParams(hash.slice(1)).get("plan") || "",
-        products,
-      );
+    if (hash) plan = service.decode(new URLSearchParams(hash.slice(1)).get("plan") || "", products);
   } catch {
     error =
       "This link is incomplete, invalid or refers to an unavailable product. Ask for a new shared link.";
@@ -37,17 +33,10 @@ export function SharedRoutineView() {
         <Link href="/">Make your own routine ↗</Link>
       </header>
       {plan ? (
-        <PortablePlanBoard
-          snapshot={plan}
-          products={service.resolve(plan, products)}
-        />
+        <PortablePlanBoard snapshot={plan} products={service.resolve(plan, products)} />
       ) : (
         <section className="portable-plan shell">
-          <h1>
-            {error
-              ? "This plan could not be opened."
-              : "Open a shared SkinNear plan."}
-          </h1>
+          <h1>{error ? "This plan could not be opened." : "Open a shared SkinNear plan."}</h1>
           <p role={error ? "alert" : undefined}>
             {error ||
               "A shared link includes its product snapshot after the # in the address. Your private skin report is never included."}

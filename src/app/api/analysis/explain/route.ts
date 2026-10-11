@@ -14,5 +14,7 @@ export async function POST(request: NextRequest) {
     await session.protection.reserveAi(request.headers, session.userId);
     const explanation = await new SkinExplanationService().explain(input.analysis, session.userId);
     return NextResponse.json(explanation, { headers: { "Cache-Control": "no-store" } });
-  } catch (error) { return errorResponse(error); }
+  } catch (error) {
+    return errorResponse(error);
+  }
 }

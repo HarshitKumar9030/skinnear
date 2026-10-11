@@ -8,15 +8,24 @@ const api = new SkinNearApi();
 export function RoutineExplainer({ routine, currency }: { routine: Routine; currency: string }) {
   async function generate(signal: AbortSignal) {
     const portable = new PortableRoutineService();
-    const result = await api.post<RoutineExplanation>("/api/routine/explain", {
-      plan: portable.encode(portable.fromRoutine(routine, currency)), consent: true,
-    }, signal);
-    return { ...result, sections: result.steps.map((step) => ({
-      heading: routine.items.find((item) => item.product.id === step.id)?.product.name ?? "Routine step", text: step.explanation,
-    })) };
+    const result = await api.post<RoutineExplanation>(
+      "/api/routine/explain",
+      {
+        plan: portable.encode(portable.fromRoutine(routine, currency)),
+        consent: true,
+      },
+      signal,
+    );
+    return result;
   }
-  return <VoiceExplanationPanel title="Let’s talk through your routine." eyebrow="Your routine, explained aloud"
-    description="Hear why each step is here and how it may help. Generate once, then listen at your own pace."
-    consentText="I agree to send selected product names, estimates and routine budget to Google Gemini to generate an explanation and its AI voice. My selfie, skin scores and location stay out of this request."
-    actionLabel="Hear my routine" generate={generate} />;
+  return (
+    <VoiceExplanationPanel
+      title="Let’s talk through your routine."
+      eyebrow="Your routine, explained aloud"
+      description="Listen to what each step brings to your routine."
+      consentText="Use Google Gemini to explain my products and budget aloud. My photo and skin scores stay private."
+      actionLabel="Hear my routine"
+      generate={generate}
+    />
+  );
 }

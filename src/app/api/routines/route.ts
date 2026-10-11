@@ -16,7 +16,15 @@ export async function POST(request: NextRequest) {
     const ownerId = request.cookies.get("skinnear-owner")?.value || randomUUID();
     const id = await new RoutineRepository().save(ownerId, input, routine);
     const response = NextResponse.json({ id }, { status: 201 });
-    response.cookies.set("skinnear-owner", ownerId, { httpOnly: true, sameSite: "strict", secure: process.env.NODE_ENV === "production", maxAge: 30 * 86400, path: "/" });
+    response.cookies.set("skinnear-owner", ownerId, {
+      httpOnly: true,
+      sameSite: "strict",
+      secure: process.env.NODE_ENV === "production",
+      maxAge: 30 * 86400,
+      path: "/",
+    });
     return response;
-  } catch (error) { return errorResponse(error); }
+  } catch (error) {
+    return errorResponse(error);
+  }
 }

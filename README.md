@@ -1,13 +1,27 @@
 # SkinNear
 
-Skin insights → a budget-aware routine → shopping in your selected country.
-Built for the YouCam API skin AI and ecommerce hackathon with Next.js, MongoDB, and Python catalog tooling. Poppins is self-hosted; the responsive UI uses flat surfaces without borders or shadows.
+Skincare advice often ends with a list of products you cannot find nearby or afford. SkinNear connects a skin report to a practical routine, with your country and total budget shaping the selection.
 
-The feature cards use custom SVG scenes animated with GSAP: a skin scan with a facial mesh, a budget meter with falling coins and a drawn checkmark, and a local shopping map with a moving delivery marker. The upload panel adds an animated camera and photo scene. SVG timelines load separately, pause offscreen or in hidden tabs, support a feature-section pause/play control, and use static illustrations when reduced motion is enabled. Shared action and choice buttons use scoped GSAP hover, press/release, ripple, icon, and loading animations with cleanup and reduced-motion support.
+## What makes it useful
+
+- **Understand before shopping.** YouCam provides visible skin scores. Gemini explains the report aloud before product selection, then talks through the finished routine. A scrolling transcript follows the recording.
+- **Budget for the whole routine.** Cleansing, hydration and sun protection come first. Selection checks the total, including any extra step, rather than recommending each product in isolation.
+- **Choose from regional products.** The curated catalog spans 267 products and 26 brands. Country availability, ingredient preferences and local currency inform recommendations; shopping search helps find sellers.
+- **Retrieve, then verify.** Product embeddings narrow the relevant candidates. Deterministic eligibility and budget checks make the final decision; the language model explains that decision.
+
+Serums and OTC retinol have separate choices and consent. An extra is considered only when the goal, suitability checks and remaining budget support it.
+
+## Problems we worked through
+
+**Photo upload was a multi-step integration.** YouCam requires file registration, upload to its signed destination, task submission and polling. Normalizing photos and handling provider response variations made the scan flow much more forgiving.
+
+**Worldwide shopping needs more than currency conversion.** A converted estimate does not establish local availability. Regional catalog entries and country-aware seller searches address those two different problems.
+
+**Voice and text can drift apart.** Generated speech is transcribed for word timestamps, then aligned with the approved explanation. Product names remain intact even when transcription gets them wrong. If alignment is unavailable, playback keeps working with clearly labelled approximate timing. [Gemini transcription documentation](https://ai.google.dev/gemini-api/docs/transcribe).
 
 ## Run locally
 
-Requires Node.js 20.9+ and Python 3.10+ for the maintenance scripts.
+Requires Node.js 20.9+; catalog tools use Python 3.10+.
 
 ```powershell
 npm ci
@@ -15,134 +29,14 @@ Copy-Item .env.example .env.local
 npm run dev
 ```
 
-Open http://127.0.0.1:3000 and choose **Try a sample scan**. Sample scores are explicitly illustrative. Without credentials, routine building, shopping links, and downloading the plan work. Non-INR estimates use a public daily currency feed.
-
-City suggestion works without a key: the browser discovers its public IP through [ipify](https://www.ipify.org/), and the server resolves that visitor IP through [ipwho.is](https://ipwhois.io/documentation). It runs only when requested, keeps manual entry available, and does not persist the IP or coordinates. A configured trusted-proxy IPinfo lookup takes priority. Free provider limits can still require manual entry.
-
-Optional server configuration (restart the dev server after changing it):
-
-| Variable | Enables |
-| --- | --- |
-| `YOUCAM_API_KEY` | Consented photo upload and live YouCam analysis |
-| `YOUCAM_API_BASE_URL` | API origin for your YouCam account |
-| `SERPAPI_API_KEY` | Fresh Google Shopping listings by country/city; India retailer search filters |
-| `MONGODB_URI` | MongoDB catalog and saving/restoring/deleting routines; use a running local MongoDB or Atlas |
-| `MONGODB_DATABASE` | Database name, defaults to `skinnear` |
-| `IPINFO_TOKEN` + `TRUST_PROXY_HEADERS=true` | Optional approximate country/city suggestion, only behind a trusted proxy that sets visitor IP headers |
-| `TASK_SIGNING_SECRET` | Stable signed scan and narration tokens across restarts/instances |
-| `GEMINI_API_KEY` | Explicitly requested routine explanations and generated voice |
-| `GEMINI_TEXT_MODEL` / `GEMINI_TTS_MODEL` | Defaults: `gemini-3.8-flash` / `gemini-3.8-flash-tts` |
-| `GEMINI_DAILY_REQUEST_LIMIT` | Deployment-wide text + voice request cap, default 200/day |
-
-Generate the signing secret with `python -c "import secrets; print(secrets.token_hex(32))"`. Never commit secrets.
-
-### Connect YouCam skin analysis
-
-Set `YOUCAM_API_KEY` in `.env.local` to the API key from your YouCam console. The v2 API uses this key directly as a server-side Bearer token; the older API secret is not used. Keep `YOUCAM_API_BASE_URL=https://yce-api-01.makeupar.com` unless your account documents a different origin. `TASK_SIGNING_SECRET` is a separate app-generated secret, not your YouCam secret.
-
-Run `python scripts/youcam_check.py` to verify authentication without uploading images or consuming analysis units, then restart `npm run dev`. Select a clear front-facing JPEG or PNG, consent, and choose **Analyze my skin**. The server registers the file, uploads it to YouCam's signed destination, submits SD hydration/redness/oiliness/pore analysis, and polls every ten seconds. The report uses the returned `ui_score` values. Photo processing consumes your account's units on successful analysis. Credentials stay on the server; provider task IDs are wrapped in signed, expiring scan-session tokens, and scores are normalized before returning to the browser.
-
-For MongoDB catalog setup:
+Open http://127.0.0.1:3000. The sample report and local catalog work without API keys. Put YouCam, Gemini and shopping credentials in `.env.local`; never commit that file. MongoDB supports persistence and shared production quotas. Localhost development bypasses quotas.
 
 ```powershell
-python -m pip install -r scripts/requirements.txt
-npm run catalog:validate
-npm run catalog:seed
-```
-
-The Python seed script upserts the 267 curated products. Run it again when upgrading an existing MongoDB catalog to include reviewed brands, images, benefits and market metadata. Read-only discovery falls back to the bundled catalog if MongoDB is unavailable; private persistence and production quotas still require MongoDB.
-
-## Worldwide shopping
-
-Choose a country, city, optional international postal code, and a budget currency. New sessions assume no country or currency. Selecting or detecting a country sets its mapped local currency; the searchable currency selector supports over 100 currencies and remains editable. Suggested budget amounts adapt to the currency. Google Shopping links use the selected country. Fresh listings use SerpApi when configured; missing credentials or provider errors leave direct shopping links usable. Shopping service coverage depends on the search provider and retailers.
-
-Blinkit and Zepto appear for India only, using public product pages where verified and retailer searches otherwise. Neither link lookup nor search establishes address-level stock, delivery time, exact variant, or current ingredients. Enter the delivery address with the retailer.
-
-The catalog contains 267 products across 26 brands, including Neutrogena, La Roche-Posay, Vanicream, Aveeno, Eucerin, CeraVe, Bioré, COSRX, Beauty of Joseon, SKIN1004, Round Lab, BYOMA, The INKEY List, Naturium and Geek & Gorgeous alongside The Derma Co and the expanded Indian collection. Official product pages supply linked benefit summaries and remote packaging images (with a fallback if unavailable). US, UK, Canadian, Japanese and Singapore sunscreen variants remain separate records; Korean skincare also appears in curated import collections for Australia and selected European countries. See [catalog research and maintenance](docs/catalog-research.md) for sources, selection rules and limitations.
-
-The library initially renders 24 products, with search, country/brand/type filters and a Show more control. Browse-only items include stronger actives and goals outside the supported recommendation flow; they cannot be pinned into automatic routines. An unknown full ingredient list is never treated as safe for ingredient exclusions.
-
-Each product has a native estimate currency and editorial country collection. Regional overrides take precedence, then estimates convert to the selected budget currency using daily cached rates from [ExchangeRate-API](https://www.exchangerate-api.com/docs/free). Prices are **planning estimates**, not live retailer quotes. Country coverage does not establish stock, shipping, regulatory status or an identical local formula. Uncovered countries only receive international discovery entries; an incomplete essentials catalog returns an infeasible routine instead of borrowing unrelated Indian variants. Sensitive-skin and fragrance preferences still apply to sunscreen.
-
-Each routine step offers budget-compatible alternatives across brands. Choosing one keeps the other current steps, revalidates exclusions and sensitivity preferences, and recalculates the total. Explicit choices are included when saving a routine. Brand variety is available without replacing the relevance/budget ranking with sponsored or random selections.
-
-## Maintainable architecture
-
-- `src/domain`: validated contracts, geography, sample data.
-- `src/services`: object-oriented YouCam, recommendations, currency, shopping, location, and signed-task services.
-- `src/repositories`: MongoDB catalog and owner-scoped routine persistence.
-- `src/app/api`: thin validation/rate-limit/service route handlers.
-- `src/components`: journey, routine, layout, and UI components; `useSkinJourney` owns the flow.
-- `scripts`: Python catalog validation/seeding and HTTP smoke checks.
-
-Recommendation selection optimizes the complete basket within budget, excludes owned categories, and rebuilds after a swap. Ingredient text exclusions discard products with incomplete formulas; they are not an allergy guarantee. Scores use YouCam's favorable-score direction. Cosmetic insights are not diagnosis.
-
-### Optional treatments
-
-Treatment suggestions are off by default. Explicit consent, a persistent stated goal despite consistent essentials, adult and safety confirmations are required. The server enforces the same rules for direct product selections. It skips extras for sensitive skin, a redness score below 60, existing active use, or sample analysis. A live hydration/oil-balance score below 60 is a conservative product-selection signal, **not a clinically validated threshold or proof of medical need**. Duplicate primary actives in purchased essentials suppress another serum. Unknown formulas are excluded whenever ingredient exclusions are supplied.
-
-Retinol additionally requires a stated persistent fine-line goal, separate retinol consent and daily broad-spectrum SPF 30+ confirmation. The scan does not assess fine lines. Pregnancy, trying to conceive, breastfeeding, active skin conditions or prescribed treatments fail the safety gate; prescription retinoids are not recommended. See [AAD retinol guidance](https://www.aad.org/public/everyday-care/skin-care-secrets/anti-aging/retinoid-retinol) and [testing new products](https://www.aad.org/public/everyday-care/skin-care-secrets/prevent-skin-problems/test-skin-care-products).
-
-Essentials are chosen first, without downgrading them to fund a treatment. At most one optional product can use the remaining budget; the app can recommend none. Optional products appear before moisturizer, with retinol shown only in the evening. Plans include usage notes and a reason when extras were skipped. Withdrawal resets the goal and retinol confirmations. If using a seeded MongoDB catalog, run `npm run catalog:seed` to update it with the new curated entries; no database migration is required. Bundled catalog estimates are not verified local prices.
-
-Photos are never stored in MongoDB. They remain local until consent; the server decodes, auto-rotates, strips metadata, resizes to at most 2560 pixels and uploads JPEG bytes to YouCam's signed destination. The task uses `src_file_id`. YouCam also accepts a public `src_file_url`, but neither public image hosting nor base64 is required here. Inputs must be a single JPEG/PNG up to 8 MB. Smaller photos are automatically enlarged proportionally to meet YouCam's 480-pixel minimum; unusually narrow photos are padded without cropping. Resizing cannot restore missing detail, so a clear close-up still gives the best results. For SD analysis, the face should occupy over 60% of the image width. Provider retention is governed by its terms. Saved routines contain analysis scores/preferences/products, expire after 30 days, and are scoped to an HttpOnly browser cookie.
-
-## Public deployment protection
-
-Configure a valid `MONGODB_URI`, a random `TASK_SIGNING_SECRET` of at least 32 characters, `APP_ORIGIN`, and a trusted client IP header. Set `TRUST_PROXY_HEADERS=true` and `CLIENT_IP_HEADER` only when your hosting proxy strips/overwrites that header and clients cannot reach the server directly. Otherwise a caller can spoof the IP. Production APIs fail closed when shared storage, signing, or trusted IP configuration is unavailable. Development uses a bounded in-memory store.
-
-Local development (`npm run dev`) on localhost, 127.0.0.1 or ::1 has no request quotas or scan concurrency limits. Production always enforces protections, even if a caller sends a localhost Host header. File validation, consent and token ownership still apply locally.
-
-All public API routes enforce per-browser and per-IP request limits. Visitors receive a signed HttpOnly, SameSite cookie; these are anonymous browser sessions, not authenticated accounts. Paid scan attempts are limited to 3/hour and 5/day per browser, 10/hour and 20/day per IP, and `YOUCAM_DAILY_SCAN_LIMIT` across the deployment (default 100/day). Fixed daily windows use UTC. IPv6 addresses share a /64 bucket. Resetting cookies does not reset IP/global limits. MongoDB counters are atomic across instances and expire through TTL indexes. Failed attempts consume quota too, so repeated provider errors cannot create unlimited outbound requests.
-
-Only one scan can be active per browser. A ten-minute lease prevents duplicate submissions; success, terminal photo errors, and failed submission release it. Stopping browser polling does not cancel a submitted provider task. If the browser loses its token or a task never reaches a terminal status, the lease expires after ten minutes. Signed scan tokens expire after twenty minutes and can only be polled from their originating browser. Uploads and JSON bodies are stream-limited even without Content-Length; corrupt/animated/oversized images are rejected before provider transfer. Cross-site requests are rejected and 429 responses include Retry-After. This limits anonymous abuse and spend; it does not identify unique humans or replace host-level bot filtering.
-
-## Verification
-
-```powershell
-npm test
-npm run lint
+npm run format:check
 npm run typecheck
+npm run lint
+npm test
 npm run build
-npm run catalog:validate
-python scripts/smoke.py
 ```
 
-Seventy-nine unit tests cover basket constraints, exclusions, swaps, score direction, treatment consent and safety gates, duplicate prevention, optional budget caps across currencies, signed tokens, country validation, postal codes, retailer scoping, missing-key fallback, and mocked live provider parameters. Upload tests cover rotation, metadata stripping, dimensions, invalid images and bounded streamed bodies. Abuse tests cover visitor signatures, isolated quotas, concurrency, cookie-reset resistance, the global cap, token ownership, fail-closed production configuration and the development-only localhost exemption. Live provider uploads and task polling were tested with the generated portrait: YouCam correctly rejected insufficient face size and head angle; these now become actionable 422 responses even when results is null. Successful score mapping is covered by provider fixtures, including scoreless metadata; a successful live report still requires a valid front-facing close-up. Credentialed SerpApi, shared MongoDB quota operations and routine persistence require verification with the configured deployment services.
-
-API references: [YouCam skin analysis](https://docs.perfectcorp.com/reference/ai_skin_analysis), [SerpApi shopping](https://serpapi.com/google-shopping-api). Generated design references and intentional deviations are in `docs/design/DESIGN.md`.
-
-
-### Saved products, downloads and sharing
-
-Open **Products & saved list** to search products, brands and ingredients, filter product types, and select a planning currency. Individual products can be saved from the catalog, routine or shared viewer. Saved IDs persist in this browser (up to 50), sync across tabs, and form a wishlist separate from the routine budget. Read-only catalog access falls back to the reviewed bundled catalog if MongoDB is unavailable, and merges new bundled IDs into older database catalogs. Private routine storage and production quotas still require MongoDB.
-
-Download routines and wishlists as interactive HTML with morning/evening views, a checklist, reset, brand links and Print / Save as PDF. The file works offline; external brand links require internet. Checklist progress lasts while the file is open. Shared links use `/shared#plan=...` with validated product IDs, planning prices, currency and (for routines) budget. Selfies, health answers, location and skin scores are excluded. Sharing requires a preview and explicit confirmation. Anyone holding a copied link can view it; changing/deleting a private routine cannot revoke a portable snapshot. Localhost links work locally; deploy the app before sharing with other devices. Shared products must exist in the reviewed bundled catalog.
-
-### Breakout serum selection
-
-YouCam requests the documented acne action alongside moisture, redness, oiliness and pore. A targeted breakout serum requires explicit consent, self-reported mild blackheads/small breakouts, a matching live cosmetic insight, established essentials, adult/health confirmations and daily sunscreen. It uses only the remaining budget and never replaces essentials. Severe, deep, painful, scarring or uncertain symptoms block all extra actives and recommend a dermatologist; the app does not prescribe. Guidance follows [AAD acne care](https://www.aad.org/public/diseases/acne/diy/adult-acne-treatment). Salicylic serums appear in the evening view; sample scores cannot justify treatment recommendations.
-
-### Grounded routine explanations and voice
-
-The catalog now includes 24 The Derma Co products for India and 15 Cetaphil records, with separate India and US formulas. See [the research audit](docs/catalog-research.md) for official sources and price limitations.
-
-A committed index contains 768-dimensional `gemini-embedding-001` embeddings for public product descriptions and five generic cosmetic concern queries. Retrieval runs locally, checks document hashes, and uses a bounded semantic score after country, suitability and ingredient filtering. The whole-basket optimizer retains hard budget constraints; missing or stale vectors fall back to ordinary ranking. Skin scores never leave the server for embedding calls. This small catalog uses local vector similarity rather than requiring a hosted vector database.
-
-After building a feasible routine, explicitly consent and choose **Hear my routine**. That single action generates both the explanation and voice. Gemini receives only selected public product facts, planning estimates and budget. It receives no selfie, skin scores, location or health answers. Explanations must reference exactly the selected products and cannot add products, alter the budget or prescribe treatment. The UI includes source links and identifies the output as AI cosmetic guidance. Google Interactions requests use `store: false`; provider processing remains subject to Google's terms.
-
-The custom HTML audio wrapper offers play/pause, seeking, restart, mute and playback speed. It attempts playback when generation completes; if browser autoplay policy blocks it, press Play. The transcript and sources are collapsed by default. Playback does not create another API request. Voice requests accept only a signed, browser-bound transcript token lasting 15 minutes; refresh the explanation after expiry. Withdrawing consent aborts pending requests and clears text/audio; changing the routine also resets consent. No AI request runs automatically when building a routine.
-
-Production counts every explanation and voice attempt against 10/hour and 20/day per browser, 60/day per IP, and the configured deployment cap. The same localhost development exemption applies. A valid MongoDB configuration and signing secret are required in production. Failed attempts consume quota.
-
-To refresh public vectors after catalog edits, run `python scripts/build_embeddings.py` with the server-only Gemini key configured. It reuses matching document hashes and writes the index atomically after successful generation; generating vectors consumes API quota. Ordinary routine matching works without a Gemini key using the committed index.
-
-For an explicitly paid live integration check, run `python scripts/ai_smoke.py --live` against the local dev server. It uses a synthetic sample plan and validates both selected-product grounding and WAV output. Current text, embedding and speech integration follows [Google's Gemini documentation](https://ai.google.dev/gemini-api/docs/text-generation), [embeddings](https://ai.google.dev/gemini-api/docs/embeddings) and [speech generation](https://ai.google.dev/gemini-api/docs/speech-generation).
-
-### Hear your skin report before product selection
-
-After a successful YouCam scan, the preferences screen offers **Hear my skin report** before the shopping form. Sample scans instead offer **Hear the sample report** and clearly label the narration as illustrative. This uses separate explicit consent to send only cosmetic concern IDs, UI scores and sample/live mode to Gemini. No photo, mask URL, location or health answers enter this endpoint. Scores are sensitive personal information; consenting to routine narration does not consent to sharing scores.
-
-A single action generates the score explanation and its voice. The explanation preserves favorable-score direction, covers only reported concerns, and describes photo-based cosmetic observations without diagnosis, skin-type classification, clinical severity, medical thresholds, product purchases or treatment advice. Server validation rejects missing/duplicate/invented concerns and invented numerical interpretations. Mandatory context about lighting, uncertainty and clinician-worthy symptoms is included in the signed narration. Gemini and output validation reduce unsupported claims but cannot guarantee every generated sentence.
-
-Both voice flows share the production AI quota and signed, browser-bound narration endpoint; localhost development remains exempt. Withdrawing consent clears the output and stops local playback but cannot undo provider processing already requested. No narration is generated automatically without a consented action.
+[Configuration and deployment notes](docs/development.md) � [Catalog research](docs/catalog-research.md)

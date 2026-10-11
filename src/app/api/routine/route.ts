@@ -10,5 +10,7 @@ export async function POST(request: NextRequest) {
     await limitRequest(request.headers, "routine", 30);
     const input = routineRequestSchema.parse(await boundedJson(request));
     return NextResponse.json(await new RoutineService().build(input));
-  } catch (error) { return errorResponse(error); }
+  } catch (error) {
+    return errorResponse(error);
+  }
 }

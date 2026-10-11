@@ -12,15 +12,9 @@ export class MarketCatalogService {
     );
   }
 
-  async price(
-    products: readonly Product[],
-    currency: string,
-    country?: string,
-  ) {
+  async price(products: readonly Product[], currency: string, country?: string) {
     const estimates = products.map((product) => {
-      const regional = product.regionalPrices.find(
-        (estimate) => estimate.country === country,
-      );
+      const regional = product.regionalPrices.find((estimate) => estimate.country === country);
       return {
         product,
         price: regional?.price ?? product.referencePrice,
@@ -31,8 +25,7 @@ export class MarketCatalogService {
     const quotes = new Map(
       await Promise.all(
         [...new Set(estimates.map((estimate) => estimate.base))].map(
-          async (base) =>
-            [base, await this.currencies.quote(currency, base)] as const,
+          async (base) => [base, await this.currencies.quote(currency, base)] as const,
         ),
       ),
     );

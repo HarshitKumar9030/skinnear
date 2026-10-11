@@ -40,13 +40,9 @@ export class SavedProductsStore {
   };
   toggle(id: string) {
     const current = this.snapshot();
-    const next = current.includes(id)
-      ? current.filter((value) => value !== id)
-      : [...current, id];
+    const next = current.includes(id) ? current.filter((value) => value !== id) : [...current, id];
     if (next.length > 50)
-      throw new Error(
-        "Your shelf holds 50 products. Remove one before saving another.",
-      );
+      throw new Error("Your shelf holds 50 products. Remove one before saving another.");
     idsSchema.parse(next);
     try {
       localStorage.setItem(this.key, JSON.stringify(next));

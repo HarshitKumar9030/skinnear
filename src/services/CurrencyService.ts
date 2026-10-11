@@ -14,16 +14,13 @@ let pending: Promise<Rates> | undefined;
 
 /** Daily cached conversion of catalog estimates, never a local retailer quote. */
 export class CurrencyService {
-  async quote(
-    currency: string,
-    baseCurrency = "INR",
-  ): Promise<{ rate: number; date?: string }> {
+  async quote(currency: string, baseCurrency = "INR"): Promise<{ rate: number; date?: string }> {
     if (currency === baseCurrency) return { rate: 1 };
     try {
       if (!cache || cache.expires < Date.now()) {
-        pending ??= fetchJson<unknown>(
-          "https://open.er-api.com/v6/latest/INR",
-        ).then((value) => responseSchema.parse(value));
+        pending ??= fetchJson<unknown>("https://open.er-api.com/v6/latest/INR").then((value) =>
+          responseSchema.parse(value),
+        );
         try {
           cache = { data: await pending, expires: Date.now() + 86400000 };
         } finally {

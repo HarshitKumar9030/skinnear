@@ -13,7 +13,10 @@ export function useAnimatedButton(loading = false) {
     import("@/services/ButtonAnimationController").then(({ ButtonAnimationController }) => {
       if (!disposed) animation = new ButtonAnimationController(node);
     });
-    return () => { disposed = true; animation?.dispose(); };
+    return () => {
+      disposed = true;
+      animation?.dispose();
+    };
   }, [loading]);
   return ref;
 }

@@ -3,13 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { z } from "zod";
 import { X, Search, Bookmark } from "lucide-react";
 import { productSchema, type Product } from "@/domain/schemas";
-import {
-  COUNTRIES,
-  CURRENCIES,
-  defaultCurrency,
-  countryName,
-  formatMoney,
-} from "@/domain/regions";
+import { COUNTRIES, CURRENCIES, defaultCurrency, formatMoney } from "@/domain/regions";
 import { CATEGORY_LABELS } from "@/domain/sample";
 import { SkinNearApi } from "@/lib/client-api";
 import { useSavedProducts } from "@/hooks/useSavedProducts";
@@ -74,28 +68,20 @@ export default function ProductsLibrary({
       })
       .catch((error) => {
         if (!controller.signal.aborted)
-          setError(
-            error instanceof Error ? error.message : "Catalog unavailable.",
-          );
+          setError(error instanceof Error ? error.message : "Catalog unavailable.");
       });
     return () => controller.abort();
   }, [currency, country, retry]);
-  const loading =
-    (currency !== loadedCurrency || country !== loadedCountry) && !error;
+  const loading = (currency !== loadedCurrency || country !== loadedCountry) && !error;
   const marketProducts = products.filter(
-    (product) =>
-      !country || !product.markets.length || product.markets.includes(country),
+    (product) => !country || !product.markets.length || product.markets.includes(country),
   );
-  const savedProducts = products.filter((product) =>
-    saved.includes(product.id),
-  );
+  const savedProducts = products.filter((product) => saved.includes(product.id));
   const brands = [
     { value: "all", label: "All brands" },
     ...[
       ...new Set(
-        (tab === "saved" ? savedProducts : marketProducts).map(
-          (product) => product.brand,
-        ),
+        (tab === "saved" ? savedProducts : marketProducts).map((product) => product.brand),
       ),
     ]
       .sort()
@@ -133,11 +119,7 @@ export default function ProductsLibrary({
         </button>
       </div>
       <h2>Your shelf, your choices.</h2>
-      <p>
-        Browse the curated catalog and save products in this browser. A saved
-        product is a wishlist item, not a prescription or an addition to your
-        budgeted routine.
-      </p>
+      <p>Find a product. Save it for later.</p>
       <div className="library-tabs">
         <button aria-pressed={tab === "all"} onClick={() => setTab("all")}>
           Explore products ({marketProducts.length})
@@ -179,12 +161,7 @@ export default function ProductsLibrary({
           options={categories}
           onChange={setCategory}
         />
-        <SearchableSelect
-          label="Brand"
-          value={brand}
-          options={brands}
-          onChange={setBrand}
-        />
+        <SearchableSelect label="Brand" value={brand} options={brands} onChange={setBrand} />
         <SearchableSelect
           label="List currency"
           value={currency}
@@ -195,19 +172,10 @@ export default function ProductsLibrary({
           }}
         />
       </div>
-      <p className="field-note">
-        {country
-          ? `${countryName(country)} collection`
-          : "All country collections"}{" "}
-        · Curated product discovery, not verified local stock.{" "}
-        {tab === "saved"
-          ? "Saved items may be from another country; check shipping."
-          : "Confirm the exact regional formula with the seller."}
-      </p>
       {budget && currency === initialCurrency && country === initialCountry ? (
         <p className="field-note">
-          Your routine budget is {formatMoney(budget, currency)}. Saving items
-          never spends or reallocates it.
+          Your routine budget is {formatMoney(budget, currency)}. Saving items never spends or
+          reallocates it.
         </p>
       ) : null}
       {tab === "saved" && savedProducts.length && !loading && !error ? (
@@ -215,10 +183,7 @@ export default function ProductsLibrary({
           <div>
             <strong>
               {formatMoney(
-                savedProducts.reduce(
-                  (sum, product) => sum + product.referencePrice,
-                  0,
-                ),
+                savedProducts.reduce((sum, product) => sum + product.referencePrice, 0),
                 actualCurrency,
               )}
             </strong>
@@ -251,8 +216,8 @@ export default function ProductsLibrary({
       {!loading && !error ? (
         <>
           <p className="field-note" role="status">
-            {visible.length} products · Prices are planning estimates; confirm
-            formulas, stock and delivery with the seller.
+            {visible.length} products · Prices are planning estimates; confirm formulas, stock and
+            delivery with the seller.
           </p>
           <div className="library-grid">
             {visible.slice(0, shownCount).map((product) => (
@@ -261,10 +226,15 @@ export default function ProductsLibrary({
           </div>
           {visible.length > shownCount ? (
             <div className="workspace-actions">
-              <Button variant="secondary" onClick={() => setPage({key: pageKey, count: shownCount + PAGE_SIZE})}>
+              <Button
+                variant="secondary"
+                onClick={() => setPage({ key: pageKey, count: shownCount + PAGE_SIZE })}
+              >
                 Show {Math.min(PAGE_SIZE, visible.length - shownCount)} more products
               </Button>
-              <span className="field-note">Showing {shownCount} of {visible.length}</span>
+              <span className="field-note">
+                Showing {shownCount} of {visible.length}
+              </span>
             </div>
           ) : null}
           {!visible.length ? (

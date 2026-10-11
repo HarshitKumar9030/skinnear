@@ -10,7 +10,9 @@
     "typecheck": "tsc --noEmit",
     "test": "tsx --test tests/*.test.ts",
     "catalog:validate": "python scripts/catalog.py validate",
-    "catalog:seed": "python scripts/catalog.py seed"
+    "catalog:seed": "python scripts/catalog.py seed",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"tests/*.ts\" \"*.{json,ts,mjs}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\" \"tests/*.ts\" \"*.{json,ts,mjs}\""
   },
   "dependencies": {
     "@fontsource/poppins": "^5.2.7",
@@ -31,6 +33,7 @@
     "@types/react-dom": "^19.2.0",
     "eslint": "^9.0.0",
     "eslint-config-next": "^16.0.0",
+    "prettier": "^3.9.10",
     "tsx": "^4.20.0",
     "typescript": "^5.9.0"
   }

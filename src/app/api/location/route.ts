@@ -10,7 +10,9 @@ export async function GET(request: NextRequest) {
   try {
     await limitRequest(request.headers, "location", 5);
     return NextResponse.json(await new LocationService().suggest(request.headers));
-  } catch (error) { return errorResponse(error); }
+  } catch (error) {
+    return errorResponse(error);
+  }
 }
 
 export async function POST(request: NextRequest) {
@@ -18,5 +20,7 @@ export async function POST(request: NextRequest) {
     await limitRequest(request.headers, "location-resolve", 5);
     const { ip } = z.object({ ip: publicIpSchema }).parse(await boundedJson(request));
     return NextResponse.json(await new LocationService().resolve(ip));
-  } catch (error) { return errorResponse(error); }
+  } catch (error) {
+    return errorResponse(error);
+  }
 }
