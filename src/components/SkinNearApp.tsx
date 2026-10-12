@@ -12,6 +12,7 @@ import { PreferencesForm } from "./journey/PreferencesForm";
 import { RoutineView } from "./routine/RoutineView";
 import dynamic from "next/dynamic";
 import { useState } from "react";
+import { StatusToast } from "./ui/StatusToast";
 const ProductsLibrary = dynamic(() => import("./routine/ProductsLibrary"));
 
 export function SkinNearApp({
@@ -40,14 +41,6 @@ export function SkinNearApp({
         />
       ) : null}
       <main>
-        {journey.error || journey.notice ? (
-          <div
-            className={`global-message shell ${journey.error ? "error" : ""}`}
-            role={journey.error ? "alert" : "status"}
-          >
-            {journey.error || journey.notice}
-          </div>
-        ) : null}
         {journey.stage === "scan" ? (
           <Intro
             onSample={journey.sample}
@@ -108,6 +101,13 @@ export function SkinNearApp({
         )}
         <HowItWorks />
       </main>
+      <StatusToast
+        message={journey.error || journey.notice}
+        error={!!journey.error}
+        scanning={journey.stage === "scan" && journey.busy}
+        onCancel={journey.cancelScan}
+        onDismiss={journey.dismissMessage}
+      />
       <Footer onProducts={() => setLibraryOpen(true)} onRoutine={journey.restore} />
     </>
   );

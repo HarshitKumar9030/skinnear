@@ -397,14 +397,10 @@ input[type="checkbox"] {
   gap: 8px;
   margin-left: auto;
 }
-.global-message {
-  background: var(--lavender);
-  padding: 15px 22px;
-  border-radius: 16px;
-  font-size: 13px;
-  margin-block: 10px 15px;
+.inline-error {
+  color: #943c56;
+  background: #fae9ee;
 }
-.global-message.error,
 .inline-error {
   color: #943c56;
   background: #fae9ee;
@@ -1811,10 +1807,6 @@ input[type="checkbox"] {
   .site-footer > a {
     margin-left: 0;
   }
-  .global-message {
-    font-size: 12px;
-    padding: 13px 16px;
-  }
   .journey > .steps {
     margin-bottom: 27px;
   }
@@ -3189,5 +3181,72 @@ input[type="checkbox"] {
   }
   .treatment-choices {
     grid-template-columns: 1fr;
+  }
+}
+
+.status-toast {
+  position: fixed;
+  z-index: 40;
+  right: max(24px, env(safe-area-inset-right));
+  bottom: max(24px, env(safe-area-inset-bottom));
+  width: min(410px, calc(100vw - 32px));
+  max-height: calc(100dvh - 48px);
+  overflow-y: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 20px;
+  border-radius: 22px;
+  background: var(--accent-dark);
+  color: white;
+}
+.status-toast > svg {
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+.status-toast-content {
+  flex: 1;
+  min-width: 0;
+}
+.status-toast p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.status-toast-content button {
+  margin-top: 12px;
+  padding: 7px 13px;
+  background: white;
+  border-radius: 12px;
+  color: var(--accent-dark);
+  font-size: 12px;
+}
+.status-toast-dismiss {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: transparent;
+}
+.status-toast.is-error {
+  background: #fae9ee;
+  color: #943c56;
+}
+.status-toast-spinner {
+  animation: spin 1.2s linear infinite;
+}
+@media (max-width: 560px) {
+  .status-toast {
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+    padding: 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .status-toast-spinner {
+    animation: none;
   }
 }

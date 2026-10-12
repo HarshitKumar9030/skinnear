@@ -243,6 +243,10 @@ export function useSkinJourney() {
     removeSaved,
     reset,
     cancelScan,
+    dismissMessage: () => {
+      setError("");
+      setNotice("");
+    },
     edit: () => {
       setStage("preferences");
       setError("");
