@@ -201,3 +201,77 @@ test("public production fails closed without shared storage, signing or trusted 
     });
   }
 });
+
+test("Vercel discovers its trusted IP without manual proxy flags and preserves IP quotas", async () => {
+  const env = process.env as Record<string, string | undefined>;
+  const names = [
+    "NODE_ENV",
+    "VERCEL",
+    "MONGODB_URI",
+    "TASK_SIGNING_SECRET",
+    "TRUST_PROXY_HEADERS",
+    "CLIENT_IP_HEADER",
+  ];
+  const previous = names.map((name) => env[name]);
+  Object.assign(env, {
+    NODE_ENV: "production",
+    VERCEL: "1",
+    MONGODB_URI: "mongodb://test-only",
+    TASK_SIGNING_SECRET: "a".repeat(64),
+    TRUST_PROXY_HEADERS: "false",
+    CLIENT_IP_HEADER: "x-real-ip",
+  });
+  try {
+    const guard = new AbuseProtectionService(new MemoryAbuseStore());
+    for (let i = 1; i <= 3; i++) {
+      await guard.request(
+        new Headers({
+          "x-vercel-forwarded-for": "192.0.2.1",
+          "x-forwarded-for": `192.0.2.${i + 1}`,
+          "x-real-ip": `192.0.2.${i + 1}`,
+        }),
+        `visitor-${i}`,
+        "vercel",
+        1,
+      );
+    }
+    await assert.rejects(
+      guard.request(
+        new Headers({ "x-vercel-forwarded-for": "192.0.2.1" }),
+        "visitor-four",
+        "vercel",
+        1,
+      ),
+      /request limit/,
+    );
+    await guard.request(new Headers({ "x-forwarded-for": "192.0.2.50" }), "fallback", "vercel", 1);
+    await assert.rejects(
+      guard.request(
+        new Headers({ "x-vercel-forwarded-for": "invalid", "x-forwarded-for": "192.0.2.51" }),
+        "invalid",
+        "vercel",
+        1,
+      ),
+      /trusted visitor IP/,
+    );
+    delete env.VERCEL;
+    await assert.rejects(
+      guard.request(
+        new Headers({
+          host: "fake.vercel.app",
+          "x-vercel-forwarded-for": "192.0.2.52",
+          "x-forwarded-for": "192.0.2.52",
+        }),
+        "spoofed-host",
+        "vercel",
+        1,
+      ),
+      /trusted visitor IP/,
+    );
+  } finally {
+    names.forEach((name, index) => {
+      if (previous[index] === undefined) delete env[name];
+      else env[name] = previous[index];
+    });
+  }
+});

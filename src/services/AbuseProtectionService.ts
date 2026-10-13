@@ -33,9 +33,13 @@ export class AbuseProtectionService {
   private ip(headers: Headers) {
     const header = process.env.CLIENT_IP_HEADER;
     const raw =
-      process.env.TRUST_PROXY_HEADERS === "true" && header
-        ? headers.get(header)?.split(",")[0].trim()
-        : undefined;
+      process.env.VERCEL === "1"
+        ? (headers.get("x-vercel-forwarded-for") ?? headers.get("x-forwarded-for"))
+            ?.split(",")[0]
+            .trim()
+        : process.env.TRUST_PROXY_HEADERS === "true" && header
+          ? headers.get(header)?.split(",")[0].trim()
+          : undefined;
     if (raw && isIP(raw)) {
       let value = raw;
       if (isIP(raw) === 6) {

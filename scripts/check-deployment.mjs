@@ -12,11 +12,12 @@ try {
   if (process.env.APP_ORIGIN) failures.push("APP_ORIGIN is invalid");
 }
 if (
-  process.env.TRUST_PROXY_HEADERS !== "true" ||
-  process.env.CLIENT_IP_HEADER !== "x-vercel-forwarded-for"
+  process.env.VERCEL !== "1" &&
+  (process.env.TRUST_PROXY_HEADERS !== "true" ||
+    process.env.CLIENT_IP_HEADER !== "x-vercel-forwarded-for")
 )
   failures.push(
-    "Vercel requires TRUST_PROXY_HEADERS=true and CLIENT_IP_HEADER=x-vercel-forwarded-for",
+    "For a local Vercel configuration check, set TRUST_PROXY_HEADERS=true and CLIENT_IP_HEADER=x-vercel-forwarded-for; deployed Vercel discovers these automatically",
   );
 for (const failure of failures) console.error(`Configuration: ${failure}`);
 if (failures.length) process.exitCode = 1;
