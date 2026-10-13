@@ -26,6 +26,9 @@ export function SkinNearApp({
   const [libraryOpen, setLibraryOpen] = useState(false);
   return (
     <>
+      <a className="skip-link" href="#main-content">
+        Skip to content
+      </a>
       <Header
         onHome={journey.reset}
         onRoutine={journey.restore}
@@ -40,7 +43,7 @@ export function SkinNearApp({
           onClose={() => setLibraryOpen(false)}
         />
       ) : null}
-      <main>
+      <main id="main-content" tabIndex={-1}>
         {journey.stage === "scan" ? (
           <Intro
             onSample={journey.sample}
@@ -108,7 +111,11 @@ export function SkinNearApp({
         onCancel={journey.cancelScan}
         onDismiss={journey.dismissMessage}
       />
-      <Footer onProducts={() => setLibraryOpen(true)} onRoutine={journey.restore} />
+      <Footer
+        disabled={journey.busy}
+        onProducts={() => setLibraryOpen(true)}
+        onRoutine={journey.restore}
+      />
     </>
   );
 }

@@ -40,3 +40,5 @@ export async function POST(request: NextRequest) {
     return errorResponse(error);
   }
 }
+
+export const maxDuration = 120;

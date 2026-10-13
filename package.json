@@ -12,7 +12,9 @@
     "catalog:validate": "python scripts/catalog.py validate",
     "catalog:seed": "python scripts/catalog.py seed",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"tests/*.ts\" \"*.{json,ts,mjs}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\" \"tests/*.ts\" \"*.{json,ts,mjs}\""
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\" \"tests/*.ts\" \"*.{json,ts,mjs}\"",
+    "deployment:check": "node --env-file-if-exists=.env.local scripts/check-deployment.mjs",
+    "verify": "npm run format:check && npm run lint && npm test && npm run build && npm run typecheck"
   },
   "dependencies": {
     "@fontsource/poppins": "^5.2.7",
@@ -36,5 +38,8 @@
     "prettier": "^3.9.10",
     "tsx": "^4.20.0",
     "typescript": "^5.9.0"
+  },
+  "engines": {
+    "node": "22.x"
   }
 }

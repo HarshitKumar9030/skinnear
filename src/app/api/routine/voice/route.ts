@@ -5,6 +5,7 @@ import { limitRequest } from "@/lib/rate-limit";
 import { errorResponse } from "@/lib/errors";
 import { NarrationTokenService } from "@/services/NarrationTokenService";
 import { GeminiClient } from "@/services/GeminiClient";
+import { VoiceDeliveryService } from "@/services/VoiceDeliveryService";
 import { NarrationCaptionService } from "@/services/NarrationCaptionService";
 const inputSchema = z
   .object({
@@ -20,7 +21,7 @@ export async function POST(request: NextRequest) {
     const text = new NarrationTokenService().verify(input.token, session.userId);
     await session.protection.reserveAi(request.headers, session.userId);
     const gemini = new GeminiClient();
-    const audio = await gemini.speech(text);
+    const audio = new VoiceDeliveryService().prepare(await gemini.speech(text));
     if (input.captions) {
       const captions = new NarrationCaptionService();
       const duration = captions.duration(audio);
@@ -52,3 +53,6 @@ export async function POST(request: NextRequest) {
     return errorResponse(error);
   }
 }
+
+export const maxDuration = 180;
+export const runtime = "nodejs";

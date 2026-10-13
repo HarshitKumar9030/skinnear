@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Preferences, Routine, RoutineRequest, SkinAnalysis } from "@/domain/schemas";
 import { SAMPLE_ANALYSIS } from "@/domain/sample";
+import { PhotoUploadService } from "@/services/PhotoUploadService";
 import { SkinNearApi } from "@/lib/client-api";
 
 const api = new SkinNearApi();
@@ -74,7 +75,10 @@ export function useSkinJourney() {
     setNotice("Uploading your photo securely…");
     try {
       const form = new FormData();
-      form.set("photo", file);
+      const photo = await new PhotoUploadService().prepare(file);
+      if (abort.signal.aborted) return;
+      setNotice("Uploading your photo securely�");
+      form.set("photo", photo);
       form.set("consent", "true");
       const { token } = await api.request<{ token: string }>("/api/analysis", {
         method: "POST",

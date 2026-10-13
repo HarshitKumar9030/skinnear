@@ -1,0 +1,14 @@
+.env*
+.git
+.next
+node_modules
+output
+private
+hackathon
+screenshots
+PROJECT_DRAFT.md
+docs/design
+*.log
+*.tsbuildinfo
+__pycache__
+.venv

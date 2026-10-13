@@ -5,9 +5,11 @@ import { Flower, ArrowUpRight, ArrowUp } from "lucide-react";
 export function Footer({
   onProducts,
   onRoutine,
+  disabled = false,
 }: {
   onProducts: () => void;
   onRoutine: () => void;
+  disabled?: boolean;
 }) {
   return (
     <footer className="site-footer shell">
@@ -24,10 +26,10 @@ export function Footer({
           </p>
         </div>
         <nav aria-label="Footer navigation">
-          <button onClick={onProducts}>
+          <button onClick={onProducts} disabled={disabled}>
             Products & saved list <ArrowUpRight size={16} aria-hidden />
           </button>
-          <button onClick={onRoutine}>
+          <button onClick={onRoutine} disabled={disabled}>
             Your routine <ArrowUpRight size={16} aria-hidden />
           </button>
           <a href="#how-it-works">

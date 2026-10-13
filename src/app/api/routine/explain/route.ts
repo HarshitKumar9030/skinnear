@@ -22,3 +22,6 @@ export async function POST(request: NextRequest) {
     return errorResponse(error);
   }
 }
+
+export const maxDuration = 60;
+export const runtime = "nodejs";

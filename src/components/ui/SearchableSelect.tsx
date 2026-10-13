@@ -151,7 +151,12 @@ export function SearchableSelect({ label, value, options, onChange, disabled = f
                 aria-selected={option.value === value}
                 className={`select-option ${index === activeIndex ? "active" : ""}`}
                 ref={(node) => {
-                  if (index === activeIndex) node?.scrollIntoView({ block: "nearest" });
+                  if (index !== activeIndex || !node?.parentElement) return;
+                  const menu = node.parentElement;
+                  const row = node.getBoundingClientRect();
+                  const bounds = menu.getBoundingClientRect();
+                  if (row.top < bounds.top) menu.scrollTop -= bounds.top - row.top;
+                  else if (row.bottom > bounds.bottom) menu.scrollTop += row.bottom - bounds.bottom;
                 }}
                 onMouseDown={(event) => event.preventDefault()}
                 onClick={() => choose(option)}

@@ -3250,3 +3250,35 @@ input[type="checkbox"] {
     animation: none;
   }
 }
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 12px 20px;
+  border-radius: 14px;
+  background: var(--ink);
+  color: white;
+  transform: translateY(-150%);
+}
+.skip-link:focus {
+  transform: none;
+}
+.status-toast-dismiss {
+  min-width: 44px;
+  min-height: 44px;
+}
+.footer-main nav button,
+.footer-main nav a,
+.footer-bottom button {
+  min-height: 44px;
+}
+.voice-control {
+  min-width: 44px;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

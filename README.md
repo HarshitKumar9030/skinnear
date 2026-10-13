@@ -1,5 +1,9 @@
 # SkinNear
 
+[![Checks](https://github.com/HarshitKumar9030/skinnear/actions/workflows/checks.yml/badge.svg)](https://github.com/HarshitKumar9030/skinnear/actions/workflows/checks.yml)
+![Next.js 16](https://img.shields.io/badge/Next.js-16-272138?logo=nextdotjs) ![TypeScript](https://img.shields.io/badge/TypeScript-typed-3178C6?logo=typescript&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-persistence-47A248?logo=mongodb&logoColor=white) [![Vercel](https://img.shields.io/badge/Vercel-configured-272138?logo=vercel)](docs/deployment.md)
+
+
 Skincare advice often ends with a list of products you cannot find nearby or afford. SkinNear connects a skin report to a practical routine, with your country and total budget shaping the selection.
 
 ## What makes it useful
@@ -21,7 +25,7 @@ Serums and OTC retinol have separate choices and consent. An extra is considered
 
 ## Run locally
 
-Requires Node.js 20.9+; catalog tools use Python 3.10+.
+Requires Node.js 22; catalog tools use Python 3.10+.
 
 ```powershell
 npm ci
@@ -40,3 +44,9 @@ npm run build
 ```
 
 [Configuration and deployment notes](docs/development.md) · [Catalog research](docs/catalog-research.md)
+
+## Deploy on Vercel
+
+Import this repository with the Next.js preset. Node.js 22, build settings and function timeouts are configured in the repo. Add server credentials, a reachable MongoDB database, a stable signing secret and your public origin in Vercel environment settings before enabling live scans.
+
+[Production setup](docs/deployment.md) covers required variables, upload/audio limits and the release smoke check. Personal drafts, design references, local photos and deployment metadata stay out of new commits.

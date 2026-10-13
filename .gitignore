@@ -7,3 +7,19 @@ __pycache__/
 .venv/
 output/qa/
 *.log
+
+# Local deployment metadata, personal notes and hackathon material
+.vercel/
+private/
+hackathon/
+screenshots/
+output/
+PROJECT_DRAFT.md
+docs/design/
+*.local.md
+credentials*.json
+secrets*.json
+*.pem
+*.key
+.DS_Store
+Thumbs.db
