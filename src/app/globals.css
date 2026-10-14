@@ -3727,3 +3727,177 @@ input[type="checkbox"] {
 .budget-lab-options strong {
   overflow-wrap: anywhere;
 }
+
+/* Budget Lab motion stays scoped away from audio controls. */
+.budget-lab {
+  --budget-motion-fast: 180ms;
+  --budget-motion-enter: 300ms;
+  --budget-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+.budget-lab-disclosure {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition:
+    grid-template-rows var(--budget-motion-fast) var(--budget-motion-ease),
+    visibility 0s linear var(--budget-motion-fast);
+}
+.budget-lab-disclosure-inner {
+  min-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition:
+    opacity var(--budget-motion-fast) ease,
+    transform var(--budget-motion-fast) var(--budget-motion-ease);
+}
+.budget-lab[data-open="true"] .budget-lab-disclosure {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition:
+    grid-template-rows var(--budget-motion-enter) var(--budget-motion-ease),
+    visibility 0s;
+}
+.budget-lab[data-open="true"] .budget-lab-disclosure-inner {
+  opacity: 1;
+  transform: none;
+  transition-duration: var(--budget-motion-enter);
+}
+.budget-lab-toggle-action svg {
+  transition: transform var(--budget-motion-enter) var(--budget-motion-ease);
+}
+.budget-lab-toggle-action {
+  transition: background var(--budget-motion-fast) ease;
+}
+.budget-lab-toggle:hover .budget-lab-toggle-action {
+  background: var(--lavender);
+}
+.budget-lab-options {
+  position: relative;
+  isolation: isolate;
+  --plan-gap: 8px;
+  --plan-padding: 7px;
+}
+.budget-plan-indicator {
+  position: absolute;
+  z-index: 0;
+  top: var(--plan-padding);
+  bottom: var(--plan-padding);
+  left: var(--plan-padding);
+  width: calc(
+    (100% - var(--plan-padding) - var(--plan-padding) - var(--plan-gap) - var(--plan-gap)) / 3
+  );
+  transform: translateX(calc(var(--budget-active) * (100% + var(--plan-gap))));
+  background: var(--ink);
+  border-radius: 16px;
+  pointer-events: none;
+  transition: transform var(--budget-motion-enter) var(--budget-motion-ease);
+}
+.budget-lab-options button {
+  position: relative;
+  z-index: 1;
+  transition: color var(--budget-motion-fast) ease;
+}
+.budget-lab-options button[aria-pressed="true"] {
+  background: transparent;
+}
+.budget-lab-options button small {
+  transition: color var(--budget-motion-fast) ease;
+}
+.budget-option-check {
+  transition: background var(--budget-motion-fast) ease;
+}
+.budget-option-check svg {
+  animation: budget-check-in 240ms var(--budget-motion-ease) both;
+}
+.budget-product-change {
+  transition: background var(--budget-motion-fast) ease;
+  border-radius: 12px;
+}
+.budget-savings-headline > strong {
+  font-variant-numeric: tabular-nums;
+}
+.budget-lab-loading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.budget-search-dots {
+  display: inline-flex;
+  gap: 4px;
+}
+.budget-search-dots i {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: budget-search 800ms ease-in-out infinite alternate;
+}
+.budget-search-dots i:nth-child(2) {
+  animation-delay: 120ms;
+}
+.budget-search-dots i:nth-child(3) {
+  animation-delay: 240ms;
+}
+@keyframes budget-check-in {
+  from {
+    opacity: 0;
+    transform: scale(0.6) rotate(-20deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes budget-search {
+  from {
+    opacity: 0.35;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .budget-product-change:hover {
+    background: #f8f6fb;
+  }
+  .budget-product-change .product-image {
+    transition: transform var(--budget-motion-enter) var(--budget-motion-ease);
+  }
+  .budget-product-change:hover .product-image {
+    transform: translateY(-3px) rotate(-2deg);
+  }
+}
+@media (max-width: 720px) {
+  .budget-lab-options {
+    --plan-gap: 3px;
+    --plan-padding: 5px;
+  }
+  .budget-plan-indicator {
+    border-radius: 13px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .budget-lab-disclosure,
+  .budget-lab-disclosure-inner,
+  .budget-lab-toggle-action,
+  .budget-lab-toggle-action svg,
+  .budget-plan-indicator,
+  .budget-lab-options button,
+  .budget-lab-options button small,
+  .budget-option-check,
+  .budget-product-change,
+  .budget-product-change .product-image {
+    transition: none;
+  }
+  .budget-option-check svg,
+  .budget-search-dots i {
+    animation: none;
+  }
+  .budget-product-change:hover .product-image {
+    transform: none;
+  }
+}

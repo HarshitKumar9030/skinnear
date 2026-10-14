@@ -16,7 +16,7 @@ export function BudgetProductChange({
   const { product, reason } = item;
   const kept = previous?.product.id === product.id;
   return (
-    <li className="budget-product-change">
+    <li className="budget-product-change" data-changed={!kept}>
       <ProductImage product={product} />
       <div className="budget-product-copy">
         <span className="budget-product-step">

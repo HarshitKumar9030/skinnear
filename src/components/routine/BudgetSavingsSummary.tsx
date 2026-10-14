@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { AnimatedMoney } from "@/components/ui/AnimatedMoney";
 import { formatMoney } from "@/domain/regions";
 
 export function BudgetSavingsSummary({
@@ -24,21 +25,41 @@ export function BudgetSavingsSummary({
     let stop: (() => void) | undefined;
     void import("gsap").then(({ gsap }) => {
       if (disposed || !art.current) return;
-      const context = gsap.context(() => {
+      const context = gsap.matchMedia(art.current);
+      context.add("(prefers-reduced-motion: no-preference)", () => {
         gsap.from(".saving-coin", {
-          y: -12,
+          y: -30,
+          rotation: -7,
+          transformOrigin: "center",
           opacity: 0,
-          duration: 0.55,
+          duration: 0.65,
           stagger: 0.1,
-          ease: "power2.out",
+          ease: "back.out(1.3)",
         });
         gsap.from(".saving-leaf", {
-          scale: 0.5,
+          scale: 0.15,
+          rotation: -24,
           transformOrigin: "bottom left",
           duration: 0.7,
           ease: "back.out(1.5)",
         });
-      }, art.current);
+        gsap.from(".saving-stem", {
+          strokeDashoffset: 1,
+          duration: 0.65,
+          delay: 0.15,
+          ease: "power2.out",
+        });
+        gsap.from(".saving-loose-coin", {
+          y: -24,
+          x: 8,
+          rotation: 70,
+          transformOrigin: "center",
+          opacity: 0,
+          duration: 0.7,
+          delay: 0.2,
+          ease: "back.out(1.5)",
+        });
+      });
       stop = () => context.revert();
     });
     return () => {
@@ -63,7 +84,24 @@ export function BudgetSavingsSummary({
           d="M98 44c-4-20 13-31 27-30 0 19-10 31-27 30Z"
           fill="#6b927b"
         />
-        <path d="m98 46 17-21" stroke="#e9f1ec" strokeWidth="2" strokeLinecap="round" />
+        <path
+          className="saving-stem"
+          pathLength="1"
+          strokeDasharray="1"
+          d="m98 46 17-21"
+          stroke="#e9f1ec"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+        <g className="saving-loose-coin">
+          <circle cx="119" cy="75" r="9" fill="#b8d0bf" />
+          <path
+            d="M116 72h6m-6 6h6m-3-9v12"
+            stroke="#6b927b"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+          />
+        </g>
       </svg>
       <div className="budget-savings-headline">
         <small>
@@ -75,7 +113,12 @@ export function BudgetSavingsSummary({
                 ? "Nothing new to buy"
                 : "Your basket stays at"}
         </small>
-        <strong>{money(difference === 0 ? next : Math.abs(difference))}</strong>
+        <strong>
+          <AnimatedMoney
+            value={difference === 0 ? next : Math.abs(difference)}
+            currency={currency}
+          />
+        </strong>
         <p>
           {difference > 0
             ? "A little saved. The essentials stay."
