@@ -43,10 +43,12 @@ npm test
 npm run build
 ```
 
-[Configuration and deployment notes](docs/development.md) · [Catalog research](docs/catalog-research.md)
+[Configuration and deployment notes](docs/development.md) Â· [Catalog research](docs/catalog-research.md)
 
 ## Deploy on Vercel
 
 Import this repository with the Next.js preset. Node.js 22, build settings and function timeouts are configured in the repo. Add server credentials, a reachable MongoDB database, a stable signing secret and your public origin in Vercel environment settings before enabling live scans.
 
 [Production setup](docs/deployment.md) covers required variables, upload/audio limits and the release smoke check. Personal drafts, design references, local photos and deployment metadata stay out of new commits.
+
+### Contributing to the Project
