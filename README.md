@@ -9,6 +9,7 @@ Skincare advice often ends with a list of products you cannot find nearby or aff
 ## What makes it useful
 
 - **Understand before shopping.** YouCam provides visible skin scores. Gemini explains the report aloud before product selection, then talks through the finished routine. A scrolling transcript follows the recording.
+- **Explore the trade-offs.** Budget Lab compares a lowest-cost essentials basket, a smaller budget and the full cap. Preview every keep or swap, then apply the basket you prefer. No extra scan or paid AI call.
 - **Budget for the whole routine.** Cleansing, hydration and sun protection come first. Selection checks the total, including any extra step, rather than recommending each product in isolation.
 - **Choose from regional products.** The curated catalog spans 267 products and 26 brands. Country availability, ingredient preferences and local currency inform recommendations; shopping search helps find sellers.
 - **Retrieve, then verify.** Product embeddings narrow the relevant candidates. Deterministic eligibility and budget checks make the final decision; the language model explains that decision.

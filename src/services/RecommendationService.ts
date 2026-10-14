@@ -20,7 +20,11 @@ export class RecommendationService {
     private readonly semanticScores: ReadonlyMap<string, number> = new Map(),
   ) {}
 
-  build(request: RoutineRequest, catalogSource: Routine["catalogSource"] = "bundled"): Routine {
+  build(
+    request: RoutineRequest,
+    catalogSource: Routine["catalogSource"] = "bundled",
+    strategy: "relevance" | "cost" = "relevance",
+  ): Routine {
     const { preferences, analysis, excludedProductIds } = request;
     const categories = CATEGORIES.filter(
       (category) => !preferences.ownedCategories.includes(category),
@@ -87,9 +91,12 @@ export class RecommendationService {
       if (index === candidates.length) {
         if (
           cost <= preferences.budget &&
-          (score > bestScore ||
-            (score === bestScore &&
-              cost < (best?.reduce((n, p) => n + p.referencePrice, 0) ?? Infinity)))
+          (strategy === "cost"
+            ? cost < (best?.reduce((n, p) => n + p.referencePrice, 0) ?? Infinity) ||
+              (cost === best?.reduce((n, p) => n + p.referencePrice, 0) && score > bestScore)
+            : score > bestScore ||
+              (score === bestScore &&
+                cost < (best?.reduce((n, p) => n + p.referencePrice, 0) ?? Infinity)))
         ) {
           best = [...selected];
           bestScore = score;

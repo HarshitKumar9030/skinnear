@@ -20,6 +20,8 @@ import { StepIndicator } from "@/components/journey/StepIndicator";
 import { ProductRow } from "./ProductRow";
 import { PlanActions } from "./PlanActions";
 import { RoutineExplainer } from "./RoutineExplainer";
+import type { BudgetScenario } from "@/domain/budget-lab";
+import { BudgetLab } from "./BudgetLab";
 import { PortableRoutineService } from "@/services/PortableRoutineService";
 
 type Props = {
@@ -35,6 +37,8 @@ type Props = {
   onSwap: (id: string) => Promise<void>;
   onChoose: (id: string) => Promise<void>;
   onResetChoices: () => Promise<void>;
+  excludedProductIds: string[];
+  onApplyBudget: (scenario: BudgetScenario) => Promise<void>;
 };
 
 export function RoutineView({
@@ -50,6 +54,8 @@ export function RoutineView({
   onSwap,
   onChoose,
   onResetChoices,
+  excludedProductIds,
+  onApplyBudget,
 }: Props) {
   const money = (value: number) => formatMoney(value, routine.currency ?? preferences.currency);
   const [time, setTime] = useState<"morning" | "evening">("morning");
@@ -102,6 +108,19 @@ export function RoutineView({
           <p>Thoughtful care. A comfortable budget. Your everyday essentials.</p>
         </div>
         <StepIndicator step={2} />
+        <BudgetLab
+          key={JSON.stringify([
+            routine.items.map((item) => item.product.id),
+            preferences,
+            excludedProductIds,
+          ])}
+          routine={routine}
+          analysis={analysis}
+          preferences={preferences}
+          excludedProductIds={excludedProductIds}
+          busy={busy}
+          onApply={onApplyBudget}
+        />
         {routine.feasible && routine.items.length ? (
           <RoutineExplainer
             key={JSON.stringify([

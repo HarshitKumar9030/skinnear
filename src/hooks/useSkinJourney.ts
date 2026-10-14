@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { Preferences, Routine, RoutineRequest, SkinAnalysis } from "@/domain/schemas";
 import { SAMPLE_ANALYSIS } from "@/domain/sample";
+import type { BudgetScenario } from "@/domain/budget-lab";
 import { PhotoUploadService } from "@/services/PhotoUploadService";
 import { SkinNearApi } from "@/lib/client-api";
 
@@ -279,6 +280,13 @@ export function useSkinJourney() {
         selected,
       );
     },
+    excludedProductIds,
+    applyBudgetScenario: (scenario: BudgetScenario) =>
+      build(
+        { ...preferences, budget: scenario.routine.budget, treatments: scenario.treatments },
+        excludedProductIds,
+        scenario.routine.items.map((item) => item.product.id),
+      ),
     resetChoices: () => build(preferences),
   };
 }

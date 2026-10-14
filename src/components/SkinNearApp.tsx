@@ -97,6 +97,8 @@ export function SkinNearApp({
                   onSwap={journey.swap}
                   onChoose={journey.choose}
                   onResetChoices={journey.resetChoices}
+                  excludedProductIds={journey.excludedProductIds}
+                  onApplyBudget={journey.applyBudgetScenario}
                 />
               ) : null
             ) : null}
