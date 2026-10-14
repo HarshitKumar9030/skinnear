@@ -1,14 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowDownRight, ChevronDown, Check, SlidersHorizontal } from "lucide-react";
+import { ArrowRight, ChevronDown, Check, SlidersHorizontal } from "lucide-react";
 import type { Preferences, Routine, SkinAnalysis } from "@/domain/schemas";
 import type { BudgetComparison, BudgetScenario } from "@/domain/budget-lab";
 import { formatMoney } from "@/domain/regions";
-import { CATEGORY_LABELS } from "@/domain/sample";
 import { SkinNearApi } from "@/lib/client-api";
 import { Button } from "@/components/ui/Button";
-import { ProductImage } from "./ProductImage";
+import { BudgetSavingsSummary } from "./BudgetSavingsSummary";
+import { BudgetProductChange } from "./BudgetProductChange";
 
 interface Props {
   routine: Routine;
@@ -33,42 +33,10 @@ export function BudgetLab({
   const [comparison, setComparison] = useState<BudgetComparison | null>(null);
   const [selected, setSelected] = useState(0);
   const request = useRef<AbortController | null>(null);
-  const chart = useRef<SVGSVGElement>(null);
   const scenario = comparison?.scenarios[selected];
   const money = (value: number) => formatMoney(value, preferences.currency);
 
   useEffect(() => () => request.current?.abort(), []);
-  useEffect(() => {
-    if (
-      !open ||
-      !comparison ||
-      !chart.current ||
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    )
-      return;
-    let disposed = false;
-    let cleanup: (() => void) | undefined;
-    void import("gsap").then(({ gsap }) => {
-      if (disposed || !chart.current) return;
-      const context = gsap.context(
-        () =>
-          gsap.from(".budget-lab-bar", {
-            scaleX: 0,
-            transformOrigin: "left center",
-            duration: 0.65,
-            stagger: 0.12,
-            ease: "power2.out",
-          }),
-        chart.current,
-      );
-      cleanup = () => context.revert();
-    });
-    return () => {
-      disposed = true;
-      cleanup?.();
-    };
-  }, [comparison, open]);
-
   async function explore() {
     setOpen(true);
     if (comparison || loading) return;
@@ -91,7 +59,12 @@ export function BudgetLab({
     }
   }
 
-  const delta = scenario ? Math.round((routine.total - scenario.routine.total) * 100) / 100 : 0;
+  const samePicks =
+    comparison &&
+    comparison.scenarios[1].routine.feasible &&
+    comparison.scenarios[2].routine.feasible &&
+    comparison.scenarios[1].routine.items.map((item) => item.product.id).join("|") ===
+      comparison.scenarios[2].routine.items.map((item) => item.product.id).join("|");
   return (
     <section className="budget-lab" aria-label="Budget Lab">
       <button
@@ -103,23 +76,28 @@ export function BudgetLab({
         onClick={() => (open ? setOpen(false) : void explore())}
       >
         <span className="budget-lab-icon">
-          <SlidersHorizontal size={24} aria-hidden />
+          <SlidersHorizontal size={23} aria-hidden />
         </span>
-        <span>
-          <small>Budget Lab</small>
-          <strong>Could your routine cost less?</strong>
-          <span>Compare the trade-offs before you shop.</span>
+        <span className="budget-lab-title">
+          <small>THE BUDGET LAB</small>
+          <strong>A little less. Still your routine.</strong>
+          <span>Find the swaps worth making.</span>
         </span>
-        <ChevronDown
-          size={20}
-          aria-hidden
-          style={{ transform: open ? "rotate(180deg)" : undefined }}
-        />
+        <span className="budget-lab-toggle-action">
+          {open ? "Close" : "Compare"}
+          <ChevronDown
+            size={17}
+            aria-hidden
+            style={{ transform: open ? "rotate(180deg)" : undefined }}
+          />
+        </span>
       </button>
       {open ? (
         <div id="budget-lab-content" className="budget-lab-content">
           {loading ? (
-            <p role="status">Rebuilding three baskets around your skin insights...</p>
+            <p className="budget-lab-loading" role="status">
+              Finding a little more room in your budget...
+            </p>
           ) : null}
           {error ? (
             <div role="alert">
@@ -131,38 +109,6 @@ export function BudgetLab({
           ) : null}
           {comparison ? (
             <>
-              <p className="budget-lab-intro">
-                Same skin insights. Same preferences. Three ways to stay within{" "}
-                {money(comparison.cap)}.
-              </p>
-              <svg
-                ref={chart}
-                className="budget-lab-chart"
-                viewBox="0 0 600 110"
-                aria-hidden="true"
-              >
-                {comparison.scenarios.map((option, index) => (
-                  <g key={option.id} transform={`translate(0 ${index * 36})`}>
-                    <text x="0" y="21" fill="#272138" fontSize="12">
-                      {option.label}
-                    </text>
-                    <rect x="145" y="4" width="455" height="24" rx="12" fill="#ece7f3" />
-                    <rect
-                      className="budget-lab-bar"
-                      x="145"
-                      y="4"
-                      width={
-                        option.routine.feasible
-                          ? Math.max(0, (option.routine.total / comparison.cap) * 455)
-                          : 0
-                      }
-                      height="24"
-                      rx="12"
-                      fill={index === selected ? "#7959c7" : "#b7a6d9"}
-                    />
-                  </g>
-                ))}
-              </svg>
               <div className="budget-lab-options" aria-label="Compare routine options">
                 {comparison.scenarios.map((option, index) => (
                   <button
@@ -172,29 +118,25 @@ export function BudgetLab({
                     disabled={busy}
                     onClick={() => setSelected(index)}
                   >
-                    <span>
+                    <span className="budget-option-heading">
                       {option.label}
-                      {selected === index ? <Check size={16} aria-hidden /> : null}
+                      <span className="budget-option-check">
+                        {selected === index ? <Check size={13} aria-hidden /> : null}
+                      </span>
                     </span>
                     <strong>
-                      {option.routine.feasible ? money(option.routine.total) : "Does not fit yet"}
+                      {option.routine.feasible ? money(option.routine.total) : "No full basket"}
                     </strong>
-                    <small>{option.description}</small>
+                    <small>
+                      {option.id === "essentials"
+                        ? "Just the basics"
+                        : option.id === "balanced"
+                          ? "A smaller spending cap"
+                          : "Room for your preferences"}
+                    </small>
                   </button>
                 ))}
               </div>
-              {comparison.scenarios[1].routine.feasible &&
-              comparison.scenarios[2].routine.feasible &&
-              JSON.stringify(
-                comparison.scenarios[1].routine.items.map((item) => item.product.id),
-              ) ===
-                JSON.stringify(
-                  comparison.scenarios[2].routine.items.map((item) => item.product.id),
-                ) ? (
-                <p className="field-note">
-                  More spending room doesn’t change these picks. Keep the difference.
-                </p>
-              ) : null}
               {scenario ? (
                 <div
                   className="budget-lab-preview"
@@ -203,76 +145,90 @@ export function BudgetLab({
                 >
                   {scenario.routine.feasible ? (
                     <>
-                      <div className="budget-lab-result">
-                        <ArrowDownRight size={22} aria-hidden />
-                        <strong>
-                          {delta > 0
-                            ? `${money(delta)} less than your current basket`
-                            : delta < 0
-                              ? `${money(-delta)} more, still within the cap`
-                              : "No extra spending for this basket"}
-                        </strong>
-                      </div>
-                      <p className="field-note">
-                        {scenario.id === "essentials"
-                          ? "This option leaves out extra actives. Applying it turns off treatment consent."
-                          : "Your treatment consent and suitability checks still apply."}{" "}
-                        Manual product picks are replaced when you apply.
-                      </p>
-                      <ul className="budget-lab-products">
-                        {scenario.routine.items.map(({ product, reason }) => (
-                          <li key={product.id}>
-                            <ProductImage product={product} />
-                            <div>
-                              <small>
-                                {product.brand} · {CATEGORY_LABELS[product.category]}
-                              </small>
-                              <strong>{product.name}</strong>
-                              <span>{money(product.referencePrice)}</span>
-                              <details>
-                                <summary>Why this step?</summary>
-                                <p>{reason}</p>
-                              </details>
-                            </div>
-                            <span className="budget-lab-change">
-                              {routine.items.some((item) => item.product.id === product.id)
-                                ? "Keep"
-                                : routine.items.some(
-                                      (item) => item.product.category === product.category,
-                                    )
-                                  ? "Swap"
-                                  : "Add"}
+                      <div className="budget-lab-comparison">
+                        <BudgetSavingsSummary
+                          current={routine.total}
+                          next={scenario.routine.total}
+                          cap={comparison.cap}
+                          currency={preferences.currency}
+                        />
+                        <div className="budget-lab-basket">
+                          <div className="budget-basket-heading">
+                            <h3>Your everyday lineup</h3>
+                            <span>
+                              {scenario.routine.items.length}{" "}
+                              {scenario.routine.items.length === 1 ? "product" : "products"}
                             </span>
-                          </li>
-                        ))}
-                      </ul>
-                      {!scenario.routine.items.length ? (
-                        <p>You already own the essentials. No new purchases needed.</p>
-                      ) : null}
-                      {routine.items
-                        .filter(
-                          (item) =>
-                            !scenario.routine.items.some(
-                              (next) => next.product.category === item.product.category,
-                            ),
-                        )
-                        .map((item) => (
-                          <p className="field-note" key={item.product.id}>
-                            Leave out: {item.product.name}
-                          </p>
-                        ))}
-                      <Button onClick={() => void onApply(scenario)} loading={busy}>
-                        Use {scenario.label.toLowerCase()} <Check size={17} />
-                      </Button>
+                          </div>
+                          <ul className="budget-lab-products">
+                            {scenario.routine.items.map((item) => (
+                              <BudgetProductChange
+                                key={item.product.id}
+                                item={item}
+                                previous={routine.items.find(
+                                  (previous) => previous.product.category === item.product.category,
+                                )}
+                                currency={preferences.currency}
+                              />
+                            ))}
+                          </ul>
+                          {!scenario.routine.items.length ? (
+                            <p className="field-note">
+                              You already own the essentials. No new purchases needed.
+                            </p>
+                          ) : null}
+                          {routine.items
+                            .filter(
+                              (item) =>
+                                !scenario.routine.items.some(
+                                  (next) => next.product.category === item.product.category,
+                                ),
+                            )
+                            .map((item) => (
+                              <p className="budget-removed" key={item.product.id}>
+                                Leaving out <strong>{item.product.name}</strong>
+                              </p>
+                            ))}
+                        </div>
+                      </div>
+                      <div className="budget-lab-apply">
+                        <div>
+                          <span>Like this balance?</span>
+                          <small>
+                            {scenario.id === "essentials"
+                              ? "Replaces manual picks and removes extra actives."
+                              : "Replaces manual picks. Your treatment preferences carry over."}
+                          </small>
+                        </div>
+                        <Button onClick={() => void onApply(scenario)} loading={busy}>
+                          Use this routine <ArrowRight size={17} />
+                        </Button>
+                      </div>
+                      <details className="budget-lab-notes">
+                        <summary>What changes when I apply?</summary>
+                        <p>
+                          {scenario.id === "essentials"
+                            ? "Extra actives are left out and treatment consent is turned off."
+                            : "Your treatment consent and suitability checks still apply."}{" "}
+                          Manual product picks are replaced. Prices are planning estimates.
+                        </p>
+                      </details>
                     </>
                   ) : (
-                    <p role="status">{scenario.routine.message}</p>
+                    <div className="budget-lab-unavailable">
+                      <h3>This cap needs a rethink.</h3>
+                      <p>{scenario.routine.message}</p>
+                      <span>Your current routine stays as it is.</span>
+                    </div>
                   )}
                 </div>
               ) : null}
-              <p className="field-note">
-                Planning prices. Spending more does not predict better skin results.
-              </p>
+              {samePicks ? (
+                <p className="budget-lab-insight">
+                  <Check size={14} aria-hidden />
+                  The smaller and full caps pick the same products. Keep the difference.
+                </p>
+              ) : null}
             </>
           ) : null}
         </div>
