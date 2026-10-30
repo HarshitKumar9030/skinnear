@@ -6,6 +6,7 @@ import { Footer } from "./layout/Footer";
 import { Intro } from "./journey/Intro";
 import { HowItWorks } from "./journey/HowItWorks";
 import { StepIndicator } from "./journey/StepIndicator";
+import { AnalysisGallery } from "./journey/AnalysisGallery";
 import { SkinReport } from "./journey/SkinReport";
 import { SkinExplainer } from "./journey/SkinExplainer";
 import { PreferencesForm } from "./journey/PreferencesForm";
@@ -73,6 +74,11 @@ export function SkinNearApp({
                     key={JSON.stringify(journey.analysis)}
                     analysis={journey.analysis}
                   />
+                  <AnalysisGallery
+                    key={`gallery:${JSON.stringify(journey.analysis)}`}
+                    analysis={journey.analysis}
+                    photo={journey.scanPhoto}
+                  />
                   <div className="preferences-layout">
                     <PreferencesForm
                       key="preferences"
@@ -88,6 +94,7 @@ export function SkinNearApp({
                   saveEnabled={saveEnabled}
                   routine={journey.routine}
                   analysis={journey.analysis}
+                  scanPhoto={journey.scanPhoto}
                   preferences={journey.preferences}
                   busy={journey.busy}
                   savedId={journey.savedId}

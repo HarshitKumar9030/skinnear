@@ -2,10 +2,13 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { Upload, ShieldCheck, X } from "lucide-react";
+import dynamic from "next/dynamic";
+import { Camera, Upload, ShieldCheck, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Checkbox } from "@/components/ui/Checkbox";
 import { AnimatedScanMark } from "./AnimatedScanMark";
+
+const CameraScanner = dynamic(() => import("./CameraScanner"), { ssr: false });
 
 export function ScanPanel({
   onSample,
@@ -26,6 +29,7 @@ export function ScanPanel({
   const [consent, setConsent] = useState(false);
   const [error, setError] = useState("");
   const [dragging, setDragging] = useState(false);
+  const [cameraOpen, setCameraOpen] = useState(false);
 
   useEffect(
     () => () => {
@@ -48,6 +52,7 @@ export function ScanPanel({
       if (input.current) input.current.value = "";
       return;
     }
+    setCameraOpen(false);
     setError("");
     setFile(next);
     setPreview(URL.createObjectURL(next));
@@ -60,13 +65,13 @@ export function ScanPanel({
       aria-label="Skin scan"
       onDragOver={(event) => {
         event.preventDefault();
-        if (!busy) setDragging(true);
+        if (!busy && !cameraOpen) setDragging(true);
       }}
       onDragLeave={() => setDragging(false)}
       onDrop={(event) => {
         event.preventDefault();
         setDragging(false);
-        if (busy) return;
+        if (busy || cameraOpen) return;
         if (event.dataTransfer.files.length !== 1) {
           setError("Drop one JPEG or PNG photo at a time.");
           return;
@@ -83,7 +88,20 @@ export function ScanPanel({
         onChange={(event) => select(event.target.files?.[0])}
         disabled={busy}
       />
-      {file && preview ? (
+      {cameraOpen ? (
+        <CameraScanner
+          onClose={() => {
+            setCameraOpen(false);
+            requestAnimationFrame(() => document.getElementById("open-scan-camera")?.focus());
+          }}
+          onCapture={(photo) => {
+            setCameraOpen(false);
+            setFile(photo);
+            setPreview(URL.createObjectURL(photo));
+            void onScan(photo);
+          }}
+        />
+      ) : file && preview ? (
         <div className="photo-preview">
           <Image src={preview} alt="Your selected selfie" fill unoptimized sizes="120px" />
           <button
@@ -93,6 +111,7 @@ export function ScanPanel({
             onClick={() => {
               setFile(null);
               setPreview(null);
+              setConsent(false);
               if (input.current) input.current.value = "";
             }}
           >
@@ -102,46 +121,94 @@ export function ScanPanel({
       ) : (
         <AnimatedScanMark />
       )}
-      <h2>{file ? "Ready for a fresh perspective?" : "Let's get to know your skin"}</h2>
-      <p>
-        {file
-          ? "Face forward. Fill most of the photo with your face. Natural light, no filters."
-          : "Choose or drop a close-up, front-facing selfie. JPEG or PNG, up to 8 MB."}
-      </p>
-      {file ? (
+      {!cameraOpen ? (
         <>
-          <Checkbox
-            className="consent-check"
-            checked={consent}
-            disabled={busy}
-            onChange={(event) => setConsent(event.target.checked)}
-          >
-            I agree to send this photo to YouCam for skin analysis.
-          </Checkbox>
-          <Button onClick={() => onScan(file)} disabled={!consent || !liveEnabled} loading={busy}>
-            Analyze my skin <Upload size={17} />
-          </Button>
-          {!liveEnabled ? (
-            <p className="setup-note">
-              Live analysis needs a YouCam connection. Try the sample below.
-            </p>
-          ) : null}
-          {busy ? (
-            <Button variant="text" onClick={onCancel}>
-              Stop waiting
-            </Button>
+          <h2>{file ? "Ready for a fresh perspective?" : "Let's get to know your skin"}</h2>
+          <p>
+            {file
+              ? "Face forward. Fill most of the photo with your face. Natural light, no filters."
+              : "Open your camera for a five-second capture. Pause anytime."}
+          </p>
+          {file ? (
+            <>
+              <Checkbox
+                className="consent-check"
+                checked={consent}
+                disabled={busy}
+                onChange={(event) => setConsent(event.target.checked)}
+              >
+                I agree to send this photo to YouCam for skin analysis.
+              </Checkbox>
+              <Button
+                onClick={() => onScan(file)}
+                disabled={!consent || !liveEnabled}
+                loading={busy}
+              >
+                Analyze my skin <Upload size={17} />
+              </Button>
+              {!liveEnabled ? (
+                <p className="setup-note">
+                  Live analysis needs a YouCam connection. Try the sample below.
+                </p>
+              ) : null}
+              {busy ? (
+                <Button variant="text" onClick={onCancel}>
+                  Stop waiting
+                </Button>
+              ) : (
+                <Button variant="text" onClick={() => input.current?.click()}>
+                  Choose another photo
+                </Button>
+              )}
+            </>
           ) : (
-            <Button variant="text" onClick={() => input.current?.click()}>
-              Choose another photo
-            </Button>
+            <>
+              <Checkbox
+                className="consent-check"
+                checked={consent}
+                disabled={busy}
+                onChange={(event) => setConsent(event.target.checked)}
+              >
+                I agree to send one captured photo to YouCam for skin analysis.
+              </Checkbox>
+              <Button
+                id="open-scan-camera"
+                onClick={() => {
+                  setError("");
+                  setCameraOpen(true);
+                }}
+                disabled={busy || !consent || !liveEnabled}
+              >
+                Open camera & scan <Camera size={18} />
+              </Button>
+              {!liveEnabled ? (
+                <p className="setup-note">
+                  Live analysis needs a YouCam connection. Try the sample below.
+                </p>
+              ) : null}
+            </>
           )}
         </>
-      ) : (
-        <Button onClick={() => input.current?.click()} disabled={busy}>
-          Upload a selfie <Upload size={17} />
+      ) : null}
+      {!busy ? (
+        <Button
+          variant="secondary"
+          onClick={() => {
+            setCameraOpen(false);
+            input.current?.click();
+          }}
+        >
+          Upload a selfie instead <Upload size={16} />
         </Button>
-      )}
-      <Button variant="text" onClick={onSample} disabled={busy}>
+      ) : null}
+      <Button
+        variant="text"
+        onClick={() => {
+          setCameraOpen(false);
+          onSample();
+        }}
+        disabled={busy}
+      >
         Try a sample scan
       </Button>
       {error ? (

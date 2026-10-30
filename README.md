@@ -16,6 +16,8 @@ Skincare advice often ends with a list of products you cannot find nearby or aff
 
 Serums and OTC retinol have separate choices and consent. An extra is considered only when the goal, suitability checks and remaining budget support it.
 
+The camera-first flow captures one photo after a pausable countdown, with front/rear switching and upload fallback. Skin Lens makes YouCam overlays explorable with concern navigation, zoom and an original/overlay comparison slider. A first-focus card connects the lowest cosmetic score to a practical care step. Original photos stay local to the session and are excluded from saved/shared routines.
+
 ## Problems we worked through
 
 **Photo upload was a multi-step integration.** YouCam requires file registration, upload to its signed destination, task submission and polling. Normalizing photos and handling provider response variations made the scan flow much more forgiving.

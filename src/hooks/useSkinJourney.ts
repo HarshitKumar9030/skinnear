@@ -40,6 +40,7 @@ function pause(ms: number, signal: AbortSignal) {
 
 export function useSkinJourney() {
   const [stage, setStage] = useState<Stage>("scan");
+  const [scanPhoto, setScanPhoto] = useState<string | null>(null);
   const [analysis, setAnalysis] = useState<SkinAnalysis | null>(null);
   const [preferences, setPreferences] = useState(DEFAULT_PREFERENCES);
   const [routine, setRoutine] = useState<Routine | null>(null);
@@ -51,6 +52,12 @@ export function useSkinJourney() {
   const [savedId, setSavedId] = useState<string | null>(null);
   const controller = useRef<AbortController | null>(null);
   useEffect(() => () => controller.current?.abort(), []);
+  useEffect(
+    () => () => {
+      if (scanPhoto) URL.revokeObjectURL(scanPhoto);
+    },
+    [scanPhoto],
+  );
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [stage]);
@@ -60,6 +67,7 @@ export function useSkinJourney() {
     setBusy(false);
     setError("");
     setNotice("");
+    setScanPhoto(null);
     setAnalysis(SAMPLE_ANALYSIS);
     setRoutine(null);
     setExcludedProductIds([]);
@@ -78,7 +86,7 @@ export function useSkinJourney() {
       const form = new FormData();
       const photo = await new PhotoUploadService().prepare(file);
       if (abort.signal.aborted) return;
-      setNotice("Uploading your photo securely�");
+      setNotice("Uploading your photo securely…");
       form.set("photo", photo);
       form.set("consent", "true");
       const { token } = await api.request<{ token: string }>("/api/analysis", {
@@ -95,6 +103,7 @@ export function useSkinJourney() {
           abort.signal,
         );
         if (result.status === "success" && result.analysis) {
+          setScanPhoto(URL.createObjectURL(photo));
           setAnalysis(result.analysis);
           setRoutine(null);
           setSavedId(null);
@@ -182,6 +191,7 @@ export function useSkinJourney() {
       const result = await api.request<{ request: RoutineRequest; routine: Routine }>(
         `/api/routines/${encodeURIComponent(id)}`,
       );
+      setScanPhoto(null);
       setAnalysis(result.request.analysis);
       setPreferences(result.request.preferences);
       setExcludedProductIds(result.request.excludedProductIds);
@@ -219,6 +229,7 @@ export function useSkinJourney() {
     controller.current?.abort();
     setBusy(false);
     setStage("scan");
+    setScanPhoto(null);
     setAnalysis(null);
     setRoutine(null);
     setError("");
@@ -234,6 +245,7 @@ export function useSkinJourney() {
   return {
     stage,
     analysis,
+    scanPhoto,
     preferences,
     routine,
     busy,

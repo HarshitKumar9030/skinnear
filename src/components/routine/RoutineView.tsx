@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import type { Preferences, Routine, SkinAnalysis } from "@/domain/schemas";
 import { Button } from "@/components/ui/Button";
+import { AnalysisGallery } from "@/components/journey/AnalysisGallery";
 import { SkinReport } from "@/components/journey/SkinReport";
 import { StepIndicator } from "@/components/journey/StepIndicator";
 import { ProductRow } from "./ProductRow";
@@ -28,6 +29,7 @@ type Props = {
   saveEnabled: boolean;
   routine: Routine;
   analysis: SkinAnalysis;
+  scanPhoto?: string | null;
   preferences: Preferences;
   busy: boolean;
   savedId: string | null;
@@ -45,6 +47,7 @@ export function RoutineView({
   saveEnabled,
   routine,
   analysis,
+  scanPhoto,
   preferences,
   busy,
   savedId,
@@ -108,6 +111,10 @@ export function RoutineView({
           <p>Thoughtful care. A comfortable budget. Your everyday essentials.</p>
         </div>
         <StepIndicator step={2} />
+        <details className="routine-skin-lens">
+          <summary>Explore your scan · Skin Lens</summary>
+          <AnalysisGallery key={JSON.stringify(analysis)} analysis={analysis} photo={scanPhoto} />
+        </details>
         <BudgetLab
           key={JSON.stringify([
             routine.items.map((item) => item.product.id),

@@ -50,3 +50,12 @@ python scripts/youcam_check.py
 ```
 
 Research sources and review notes are in [catalog research](catalog-research.md).
+
+
+## Camera and Skin Lens
+
+Camera capture runs only after explicit photo-processing consent and a button press. It requests video only, never microphone access, and captures one centered JPEG after a five-second countdown. Pause, manual capture, close, switch, permission failure, low resolution and backgrounding all have explicit handling. Browser camera access requires HTTPS or localhost. The camera stream is stopped before a new lens is requested, after capture and on teardown; late permission or encoding results cannot submit a cancelled photo.
+
+The same upload normalization and protected YouCam endpoints process both camera and file input. The original photo's object URL is kept only in journey state and revoked on replacement/reset/unmount. It is not added to the analysis schema, MongoDB saves or share links. Overlay URLs already returned by YouCam are displayed directly; broken/expired overlays fall back to the original or an empty state. Comparison is visual: YouCam output resizing can change framing. First-focus ordering uses the actual cosmetic scores and never changes treatment eligibility or adds products.
+
+References: [browser camera constraints](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia), [YouCam overlay output](https://docs.perfectcorp.com/reference/ai_skin_analysis/v2.1).

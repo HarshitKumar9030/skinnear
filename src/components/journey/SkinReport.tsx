@@ -48,18 +48,6 @@ export function SkinReport({
         Higher scores indicate a more favorable cosmetic assessment. Lighting and image quality can
         affect results.
       </p>
-      {analysis.scores.some((score) => score.maskUrl) ? (
-        <details className="mask-links">
-          <summary>View analysis overlays</summary>
-          {analysis.scores
-            .filter((s) => s.maskUrl)
-            .map((score) => (
-              <a key={score.concern} href={score.maskUrl} target="_blank" rel="noreferrer">
-                {CONCERN_LABELS[score.concern]} overlay
-              </a>
-            ))}
-        </details>
-      ) : null}
     </section>
   );
 }
