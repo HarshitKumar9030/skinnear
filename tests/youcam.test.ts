@@ -244,12 +244,22 @@ test("failed scans and missing supported scores never become sample results", as
     globalThis.fetch = async () =>
       json({ data: { task_status: "error", error: "unknown_internal_error", results: null } });
     await assert.rejects(new YouCamService().status(token), /front-facing photo/);
+    for (const error of ["constructor", "__proto__"]) {
+      globalThis.fetch = async () => json({ data: { task_status: "error", error } });
+      await assert.rejects(new YouCamService().status(token), /front-facing photo/);
+    }
     globalThis.fetch = async () =>
       json({ data: { task_status: "error", error: "error_no_face", results: null } });
     await assert.rejects(new YouCamService().status(token), /could not detect a face/);
     globalThis.fetch = async () =>
       json({ data: { task_status: "error", error: "error_src_face_too_small", results: null } });
-    await assert.rejects(new YouCamService().status(token), /60%/);
+    await assert.rejects(
+      new YouCamService().status(token),
+      (error) =>
+        error instanceof YouCamTaskError &&
+        error.code === "face-too-small" &&
+        /60%/.test(error.message),
+    );
     globalThis.fetch = async () => json({ data: { task_status: "running", results: null } });
     assert.deepEqual(await new YouCamService().status(token), { status: "running" });
     globalThis.fetch = async () =>

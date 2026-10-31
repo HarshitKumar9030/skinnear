@@ -52,6 +52,8 @@ export function SkinNearApp({
             onCancel={journey.cancelScan}
             busy={journey.busy}
             liveEnabled={liveEnabled}
+            scanIssue={journey.scanIssue}
+            onPhotoChange={journey.dismissMessage}
           />
         ) : (
           <section className="journey shell">

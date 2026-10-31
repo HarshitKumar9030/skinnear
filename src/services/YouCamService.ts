@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { providerPhotoIssue } from "@/domain/photo-issues";
 import { scoreSchema, type SkinAnalysis } from "@/domain/schemas";
 import { AppError } from "@/lib/errors";
 import { safeHttpsUrl } from "@/lib/http";
@@ -110,10 +111,15 @@ export class YouCamService {
         exceed_nsfw_retry_limits:
           "YouCam could not process this photo. Choose a different front-facing selfie.",
       };
+      const message = Object.hasOwn(messages, task.error || "")
+        ? messages[task.error || ""]
+        : undefined;
       throw new YouCamTaskError(
-        messages[task.error || ""] ||
+        message ||
           "This photo could not be analyzed. Try a brighter, front-facing photo with your face fully visible.",
         422,
+        undefined,
+        providerPhotoIssue(task.error),
       );
     }
     if (task.task_status !== "success") return { status: "running" };

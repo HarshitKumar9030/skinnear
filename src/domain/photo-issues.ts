@@ -1,0 +1,46 @@
+export const PHOTO_ISSUES = [
+  "face-too-small",
+  "multiple-faces",
+  "no-face",
+  "face-angle",
+  "unreadable-photo",
+] as const;
+export type PhotoIssue = (typeof PHOTO_ISSUES)[number];
+export function isPhotoIssue(value: unknown): value is PhotoIssue {
+  return typeof value === "string" && PHOTO_ISSUES.some((issue) => issue === value);
+}
+export function providerPhotoIssue(error: string | null | undefined): PhotoIssue | undefined {
+  const issues = new Map<string, PhotoIssue>([
+    ["error_src_face_too_small", "face-too-small"],
+    ["error_multiple_people", "multiple-faces"],
+    ["error_no_face", "no-face"],
+    ["error_large_face_angle", "face-angle"],
+    ["error_decode_image", "unreadable-photo"],
+  ]);
+  return issues.get(error ?? "");
+}
+export const PHOTO_ISSUE_HELP: Record<PhotoIssue, { title: string; detail: string }> = {
+  "face-too-small": {
+    title: "Bring your face into focus.",
+    detail:
+      "Crop closer so your face fills most of the frame. Keep your forehead, chin and both cheeks visible.",
+  },
+  "multiple-faces": {
+    title: "Give one face the frame.",
+    detail: "Crop out other people completely, or take a new solo selfie.",
+  },
+  "no-face": {
+    title: "Your face needs a clearer view.",
+    detail:
+      "If your face is distant, try a closer crop. Otherwise, choose a brighter, front-facing photo.",
+  },
+  "face-angle": {
+    title: "A fresh, front-facing photo will help.",
+    detail:
+      "Cropping cannot fix a tilted or side-on face. Face the camera directly and retake your photo.",
+  },
+  "unreadable-photo": {
+    title: "Let's use a fresh photo.",
+    detail: "This image could not be read. Choose another JPEG or PNG, or take a new selfie.",
+  },
+};

@@ -50,7 +50,12 @@ export class ImagePreparationService {
       return new File([new Uint8Array(data)], "selfie.jpg", { type: "image/jpeg" });
     } catch (error) {
       if (error instanceof AppError) throw error;
-      throw new AppError("This photo could not be decoded. Choose a valid JPEG or PNG.", 400);
+      throw new AppError(
+        "This photo could not be decoded. Choose a valid JPEG or PNG.",
+        400,
+        undefined,
+        "unreadable-photo",
+      );
     }
   }
 }

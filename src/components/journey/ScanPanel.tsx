@@ -3,11 +3,14 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import dynamic from "next/dynamic";
-import { Camera, Upload, ShieldCheck, X } from "lucide-react";
+import { Camera, Crop, Upload, ShieldCheck, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Checkbox } from "@/components/ui/Checkbox";
+import { DEFAULT_CROP, type CropSettings } from "@/domain/photo-crop";
+import { PHOTO_ISSUE_HELP, type PhotoIssue } from "@/domain/photo-issues";
 import { AnimatedScanMark } from "./AnimatedScanMark";
 
+const PhotoCropEditor = dynamic(() => import("./PhotoCropEditor"), { ssr: false });
 const CameraScanner = dynamic(() => import("./CameraScanner"), { ssr: false });
 
 export function ScanPanel({
@@ -16,14 +19,21 @@ export function ScanPanel({
   onCancel,
   busy,
   liveEnabled,
+  scanIssue,
+  onPhotoChange,
 }: {
   onSample: () => void;
   onScan: (file: File) => Promise<void>;
   onCancel: () => void;
   busy: boolean;
   liveEnabled: boolean;
+  scanIssue?: PhotoIssue | null;
+  onPhotoChange?: () => void;
 }) {
   const input = useRef<HTMLInputElement>(null);
+  const [sourceFile, setSourceFile] = useState<File | null>(null);
+  const [cropSettings, setCropSettings] = useState<CropSettings>({ ...DEFAULT_CROP });
+  const [cropping, setCropping] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [consent, setConsent] = useState(false);
@@ -46,6 +56,8 @@ export function ScanPanel({
       next.size > 8 * 1024 * 1024
     ) {
       setError("Choose a JPEG or PNG smaller than 8 MB.");
+      setSourceFile(null);
+      onPhotoChange?.();
       setFile(null);
       setPreview(null);
       setConsent(false);
@@ -53,7 +65,11 @@ export function ScanPanel({
       return;
     }
     setCameraOpen(false);
+    setCropping(false);
+    onPhotoChange?.();
     setError("");
+    setCropSettings({ ...DEFAULT_CROP });
+    setSourceFile(next);
     setFile(next);
     setPreview(URL.createObjectURL(next));
     setConsent(false);
@@ -65,13 +81,13 @@ export function ScanPanel({
       aria-label="Skin scan"
       onDragOver={(event) => {
         event.preventDefault();
-        if (!busy && !cameraOpen) setDragging(true);
+        if (!busy && !cameraOpen && !cropping) setDragging(true);
       }}
       onDragLeave={() => setDragging(false)}
       onDrop={(event) => {
         event.preventDefault();
         setDragging(false);
-        if (busy || cameraOpen) return;
+        if (busy || cameraOpen || cropping) return;
         if (event.dataTransfer.files.length !== 1) {
           setError("Drop one JPEG or PNG photo at a time.");
           return;
@@ -86,19 +102,40 @@ export function ScanPanel({
         className="visually-hidden"
         aria-label="Upload a selfie"
         onChange={(event) => select(event.target.files?.[0])}
-        disabled={busy}
+        disabled={busy || cropping}
       />
-      {cameraOpen ? (
+      {cropping && sourceFile ? (
+        <PhotoCropEditor
+          file={sourceFile}
+          initial={cropSettings}
+          onCancel={() => {
+            setCropping(false);
+            requestAnimationFrame(() => document.getElementById("edit-photo-crop")?.focus());
+          }}
+          onApply={(photo, settings) => {
+            setCropSettings(settings);
+            setFile(photo);
+            setPreview(URL.createObjectURL(photo));
+            setCropping(false);
+            onPhotoChange?.();
+            requestAnimationFrame(() => document.getElementById("edit-photo-crop")?.focus());
+          }}
+        />
+      ) : cameraOpen ? (
         <CameraScanner
           onClose={() => {
             setCameraOpen(false);
-            requestAnimationFrame(() => document.getElementById("open-scan-camera")?.focus());
+            requestAnimationFrame(() =>
+              document.getElementById(file ? "retake-scan-camera" : "open-scan-camera")?.focus(),
+            );
           }}
           onCapture={(photo) => {
             setCameraOpen(false);
+            setCropSettings({ ...DEFAULT_CROP });
+            setSourceFile(photo);
             setFile(photo);
             setPreview(URL.createObjectURL(photo));
-            void onScan(photo);
+            if (consent) void onScan(photo);
           }}
         />
       ) : file && preview ? (
@@ -109,6 +146,8 @@ export function ScanPanel({
             aria-label="Remove selected photo"
             disabled={busy}
             onClick={() => {
+              setSourceFile(null);
+              onPhotoChange?.();
               setFile(null);
               setPreview(null);
               setConsent(false);
@@ -121,7 +160,7 @@ export function ScanPanel({
       ) : (
         <AnimatedScanMark />
       )}
-      {!cameraOpen ? (
+      {!cameraOpen && !cropping ? (
         <>
           <h2>{file ? "Ready for a fresh perspective?" : "Let's get to know your skin"}</h2>
           <p>
@@ -131,6 +170,24 @@ export function ScanPanel({
           </p>
           {file ? (
             <>
+              {scanIssue ? (
+                <div className="photo-issue-card" role="status">
+                  <strong>{PHOTO_ISSUE_HELP[scanIssue].title}</strong>
+                  <p>{PHOTO_ISSUE_HELP[scanIssue].detail}</p>
+                </div>
+              ) : null}
+              <Button
+                id="edit-photo-crop"
+                variant="secondary"
+                disabled={busy}
+                onClick={() => {
+                  setError("");
+                  onPhotoChange?.();
+                  setCropping(true);
+                }}
+              >
+                <Crop size={17} /> Crop & reframe
+              </Button>
               <Checkbox
                 className="consent-check"
                 checked={consent}
@@ -156,9 +213,23 @@ export function ScanPanel({
                   Stop waiting
                 </Button>
               ) : (
-                <Button variant="text" onClick={() => input.current?.click()}>
-                  Choose another photo
-                </Button>
+                <div className="photo-retry-actions">
+                  <Button
+                    id="retake-scan-camera"
+                    variant="text"
+                    onClick={() => {
+                      setConsent(false);
+                      onPhotoChange?.();
+                      setCameraOpen(true);
+                    }}
+                    disabled={!liveEnabled}
+                  >
+                    <Camera size={16} /> Retake with camera
+                  </Button>
+                  <Button variant="text" onClick={() => input.current?.click()}>
+                    Choose another photo
+                  </Button>
+                </div>
               )}
             </>
           ) : (
@@ -190,7 +261,7 @@ export function ScanPanel({
           )}
         </>
       ) : null}
-      {!busy ? (
+      {!busy && !file && !cropping ? (
         <Button
           variant="secondary"
           onClick={() => {
@@ -201,27 +272,31 @@ export function ScanPanel({
           Upload a selfie instead <Upload size={16} />
         </Button>
       ) : null}
-      <Button
-        variant="text"
-        onClick={() => {
-          setCameraOpen(false);
-          onSample();
-        }}
-        disabled={busy}
-      >
-        Try a sample scan
-      </Button>
+      {!cropping ? (
+        <Button
+          variant="text"
+          onClick={() => {
+            setCameraOpen(false);
+            onSample();
+          }}
+          disabled={busy}
+        >
+          Try a sample scan
+        </Button>
+      ) : null}
       {error ? (
         <p className="inline-error" role="alert">
           {error}
         </p>
       ) : null}
-      <p className="privacy-note">
-        <ShieldCheck size={15} aria-hidden />{" "}
-        {file
-          ? "SkinNear does not save your photo. YouCam processes it under its own retention policy."
-          : "Your photo stays on this device until you consent to analysis."}
-      </p>
+      {!cropping ? (
+        <p className="privacy-note">
+          <ShieldCheck size={15} aria-hidden />{" "}
+          {file
+            ? "SkinNear does not save your photo. YouCam processes it under its own retention policy."
+            : "Your photo stays on this device until you consent to analysis."}
+        </p>
+      ) : null}
     </section>
   );
 }

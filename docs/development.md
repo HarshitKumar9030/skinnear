@@ -59,3 +59,10 @@ Camera capture runs only after explicit photo-processing consent and a button pr
 The same upload normalization and protected YouCam endpoints process both camera and file input. The original photo's object URL is kept only in journey state and revoked on replacement/reset/unmount. It is not added to the analysis schema, MongoDB saves or share links. Overlay URLs already returned by YouCam are displayed directly; broken/expired overlays fall back to the original or an empty state. Comparison is visual: YouCam output resizing can change framing. First-focus ordering uses the actual cosmetic scores and never changes treatment eligibility or adds products.
 
 References: [browser camera constraints](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia), [YouCam overlay output](https://docs.perfectcorp.com/reference/ai_skin_analysis/v2.1).
+
+
+### Photo reframing
+
+Uploads and failed camera captures can be reframed locally before another scan. The square crop supports drag/touch movement, keyboard arrows, zoom, quarter-turn rotation and reset. Reopening retains the last applied frame; edits always render from the original source rather than repeatedly compressing prior crops. Export is a metadata-free JPEG capped at 1600 px and 3 MB. Very small crops are resized with a detail warning.
+
+Photo errors carry an allowlisted app code through the API boundary. Small-face and multiple-face failures suggest cropping; angle and decode failures recommend a new photo. Provider text and credential/transport failures never become crop flags. Applying a crop clears the previous hint and does not send a new request. Camera retakes after a selected photo return to review and renewed processing consent before submission.

@@ -6,6 +6,7 @@ export class AppError extends Error {
     message: string,
     public readonly status = 500,
     public readonly retryAfter?: number,
+    public readonly code?: string,
   ) {
     super(message);
   }
@@ -21,7 +22,7 @@ export function errorResponse(error: unknown) {
     );
   if (error instanceof AppError)
     return NextResponse.json(
-      { error: error.message },
+      { error: error.message, ...(error.code ? { code: error.code } : {}) },
       {
         status: error.status,
         headers: {

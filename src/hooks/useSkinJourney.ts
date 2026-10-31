@@ -5,7 +5,8 @@ import type { Preferences, Routine, RoutineRequest, SkinAnalysis } from "@/domai
 import { SAMPLE_ANALYSIS } from "@/domain/sample";
 import type { BudgetScenario } from "@/domain/budget-lab";
 import { PhotoUploadService } from "@/services/PhotoUploadService";
-import { SkinNearApi } from "@/lib/client-api";
+import { isPhotoIssue, type PhotoIssue } from "@/domain/photo-issues";
+import { ApiRequestError, SkinNearApi } from "@/lib/client-api";
 
 const api = new SkinNearApi();
 export const DEFAULT_PREFERENCES: Preferences = {
@@ -40,6 +41,7 @@ function pause(ms: number, signal: AbortSignal) {
 
 export function useSkinJourney() {
   const [stage, setStage] = useState<Stage>("scan");
+  const [scanIssue, setScanIssue] = useState<PhotoIssue | null>(null);
   const [scanPhoto, setScanPhoto] = useState<string | null>(null);
   const [analysis, setAnalysis] = useState<SkinAnalysis | null>(null);
   const [preferences, setPreferences] = useState(DEFAULT_PREFERENCES);
@@ -67,6 +69,7 @@ export function useSkinJourney() {
     setBusy(false);
     setError("");
     setNotice("");
+    setScanIssue(null);
     setScanPhoto(null);
     setAnalysis(SAMPLE_ANALYSIS);
     setRoutine(null);
@@ -82,6 +85,7 @@ export function useSkinJourney() {
     setBusy(true);
     setError("");
     setNotice("Uploading your photo securely…");
+    setScanIssue(null);
     try {
       const form = new FormData();
       const photo = await new PhotoUploadService().prepare(file);
@@ -116,6 +120,7 @@ export function useSkinJourney() {
       throw new Error("The scan is taking longer than expected. Please try again later.");
     } catch (err) {
       if (!abort.signal.aborted) {
+        setScanIssue(err instanceof ApiRequestError && isPhotoIssue(err.code) ? err.code : null);
         setError(err instanceof Error ? err.message : "Your photo could not be analyzed.");
         setNotice("");
       }
@@ -191,6 +196,7 @@ export function useSkinJourney() {
       const result = await api.request<{ request: RoutineRequest; routine: Routine }>(
         `/api/routines/${encodeURIComponent(id)}`,
       );
+      setScanIssue(null);
       setScanPhoto(null);
       setAnalysis(result.request.analysis);
       setPreferences(result.request.preferences);
@@ -229,6 +235,7 @@ export function useSkinJourney() {
     controller.current?.abort();
     setBusy(false);
     setStage("scan");
+    setScanIssue(null);
     setScanPhoto(null);
     setAnalysis(null);
     setRoutine(null);
@@ -246,6 +253,7 @@ export function useSkinJourney() {
     stage,
     analysis,
     scanPhoto,
+    scanIssue,
     preferences,
     routine,
     busy,
@@ -261,6 +269,7 @@ export function useSkinJourney() {
     reset,
     cancelScan,
     dismissMessage: () => {
+      setScanIssue(null);
       setError("");
       setNotice("");
     },

@@ -4442,3 +4442,244 @@ input[type="checkbox"] {
     transform: none;
   }
 }
+
+/* Reframing is local and deliberate: the next scan remains a separate action. */
+.photo-crop-editor {
+  width: min(100%, 480px);
+  text-align: left;
+}
+.crop-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.crop-heading > div > span {
+  color: #567664;
+  display: block;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  margin-bottom: 7px;
+}
+.scan-panel .crop-heading h2 {
+  font-size: clamp(20px, 2vw, 27px);
+}
+.crop-icon-button {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--soft);
+}
+.crop-description {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 12px 0 16px;
+}
+.crop-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--soft);
+  overflow: hidden;
+  border-radius: 24px;
+}
+.crop-stage canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+}
+.crop-stage canvas:active {
+  cursor: grabbing;
+}
+.crop-stage canvas:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: -5px;
+}
+.crop-stage[data-loading="true"] canvas {
+  visibility: hidden;
+}
+.crop-face-guide {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+}
+.crop-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.crop-frame-label {
+  position: absolute;
+  bottom: 13px;
+  left: 13px;
+  padding: 5px 10px;
+  background: #272138cc;
+  color: white;
+  border-radius: 20px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+}
+.crop-adjustments {
+  margin-top: 18px;
+}
+.crop-zoom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+.crop-zoom input {
+  appearance: none;
+  background: var(--soft);
+  height: 6px;
+  border-radius: 8px;
+  flex: 1;
+  min-width: 0;
+  cursor: ew-resize;
+}
+.crop-zoom input::-webkit-slider-thumb {
+  appearance: none;
+  height: 22px;
+  width: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.crop-zoom input::-moz-range-thumb {
+  height: 22px;
+  width: 22px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.crop-zoom input:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+.crop-zoom output {
+  width: 35px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+}
+.crop-tools {
+  display: flex;
+  gap: 9px;
+  margin-top: 16px;
+}
+.crop-tools button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 8px 15px;
+  background: var(--soft);
+  border-radius: 22px;
+  font-size: 11px;
+}
+.crop-icon-button,
+.crop-tools button {
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+.crop-icon-button:hover,
+.crop-tools button:not(:disabled):hover {
+  background: var(--lavender);
+  transform: translateY(-2px);
+}
+.crop-icon-button:active,
+.crop-tools button:not(:disabled):active {
+  transform: scale(0.97);
+}
+.crop-help,
+.crop-quality-note,
+.crop-local-note {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 13px;
+}
+.crop-quality-note {
+  background: var(--sage);
+  color: #486653;
+  padding: 10px 13px;
+  border-radius: 12px;
+}
+.crop-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+.crop-actions > button:not(.button) {
+  background: transparent;
+  font-size: 11px;
+  color: var(--muted);
+  min-height: 40px;
+}
+.crop-actions > button:not(.button):hover {
+  color: var(--accent);
+}
+.photo-issue-card {
+  width: 100%;
+  background: var(--sage);
+  color: #486653;
+  padding: 15px 18px;
+  border-radius: 18px;
+  text-align: left;
+  margin: 0 0 14px;
+}
+.photo-issue-card strong {
+  font-size: 14px;
+}
+.photo-issue-card p {
+  font-size: 12px;
+  margin-top: 5px;
+}
+#edit-photo-crop {
+  margin: 4px 0 15px;
+}
+@media (max-width: 480px) {
+  .crop-stage {
+    border-radius: 18px;
+  }
+  .crop-actions .button {
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .crop-icon-button,
+  .crop-tools button {
+    transition: none;
+  }
+  .crop-icon-button:hover,
+  .crop-tools button:not(:disabled):hover {
+    transform: none;
+  }
+}
+
+.photo-retry-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 12px;
+  margin-top: 8px;
+}
+.photo-retry-actions .button {
+  font-size: 11px;
+}
