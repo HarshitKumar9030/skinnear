@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Expand, Minimize2, Layers, Eye, ImageOff } from "lucide-react";
 import type { SkinAnalysis } from "@/domain/schemas";
 import { CONCERN_LABELS } from "@/domain/sample";
+import { SkinZoneMap } from "./SkinZoneMap";
 import { orderedSkinScores, SKIN_FOCUS } from "@/domain/skin-focus";
 
 export function AnalysisGallery({
@@ -248,6 +249,7 @@ export function AnalysisGallery({
           </small>
         </div>
       </div>
+      <SkinZoneMap analysis={analysis} />
     </section>
   );
 }

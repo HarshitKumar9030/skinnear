@@ -4,6 +4,8 @@ export const PHOTO_ISSUES = [
   "no-face",
   "face-angle",
   "unreadable-photo",
+  "face-out-of-frame",
+  "low-light",
 ] as const;
 export type PhotoIssue = (typeof PHOTO_ISSUES)[number];
 export function isPhotoIssue(value: unknown): value is PhotoIssue {
@@ -16,10 +18,22 @@ export function providerPhotoIssue(error: string | null | undefined): PhotoIssue
     ["error_no_face", "no-face"],
     ["error_large_face_angle", "face-angle"],
     ["error_decode_image", "unreadable-photo"],
+    ["error_src_face_out_of_bound", "face-out-of-frame"],
+    ["error_lighting_dark", "low-light"],
   ]);
   return issues.get(error ?? "");
 }
 export const PHOTO_ISSUE_HELP: Record<PhotoIssue, { title: string; detail: string }> = {
+  "face-out-of-frame": {
+    title: "Give your whole face some room.",
+    detail:
+      "Reset or loosen the crop so your forehead, chin and both cheeks are inside the frame. Retake if any part is missing from the original.",
+  },
+  "low-light": {
+    title: "A little more light will help.",
+    detail:
+      "Face a soft, even light source and retake the photo. Cropping cannot recover detail hidden in deep shadows.",
+  },
   "face-too-small": {
     title: "Bring your face into focus.",
     detail:

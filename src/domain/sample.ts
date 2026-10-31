@@ -2,6 +2,11 @@ import type { SkinAnalysis } from "./schemas";
 
 export const SAMPLE_ANALYSIS: SkinAnalysis = {
   mode: "demo",
+  skinProfile: [
+    { region: "whole", skinType: "Combination" },
+    { region: "t_zone", skinType: "Oily" },
+    { region: "u_zone", skinType: "Dry" },
+  ],
   scores: [
     { concern: "moisture", score: 58 },
     { concern: "redness", score: 71 },

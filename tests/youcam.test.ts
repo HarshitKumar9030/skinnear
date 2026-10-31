@@ -91,6 +91,7 @@ test("YouCam registers, uploads, starts and polls a live scan without sending th
       "oiliness",
       "pore",
       "acne",
+      "skin_type",
     ]);
     assert.deepEqual(await service.status(token), { status: "running" });
     assert.equal(calls[3].url.endsWith("task%2Fid"), true);
@@ -171,6 +172,9 @@ test("documented metadata entries do not invalidate completed skin scores", asyn
         { concern: "pore", score: 83 },
       ],
     );
+    assert.deepEqual(result.analysis?.skinProfile, [
+      { region: "whole", skinType: "Combination", maskUrl: undefined },
+    ]);
     assert.equal(result.analysis?.scores[0].maskUrl, "https://example.com/moisture.jpg");
     assert.equal(result.analysis?.scores[2].maskUrl, undefined);
   } finally {

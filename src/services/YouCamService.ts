@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { parseSkinZones } from "@/domain/skin-zones";
 import { providerPhotoIssue } from "@/domain/photo-issues";
 import { scoreSchema, type SkinAnalysis } from "@/domain/schemas";
 import { AppError } from "@/lib/errors";
@@ -82,7 +83,7 @@ export class YouCamService {
       method: "POST",
       body: JSON.stringify({
         src_file_id: metadata.files[0].file_id,
-        dst_actions: ["moisture", "redness", "oiliness", "pore", "acne"],
+        dst_actions: ["moisture", "redness", "oiliness", "pore", "acne", "skin_type"],
         miniserver_args: { enable_mask_overlay: true },
         format: "json",
       }),
@@ -108,6 +109,10 @@ export class YouCamService {
         error_multiple_people: "Use a photo with only one face visible.",
         error_large_face_angle: "Face the camera directly and keep your head upright, then retry.",
         error_decode_image: "YouCam could not read this photo. Choose another JPEG or PNG.",
+        error_src_face_out_of_bound:
+          "Part of your face is outside the frame. Loosen the crop or retake with your whole face visible.",
+        error_lighting_dark:
+          "This photo is too dark to analyze reliably. Face an even light source and retake your photo.",
         exceed_nsfw_retry_limits:
           "YouCam could not process this photo. Choose a different front-facing selfie.",
       };
@@ -148,6 +153,10 @@ export class YouCamService {
         "The scan finished but returned no supported scores. Please retry.",
         502,
       );
-    return { status: "success", analysis: { mode: "live", scores } };
+    const skinProfile = parseSkinZones(results.data.output);
+    return {
+      status: "success",
+      analysis: { mode: "live", scores, ...(skinProfile.length ? { skinProfile } : {}) },
+    };
   }
 }

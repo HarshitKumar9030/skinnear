@@ -41,6 +41,8 @@ test("dragging follows the photo, clamps at its edges and does not divide by zer
 test("photo flags use an explicit allowlist and survive the API boundary", async () => {
   assert.equal(providerPhotoIssue("error_src_face_too_small"), "face-too-small");
   assert.equal(providerPhotoIssue("error_large_face_angle"), "face-angle");
+  assert.equal(providerPhotoIssue("error_lighting_dark"), "low-light");
+  assert.equal(providerPhotoIssue("error_src_face_out_of_bound"), "face-out-of-frame");
   assert.equal(providerPhotoIssue("private_provider_failure"), undefined);
   assert.equal(providerPhotoIssue("constructor"), undefined);
   assert.equal(isPhotoIssue("private_provider_failure"), false);

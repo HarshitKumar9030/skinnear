@@ -7,9 +7,39 @@ export const scoreSchema = z.object({
   score: z.number().min(0).max(100),
   maskUrl: z.url().optional(),
 });
+export const skinRegionSchema = z.enum(["whole", "t_zone", "u_zone"]);
+export const skinTypeSchema = z.enum([
+  "Normal",
+  "Oily",
+  "Dry",
+  "Combination",
+  "Redness",
+  "Dry and Redness",
+  "Oily and Redness",
+  "Combination and Redness",
+]);
+export const skinZoneSchema = z.object({
+  region: skinRegionSchema,
+  skinType: skinTypeSchema,
+  maskUrl: z
+    .url()
+    .refine((url) => url.startsWith("https://"))
+    .optional(),
+});
+export type SkinZone = z.infer<typeof skinZoneSchema>;
+
 export const analysisSchema = z.object({
   mode: z.enum(["demo", "live"]),
   scores: z.array(scoreSchema).min(1),
+  skinProfile: z
+    .array(skinZoneSchema)
+    .min(1)
+    .max(3)
+    .refine(
+      (zones) => new Set(zones.map((zone) => zone.region)).size === zones.length,
+      "Duplicate skin regions are not supported.",
+    )
+    .optional(),
 });
 export const treatmentPreferencesSchema = z.object({
   consent: z.boolean().default(false),
