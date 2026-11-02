@@ -68,22 +68,17 @@ test("rate limits isolate visitors and return Retry-After", async () => {
     return true;
   });
 });
-test("one scan lease wins concurrent starts and stale cleanup cannot unlock a new scan", async () => {
-  let now = 1000;
+test("overlapping scans are allowed while per-user scan quotas still apply", async () => {
+  const now = 1000;
   const guard = new AbuseProtectionService(new MemoryAbuseStore(undefined, () => now), () => now);
   const results = await Promise.allSettled([
     guard.reserveScan(new Headers(), "visitor"),
     guard.reserveScan(new Headers(), "visitor"),
   ]);
-  assert.equal(results.filter((result) => result.status === "fulfilled").length, 1);
-  const first = results.find(
-    (result) => result.status === "fulfilled",
-  ) as PromiseFulfilledResult<string>;
-  now += 10 * 60000 + 1;
+  assert.equal(results.filter((result) => result.status === "fulfilled").length, 2);
   const next = await guard.reserveScan(new Headers(), "visitor");
-  await guard.releaseScan("visitor", first.value);
-  await assert.rejects(guard.reserveScan(new Headers(), "visitor"), /already processing/);
   await guard.releaseScan("visitor", next);
+  await assert.rejects(guard.reserveScan(new Headers(), "visitor"), /request limit/);
 });
 test("clearing visitor cookies cannot bypass the IP scan limit", async () => {
   const guard = new AbuseProtectionService(new MemoryAbuseStore());

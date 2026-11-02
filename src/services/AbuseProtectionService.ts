@@ -82,11 +82,6 @@ export class AbuseProtectionService {
     if (!this.enabled) return randomUUID();
     const ip = this.ip(headers);
     const lease = randomUUID();
-    if (!(await this.store.acquire(`scan:active:${userId}`, lease, this.now() + 10 * 60000)))
-      throw new RateLimitError(
-        60,
-        "A scan is already processing for this browser. Wait for it to finish before starting another.",
-      );
     try {
       await this.consume(`scan:hour:ip:${ip}`, 10, 3600000);
       await this.consume(`scan:day:ip:${ip}`, 20, 86400000);
