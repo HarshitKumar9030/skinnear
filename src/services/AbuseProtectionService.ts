@@ -65,11 +65,11 @@ export class AbuseProtectionService {
       );
     return this.sessions.hash("ip:local");
   }
-  async consume(key: string, maximum: number, windowMs: number) {
+  async consume(key: string, maximum: number, windowMs: number, message?: string) {
     const ends = (Math.floor(this.now() / windowMs) + 1) * windowMs;
     const count = await this.store.increment(`${key}:${ends}`, ends);
     if (count > maximum)
-      throw new RateLimitError(Math.max(1, Math.ceil((ends - this.now()) / 1000)));
+      throw new RateLimitError(Math.max(1, Math.ceil((ends - this.now()) / 1000)), message);
   }
   async request(headers: Headers, userId: string, scope: string, maximum: number) {
     if (!this.enabled) return;
@@ -83,14 +83,39 @@ export class AbuseProtectionService {
     const ip = this.ip(headers);
     const lease = randomUUID();
     try {
-      await this.consume(`scan:hour:ip:${ip}`, 10, 3600000);
-      await this.consume(`scan:day:ip:${ip}`, 20, 86400000);
-      await this.consume(`scan:hour:user:${userId}`, 3, 3600000);
-      await this.consume(`scan:day:user:${userId}`, 5, 86400000);
+      await this.consume(
+        `scan:hour:ip:${ip}`,
+        30,
+        3600000,
+        "Hourly scan request limit reached for this network. Try again next hour.",
+      );
+      await this.consume(
+        `scan:day:ip:${ip}`,
+        60,
+        86400000,
+        "Daily scan request limit reached for this network. Try again tomorrow (UTC).",
+      );
+      await this.consume(
+        `scan:hour:user:${userId}`,
+        10,
+        3600000,
+        "Hourly scan request limit reached for this browser. Try again next hour.",
+      );
+      await this.consume(
+        `scan:day:user:${userId}`,
+        20,
+        86400000,
+        "Daily scan request limit reached for this browser. Try again tomorrow (UTC).",
+      );
       const configured = Number(process.env.YOUCAM_DAILY_SCAN_LIMIT || 100);
       const maximum =
         Number.isInteger(configured) && configured > 0 && configured <= 10000 ? configured : 100;
-      await this.consume("scan:day:global", maximum, 86400000);
+      await this.consume(
+        "scan:day:global",
+        maximum,
+        86400000,
+        "Today's shared scan request limit has been reached. Try again tomorrow (UTC).",
+      );
       return lease;
     } catch (error) {
       await this.releaseScan(userId, lease);

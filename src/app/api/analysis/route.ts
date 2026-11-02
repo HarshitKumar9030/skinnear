@@ -8,7 +8,7 @@ import { limitRequest } from "@/lib/rate-limit";
 export const runtime = "nodejs";
 export async function POST(request: NextRequest) {
   try {
-    const { userId, protection } = await limitRequest(request.headers, "analysis", 3);
+    const { userId, protection } = await limitRequest(request.headers, "analysis", 10);
     if (!request.headers.get("content-type")?.startsWith("multipart/form-data;"))
       throw new AppError("Upload the photo using the SkinNear form.", 415);
     const bytes = await boundedBody(request, MAX_PHOTO_BYTES + 65536);

@@ -78,11 +78,12 @@ test("overlapping scans are allowed while per-user scan quotas still apply", asy
   assert.equal(results.filter((result) => result.status === "fulfilled").length, 2);
   const next = await guard.reserveScan(new Headers(), "visitor");
   await guard.releaseScan("visitor", next);
+  for (let i = 3; i < 10; i++) await guard.reserveScan(new Headers(), "visitor");
   await assert.rejects(guard.reserveScan(new Headers(), "visitor"), /request limit/);
 });
 test("clearing visitor cookies cannot bypass the IP scan limit", async () => {
   const guard = new AbuseProtectionService(new MemoryAbuseStore());
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 30; i++) {
     const lease = await guard.reserveScan(new Headers(), `visitor-${i}`);
     await guard.releaseScan(`visitor-${i}`, lease);
   }
