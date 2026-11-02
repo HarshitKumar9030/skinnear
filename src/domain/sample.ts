@@ -12,6 +12,7 @@ export const SAMPLE_ANALYSIS: SkinAnalysis = {
     { concern: "redness", score: 71 },
     { concern: "oiliness", score: 76 },
     { concern: "pore", score: 82 },
+    { concern: "acne", score: 79 },
   ],
 };
 

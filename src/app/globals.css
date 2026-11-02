@@ -607,6 +607,45 @@ input[type="checkbox"] {
 .score-content {
   flex: 1;
 }
+.score-reference {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 10px;
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 400;
+}
+.score-track {
+  position: relative;
+}
+.score-reference-marker {
+  position: absolute;
+  left: 70%;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--ink);
+}
+.score-reference-guide {
+  margin-top: 16px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.score-reference-guide summary {
+  cursor: pointer;
+}
+.score-reference-guide p {
+  margin: 9px 0;
+  line-height: 1.7;
+}
+.score-reference-guide a {
+  color: var(--accent-dark);
+}
+.gallery-concerns .score-reference {
+  width: 100%;
+}
 .score-content > div:first-child {
   display: flex;
   justify-content: space-between;
@@ -4312,6 +4351,13 @@ input[type="checkbox"] {
   display: block;
   font-size: 11px;
 }
+.gallery-concerns button > .score-reference {
+  display: flex;
+  font-size: 10px;
+}
+.gallery-concerns button[aria-pressed="true"] .score-reference {
+  color: #e4daf6;
+}
 .gallery-concerns strong {
   font-size: 21px;
   font-weight: 500;
@@ -4324,7 +4370,7 @@ input[type="checkbox"] {
 .gallery-concerns i {
   position: absolute;
   right: 12px;
-  bottom: 17px;
+  top: 14px;
   font-size: 9px;
   font-style: normal;
   opacity: 0.8;

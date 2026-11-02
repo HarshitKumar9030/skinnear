@@ -7,6 +7,7 @@ import type { SkinAnalysis } from "@/domain/schemas";
 import { CONCERN_LABELS } from "@/domain/sample";
 import { SkinZoneMap } from "./SkinZoneMap";
 import { orderedSkinScores, SKIN_FOCUS } from "@/domain/skin-focus";
+import { ScoreReference, ScoreReferenceGuide } from "./ScoreReference";
 
 export function AnalysisGallery({
   analysis,
@@ -228,6 +229,7 @@ export function AnalysisGallery({
                   <small>/100</small>
                 </strong>
                 {position === 0 ? <i>First focus</i> : null}
+                <ScoreReference score={score.score} />
               </button>
             ))}
           </div>
@@ -247,6 +249,7 @@ export function AnalysisGallery({
             First focus is your lowest cosmetic score, not a diagnosis. Higher scores are more
             favorable.
           </small>
+          <ScoreReferenceGuide />
         </div>
       </div>
       <SkinZoneMap analysis={analysis} />

@@ -1,6 +1,7 @@
 import { Droplets, Leaf, ScanFace, Sun } from "lucide-react";
 import type { SkinAnalysis } from "@/domain/schemas";
 import { CONCERN_LABELS } from "@/domain/sample";
+import { ScoreReference, ScoreReferenceGuide } from "./ScoreReference";
 
 const icons = { moisture: Droplets, redness: Leaf, oiliness: Sun, pore: ScanFace, acne: Leaf };
 
@@ -38,12 +39,15 @@ export function SkinReport({
                 </div>
                 <div className="score-track">
                   <span style={{ width: `${result.score}%` }} />
+                  <i className="score-reference-marker" aria-hidden />
                 </div>
+                <ScoreReference score={result.score} />
               </div>
             </div>
           );
         })}
       </div>
+      <ScoreReferenceGuide />
       <p className="report-note">
         Higher scores indicate a more favorable cosmetic assessment. Lighting and image quality can
         affect results.
